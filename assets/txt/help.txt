@@ -1,0 +1,31 @@
+usage: trans [-h] [-V] [--print-completion {bash,zsh,tcsh}]
+             [--print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker}]]
+             [-v] [-q] [--no-clipboard | --clipboard] [--config CONFIG]
+             [--format {json,yaml,text}] [--translators TRANSLATORS]
+             [--target-lang TARGET_LANG] [--source-lang SOURCE_LANG]
+             [text ...]
+
+positional arguments:
+  text
+
+options:
+  -h, --help            show this help message and exit
+  -V, --version         show program's version number and exit
+  --print-completion {bash,zsh,tcsh}
+                        print shell completion script
+  --print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker}]
+                        print some setting
+  -v, --verbose         increase logger level
+  -q, --quiet           reduce logger level
+  --no-clipboard        disable clipboard
+  --clipboard           enable clipboard (default)
+  --config CONFIG       use a python file as config
+  --format {json,yaml,text}
+                        output format for jq(1), yq(1). default: text
+  --translators TRANSLATORS
+                        translate engines joined with ','. default: google
+  --target-lang TARGET_LANG
+                        target languages. default: auto
+  --source-lang SOURCE_LANG
+                        source languages. default: auto
+

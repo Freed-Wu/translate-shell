@@ -1,0 +1,31 @@
+Environment:
+    LANG                When target_lang is "auto", will use LANG as target_lang. If LANG is empty, will use zh_CN.
+    XDG_CONFIG_HOME     See https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+    XDG_DATA_HOME       Same as above.
+    XDG_DATA_DIR        Same as above.
+    HOME                User's home directory.
+    SHELL               User's shell.
+
+Files:
+    .../config.py       Config file can be seen by:
+
+                        trans --print-setting config_file
+    .../history.txt     History file can be seen by:
+
+                        trans --print-setting history_file
+    .../stardict/dic/   stardict dictionary directory
+                        like STARDICT_DATA_DIR of sdcv(1) can be seen by:
+
+                        trans --print-setting stardict_dirs
+
+Examples:
+    clipper | trans     Translate clipboard. Clipper can be seen by
+
+                        trans --print-setting clipper
+    trans Free as in Freedom
+                        Translate by CLI.
+    trans               Translate by REPL.
+
+                        More examples can be found in https://translate-shell.readthedocs.io
+
+Report bugs to <wuzhenyu@ustc.edu>.

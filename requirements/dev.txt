@@ -1,0 +1,5 @@
+#!/usr/bin/env -S pip install -r
+neovim
+pre-commit
+pytest-cov
+tomli

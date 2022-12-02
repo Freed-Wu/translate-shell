@@ -1,0 +1,7 @@
+Describe translate_shell
+  It check output
+    let l:result = translate_shell#get_cmd(["trans", "--print-completion", "zsh"])
+    let l:expected = 'py3 sys.argv = ["trans", "--print-completion", "zsh"]'
+    Assert Equals(l:result, l:expected)
+  End
+End

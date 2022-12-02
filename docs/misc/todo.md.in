@@ -1,0 +1,5 @@
+# TODO
+
+```{eval-sh}
+grep -RIn TODO: src | perl -pe's/:/#L/;s/:\s*#?\s*TODO:\s*/ /;s=^=- https://github.com/Freed-Wu/tranlate-shell/tree/main/=g;s=(https://\S+)=<\1>=g'
+```

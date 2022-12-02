@@ -1,0 +1,89 @@
+---
+"on":
+  push:
+    paths-ignore:
+      - "**.md"
+      - docs/*
+  pull_request:
+    paths-ignore:
+      - "**.md"
+      - docs/*
+  workflow_dispatch:
+
+env:
+  path: dist/*
+  python-version: 3.x
+  cache: pip
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on:
+          - ubuntu-latest
+          - macos-latest
+          # - windows-latest
+        neovim:
+          - true
+          - false
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          repository: thinca/vim-themis
+          path: vim-themis
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.python-version }}
+          cache: ${{ env.cache }}
+      - uses: rhysd/action-setup-vim@v1
+        id: vim
+        with:
+          neovim: ${{ matrix.neovim }}
+      - name: Install dependencies
+        run: |
+          pip install -e '.[dev]'
+      - name: Test
+        env:
+          THEMIS_VIM: ${{ steps.vim.outputs.executable }}
+        run: |
+          make THEMIS=vim-themis/bin/themis test
+      - uses: codecov/codecov-action@v3
+  build:
+    needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on:
+          - ubuntu-latest
+          - macos-latest
+          # - windows-latest
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.python-version }}
+          cache: ${{ env.cache }}
+      - name: Install dependencies
+        run: |
+          pip install build
+      - name: Build
+        run: |
+          python -m build
+      - uses: actions/upload-artifact@v3
+        if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
+        with:
+          path: |
+            ${{ env.path }}
+      - uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            ${{ env.path }}
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        if: startsWith(github.ref, 'refs/tags/') && runner.os == 'Linux'
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}

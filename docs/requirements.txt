@@ -1,0 +1,2 @@
+#!/usr/bin/env -S pip install -r
+myst-parser

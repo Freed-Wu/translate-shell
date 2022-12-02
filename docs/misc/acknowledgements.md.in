@@ -1,0 +1,5 @@
+# Acknowledgements
+
+```{eval-sh}
+grep -RIn Refer src | perl -pe's/:/#L/;s/:/ /;s=^=- https://github.com/Freed-Wu/tranlate-shell/tree/main/=g;s=(https://\S+)=<\1>=g'
+```

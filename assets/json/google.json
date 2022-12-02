@@ -1,0 +1,19 @@
+{
+  "status": 1,
+  "results": [
+    {
+      "translator": "google",
+      "sl": "auto",
+      "tl": "zh_TW",
+      "text": "The Mythical Man-Month",
+      "phonetic": "",
+      "paraphrase": "人月神話",
+      "explains": {},
+      "details": {},
+      "alternative": ["神话般的人月"]
+    }
+  ],
+  "text": "The Mythical Man-Month",
+  "to_lang": "zh_TW",
+  "from_lang": "auto"
+}
