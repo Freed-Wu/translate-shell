@@ -61,7 +61,7 @@ cat requirements/rich.txt | perl -pe's/\s*#.*\n//g;s=(\S+)=- [\1](https://pypi.o
 
 ## dev
 
-For unit test and code coverage rate test. See [development](resources/development.md#test)
+For unit test and code coverage rate test.
 
 ```{eval-sh}
 cat requirements/dev.txt | perl -pe's/\s*#.*\n//g;s=(\S+)=- [\1](https://pypi.org/project/\1)=g'

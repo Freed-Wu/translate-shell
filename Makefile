@@ -19,7 +19,7 @@ PY = $(shell find src -name *.py) $(GENERATE_PY)
 default: install
 
 .PHONY: all
-all: build install
+all: test dist build-docs doc
 
 .PHONY: install
 install: install-bin install-man install-completions
@@ -28,7 +28,14 @@ install: install-bin install-man install-completions
 install-bin: $(PY)
 	pip install '.$(EXTRA)'
 
+.PHONY: install-bin-editable
+install-bin-editable: $(PY)
+	pip install -e '.$(EXTRA)'
+
 %/_version.py:
+	python -m build
+
+dist: $(PY)
 	python -m build
 
 src/translate_shell/external/%/__init__.py: scripts/generate-__init__.py.py src/translate_shell/external/%/__main__.py templates/__init__.py
@@ -56,8 +63,8 @@ uninstall:
 	rm -rf $(BASH_COMPLETION) $(ZSH_COMPLETION) $(TCSH_COMPLETION) $(MANPATH)
 	pip uninstall $(LIBNAME)
 
-.PHONY: build
-build: docs/_build/html docs/.gitignore
+.PHONY: build-docs
+build-docs: docs/_build/html docs/.gitignore
 
 docs/_build/html: docs/conf.py $(MARKDOWN) $(PY)
 	sphinx-build docs $@
@@ -88,10 +95,14 @@ addon-info.json: scripts/generate-addon-info.json.py pyproject.toml $(PY)
 .PHONY: clean
 clean:
 	rm -rf docs/_build docs/.gitignore $(GENERATE_MARKDOWN) $(GENERATE_PY) \
-		src/*.egg_info dist addon-info.json
+		src/*.egg-info dist addon-info.json
 
 .PHONY: test
 test: $(DOC_DEPENDS)
 	$(THEMIS)
 	pytest --cov
 	pre-commit run
+
+.PHONY: help
+help:
+	@cat docs/resources/make.md

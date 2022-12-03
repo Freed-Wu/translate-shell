@@ -15,7 +15,7 @@ build:
     pre_build:
       - pip install build
       - pip install -e .
-      - make build
+      - make build-docs
 
 sphinx:
   configuration: docs/conf.py

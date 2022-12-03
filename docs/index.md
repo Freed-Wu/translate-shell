@@ -10,7 +10,7 @@ resources/requirements
 resources/man
 resources/translator
 resources/config
-resources/development
+resources/make
 ```
 
 ```{toctree}
