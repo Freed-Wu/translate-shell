@@ -37,4 +37,8 @@
     :members:
 .. automodule:: translate_shell.external.rich.__main__
     :members:
+.. automodule:: translate_shell.external.pystardict
+    :members:
+.. automodule:: translate_shell.external.pystardict.__main__
+    :members:
 ```

@@ -13,12 +13,11 @@
 
 ## For Developers
 
-- `make install-bin-editable`: Install executable file in editable mode
-- `make clean`: Remove all generated files
+- `make clean`: Remove all untracked generated files
 - `make test`: Run test, in github action
-- `make dist`: Build python wheel, in github action
 - `make build-docs`: Build sphinx documents, in readthedocs
-- `make doc`: Build vim documents, in pre-commit hook
-
-Before `make test`, `make dist`, `make build-docs` and `make doc`, must make
-sure `translate-shell` has been correctly installed.
+- `make doc/*.txt`: Build vim documents, in pre-commit hook
+- `make install-bin-editable`: Install executable file in editable mode. Before
+  `make test`, `make build-docs`, `trans` must be installed
+  correctly. So you can `make install-bin-editable XXX`. Don't `pip install -e .`
+  directly, because some python files need to be updated by `make`.

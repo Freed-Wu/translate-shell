@@ -31,16 +31,6 @@ pip install 'translate-shell[XXX]'
 Since now, pip don't support installing man and shell completions.
 You must install them manually.
 
-**NOTE**: the paths of man and shell completion vary from different OS. The path
-of the following code is just for GNU/Linux. For other OSs, do a substitution:
-
-- GNU/Linux, Windows (msys/Msys2, Cygwin): `/usr/share`, `/etc`
-- Windows (non-msys/Msys2): `$MINGW_PREFIX/share`,`/etc`
-- BSD, Darwin, GNU/Linux (Homebrew): `/usr/local/share`, `/usr/local/etc`
-- Android (Termux): `/data/data/com.termux/files/usr/share`,
-  `/data/data/com.termux/files/usr/etc`
-- Android (Magisk): `/system/usr/share`, `/system/etc`
-
 Install shell completions:
 
 ````sh
@@ -56,6 +46,16 @@ Install man:
 make --no-print-directory -n install-man
 ```
 ````
+
+**NOTE**: the paths of man and shell completion vary from different OS. The path
+of the above code is just for GNU/Linux. For other OSs, do a substitution:
+
+- GNU/Linux, Windows (msys/Msys2, Cygwin): `/usr/share`, `/etc`
+- Windows (non-msys/Msys2): `$MINGW_PREFIX/share`,`/etc`
+- BSD, Darwin, GNU/Linux (Homebrew): `/usr/local/share`, `/usr/local/etc`
+- Android (Termux): `/data/data/com.termux/files/usr/share`,
+  `/data/data/com.termux/files/usr/etc`
+- Android (Magisk): `/system/usr/share`, `/system/etc`
 
 Uninstall:
 

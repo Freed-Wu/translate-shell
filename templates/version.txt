@@ -1,0 +1,3 @@
+trans {version}
+Copyright (C) {copyright}
+Written by {author}.

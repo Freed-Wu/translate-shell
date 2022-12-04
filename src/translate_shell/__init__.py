@@ -1,16 +1,24 @@
 """Provide ``__version__`` for
 `importlib.metadata.version() <https://docs.python.org/3/library/importlib.metadata.html#distribution-versions>`_.
 """
-from ._version import version as __version__
-from ._version import version_tuple
+try:
+    from ._version import __version__, __version_tuple__  # type: ignore
+except ImportError:
+    __version__ = "rolling"
+    __version_tuple__ = (0, 0, 0, __version__, "")
+
 from .external.platformdirs import AppDirs
 
 __all__ = [
     "__version__",
-    "version_tuple",
+    "__version_tuple__",
     "APPDIRS",
+    "CONFIG_PATH",
+    "CONFIG_FILE",
     "HISTORY_PATH",
     "HISTORY_FILE",
+    "STARDICT_PATHS",
+    "STARDICT_DIRS",
 ]
 
 APPDIRS = AppDirs(__name__.split(".")[0].replace("_", "-"))

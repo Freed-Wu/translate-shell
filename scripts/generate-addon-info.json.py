@@ -1,24 +1,24 @@
 #!/usr/bin/env python
-"""Convert toml to json."""
+"""Convert pyproject.toml to addon-info.json."""
 import json
 import sys
 from argparse import Namespace
 
-from translate_shell import __version__
+from setuptools_scm import get_version
 
 try:
-    import tomlib  # type: ignore
+    import tomllib  # type: ignore
 except ImportError:
-    import tomli as tomlib
+    import tomli as tomllib
 
 
 with open(sys.argv[1], "rb") as f:
-    project = Namespace(**tomlib.load(f)["project"])
+    project = Namespace(**tomllib.load(f)["project"])
 
 data = {
     "name": project.name,
     "description": project.description,
-    "version": __version__,
+    "version": get_version().partition(".dev")[0],
     "author": project.authors[0]["name"]
     + " <"
     + project.authors[0]["email"]

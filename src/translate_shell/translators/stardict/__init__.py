@@ -7,9 +7,8 @@ better
 """
 import logging
 
-from pystardict import Dictionary
-
 from ... import STARDICT_PATHS
+from ...external.pystardict import Dictionary
 from .. import TRANSLATION, Translator
 
 logger = logging.getLogger(__name__)

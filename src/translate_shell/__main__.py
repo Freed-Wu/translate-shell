@@ -6,22 +6,17 @@ See `man <../resources/man.html>`_.
 import json
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from datetime import datetime
 from pathlib import Path
 from typing import NoReturn
 
-from translate_shell import __version__
+from translate_shell import __version__  # type: ignore
 from translate_shell.external import shtab
 from translate_shell.translators import TRANSLATORS
 
+# for vim
 __file__ = vars().get("__file__", sys.argv[0])
 ASSETS_PATH = Path(__file__).absolute().parent / "assets"
-COPYRIGHT = "2022-" + str(datetime.now().year)
-AUTHOR = "Wu Zhenyu"
-VERSION = f"""trans {__version__}
-Copyright (C) {COPYRIGHT}
-Written by {AUTHOR}.
-"""
+VERSION = (ASSETS_PATH / "txt" / "version.txt").read_text()
 EPILOG = (ASSETS_PATH / "txt" / "epilog.txt").read_text()
 PREAMBLE = {
     "bash": (ASSETS_PATH / "bash" / "preamble.sh").read_text(),
@@ -96,6 +91,12 @@ def get_parser() -> ArgumentParser:
     )
     group.add_argument(
         "--clipboard", action="store_true", help="enable clipboard (default)"
+    )
+    group.add_argument(
+        "--sleep-seconds",
+        type=float,
+        default=0.1,
+        help="sleep to avoid checkout clipboard too frequently",
     )
     parser.add_argument(
         "--config",

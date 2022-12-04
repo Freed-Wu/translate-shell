@@ -3,7 +3,7 @@
 """
 from argparse import Namespace
 
-from . import init, init_readline, process
+from . import init, process
 
 
 def run(args: Namespace) -> None:
@@ -14,7 +14,5 @@ def run(args: Namespace) -> None:
     :rtype: None
     """
     args = init(args)
-    readline = init_readline()
-    readline.add_history(args.text)
-    _, rst = process(args)
+    args.last_text, rst = process(args)
     print(rst)

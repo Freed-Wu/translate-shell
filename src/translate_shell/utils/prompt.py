@@ -64,7 +64,7 @@ def get_prompt_p10k(tl: str, sl: str, translators: str) -> str:
         + Back.WHITE
         + ""
         + Fore.BLACK
-        + " "
+        + "  "
         + datetime.now().strftime("%T")
         + " "
         + Fore.WHITE

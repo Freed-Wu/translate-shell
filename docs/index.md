@@ -3,35 +3,28 @@
 ```{toctree}
 ---
 hidden:
+glob:
 caption: Resources
 ---
-resources/install
-resources/requirements
-resources/man
-resources/translator
-resources/config
-resources/make
+resources/*
 ```
 
 ```{toctree}
 ---
 hidden:
+glob:
 caption: Misc
 ---
-misc/acknowledgements
-misc/todo
+misc/*
 ```
 
 ```{toctree}
 ---
 hidden:
+glob:
 caption: API
 ---
-api/translate_shell
-api/translators
-api/utils
-api/ui
-api/external
+api/*
 ```
 
 ```{toctree}

@@ -13,7 +13,6 @@ build:
     python: "3"
   jobs:
     pre_build:
-      - pip install build
       - pip install -e .
       - make build-docs
 

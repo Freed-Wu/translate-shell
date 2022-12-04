@@ -24,6 +24,8 @@ def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
             if last_key in explains.keys():
                 explains[last_key] += "; " + token
             else:
+                if last_key == "":
+                    last_key: str = res["text"]  # type: ignore
                 explains[last_key] = token
     res["explains"] = explains
     return res

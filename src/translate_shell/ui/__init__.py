@@ -104,7 +104,11 @@ def init(args: Namespace) -> Namespace:
         if value is not None:
             setattr(args, attr, value)
     args.text = " ".join(args.text)
+    readline = init_readline()
+    if args.text:
+        readline.add_history(args.text)
     args.last_text = ""
+    args.stop_clipboard = False
     logging.root.level += 10 * (args.quiet - args.verbose)
 
     global get_speaker, get_youdaozhiyun_app_info
@@ -113,11 +117,13 @@ def init(args: Namespace) -> Namespace:
     return args
 
 
-def process(args: Namespace) -> tuple[str, str]:
-    """Process.
+def process(args: Namespace, is_repl: bool = False) -> tuple[str, str]:
+    """process.
 
     :param args:
     :type args: Namespace
+    :param is_repl: If the input is REPL's stdin, it is ``True``.
+    :type is_repl: bool
     :rtype: tuple[str, str]
     """
     (
@@ -130,9 +136,9 @@ def process(args: Namespace) -> tuple[str, str]:
         args.target_lang,
         args.source_lang,
         args.translators,
-        args.last_text is None,
+        is_repl,
     )
-    if text == "" or text == args.last_text:
+    if text == "" or (not is_repl and text == args.last_text):
         return text, ""
     target_lang = args.target_lang
     if target_lang == "auto":

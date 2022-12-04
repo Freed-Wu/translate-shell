@@ -36,15 +36,39 @@
 [![pypi/implementation](https://shields.io/pypi/implementation/translate-shell)](https://pypi.org/project/translate-shell/#files)
 [![pypi/pyversions](https://shields.io/pypi/pyversions/translate-shell)](https://pypi.org/project/translate-shell/#files)
 
+Translate text by many different translators.
+
 ## Usage
 
 ### CLI
 
-![cli](https://user-images.githubusercontent.com/32936898/205370079-ff23f7b0-a435-4e95-916a-11ac656d3f15.png)
+```sh
+trans --translators=google,bing,haici,stardict crush
+```
+
+![CLI](https://user-images.githubusercontent.com/32936898/205475570-d8236d9c-6496-4887-9efd-4d15ba1d27ed.jpg)
 
 ### REPL
 
-![repl](https://user-images.githubusercontent.com/32936898/205373785-82807c42-89f7-4699-92db-f25e7a285a4d.png)
+```console
+$ trans  # enter REPL
+> en:ja  # change source language to english and target language to japanese
+> :  # swap source and target languages
+> =stardict  # use stardict to translate text
+> !cat example/test.txt  # execute a shell command
+ハッカー
+> <example/test.txt   # translate a file
+hacker
+> 画家  # translate text
+painter; artist
+> !  # enter shell
+$ echo $SHELL  # execute a shell command
+/usr/bin/zsh
+$ exit  # exit shell
+>
+```
+
+![REPL](https://user-images.githubusercontent.com/32936898/205482818-0fd95d50-4c77-4f85-b0d3-8a230471017d.jpg)
 
 ### TUI
 
@@ -52,10 +76,9 @@
 
 ```vim
 :Translate --translators=google,bing Free as in Freedom
-  bing       
-  web.  自由；自由软件运动；中享受自由
-  google   自由自在    
 ```
+
+![Vim](https://user-images.githubusercontent.com/32936898/205475332-61c0a90e-b145-4af0-8658-c0cf45b87150.jpg)
 
 ### Script
 

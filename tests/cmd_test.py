@@ -20,7 +20,7 @@ class Test:
             parser.parse_args(["--help"])
         captured = capsys.readouterr()
         expected = (ASSETS_PATH / "txt" / "help.txt").read_text()
-        assert captured.out == expected + EPILOG
+        assert captured.out == expected + "\n" + EPILOG
 
     def test_version(self, capsys):
         """Test version.

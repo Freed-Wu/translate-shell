@@ -26,4 +26,4 @@ Examples:
                         Translate by CLI.
     trans               Translate by REPL.
 
-Report bugs to https://github.com/Freed-Wu/translate-shell/issues .
+Report bugs to {bug} .

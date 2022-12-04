@@ -55,6 +55,8 @@ config.translators = "google,bing,haici"
 config.format = "json"
 # Disable translate clipboard automatically
 config.clipboard = False
+# Translate clipboard every 0.5 seconds
+config.sleep_seconds = 0.5
 ```
 
 ## Logger

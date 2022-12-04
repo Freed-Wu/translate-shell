@@ -15,8 +15,8 @@ found by clicking the above hyperlink.
 **NOTE**:
 
 - stardict and haici only support translate word, not sentence.
-- bing support auto swap languages, which means `en:zh_CN` is same as `zh_CN:en`.
-- haici have a larger probility to time out than other translators.
+- bing supports swapping languages automatically, which means `en:zh_CN` is same as `zh_CN:en`.
+- haici have a bigger probility of timeout than other translators.
 
 These translators can be divided to three types:
 
@@ -28,7 +28,7 @@ offline software to speak. See `trans --print-setting speaker`.
 - <https://github.com/voldikss/vim-translator/issues/68> Online speaker is a
   little hard to realize.
 - <https://github.com/felixonmars/ydcv/blob/2db05d41e1fc927cd0c49aad101ed6a21ad92c2b/src/ydcv.py#L148-L158>
-  speak by youdaozhiyun.
+  speaks by youdaozhiyun.
 
 ## Offline Translators
 

@@ -33,6 +33,7 @@ class Configuration(Namespace):
         self.target_lang: str = actions["--target-lang"].default
         self.translators: str = actions["--translators"].default
         self.format: str = actions["--format"].default
+        self.sleep_seconds: float = actions["--sleep-seconds"].default
 
     def process_input(
         self,
