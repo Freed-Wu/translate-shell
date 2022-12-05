@@ -36,19 +36,22 @@
 [![pypi/implementation](https://shields.io/pypi/implementation/translate-shell)](https://pypi.org/project/translate-shell/#files)
 [![pypi/pyversions](https://shields.io/pypi/pyversions/translate-shell)](https://pypi.org/project/translate-shell/#files)
 
-Translate text by many different translators.
+Translate text by google, bing, youdaozhiyun, haici, stardict, etc at same time
+from CLI, GUI, REPL, python, shell and vim.
 
 ## Usage
 
-### CLI
+### UI
+
+#### CLI
 
 ```sh
 trans --translators=google,bing,haici,stardict crush
 ```
 
-![CLI](https://user-images.githubusercontent.com/32936898/205475570-d8236d9c-6496-4887-9efd-4d15ba1d27ed.jpg)
+![CLI](https://user-images.githubusercontent.com/32936898/205699472-5349d422-54c9-47a3-afc0-53a17f0acaf8.jpg)
 
-### REPL
+#### REPL
 
 ```console
 $ trans  # enter REPL
@@ -68,17 +71,23 @@ $ exit  # exit shell
 >
 ```
 
-![REPL](https://user-images.githubusercontent.com/32936898/205482818-0fd95d50-4c77-4f85-b0d3-8a230471017d.jpg)
+![REPL](https://user-images.githubusercontent.com/32936898/205617815-3a2ba6b4-2673-4233-907b-202ffd4a9e44.jpg)
 
-### TUI
+#### TUI
 
-#### Vim
+##### Vim
 
 ```vim
-:Translate --translators=google,bing Free as in Freedom
+Translate --translators=google,bing Free as in Freedom
 ```
 
 ![Vim](https://user-images.githubusercontent.com/32936898/205475332-61c0a90e-b145-4af0-8658-c0cf45b87150.jpg)
+
+#### GUI
+
+![desktop entry](https://user-images.githubusercontent.com/32936898/205704540-cf985b68-4b2f-4095-a5db-88982c809a04.jpg)
+
+![GUI](https://user-images.githubusercontent.com/32936898/205699484-c6fdefd5-dca2-4263-aed4-e41d9d16fde6.jpg)
 
 ### Script
 
@@ -99,7 +108,7 @@ $ exit  # exit shell
 ...             "paraphrase": "人月神話",
 ...             "explains": {},
 ...             "details": {},
-...             "alternative": ["神话般的人月"],
+...             "alternatives": ["神话般的人月"],
 ...         }
 ...     ],
 ...     text="The Mythical Man-Month",
@@ -113,6 +122,15 @@ $ exit  # exit shell
 ```console
 $ xsel -o | trans --format json | jq -r '"《\(.results[].paraphrase)》的英文是 \(.text)."'
 《大教堂和集市》的英文是 the cathedral and the bazaar.
+```
+
+#### Vim Script
+
+```vim
+:let g:text = 'Just for Fun'
+:let g:translation = json_decode(translate_shell#call('--format=json', g:text))
+:echo g:text 'is' g:translation.results[0].paraphrase 'in Chinese.'
+Just for Fun is 纯娱乐 in Chinese.
 ```
 
 ## Features

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding = UTF-8
+Name = translate-shell
+GenericName = Translate
+Type = Application
+Exec = trans --gui
+Icon = /usr/share/translate-shell/images/icon.png
+Terminal = false
+Categories = Education

@@ -11,23 +11,30 @@ from time import sleep
 from . import init, process
 
 
-def translate_clipboard() -> None:
+def run_clipboard(args: Namespace) -> None:
     """Translate clipboard automatically.
 
+    :param args:
+    :type args: Namespace
     :rtype: None
     """
-    global args
     clipper = args.get_clipper()
     pid = os.getpid()
+    if args.gui:
+        from .gui import GUIPrint
+
+        print_output = GUIPrint(args)
+    else:
+        print_output = print
     args.text = check_output(clipper, universal_newlines=True)
     args.last_text, _, _, _ = args.process_input(
         args.text, args.target_lang, args.source_lang, args.translators, False
     )
-    while not args.stop_clipboard:
+    while args.clipboard:
         sleep(args.sleep_seconds)
         args.text = check_output(clipper, universal_newlines=True)
         text, rst = process(args)
-        if rst and args.clipboard:
+        if rst:
             args.last_text = text
             print(
                 args.get_prompt(
@@ -37,20 +44,20 @@ def translate_clipboard() -> None:
                     args.translators,
                 )
             )
-            print(rst, end="")
+            print_output(rst, end="")
             os.kill(pid, signal.SIGINT)
 
 
-def run(input_args: Namespace) -> None:
+def run(args: Namespace) -> None:
     """Run.
 
-    :param input_args:
-    :type input_args: Namespace
+    :param args:
+    :type args: Namespace
     :rtype: None
     """
-    global args
-    args = init(input_args)
-    task = Thread(target=translate_clipboard, args=())
+    args = init(args)
+    task = Thread(target=run_clipboard, args=(args,))
+    task.daemon = True
     task.start()
     while True:
         try:
@@ -68,4 +75,3 @@ def run(input_args: Namespace) -> None:
             continue
         except EOFError:
             break
-    args.stop_clipboard = True

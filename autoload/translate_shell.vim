@@ -23,9 +23,13 @@ endfunction
 
 ""
 " Define function for command, depending upon the [optional] arguments.
-function! translate_shell#echo(...) abort
+function! translate_shell#call(...) abort
   let l:cmd = translate_shell#get_cmd([s:rplugin_path] + a:000)
   execute l:cmd
   let l:cmd = 'py3file ' . s:rplugin_path
-  execute l:cmd
+  let l:result = ''
+  redir => l:result
+  silent execute l:cmd
+  redir END
+  return trim(l:result)
 endfunction

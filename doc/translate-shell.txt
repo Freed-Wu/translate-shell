@@ -1,4 +1,4 @@
-*translate-shell.txt*	Translate text by many different translators.
+*translate-shell.txt*	Translate text by google, bing, haici, etc at same time from CLI, GUI, REPL, python, shell and vim.
 Wu Zhenyu <wuzhenyu@ustc.edu>                                *translate-shell*
 
 ==============================================================================
@@ -33,7 +33,7 @@ FUNCTIONS                                          *translate-shell-functions*
 translate_shell#get_cmd({list})                    *translate_shell#get_cmd()*
   Get python command like `py3 sys.argv = [{list}]`.
 
-translate_shell#echo([optional])                      *translate_shell#echo()*
+translate_shell#call([optional])                      *translate_shell#call()*
   Define function for command, depending upon the [optional] arguments.
 
 

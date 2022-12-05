@@ -51,6 +51,7 @@ class Translator:
         res["paraphrase"] = ""
         res["explains"] = {}
         res["details"] = {}
+        res["alternatives"] = {}
         return res
 
     def __call__(self, text: str, tl: str, sl: str) -> dict[str, str] | None:

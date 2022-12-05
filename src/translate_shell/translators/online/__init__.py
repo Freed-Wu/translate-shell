@@ -29,6 +29,7 @@ class OnlineTranslator(Translator):
             "Mozilla/5.0 (X11; Linux x86_64; rv:50.0) "
             "Gecko/20100101 Firefox/50.0"
         )
+        self.timeout = 5
 
     def request(
         self,
@@ -70,7 +71,7 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
         req = Request(url, data, header)
 
         try:
-            r = urlopen(req, timeout=5)
+            r = urlopen(req, timeout=self.timeout)
         except (URLError, HTTPError, socket.timeout):
             logger.warning(
                 "Translator %s timed out, please check your network"

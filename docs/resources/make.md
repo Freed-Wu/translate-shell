@@ -10,6 +10,7 @@
 - `make install-bash-completion`: Install completion for bash
 - `make install-zsh-completion`: Install completion for zsh
 - `make install-tcsh-completion`: Install completion for tcsh
+- `make install-desktop-entry`: Install desktop entry
 
 ## For Developers
 

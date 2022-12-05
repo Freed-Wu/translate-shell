@@ -18,6 +18,8 @@ __file__ = vars().get("__file__", sys.argv[0])
 ASSETS_PATH = Path(__file__).absolute().parent / "assets"
 VERSION = (ASSETS_PATH / "txt" / "version.txt").read_text()
 EPILOG = (ASSETS_PATH / "txt" / "epilog.txt").read_text()
+ICON_PATH = ASSETS_PATH / "images" / "icon.png"
+ICON_FILE = str(ICON_PATH)
 PREAMBLE = {
     "bash": (ASSETS_PATH / "bash" / "preamble.sh").read_text(),
     "zsh": (ASSETS_PATH / "zsh" / "preamble.zsh").read_text(),
@@ -92,11 +94,25 @@ def get_parser() -> ArgumentParser:
     group.add_argument(
         "--clipboard", action="store_true", help="enable clipboard (default)"
     )
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--gui", action="store_true", help="enable GUI")
     group.add_argument(
+        "--no-gui",
+        action="store_false",
+        dest="gui",
+        help="disable GUI (default)",
+    )
+    parser.add_argument(
         "--sleep-seconds",
         type=float,
         default=0.1,
-        help="sleep to avoid checkout clipboard too frequently",
+        help="avoid checkout clipboard too frequently. default: %(default)s",
+    )
+    parser.add_argument(
+        "--duration",
+        type=float,
+        default=10,
+        help="duration for GUI translate result. default: %(default)s",
     )
     parser.add_argument(
         "--config",
@@ -137,21 +153,10 @@ def main() -> None | NoReturn:
     """
     parser = get_parser()
     args = parser.parse_args()
-    if args.print_setting != "":
-        from translate_shell.utils.setting import print_setting
 
-        exit(print_setting(args.print_setting))
+    from .ui import main
 
-    try:
-        import vim  # type: ignore
-    except ImportError:
-        if not sys.stdin.isatty():
-            args.text = [sys.stdin.read()] + args.text
-    if args.text:
-        from translate_shell.ui.cli import run
-    else:
-        from translate_shell.ui.repl import run
-    run(args)
+    main(args)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+"""This module can be called by
+`python -m <https://docs.python.org/3/library/__main__.html>`_
+to check if it imports any variable don't owned by any true module.
+"""
+import logging as _logging
+
+_logger = _logging.getLogger(__name__)
+
+
+class Notification:
+    """Notification."""
+
+    def __init__(self, *args: str) -> None:
+        """__init__.
+
+        :param self:
+        :param args:
+        :type args: str
+        :rtype: None
+        """
+        pass
+
+    def send(self) -> None:
+        """send.
+
+        :rtype: None
+        """
+        _logger.error("Please install pynotifier firstly!")
+
+
+if __name__ == "__main__":
+    from ..__main__ import main_once as _main
+
+    _main(__file__, vars())

@@ -3,10 +3,11 @@ import atexit
 import json
 import logging
 import os
+import sys
 from argparse import Namespace, _StoreAction
 from pathlib import Path
 from types import ModuleType
-from typing import Callable
+from typing import Callable, Literal
 
 from .. import APPDIRS, CONFIG_FILE, CONFIG_PATH, HISTORY_FILE, HISTORY_PATH
 from ..__main__ import get_parser
@@ -28,6 +29,30 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def main(args: Namespace) -> None:
+    """Call CLI/REPL (containing GUI).
+
+    :param args:
+    :type args: Namespace
+    :rtype: None
+    """
+    if args.print_setting != "":
+        from translate_shell.utils.setting import print_setting
+
+        exit(print_setting(args.print_setting))
+
+    try:
+        import vim  # type: ignore
+    except ImportError:
+        if not sys.stdin.isatty():
+            args.text = [sys.stdin.read()] + args.text
+    if args.text:
+        from translate_shell.ui.cli import run
+    else:
+        from translate_shell.ui.repl import run
+    run(args)
+
+
 def init_readline() -> ModuleType:
     """Init readline.
 
@@ -40,14 +65,18 @@ def init_readline() -> ModuleType:
     return readline
 
 
-def init_config(path: Path) -> Configuration:
+def init_config(
+    path: Path, mode: Literal["cli", "gui", "repl"]
+) -> Configuration:
     """Read config file.
 
     :param path:
     :type path: Path
+    :param mode:
+    :type mode: Literal["cli", "gui", "repl"]
     :rtype: Configuration
     """
-    config = Configuration()
+    config = Configuration(mode)
     try:
         configure_code = path.read_text()
     except FileNotFoundError:
@@ -64,7 +93,7 @@ def init_config(path: Path) -> Configuration:
     if not isinstance(configure, Callable):
         return config
     try:
-        new_config = configure()
+        new_config = configure(mode)
     except Exception as e:
         logger.error(e)
         logger.warning("Ignore configuration of " + CONFIG_FILE)
@@ -89,7 +118,13 @@ def init(args: Namespace) -> Namespace:
         config_path = Path(args.config)
     else:
         config_path = CONFIG_PATH
-    config = init_config(config_path)
+    if args.text:
+        mode = "cli"
+    elif args.gui:
+        mode = "gui"
+    else:
+        mode = "repl"
+    config = init_config(config_path, mode)
     for action in get_parser()._get_optional_actions():
         if (
             not isinstance(action, _StoreAction)
@@ -108,7 +143,6 @@ def init(args: Namespace) -> Namespace:
     if args.text:
         readline.add_history(args.text)
     args.last_text = ""
-    args.stop_clipboard = False
     logging.root.level += 10 * (args.quiet - args.verbose)
 
     global get_speaker, get_youdaozhiyun_app_info
@@ -147,9 +181,12 @@ def process(args: Namespace, is_repl: bool = False) -> tuple[str, str]:
             target_lang = target_lang.split("_")[0]
     target_lang = target_lang.lower().replace("_", "-")
     source_lang = args.source_lang.lower().replace("_", "-")
+    translator_names = filter(
+        len, map(lambda x: x.strip(), args.translators.split(","))
+    )
     translators = [
         TRANSLATORS.get(translator, get_dummy(translator))
-        for translator in args.translators.split(",")
+        for translator in translator_names
     ]
     translation = translate(
         text,

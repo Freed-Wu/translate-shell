@@ -7,6 +7,8 @@ from datetime import datetime
 
 from setuptools_scm import get_version
 
+from translate_shell.__main__ import ICON_FILE
+
 try:
     import tomllib  # type: ignore
 except ImportError:
@@ -43,6 +45,7 @@ extensions = [
 ]
 
 myst_heading_anchors = 3
+myst_title_to_header = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -63,4 +66,4 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
-html_favicon = "https://raw.githubusercontent.com/soimort/translate-shell/gh-pages/images/icon.png"
+html_favicon = ICON_FILE

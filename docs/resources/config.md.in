@@ -15,8 +15,8 @@ where is the config. The file location usually respect standard of every OS
 
 This is a implementation of <https://github.com/felixonmars/ydcv/issues/55>.
 
-the config file must have a function named `configure()` which input nothing and
-return a `Translator` object. An example is as following:
+the config file must have a function named `configure()` which input `"cli"`,
+`"gui"`, `"repl"` and return a `Translator` object. An example is as following:
 
 ````python
 ```{eval-sh}
@@ -55,8 +55,12 @@ config.translators = "google,bing,haici"
 config.format = "json"
 # Disable translate clipboard automatically
 config.clipboard = False
+# Use GUI by default
+config.gui = True
 # Translate clipboard every 0.5 seconds
 config.sleep_seconds = 0.5
+# GUI translation window duration time
+config.duration = 20
 ```
 
 ## Logger

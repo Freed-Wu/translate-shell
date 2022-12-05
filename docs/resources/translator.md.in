@@ -6,7 +6,7 @@ language then do something according to inputs and output a result.
 Current translators are:
 
 ```{eval-sh}
-python -c'from translate_shell.translators import TRANSLATORS; print("\n".join("- [{k}]({v})".format(k=k, v=v().__class__.__module__.replace("builtins", "translate_shell.translators")) for k,  v in TRANSLATORS.items()))'
+scripts/generate-translator.md.py
 ```
 
 Some translators are out of box and some need configuration, which detail can be
@@ -16,7 +16,7 @@ found by clicking the above hyperlink.
 
 - stardict and haici only support translate word, not sentence.
 - bing supports swapping languages automatically, which means `en:zh_CN` is same as `zh_CN:en`.
-- haici have a bigger probility of timeout than other translators.
+- haici is the slowest translator currently which often timeout.
 
 These translators can be divided to three types:
 

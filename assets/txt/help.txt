@@ -1,7 +1,7 @@
 usage: trans [-h] [-V] [--print-completion {bash,zsh,tcsh}]
              [--print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker}]]
-             [-v] [-q]
-             [--no-clipboard | --clipboard | --sleep-seconds SLEEP_SECONDS]
+             [-v] [-q] [--no-clipboard | --clipboard] [--gui | --no-gui]
+             [--sleep-seconds SLEEP_SECONDS] [--duration DURATION]
              [--config CONFIG] [--format {json,yaml,text}]
              [--translators TRANSLATORS] [--target-lang TARGET_LANG]
              [--source-lang SOURCE_LANG]
@@ -21,8 +21,11 @@ options:
   -q, --quiet           reduce logger level
   --no-clipboard        disable clipboard
   --clipboard           enable clipboard (default)
+  --gui                 enable GUI
+  --no-gui              disable GUI (default)
   --sleep-seconds SLEEP_SECONDS
-                        sleep to avoid checkout clipboard too frequently
+                        avoid checkout clipboard too frequently. default: 0.1
+  --duration DURATION   duration for GUI translate result. default: 10
   --config CONFIG       use a python file as config
   --format {json,yaml,text}
                         output format for jq(1), yq(1). default: text
