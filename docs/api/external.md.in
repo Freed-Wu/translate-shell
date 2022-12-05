@@ -1,0 +1,7 @@
+# External
+
+````{eval-rst}
+```{eval-sh}
+scripts/generate-api.md.sh external
+```
+````

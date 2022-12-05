@@ -67,7 +67,7 @@ class GoogleTranslator(OnlineTranslator):
         res["explains"] = self.get_explains(obj)
         res["phonetic"] = self.get_phonetic(obj)
         res["details"] = self.get_details(obj)
-        res["alternative"] = self.get_alternative(obj)
+        res["alternatives"] = self.get_alternatives(obj)
         return res
 
     def get_phonetic(self, obj: list[Any]) -> str:
@@ -130,8 +130,8 @@ class GoogleTranslator(OnlineTranslator):
                 result[x[0]][y[0]] = example
         return result
 
-    def get_alternative(self, resp: list[Any]) -> list[str]:
-        """get_alternative.
+    def get_alternatives(self, resp: list[Any]) -> list[str]:
+        """get_alternatives.
 
         :param resp:
         :type resp: list[Any]

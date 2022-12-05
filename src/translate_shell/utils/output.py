@@ -4,11 +4,9 @@
 import json
 
 from ..__main__ import ASSETS_PATH
-from ..external.colorama import Back, Fore, Style, init
 from ..translate import Translation
 
 NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
-init()
 
 
 def number_to_sign(number: int) -> str:
@@ -26,13 +24,20 @@ def number_to_sign(number: int) -> str:
     return sign
 
 
-def process_output_p10k(translation: Translation) -> str:
+def process_output_p10k(translation: Translation, plain: bool = False) -> str:
     """process_output_p10k.
 
     :param translation:
     :type translation: Translation
+    :param plain:
+    :type plain: bool
     :rtype: str
     """
+    if plain:
+        from ..external.colorama.__main__ import Back, Fore, Style, init
+    else:
+        from ..external.colorama import Back, Fore, Style, init
+    init()
     outputs = []
     for rst in translation.results:
         outputs += [
@@ -98,6 +103,8 @@ def process_output_p10k(translation: Translation) -> str:
                     + Style.RESET_ALL
                     + " "
                     + examples[0]
+                    .replace("<em>", Fore.RED)
+                    .replace("</em>", Fore.RESET)
                 ]
                 if examples[1] != "":
                     outputs += [examples[1]]
@@ -113,3 +120,13 @@ def process_output(translation: Translation) -> str:
     :rtype: str
     """
     return process_output_p10k(translation)
+
+
+def process_output_plain(translation: Translation) -> str:
+    """Process output plain.
+
+    :param translation:
+    :type translation: Translation
+    :rtype: str
+    """
+    return process_output_p10k(translation, True)

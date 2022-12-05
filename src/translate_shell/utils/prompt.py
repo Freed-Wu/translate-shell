@@ -11,8 +11,8 @@ from ..external.colorama import Back, Fore, Style, init
 init()
 
 
-def get_prompt_p10k(tl: str, sl: str, translators: str) -> str:
-    """get_prompt_p10k.
+def prompt_p10k(tl: str, sl: str, translators: str) -> str:
+    """prompt_p10k.
 
     :param tl:
     :type tl: str
@@ -107,5 +107,5 @@ def get_prompt(text: str, tl: str, sl: str, translators: str) -> str:
     :type translators: str
     :rtype: str
     """
-    prompt = get_prompt_p10k(tl, sl, translators)
+    prompt = prompt_p10k(tl, sl, translators)
     return process_clipboard(text, prompt)

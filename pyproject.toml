@@ -1,57 +1,92 @@
 [build-system]
-requires = ["setuptools >= 45", "setuptools_scm[toml] >= 6.2", "wheel"]
+requires = [
+    "setuptools >= 45",
+    "setuptools_scm[toml] >= 6.2",
+    "wheel",
+]
 build-backend = "setuptools.build_meta"
 
-# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
 [project]
 name = "translate-shell"
-description = "Translate text by many different translators."
-authors = [{ name = "Wu Zhenyu", email = "wuzhenyu@ustc.edu" }]
+description = "Translate text by google, bing, haici, etc at same time from CLI, GUI, REPL, python, shell and vim."
+authors = [
+    { name = "Wu Zhenyu", email = "wuzhenyu@ustc.edu" },
+]
 readme = "README.md"
 requires-python = ">= 3.9"
-keywords = ["translate"]
-license = { text = "GPL v3" }
-classifiers = [
-  "Development Status :: 3 - Alpha",
-  "Intended Audience :: Developers",
-  "Topic :: Software Development :: Build Tools",
-  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-  "Operating System :: Microsoft :: Windows",
-  "Operating System :: POSIX",
-  "Operating System :: Unix",
-  "Operating System :: MacOS",
-  "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
+keywords = [
+    "translate",
 ]
-dynamic = ["version", "optional-dependencies"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dynamic = [
+    "version",
+    "optional-dependencies",
+]
+
+[project.license]
+text = "GPL v3"
 
 [project.urls]
-Homepage = "https://pypi.org/project/translate-shell"
+Homepage = "https://translate-shell.readthedocs.org"
 Download = "https://github.com/Freed-Wu/translate-shell/releases"
 "Bug Report" = "https://github.com/Freed-Wu/translate-shell/issues"
 Source = "https://github.com/Freed-Wu/translate-shell"
 
+[project.scripts]
+trans = "translate_shell.__main__:main"
+
 [tool.setuptools_scm]
 write_to = "src/translate_shell/_version.py"
 
-[tool.setuptools.dynamic.optional-dependencies]
-dev = { file = "requirements/dev.txt" }
-completion = { file = "requirements/completion.txt" }
-langdetect = { file = "requirements/langdetect.txt" }
-stardict = { file = "requirements/stardict.txt" }
-color = { file = "requirements/color.txt" }
-yaml = { file = "requirements/yaml.txt" }
-keyring = { file = "requirements/keyring.txt" }
-rich = { file = "requirements/rich.txt" }
-
 [tool.setuptools.package-data]
-translate_shell = ["py.typed", "*.json", "*.zsh", "*.txt"]
+translate_shell = [
+    "py.typed",
+    "*.json",
+    "*.zsh",
+    "*.txt",
+    "*.png",
+]
 
-[project.scripts]
-trans = "translate_shell.__main__:main"
+[tool.setuptools.dynamic.optional-dependencies.color]
+file = "requirements/color.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.completion]
+file = "requirements/completion.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.dev]
+file = "requirements/dev.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.keyring]
+file = "requirements/keyring.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.langdetect]
+file = "requirements/langdetect.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.notification]
+file = "requirements/notification.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.rich]
+file = "requirements/rich.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.stardict]
+file = "requirements/stardict.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.yaml]
+file = "requirements/yaml.txt"
 
 [tool.black]
 line-length = 79
@@ -60,18 +95,26 @@ line-length = 79
 line_length = 79
 profile = "black"
 
-# https://github.com/PyCQA/pydocstyle/issues/418
 [tool.pydocstyle]
 add_ignore = "D205, D400"
 
 [tool.bandit]
-skips = ["B310", "B404", "B603"]
+skips = [
+    "B310",
+    "B404",
+    "B603",
+]
 
 [tool.bandit.assert_used]
-skips = ["*_test.py", "test_*.py"]
+skips = [
+    "*_test.py",
+    "test_*.py",
+]
 
 [tool.codespell]
 ignore-words-list = "fo, nd, te"
 
 [tool.pyright]
-exclude = ["templates/__init__.py"]
+exclude = [
+    "templates/__init__.py",
+]

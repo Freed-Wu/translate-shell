@@ -18,7 +18,8 @@ SRC = $(shell find $(LIBPATH) -type f -name '*.py') \
 			$(GENERATE_PY) \
 			$(shell find $(LIBPATH)/assets -type f -name '*') \
 			$(LIBPATH)/assets/txt/epilog.txt \
-			$(LIBPATH)/assets/txt/version.txt
+			$(LIBPATH)/assets/txt/version.txt \
+			pyproject.toml
 
 .PHONY: default
 default: install
@@ -27,7 +28,7 @@ default: install
 all: test build build-docs doc/*.txt
 
 .PHONY: install
-install: install-bin install-man install-completions
+install: install-bin install-man install-completions install-desktop-entry
 
 .PHONY: install-bin
 install-bin: $(SRC)
@@ -39,6 +40,9 @@ install-bin-editable: $(SRC)
 
 %/_version.py:
 	python -m build
+
+pyproject.toml: scripts/generate-pyproject.toml.py templates/pyproject.toml requirements/*.txt
+	$(wordlist 1,2,$^) > $@
 
 src/translate_shell/external/%/__init__.py: scripts/generate-__init__.py.py src/translate_shell/external/%/__main__.py templates/__init__.py
 	$(wordlist 1,3,$^) > $@
@@ -66,6 +70,11 @@ install-zsh-completion: $(SRC)
 install-tcsh-completion: $(SRC)
 	$(PRINT_COMPLETIONS) tcsh | sudo tee $(TCSH_COMPLETION) > /dev/null
 
+.PHONY: install-desktop-entry
+install-desktop-entry: assets/desktop/*.desktop $(LIBPATH)/assets/images/icon.png
+	install -D $< -t $(PREFIX)/share/applications
+	install -D $(wordlist 2,2,$^) -t $(PREFIX)/share/$(LIBNAME)/images
+
 .PHONY: uninstall
 uninstall:
 	rm -rf $(BASH_COMPLETION) $(ZSH_COMPLETION) $(TCSH_COMPLETION) $(MANPATH)
@@ -81,13 +90,13 @@ docs/_build/html: docs/conf.py $(MARKDOWN) $(SRC)
 	$(wordlist 1,2,$^) > $@
 
 docs/resources/install.md: Makefile
-docs/resources/requirements.md: requirements/*.txt
-docs/resources/man.md: $(SRC) $(LIBPATH)/assets/txt/epilog.txt
-docs/resources/translator.md: $(SRC)
+docs/resources/requirements.md: scripts/generate-requirements.md.sh requirements/*.txt
+docs/resources/man.md: scripts/generate-man.md.sh $(SRC) $(LIBPATH)/assets/txt/epilog.txt
+docs/resources/translator.md: scripts/generate-translator.md.py $(SRC)
 docs/resources/config.md: examples/config.py $(SRC)
-docs/resources/vim.md: doc/*.txt
+docs/resources/vim.md: scripts/generate-translator.md.py doc/*.txt
 docs/misc/%.md: $(SRC)
-docs/api/%.md: $(SRC)
+docs/api/%.md: scripts/generate-api.md.sh $(SRC)
 
 GITIGNORE_MARKDOWN = $(patsubst docs%,%,$(GENERATE_MARKDOWN))
 docs/.gitignore:

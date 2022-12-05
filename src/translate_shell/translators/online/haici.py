@@ -20,6 +20,7 @@ class HaiciTranslator(OnlineTranslator):
         :rtype: None
         """
         super().__init__("haici")
+        self.timeout = 15
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
         """__call__.
@@ -42,6 +43,7 @@ class HaiciTranslator(OnlineTranslator):
         res = self.create_translation(text, tl, sl)
         res["phonetic"] = self.get_phonetic(resp)
         res["explains"] = self.get_explains(resp)
+        res["details"] = self.get_details(resp)
         return res
 
     def get_phonetic(self, html: str) -> str:
@@ -65,6 +67,35 @@ class HaiciTranslator(OnlineTranslator):
         explains = {}
         for item in m:
             for e in item.split("<br>"):
-                k, dot, v = e.rpartition(".")
+                k, dot, v = e.partition(".")
                 explains[k + dot] = v
         return explains
+
+    def get_details(self, html: str) -> dict[str, dict[str, str]]:
+        """get_details.
+
+        :param html:
+        :type html: str
+        :rtype: dict[str, str]
+        """
+        details = {}
+        m = re.findall(r'<div id="s">(.*?)</div>', html)
+        rst = {}
+        for item in m:
+            sentences = item.split("<br>")
+            for s1, s2 in list(zip(sentences[::2], sentences[1::2])):
+                _, _, v = s1.partition(". ")
+                rst[v] = s2
+        details["例句与用法"] = rst
+
+        m = re.findall(r'<div id="t">(.*?)</div>', html)
+        rst = {}
+        for item in m:
+            sentences = item.split("</i>")
+            for s in sentences:
+                k, _, v = s.partition(": ")
+                k = k.strip()
+                if k:
+                    rst[k] = v.replace("<i>", "").strip()
+        details["词形变化"] = rst
+        return details

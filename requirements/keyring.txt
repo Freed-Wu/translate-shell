@@ -1,2 +1,3 @@
 #!/usr/bin/env -S pip install -r
+# See [secret](resources/config.md#secret).
 keyring

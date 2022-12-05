@@ -1,7 +1,9 @@
 #!/usr/bin/env -S pip install -r
+# For unit test and code coverage rate test.
 neovim
 pexpect
 pre-commit
 pytest-cov
-setuptools_scm
+setuptools-scm
 tomli
+tomli-w
