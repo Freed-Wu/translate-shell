@@ -15,8 +15,8 @@ where is the config. The file location usually respect standard of every OS
 
 This is a implementation of <https://github.com/felixonmars/ydcv/issues/55>.
 
-the config file must have a function named `configure()` which input `"cli"`,
-`"gui"`, `"repl"` and return a `Translator` object. An example is as following:
+the config file must have a function named `configure()` which input nothing and
+return a `Configuration` object. An example is as following:
 
 ````python
 ```{eval-sh}
@@ -55,8 +55,6 @@ config.translators = "google,bing,haici"
 config.format = "json"
 # Disable translate clipboard automatically
 config.clipboard = False
-# Use GUI by default
-config.gui = True
 # Translate clipboard every 0.5 seconds
 config.sleep_seconds = 0.5
 # GUI translation window duration time
@@ -106,7 +104,7 @@ these information in configuration file directly is unsafe. Some user know
 Quoted from [ydcv](https://github.com/felixonmars/ydcv)
 
 > 翻译实例-创建实例-选"文本翻译"， 我的应用-创建应用-接入方式：API-选择绑定刚才
-> 创建的自然语言翻译服务-文本翻译实例。 得到的应用ID / 应用密钥即为本工具的
+> 创建的自然语言翻译服务-文本翻译实例。 得到的应用 ID / 应用密钥即为本工具的
 > YDAPPID/YDAPPSEC。
 
 [keyring](https://pypi.org/project/keyring) allow to encrypt password, and

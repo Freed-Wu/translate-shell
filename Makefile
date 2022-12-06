@@ -10,7 +10,7 @@ ZSH_COMPLETION = $(PREFIX)/share/zsh/site-functions/_$(BINNAME)
 TCSH_COMPLETION = /etc/profile.d/$(BINNAME).csh
 GENERATE_MARKDOWN = $(basename $(shell find docs -type f -name '*.md.in'))
 MARKDOWN = README.md $(shell find docs -type f -name '*.md') $(GENERATE_MARKDOWN)
-EXTERNAL_MAIN_PY = $(wildcard $(LIBPATH)/external/*/__main__.py)
+EXTERNAL_MAIN_PY = $(shell find $(LIBPATH)/external/* -name __main__.py)
 EXTERNAL_INIT_PY = $(addsuffix __init__.py,$(dir $(EXTERNAL_MAIN_PY)))
 _VERSION_PY = $(LIBPATH)/_version.py
 GENERATE_PY = $(EXTERNAL_INIT_PY) $(_VERSION_PY)
@@ -94,7 +94,7 @@ docs/resources/requirements.md: scripts/generate-requirements.md.sh requirements
 docs/resources/man.md: scripts/generate-man.md.sh $(SRC) $(LIBPATH)/assets/txt/epilog.txt
 docs/resources/translator.md: scripts/generate-translator.md.py $(SRC)
 docs/resources/config.md: examples/config.py $(SRC)
-docs/resources/vim.md: scripts/generate-translator.md.py doc/*.txt
+docs/resources/vim.md: scripts/generate-vim.md.sh doc/*.txt
 docs/misc/%.md: $(SRC)
 docs/api/%.md: scripts/generate-api.md.sh $(SRC)
 

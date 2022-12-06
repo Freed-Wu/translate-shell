@@ -3,7 +3,7 @@
 import os
 import sys
 
-name = os.path.basename(os.path.dirname(sys.argv[1]))
+name = os.path.dirname(sys.argv[1]).split("external/")[-1].replace("/", ".")
 char = "="
 head = '"""Fake '
 with open(sys.argv[2]) as f:

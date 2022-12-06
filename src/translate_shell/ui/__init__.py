@@ -3,11 +3,13 @@ import atexit
 import json
 import logging
 import os
+import signal
 import sys
 from argparse import Namespace, _StoreAction
 from pathlib import Path
+from threading import get_ident, main_thread
 from types import ModuleType
-from typing import Callable, Literal
+from typing import Callable
 
 from .. import APPDIRS, CONFIG_FILE, CONFIG_PATH, HISTORY_FILE, HISTORY_PATH
 from ..__main__ import get_parser
@@ -36,20 +38,17 @@ def main(args: Namespace) -> None:
     :type args: Namespace
     :rtype: None
     """
-    if args.print_setting != "":
-        from translate_shell.utils.setting import print_setting
-
-        exit(print_setting(args.print_setting))
-
+    # https://github.com/platformdirs/platformdirs/issues/114
+    os.environ["SHELL"] = os.getenv("SHELL", "")
     try:
         import vim  # type: ignore
     except ImportError:
         if not sys.stdin.isatty():
             args.text = [sys.stdin.read()] + args.text
     if args.text:
-        from translate_shell.ui.cli import run
+        from .cli import run
     else:
-        from translate_shell.ui.repl import run
+        from .repl import run
     run(args)
 
 
@@ -65,18 +64,14 @@ def init_readline() -> ModuleType:
     return readline
 
 
-def init_config(
-    path: Path, mode: Literal["cli", "gui", "repl"]
-) -> Configuration:
+def init_config(path: Path) -> Configuration:
     """Read config file.
 
     :param path:
     :type path: Path
-    :param mode:
-    :type mode: Literal["cli", "gui", "repl"]
     :rtype: Configuration
     """
-    config = Configuration(mode)
+    config = Configuration()
     try:
         configure_code = path.read_text()
     except FileNotFoundError:
@@ -93,7 +88,7 @@ def init_config(
     if not isinstance(configure, Callable):
         return config
     try:
-        new_config = configure(mode)
+        new_config = configure()
     except Exception as e:
         logger.error(e)
         logger.warning("Ignore configuration of " + CONFIG_FILE)
@@ -118,13 +113,7 @@ def init(args: Namespace) -> Namespace:
         config_path = Path(args.config)
     else:
         config_path = CONFIG_PATH
-    if args.text:
-        mode = "cli"
-    elif args.gui:
-        mode = "gui"
-    else:
-        mode = "repl"
-    config = init_config(config_path, mode)
+    config = init_config(config_path)
     for action in get_parser()._get_optional_actions():
         if (
             not isinstance(action, _StoreAction)
@@ -151,14 +140,22 @@ def init(args: Namespace) -> Namespace:
     return args
 
 
-def process(args: Namespace, is_repl: bool = False) -> tuple[str, str]:
+def is_sub_thread() -> bool:
+    """is_sub_thread.
+
+    :rtype: bool
+    """
+    return main_thread().ident != get_ident()
+
+
+def process(args: Namespace, is_repl: bool = False) -> None:
     """process.
 
     :param args:
     :type args: Namespace
     :param is_repl: If the input is REPL's stdin, it is ``True``.
     :type is_repl: bool
-    :rtype: tuple[str, str]
+    :rtype: None
     """
     (
         text,
@@ -173,7 +170,7 @@ def process(args: Namespace, is_repl: bool = False) -> tuple[str, str]:
         is_repl,
     )
     if text == "" or (not is_repl and text == args.last_text):
-        return text, ""
+        return
     target_lang = args.target_lang
     if target_lang == "auto":
         target_lang = os.getenv("LANG", "zh_CN.UTF-8").split(".")[0]
@@ -202,4 +199,17 @@ def process(args: Namespace, is_repl: bool = False) -> tuple[str, str]:
         rst = yaml.dump(vars(translation))
     else:
         rst = args.process_output(translation)
-    return text, rst
+    if rst:
+        if is_sub_thread():
+            os.kill(os.getpid(), signal.SIGINT)
+            args.last_text = text
+            print(
+                args.get_prompt(
+                    args.text,
+                    args.target_lang,
+                    args.source_lang,
+                    args.translators,
+                )
+            )
+        # must be after print prompt
+        print(rst)

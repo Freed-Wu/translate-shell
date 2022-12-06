@@ -2,41 +2,25 @@
 ==========================
 """
 from argparse import Namespace
+from subprocess import check_output
+from time import sleep
 
-from .. import __name__ as NAME
-from ..__main__ import ICON_FILE
-from ..external.pynotifier import Notification
-
-APP_NAME = NAME.replace("_", "-")
+from . import process
 
 
-class GUIPrint:
-    """GUIPrint."""
+def run(args: Namespace) -> None:
+    """Translate clipboard automatically.
 
-    def __init__(self, args: Namespace) -> None:
-        """__init__.
-
-        :param args:
-        :type args: Namespace
-        :rtype: None
-        """
-        self.duration = args.duration
-
-    def __call__(self, text: str, end: str = "") -> None:
-        """__call__.
-
-        :param text:
-        :type text: str
-        :param end:
-        :type end: str
-        :rtype: None
-        """
-        if text:
-            Notification(
-                "Translate Result",
-                text,
-                self.duration,
-                "low",
-                ICON_FILE,
-                APP_NAME,
-            ).send()
+    :param args:
+    :type args: Namespace
+    :rtype: None
+    """
+    clipper = args.get_clipper()
+    args.text = check_output(clipper, universal_newlines=True)
+    args.last_text, _, _, _ = args.process_input(
+        args.text, args.target_lang, args.source_lang, args.translators, False
+    )
+    while True:
+        sleep(args.sleep_seconds)
+        args.text = check_output(clipper, universal_newlines=True)
+        process(args)

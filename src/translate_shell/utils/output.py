@@ -2,11 +2,21 @@
 =================
 """
 import json
+import re
+from shlex import split
+from shutil import which
+from subprocess import run
 
+from .. import __name__ as NAME
 from ..__main__ import ASSETS_PATH
+from ..external.pynotifier import Notification
 from ..translate import Translation
+from ..ui import is_sub_thread
 
+PAT = re.compile(r"\x1b\[[0-9;]+?m")
+APP_NAME = NAME.replace("_", "-")
 NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
+ICON_FILE = str(ASSETS_PATH / "images" / "icon.png")
 
 
 def number_to_sign(number: int) -> str:
@@ -24,19 +34,15 @@ def number_to_sign(number: int) -> str:
     return sign
 
 
-def process_output_p10k(translation: Translation, plain: bool = False) -> str:
+def process_output_p10k(translation: Translation) -> str:
     """process_output_p10k.
 
     :param translation:
     :type translation: Translation
-    :param plain:
-    :type plain: bool
     :rtype: str
     """
-    if plain:
-        from ..external.colorama.__main__ import Back, Fore, Style, init
-    else:
-        from ..external.colorama import Back, Fore, Style, init
+    from ..external.colorama import Back, Fore, Style, init
+
     init()
     outputs = []
     for rst in translation.results:
@@ -50,7 +56,7 @@ def process_output_p10k(translation: Translation, plain: bool = False) -> str:
             + Back.BLUE
             + ""
             + Fore.WHITE
-            + "  "
+            + "  "
             + Style.BRIGHT
             + rst["paraphrase"]
             + " "
@@ -119,14 +125,27 @@ def process_output(translation: Translation) -> str:
     :type translation: Translation
     :rtype: str
     """
-    return process_output_p10k(translation)
-
-
-def process_output_plain(translation: Translation) -> str:
-    """Process output plain.
-
-    :param translation:
-    :type translation: Translation
-    :rtype: str
-    """
-    return process_output_p10k(translation, True)
+    rst = process_output_p10k(translation)
+    if rst and is_sub_thread():
+        # https://github.com/YuriyLisovskiy/pynotifier/issues/21
+        text = PAT.sub("", rst)
+        if which("termux-toast"):
+            run(split("termux-toast -g top") + [text])
+        if which("termux-notification"):
+            run(
+                split(
+                    "termux-notification -t 'Translation' --icon "
+                    + ICON_FILE
+                    + " -c"
+                )
+                + [text]
+            )
+        Notification(
+            "Translation",
+            text,
+            10,
+            "low",
+            ICON_FILE,
+            APP_NAME,
+        ).send()
+    return rst

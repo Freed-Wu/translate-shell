@@ -4,6 +4,7 @@
 to check if it imports any variable don't owned by any true module.
 """
 import logging as _logging
+from typing import Any
 
 _logger = _logging.getLogger(__name__)
 
@@ -11,12 +12,12 @@ _logger = _logging.getLogger(__name__)
 class Notification:
     """Notification."""
 
-    def __init__(self, *args: str) -> None:
+    def __init__(self, *args: Any) -> None:
         """__init__.
 
         :param self:
         :param args:
-        :type args: str
+        :type args: Any
         :rtype: None
         """
         pass

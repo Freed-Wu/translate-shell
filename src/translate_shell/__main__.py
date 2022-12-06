@@ -7,9 +7,10 @@ import json
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from pathlib import Path
-from typing import NoReturn
+from typing import Literal, NoReturn
 
 from translate_shell import __version__  # type: ignore
+from translate_shell.config import Configuration
 from translate_shell.external import shtab
 from translate_shell.translators import TRANSLATORS
 
@@ -18,8 +19,6 @@ __file__ = vars().get("__file__", sys.argv[0])
 ASSETS_PATH = Path(__file__).absolute().parent / "assets"
 VERSION = (ASSETS_PATH / "txt" / "version.txt").read_text()
 EPILOG = (ASSETS_PATH / "txt" / "epilog.txt").read_text()
-ICON_PATH = ASSETS_PATH / "images" / "icon.png"
-ICON_FILE = str(ICON_PATH)
 PREAMBLE = {
     "bash": (ASSETS_PATH / "bash" / "preamble.sh").read_text(),
     "zsh": (ASSETS_PATH / "zsh" / "preamble.zsh").read_text(),
@@ -44,7 +43,8 @@ LANG_COMPLETE = {
     )
     + "))"
 }
-FORMATS = ["json", "yaml", "text"]
+TYPE = Literal["json", "yaml", "text"]
+FORMATS = list(TYPE.__args__)  # type: ignore
 SETTINGS = [
     "config_file",
     "history_file",
@@ -55,6 +55,7 @@ SETTINGS = [
     "clipper",
     "speaker",
 ]
+config = Configuration()
 
 
 def get_parser() -> ArgumentParser:
@@ -94,25 +95,11 @@ def get_parser() -> ArgumentParser:
     group.add_argument(
         "--clipboard", action="store_true", help="enable clipboard (default)"
     )
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument("--gui", action="store_true", help="enable GUI")
-    group.add_argument(
-        "--no-gui",
-        action="store_false",
-        dest="gui",
-        help="disable GUI (default)",
-    )
     parser.add_argument(
         "--sleep-seconds",
         type=float,
-        default=0.1,
+        default=config.sleep_seconds,
         help="avoid checkout clipboard too frequently. default: %(default)s",
-    )
-    parser.add_argument(
-        "--duration",
-        type=float,
-        default=10,
-        help="duration for GUI translate result. default: %(default)s",
     )
     parser.add_argument(
         "--config",
@@ -121,22 +108,22 @@ def get_parser() -> ArgumentParser:
     parser.add_argument(
         "--format",
         choices=FORMATS,
-        default="text",
+        default=config.format,
         help="output format for jq(1), yq(1). default: %(default)s",
     )
     parser.add_argument(
         "--translators",
-        default="google",
+        default=config.translators,
         help="translate engines joined with ','. default: %(default)s",
     ).complete = TRANSLATOR_COMPLETE  # type: ignore
     parser.add_argument(
         "--target-lang",
-        default="auto",
+        default=config.target_lang,
         help="target languages. default: %(default)s",
     ).complete = LANG_COMPLETE  # type: ignore
     parser.add_argument(
         "--source-lang",
-        default="auto",
+        default=config.source_lang,
         help="source languages. default: %(default)s",
     ).complete = LANG_COMPLETE  # type: ignore
     parser.add_argument(
@@ -148,11 +135,17 @@ def get_parser() -> ArgumentParser:
 def main() -> None | NoReturn:
     """``python -m translate_shell`` call this function.
     Parse arguments and provide shell completions.
+    Parse arguments is before init configuration to provide ``--config``.
 
     :rtype: None
     """
     parser = get_parser()
     args = parser.parse_args()
+
+    if args.print_setting != "":
+        from translate_shell.utils.setting import print_setting
+
+        exit(print_setting(args.print_setting))
 
     from .ui import main
 

@@ -6,7 +6,6 @@ Define a class for user customization.
 from argparse import Namespace
 from typing import Literal
 
-from .__main__ import get_parser
 from .translate import Translation
 
 
@@ -22,25 +21,19 @@ class Configuration(Namespace):
         "get_youdaozhiyun_app_info",
     ]
 
-    def __init__(self, mode: Literal["cli", "repl", "gui"] = "repl") -> None:
+    def __init__(self) -> None:
         """__init__.
 
         :param self:
-        :param mode:
-        :type mode: Literal["cli", "repl", "gui"]
         :rtype: None
         """
-        # Don't use ``setattr`` to provide information to LSP.
-        super().__init__(mode=mode)
-        actions = get_parser()._option_string_actions
-        self.source_lang: str = actions["--source-lang"].default
-        self.target_lang: str = actions["--target-lang"].default
-        self.translators: str = actions["--translators"].default
-        self.format: str = actions["--format"].default
-        self.sleep_seconds: float = actions["--sleep-seconds"].default
-        self.clipboard: bool = actions["--clipboard"].default
-        self.gui: bool = actions["--gui"].default
-        self.duration: bool = actions["--duration"].default
+        super().__init__()
+        self.source_lang: str = "auto"
+        self.target_lang: str = "auto"
+        self.translators: str = "google"
+        self.format: Literal["text", "json", "yaml"] = "text"
+        self.sleep_seconds: float = 0.1
+        self.clipboard: bool = True
 
     def process_input(
         self,
@@ -78,10 +71,7 @@ class Configuration(Namespace):
         :type translation: Translation
         :rtype: str
         """
-        if self.mode == "gui":
-            from .utils.output import process_output_plain as process_output
-        else:
-            from .utils.output import process_output
+        from .utils.output import process_output
 
         return process_output(translation)
 

@@ -7,7 +7,7 @@ from datetime import datetime
 
 from setuptools_scm import get_version
 
-from translate_shell.__main__ import ICON_FILE
+from translate_shell.utils.output import ICON_FILE
 
 try:
     import tomllib  # type: ignore

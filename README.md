@@ -37,7 +37,7 @@
 [![pypi/pyversions](https://shields.io/pypi/pyversions/translate-shell)](https://pypi.org/project/translate-shell/#files)
 
 Translate text by google, bing, youdaozhiyun, haici, stardict, etc at same time
-from CLI, GUI, REPL, python, shell and vim.
+from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim.
 
 ## Usage
 
@@ -85,9 +85,13 @@ Translate --translators=google,bing Free as in Freedom
 
 #### GUI
 
-![desktop entry](https://user-images.githubusercontent.com/32936898/205704540-cf985b68-4b2f-4095-a5db-88982c809a04.jpg)
+##### GNU/Linux
 
-![GUI](https://user-images.githubusercontent.com/32936898/205699484-c6fdefd5-dca2-4263-aed4-e41d9d16fde6.jpg)
+![GNU/Linux](https://user-images.githubusercontent.com/32936898/205699484-c6fdefd5-dca2-4263-aed4-e41d9d16fde6.jpg)
+
+##### Android
+
+![android-toast](https://user-images.githubusercontent.com/32936898/206078648-0db6480f-7e35-4252-9f33-9fb51e03e172.jpg)
 
 ### Script
 

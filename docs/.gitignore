@@ -1,13 +1,13 @@
-/api/translate_shell.md
 /api/external.md
+/api/translate_shell.md
 /api/translators.md
 /api/ui.md
 /api/utils.md
 /misc/acknowledgements.md
 /misc/todo.md
-/resources/config.md
 /resources/install.md
 /resources/man.md
 /resources/requirements.md
 /resources/translator.md
 /resources/vim.md
+/resources/config.md

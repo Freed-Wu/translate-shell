@@ -14,5 +14,4 @@ def run(args: Namespace) -> None:
     :rtype: None
     """
     args = init(args)
-    args.last_text, rst = process(args)
-    print(rst)
+    process(args)

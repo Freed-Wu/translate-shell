@@ -1,3 +1,3 @@
 #!/usr/bin/env -S pip install -r
-# Support GUI.
+# See [GUI](resources/gui.md#GUI).
 py-notifier
