@@ -21,7 +21,7 @@ class _PrintCompletionAction(Action):
         self,
         parser: ArgumentParser,
         namespace: Any,
-        values: list[Any],
+        values: Any,
         option_string: str | None = None,
     ) -> NoReturn:
         """__call__
@@ -31,7 +31,7 @@ class _PrintCompletionAction(Action):
         :param namespace:
         :type namespace: Any
         :param values:
-        :type values: list[Any]
+        :type values: Any
         :param option_string:
         :type option_string: str | None
         :rtype: NoReturn
@@ -41,16 +41,16 @@ class _PrintCompletionAction(Action):
 
 
 def add_argument_to(
-    parser: ArgumentParser, *args: list[Any], **kwargs: dict[str, Any]
+    parser: ArgumentParser, *args: Any, **kwargs: Any
 ) -> ArgumentParser:
     """Add completion argument to parser.
 
     :param parser:
     :type parser: ArgumentParser
     :param args:
-    :type args: list[Any]
+    :type args: Any
     :param kwargs:
-    :type kwargs: dict[str, Any]
+    :type kwargs: Any
     :rtype: ArgumentParser
     """
     Action.complete = None  # type: ignore

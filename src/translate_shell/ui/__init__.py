@@ -38,8 +38,6 @@ def main(args: Namespace) -> None:
     :type args: Namespace
     :rtype: None
     """
-    # https://github.com/platformdirs/platformdirs/issues/114
-    os.environ["SHELL"] = os.getenv("SHELL", "")
     try:
         import vim  # type: ignore
     except ImportError:

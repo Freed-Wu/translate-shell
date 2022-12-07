@@ -12,6 +12,7 @@ from .external.platformdirs import AppDirs
 __all__ = [
     "__version__",
     "__version_tuple__",
+    "APPNAME",
     "APPDIRS",
     "CONFIG_PATH",
     "CONFIG_FILE",
@@ -21,7 +22,8 @@ __all__ = [
     "STARDICT_DIRS",
 ]
 
-APPDIRS = AppDirs(__name__.split(".")[0].replace("_", "-"))
+APPNAME = __name__.replace("_", "-")
+APPDIRS = AppDirs(APPNAME)
 CONFIG_PATH = APPDIRS.user_config_path / "config.py"
 CONFIG_FILE = str(CONFIG_PATH)
 HISTORY_PATH = APPDIRS.user_data_path / "history.txt"

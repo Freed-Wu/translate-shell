@@ -50,6 +50,33 @@ jobs:
         run: |
           make THEMIS=vim-themis/bin/themis test
       - uses: codecov/codecov-action@v3
+  build-misc:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.python-version }}
+          cache: ${{ env.cache }}
+      - name: Install dependencies
+        run: |
+          pip install -e '.[dev]'
+      - name: Build man and shell completions
+        run: |
+          sudo apt update
+          sudo apt install help2man
+          make build
+      - uses: actions/upload-artifact@v3
+        if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
+        with:
+          path: |
+            ${{ env.path }}
+      - uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            ${{ env.path }}
   build:
     needs: test
     strategy:

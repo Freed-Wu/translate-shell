@@ -3,4 +3,5 @@
 # [powerlevel10k](https://github.com/romkatv/powerlevel10k).
 # See [prompt](resources/config.md#prompt) and
 # [process output](resources/config.md#process-output).
+
 colorama

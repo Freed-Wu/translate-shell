@@ -1,0 +1,10 @@
+---
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+authors:
+  - family-names: Wu
+    given-names: Zhenyu
+    orcid: https://orcid.org/0000-0001-6478-9993
+title: "translate-shell: Translate text by google, bing, youdaozhiyun, haici, stardict, etc at same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim."
+date-released: 2022-12-03
+url: "https://github.com/Freed-Wu/translate-shell"

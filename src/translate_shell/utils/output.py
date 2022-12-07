@@ -7,14 +7,13 @@ from shlex import split
 from shutil import which
 from subprocess import run
 
-from .. import __name__ as NAME
+from .. import APPNAME
 from ..__main__ import ASSETS_PATH
 from ..external.pynotifier import Notification
 from ..translate import Translation
 from ..ui import is_sub_thread
 
 PAT = re.compile(r"\x1b\[[0-9;]+?m")
-APP_NAME = NAME.replace("_", "-")
 NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
 ICON_FILE = str(ASSETS_PATH / "images" / "icon.png")
 
@@ -134,18 +133,10 @@ def process_output(translation: Translation) -> str:
         if which("termux-notification"):
             run(
                 split(
-                    "termux-notification -t 'Translation' --icon "
-                    + ICON_FILE
-                    + " -c"
+                    f"termux-notification -t Translation --group {APPNAME} "
+                    f"--icon {ICON_FILE} -c"
                 )
                 + [text]
             )
-        Notification(
-            "Translation",
-            text,
-            10,
-            "low",
-            ICON_FILE,
-            APP_NAME,
-        ).send()
+        Notification("Translation", text, 10, "low", ICON_FILE, APPNAME).send()
     return rst

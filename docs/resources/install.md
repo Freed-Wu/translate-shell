@@ -31,21 +31,13 @@ pip install 'translate-shell[XXX]'
 Since now, pip don't support installing man and shell completions.
 You must install them manually.
 
-Install shell completions:
+Download shell completions and man from
+[releases](https://github.com/Freed-Wu/translate-shell/releases) to correct path:
 
-````sh
-```{eval-sh}
-make --no-print-directory -n install-completions
-```
-````
-
-Install man:
-
-````sh
-```{eval-sh}
-make --no-print-directory -n install-man
-```
-````
+- bash: `/usr/share/bash-completion/completions/trans`
+- zsh: `/usr/share/zsh/site-functions/_trans`
+- tcsh: `/etc/profile.d/trans.csh`
+- man: `/usr/share/man/man1/trans.1.gz`
 
 **NOTE**: the paths of man and shell completion vary from different OS. The path
 of the above code is just for GNU/Linux. For other OSs, do a substitution:
@@ -62,6 +54,8 @@ Uninstall:
 ```sh
 pip uninstall translate-shell
 ```
+
+Delete shell completions and man by yourself.
 
 ## [From Source](https://github.com/Freed-Wu/translate-shell)
 

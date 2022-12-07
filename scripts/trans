@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+bin=trans
+if [[ $1 == --help ]]; then
+  jq -r .description addon-info.json
+  "$bin" --help | perl -pe's/(options|positional arguments):/\nOptions:/g;s/usage:/Usage:/' | perl -p0777 -e's/\n\s+\[/ [/gs'
+else
+	"$bin" "$@"
+fi

@@ -2,6 +2,7 @@
 """Update pyproject.toml from ``requirements/*.txt``."""
 import os
 import sys
+from collections import OrderedDict
 
 import tomli_w
 
@@ -22,4 +23,5 @@ for dirname, j, k in os.walk("requirements"):
 dynamic = {}
 dynamic["optional-dependencies"] = requirements
 data["tool"]["setuptools"]["dynamic"] = dynamic
-print(tomli_w.dumps(data), end="")
+
+print(tomli_w.dumps(OrderedDict(data)), end="")

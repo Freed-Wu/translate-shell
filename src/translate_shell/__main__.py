@@ -127,7 +127,9 @@ def get_parser() -> ArgumentParser:
         help="source languages. default: %(default)s",
     ).complete = LANG_COMPLETE  # type: ignore
     parser.add_argument(
-        "text", nargs="*"
+        "text",
+        nargs="*",
+        help="text needed to be translated, empty means entering REPL",
     ).complete = HISTORY_COMPLETE  # type: ignore
     return parser
 

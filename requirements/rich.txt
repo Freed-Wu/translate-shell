@@ -1,3 +1,4 @@
 #!/usr/bin/env -S pip install -r
 # See [logger](resources/config.md#logger).
+
 rich

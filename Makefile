@@ -20,12 +20,17 @@ SRC = $(shell find $(LIBPATH) -type f -name '*.py') \
 			$(LIBPATH)/assets/txt/epilog.txt \
 			$(LIBPATH)/assets/txt/version.txt \
 			pyproject.toml
+MAN_DEPENDS = scripts/$(BINNAME) $(SRC) addon-info.json
+GITIGNORE_MARKDOWN = $(patsubst docs%,%,$(GENERATE_MARKDOWN))
 
 .PHONY: default
 default: install
 
 .PHONY: all
 all: test build build-docs doc/*.txt
+
+.PHONY: build
+build: dist/trans.1.gz dist/trans dist/_trans dist/trans.csh
 
 .PHONY: install
 install: install-bin install-man install-completions install-desktop-entry
@@ -41,8 +46,11 @@ install-bin-editable: $(SRC)
 %/_version.py:
 	python -m build
 
-pyproject.toml: scripts/generate-pyproject.toml.py templates/pyproject.toml requirements/*.txt
+pyproject.toml: scripts/generate-pyproject.toml.py pyproject.toml.in requirements/*.txt
 	$(wordlist 1,2,$^) > $@
+
+CITATION.cff: scripts/generate-CITATION.cff.py CITATION.cff.in pyproject.toml
+	$(wordlist 1,3,$^) > $@
 
 src/translate_shell/external/%/__init__.py: scripts/generate-__init__.py.py src/translate_shell/external/%/__main__.py templates/__init__.py
 	$(wordlist 1,3,$^) > $@
@@ -53,22 +61,40 @@ src/translate_shell/assets/txt/epilog.txt: scripts/generate-epilog.txt.py pyproj
 src/translate_shell/assets/txt/version.txt: scripts/generate-version.txt.py pyproject.toml templates/version.txt
 	$(wordlist 1,3,$^) > $@
 
+dist/trans.1.gz: $(MAN_DEPENDS)
+	mkdir -p $(dir $@)
+	help2man $< | gzip > $@
+
+dist/trans: $(SRC)
+	mkdir -p $(dir $@)
+	$(PRINT_COMPLETIONS) bash > $@
+
+dist/_trans: $(SRC)
+	mkdir -p $(dir $@)
+	$(PRINT_COMPLETIONS) zsh > $@
+
+dist/trans.csh: $(SRC)
+	mkdir -p $(dir $@)
+	$(PRINT_COMPLETIONS) tcsh > $@
+
 .PHONY: install-man
-install-man: $(SRC)
-	help2man $(BINNAME) | gzip | sudo tee $(MANPATH) > /dev/null
+install-man: dist/trans.1.gz
+	install -Dm644 $< $(MANPATH)
 
 .PHONY: install-completions
 install-completions: install-bash-completion install-zsh-completion install-tcsh-completion
 
 .PHONY: install-bash-completion
-install-bash-completion: $(SRC)
-	$(PRINT_COMPLETIONS) bash | sudo tee $(BASH_COMPLETION) > /dev/null
+install-bash-completion: dist/trans
+	install -Dm644 $< $(BASH_COMPLETION)
+
 .PHONY: install-zsh-completion
-install-zsh-completion: $(SRC)
-	$(PRINT_COMPLETIONS) zsh | sudo tee $(ZSH_COMPLETION) > /dev/null
+install-zsh-completion: dist/_trans
+	install -Dm644 $< $(ZSH_COMPLETION)
+
 .PHONY: install-tcsh-completion
-install-tcsh-completion: $(SRC)
-	$(PRINT_COMPLETIONS) tcsh | sudo tee $(TCSH_COMPLETION) > /dev/null
+install-tcsh-completion: dist/trans.csh
+	install -Dm644 $< $(TCSH_COMPLETION)
 
 .PHONY: install-desktop-entry
 install-desktop-entry: assets/desktop/*.desktop $(LIBPATH)/assets/images/icon.png
@@ -91,14 +117,13 @@ docs/_build/html: docs/conf.py $(MARKDOWN) $(SRC)
 
 docs/resources/install.md: Makefile
 docs/resources/requirements.md: scripts/generate-requirements.md.sh requirements/*.txt
-docs/resources/man.md: scripts/generate-man.md.sh $(SRC) $(LIBPATH)/assets/txt/epilog.txt
+docs/resources/man.md: scripts/generate-man.md.sh $(MAN_DEPENDS)
 docs/resources/translator.md: scripts/generate-translator.md.py $(SRC)
 docs/resources/config.md: examples/config.py $(SRC)
 docs/resources/vim.md: scripts/generate-vim.md.sh doc/*.txt
 docs/misc/%.md: $(SRC)
 docs/api/%.md: scripts/generate-api.md.sh $(SRC)
 
-GITIGNORE_MARKDOWN = $(patsubst docs%,%,$(GENERATE_MARKDOWN))
 docs/.gitignore:
 	echo $(GITIGNORE_MARKDOWN) | perl -pe's/ /\n/g' > $@
 	git rm -f --cached --ignore-unmatch $(GENERATE_MARKDOWN)
@@ -117,7 +142,7 @@ clean:
 test:
 	$(THEMIS)
 	pytest --cov
-	pre-commit run
+	pre-commit run -a
 
 .PHONY: help
 help:

@@ -7,7 +7,7 @@ build:
   apt_packages:
     - help2man
     - pandoc
-    - perl
+    - jq
     - make
   tools:
     python: "3"
