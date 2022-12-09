@@ -7,20 +7,10 @@ build:
   apt_packages:
     - help2man
     - pandoc
-    - jq
-    - make
   tools:
     python: "3"
-  jobs:
-    pre_build:
-      - pip install -e .
-      - make build-docs
 
-sphinx:
-  configuration: docs/conf.py
-
-formats:
-  - pdf
+formats: all
 
 python:
   install:

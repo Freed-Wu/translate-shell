@@ -8,8 +8,9 @@ PRINT_COMPLETIONS = $(BINNAME) --print-completion
 BASH_COMPLETION = $(PREFIX)/share/bash-completion/completions/$(BINNAME)
 ZSH_COMPLETION = $(PREFIX)/share/zsh/site-functions/_$(BINNAME)
 TCSH_COMPLETION = /etc/profile.d/$(BINNAME).csh
-GENERATE_MARKDOWN = $(basename $(shell find docs -type f -name '*.md.in'))
-MARKDOWN = README.md $(shell find docs -type f -name '*.md') $(GENERATE_MARKDOWN)
+DESKTOP_ENTRY = $(PREFIX)/share/applications/translate-shell.desktop
+ICON = $(PREFIX)/share/$(LIBNAME)/images/icon.png
+MARKDOWN = $(shell find . -type f -name '*.md')
 EXTERNAL_MAIN_PY = $(shell find $(LIBPATH)/external/* -name __main__.py)
 EXTERNAL_INIT_PY = $(addsuffix __init__.py,$(dir $(EXTERNAL_MAIN_PY)))
 _VERSION_PY = $(LIBPATH)/_version.py
@@ -19,32 +20,18 @@ SRC = $(shell find $(LIBPATH) -type f -name '*.py') \
 			$(shell find $(LIBPATH)/assets -type f -name '*') \
 			$(LIBPATH)/assets/txt/epilog.txt \
 			$(LIBPATH)/assets/txt/version.txt \
-			pyproject.toml
-MAN_DEPENDS = scripts/$(BINNAME) $(SRC) addon-info.json
-GITIGNORE_MARKDOWN = $(patsubst docs%,%,$(GENERATE_MARKDOWN))
+			pyproject.toml setup.py
+MAN_DEPENDS = scripts/$(BINNAME) $(SRC)
 
 .PHONY: default
 default: install
 
-.PHONY: all
-all: test build build-docs doc/*.txt
-
+# build {{{ #
 .PHONY: build
-build: dist/trans.1.gz dist/trans dist/_trans dist/trans.csh
-
-.PHONY: install
-install: install-bin install-man install-completions install-desktop-entry
-
-.PHONY: install-bin
-install-bin: $(SRC)
-	pip install '.$(EXTRA)'
-
-.PHONY: install-bin-editable
-install-bin-editable: $(SRC)
-	pip install -e '.$(EXTRA)'
-
-%/_version.py:
+build: $(MAN_DEPENDS) CITATION.cff
 	python -m build
+
+%/_version.py: build
 
 pyproject.toml: scripts/generate-pyproject.toml.py pyproject.toml.in requirements/*.txt
 	$(wordlist 1,2,$^) > $@
@@ -61,23 +48,38 @@ src/translate_shell/assets/txt/epilog.txt: scripts/generate-epilog.txt.py pyproj
 src/translate_shell/assets/txt/version.txt: scripts/generate-version.txt.py pyproject.toml templates/version.txt
 	$(wordlist 1,3,$^) > $@
 
-dist/trans.1.gz: $(MAN_DEPENDS)
-	mkdir -p $(dir $@)
-	help2man $< | gzip > $@
+src/translate_shell/assets/txt/description.txt: scripts/generate-description.txt.py pyproject.toml
+	$(wordlist 1,2,$^) > $@
+# }}} build #
 
-dist/trans: $(SRC)
-	mkdir -p $(dir $@)
-	$(PRINT_COMPLETIONS) bash > $@
+# build-docs {{{ #
+.PHONY: build-docs
+build-docs: docs/conf.py $(MARKDOWN) $(SRC)
+	sphinx-build docs docs/_build/html
 
-dist/_trans: $(SRC)
-	mkdir -p $(dir $@)
-	$(PRINT_COMPLETIONS) zsh > $@
+docs/resources/requirements.md: scripts/generate-requirements.md.sh requirements/*.txt
+docs/resources/man.md: scripts/generate-man.md.sh $(MAN_DEPENDS)
+docs/resources/translator.md: scripts/generate-translator.md.py $(SRC)
+docs/resources/config.md: examples/config.py $(SRC)
+docs/resources/vim.md: scripts/generate-vim.md.sh doc/*.txt
+docs/misc/acknowledges.md: scripts/generate-acknowledges.md.sh $(SRC)
+docs/misc/todo.md: scripts/generate-todo.md.sh $(SRC)
+docs/api/%.md: scripts/generate-api.md.sh $(SRC)
 
-dist/trans.csh: $(SRC)
-	mkdir -p $(dir $@)
-	$(PRINT_COMPLETIONS) tcsh > $@
+addon-info.json: scripts/generate-addon-info.json.py pyproject.toml
+	$(wordlist 1,2,$^) > $@
+
+doc/%.txt: addon-info.json $(shell find . -type f -name '*.vim')
+	pre-commit run vimdoc
+# }}} build-docs #
+
+# install {{{ #
+.PHONY: install
+install: install-man install-completions install-desktop-entry
+	pip install -e .
 
 .PHONY: install-man
+dist/trans.1.gz: build
 install-man: dist/trans.1.gz
 	install -Dm644 $< $(MANPATH)
 
@@ -85,54 +87,31 @@ install-man: dist/trans.1.gz
 install-completions: install-bash-completion install-zsh-completion install-tcsh-completion
 
 .PHONY: install-bash-completion
+dist/trans: build
 install-bash-completion: dist/trans
 	install -Dm644 $< $(BASH_COMPLETION)
 
 .PHONY: install-zsh-completion
+dist/_trans: build
 install-zsh-completion: dist/_trans
 	install -Dm644 $< $(ZSH_COMPLETION)
 
 .PHONY: install-tcsh-completion
+dist/trans.csh: build
 install-tcsh-completion: dist/trans.csh
 	install -Dm644 $< $(TCSH_COMPLETION)
 
 .PHONY: install-desktop-entry
 install-desktop-entry: assets/desktop/*.desktop $(LIBPATH)/assets/images/icon.png
-	install -D $< -t $(PREFIX)/share/applications
-	install -D $(wordlist 2,2,$^) -t $(PREFIX)/share/$(LIBNAME)/images
+	install -D $< $(DESKTOP_ENTRY)
+	install -D $(wordlist 2,2,$^) $(ICON)
+# }}} install #
 
 .PHONY: uninstall
 uninstall:
-	rm -rf $(BASH_COMPLETION) $(ZSH_COMPLETION) $(TCSH_COMPLETION) $(MANPATH)
+	rm -rf $(BASH_COMPLETION) $(ZSH_COMPLETION) $(TCSH_COMPLETION) $(MANPATH) \
+		$(DESKTOP_ENTRY) $(ICON)
 	pip uninstall $(LIBNAME)
-
-.PHONY: build-docs
-build-docs: docs/_build/html docs/.gitignore
-
-docs/_build/html: docs/conf.py $(MARKDOWN) $(SRC)
-	sphinx-build docs $@
-
-%.md: scripts/eval-sh.pl %.md.in
-	$(wordlist 1,2,$^) > $@
-
-docs/resources/install.md: Makefile
-docs/resources/requirements.md: scripts/generate-requirements.md.sh requirements/*.txt
-docs/resources/man.md: scripts/generate-man.md.sh $(MAN_DEPENDS)
-docs/resources/translator.md: scripts/generate-translator.md.py $(SRC)
-docs/resources/config.md: examples/config.py $(SRC)
-docs/resources/vim.md: scripts/generate-vim.md.sh doc/*.txt
-docs/misc/%.md: $(SRC)
-docs/api/%.md: scripts/generate-api.md.sh $(SRC)
-
-docs/.gitignore:
-	echo $(GITIGNORE_MARKDOWN) | perl -pe's/ /\n/g' > $@
-	git rm -f --cached --ignore-unmatch $(GENERATE_MARKDOWN)
-
-doc/%.txt: addon-info.json $(shell find . -type f -name '*.vim')
-	vimdoc .
-
-addon-info.json: scripts/generate-addon-info.json.py pyproject.toml
-	$(wordlist 1,2,$^) > $@
 
 .PHONY: clean
 clean:
@@ -147,3 +126,4 @@ test:
 .PHONY: help
 help:
 	@cat docs/resources/make.md
+# ex: foldmethod=marker

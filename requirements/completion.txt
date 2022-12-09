@@ -1,4 +1,0 @@
-#!/usr/bin/env -S pip install -r
-# Generate shell completion scripts.
-
-shtab

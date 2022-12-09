@@ -9,10 +9,10 @@ _logger = _logging.getLogger(__name__)
 
 
 class _Keyring:
-    """_Keyring."""
+    """Keyring."""
 
     def get_password(self, *args: str) -> str:
-        """get_password.
+        """Get password.
 
         :param args:
         :type args: str
@@ -23,7 +23,7 @@ class _Keyring:
 
 
 def get_keyring() -> _Keyring:
-    """get_keyring.
+    """Get keyring.
 
     :rtype: _Keyring
     """

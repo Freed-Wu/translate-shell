@@ -18,7 +18,7 @@ class OnlineTranslator(Translator):
     """OnlineTranslator. All other online translators must be its subclass."""
 
     def __init__(self, name: str) -> None:
-        """__init__.
+        """Init.
 
         :param name:
         :type name: str
@@ -38,7 +38,7 @@ class OnlineTranslator(Translator):
         post: bool = False,
         header: dict[str, str] | None = None,
     ) -> str:
-        """request.
+        """Request.
 
         :param url:
         :type url: str
@@ -87,7 +87,7 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
     def http_get(
         self, url: str, data: Any = None, header: dict[str, str] | None = None
     ) -> str:
-        """http_get.
+        """Http get.
 
         :param url:
         :type url: str
@@ -102,7 +102,7 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
     def http_post(
         self, url: str, data: Any = None, header: dict[str, str] | None = None
     ) -> str:
-        """http_post.
+        """Http post.
 
         :param url:
         :type url: str
@@ -115,7 +115,7 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
         return self.request(url, data, True, header)
 
     def md5sum(self, text: str | bytes) -> str:
-        """md5sum.
+        """Md5sum.
 
         :param text:
         :type text: str | bytes
@@ -130,7 +130,7 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
         return m.hexdigest()
 
     def html_unescape(self, text: str) -> str:
-        """html_unescape.
+        """Html unescape.
 
         :param text:
         :type text: str

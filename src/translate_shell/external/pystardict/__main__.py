@@ -12,7 +12,7 @@ class Dictionary:
     """Dictionary."""
 
     def __init__(self, path: str) -> None:
-        """__init__.
+        """Init.
 
         :param path:
         :type path: str
@@ -21,7 +21,7 @@ class Dictionary:
         _logger.error("Please install pyyaml firstly!")
 
     def get(self, text: str) -> str:
-        """get.
+        """Get.
 
         :param text:
         :type text: str

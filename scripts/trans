@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-bin=trans
+cd "$(dirname "$(dirname "$0")")/src" || exit 1
 if [[ $1 == --help ]]; then
-  jq -r .description addon-info.json
-  "$bin" --help | perl -pe's/(options|positional arguments):/\nOptions:/g;s/usage:/Usage:/' | perl -p0777 -e's/\n\s+\[/ [/gs'
+	python -m translate_shell --help |
+		perl -pe's/(options|positional arguments):/\nOptions:/g;s/usage:/Usage:/' |
+		perl -p0777 -e's/\n\s+\[/ [/gs'
 else
-	"$bin" "$@"
+	python -m translate_shell "$@"
 fi

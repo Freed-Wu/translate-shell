@@ -5,14 +5,16 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
 from datetime import datetime
 
-from setuptools_scm import get_version
-
+from translate_shell import __version__ as version
 from translate_shell.utils.output import ICON_FILE
 
 try:
     import tomllib  # type: ignore
 except ImportError:
     import tomli as tomllib
+
+scriptdir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "scripts")
+os.environ["PATH"] = scriptdir + os.path.pathsep + os.getenv("PATH", "")
 
 # -- Path setup --------------------------------------------------------------
 
@@ -23,7 +25,6 @@ except ImportError:
 # -- Project information -----------------------------------------------------
 language = "en"
 copyright = "2022-" + str(datetime.now().year)
-version = get_version("..").partition(".dev")[0]
 
 PROJECT_FILE = os.path.join(
     os.path.dirname(os.path.dirname(__file__)), "pyproject.toml"
@@ -42,6 +43,7 @@ with open(PROJECT_FILE, "rb") as f:
 extensions = [
     "sphinx.ext.autodoc",
     "myst_parser",
+    "sphinxcontrib.eval",
 ]
 
 myst_heading_anchors = 3

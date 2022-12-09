@@ -6,7 +6,7 @@ language then do something according to inputs and output a result.
 Current translators are:
 
 ```{eval-sh}
-scripts/generate-translator.md.py
+generate-translator.md.py
 ```
 
 Some translators are out of box and some need configuration, which detail can be
@@ -15,7 +15,8 @@ found by clicking the above hyperlink.
 **NOTE**:
 
 - stardict and haici only support translate word, not sentence.
-- bing supports swapping languages automatically, which means `en:zh_CN` is same as `zh_CN:en`.
+- bing supports swapping languages automatically, which means `en:zh_CN` is
+  same as `zh_CN:en`.
 - haici is the slowest translator currently which often timeout.
 
 These translators can be divided to three types:
@@ -61,9 +62,9 @@ Offline translator translate text by online translate engines.
   It has a inspiring feature which user can use magic text like `en:zh_CN` to
   change some settings when in REPL.
   I realize it and use its name to name this program to salute.
-- [translator](https://github.com/skywind3000/translator) should be the first CLI program to
-  translate text by many different online translate engines at once to the best
-  of my knowledge. I use multi threads to realize it.
+- [translator](https://github.com/skywind3000/translator) should be the first
+  CLI program to translate text by many different online translate engines at
+  once to the best of my knowledge. I use multi threads to realize it.
 - [vim-translator](https://github.com/voldikss/vim-translator) a port of
   [translator](https://github.com/skywind3000/translator) for
   [vim](https://github.com/vim/vim).

@@ -32,7 +32,8 @@ Since now, pip don't support installing man and shell completions.
 You must install them manually.
 
 Download shell completions and man from
-[releases](https://github.com/Freed-Wu/translate-shell/releases) to correct path:
+[releases](https://github.com/Freed-Wu/translate-shell/releases) to the correct
+paths:
 
 - bash: `/usr/share/bash-completion/completions/trans`
 - zsh: `/usr/share/zsh/site-functions/_trans`
@@ -49,32 +50,14 @@ of the above code is just for GNU/Linux. For other OSs, do a substitution:
   `/data/data/com.termux/files/usr/etc`
 - Android (Magisk): `/system/usr/share`, `/system/etc`
 
+And for GNU/Linux user,
+[a desktop entry](https://raw.githubusercontent.com/Freed-Wu/translate-shell/main/assets/desktop/translate-shell.desktop)
+is also provided, which should be installed to `/usr/share/applications/`.
+
 Uninstall:
 
 ```sh
 pip uninstall translate-shell
 ```
 
-Delete shell completions and man by yourself.
-
-## [From Source](https://github.com/Freed-Wu/translate-shell)
-
-Install:
-
-```sh
-git clone --depth=1 https://github.com/Freed-Wu/translate-shell
-cd translate-shell
-make install
-```
-
-See [requirements](requirements) to know `extra_requires`.
-
-```sh
-make EXTRA='[XXX]' install
-```
-
-Uninstall:
-
-```sh
-make uninstall
-```
+Delete shell completions, man and desktop entry by yourself.

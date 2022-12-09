@@ -17,8 +17,8 @@ logger = logging.getLogger(__name__)
 class Translation(Namespace):
     """Translation."""
 
-    def __init__(self, text: str, target_lang: str, source_lang: str):
-        """__init__.
+    def __init__(self, text: str, target_lang: str, source_lang: str) -> None:
+        """Init.
 
         :param text:
         :type text: str
@@ -26,6 +26,7 @@ class Translation(Namespace):
         :type target_lang: str
         :param source_lang:
         :type source_lang: str
+        :rtype: None
         """
         super().__init__()
         self.status = 0
@@ -38,7 +39,7 @@ class Translation(Namespace):
 
 
 def translate_once(translator: Translator, translation: Translation) -> None:
-    """Run one thread.
+    """Translate once without multi threads.
 
     :param translator: individual for each thread
     :type translator: Translator

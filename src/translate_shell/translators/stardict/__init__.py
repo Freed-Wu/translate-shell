@@ -15,10 +15,10 @@ logger = logging.getLogger(__name__)
 
 
 def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
-    """parse_tokens.
+    """Parse tokens.
 
-    :param rst:
-    :type rst: str
+    :param tokens:
+    :type tokens: list[str]
     :param res:
     :type res: TRANSLATION
     :rtype: TRANSLATION
@@ -30,12 +30,15 @@ def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
 class StardictTranslator(Translator):
     """StardictTranslator."""
 
-    def __init__(self):
-        """__init__."""
+    def __init__(self) -> None:
+        """Init.
+
+        :rtype: None
+        """
         super().__init__("stardict")
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str
@@ -63,7 +66,7 @@ class StardictTranslator(Translator):
         return res
 
     def get_tokens(self, text: str, tl: str, sl: str) -> tuple[list[str], str]:
-        """get_tokens.
+        """Get tokens.
 
         :param text:
         :type text: str

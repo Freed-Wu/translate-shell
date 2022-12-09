@@ -30,7 +30,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
     """YoudaozhiyunTranslator."""
 
     def __init__(self) -> None:
-        """__init__.
+        """Init.
 
         :rtype: None
         """
@@ -38,7 +38,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         self.url = "https://openapi.youdao.com/api"
 
     def sign(self, text: str, salt: str) -> str:
-        """sign.
+        """Sign.
 
         :param text:
         :type text: str
@@ -50,7 +50,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         return self.md5sum(s)
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str

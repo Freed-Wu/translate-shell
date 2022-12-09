@@ -1,7 +1,6 @@
 #!/usr/bin/env -S pip install -r
 
-git+https://github.com/google/vimdoc
+-e .
 myst-parser
-setuptools-scm
+sphinxcontrib-eval
 tomli
-tomli-w

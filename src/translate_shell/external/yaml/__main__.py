@@ -4,16 +4,18 @@
 to check if it imports any variable don't owned by any true module.
 """
 import logging as _logging
-from typing import NoReturn
+from typing import Any, NoReturn
 
 _logger = _logging.getLogger(__name__)
 
 
-def dump(*args, **kwargs) -> NoReturn:
-    """dump.
+def dump(*args: Any, **kwargs: Any) -> NoReturn:
+    """Dump.
 
     :param args:
+    :type args: Any
     :param kwargs:
+    :type kwargs: Any
     :rtype: NoReturn
     """
     _logger.error("Please install pyyaml firstly!")

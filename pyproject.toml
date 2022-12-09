@@ -2,7 +2,7 @@
 requires = [
     "setuptools >= 45",
     "setuptools_scm[toml] >= 6.2",
-    "wheel",
+    "shtab",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -64,12 +64,6 @@ translate_shell = [
 [tool.setuptools.dynamic.optional-dependencies.color]
 file = "requirements/color.txt"
 
-[tool.setuptools.dynamic.optional-dependencies.completion]
-file = "requirements/completion.txt"
-
-[tool.setuptools.dynamic.optional-dependencies.dev]
-file = "requirements/dev.txt"
-
 [tool.setuptools.dynamic.optional-dependencies.keyring]
 file = "requirements/keyring.txt"
 
@@ -87,6 +81,9 @@ file = "requirements/stardict.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.yaml]
 file = "requirements/yaml.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.dev]
+file = "requirements/dev.txt"
 
 [tool.black]
 line-length = 79
@@ -118,3 +115,12 @@ ignore-words-list = "fo, nd, te"
 exclude = [
     "templates/__init__.py",
 ]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+]
+
+[tool.doq]
+template_path = "templates"

@@ -8,7 +8,7 @@ RE_EXPLAIN = re.compile(r"\w+\.")
 
 
 def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
-    """parse_tokens.
+    """Parse tokens.
 
     :param tokens:
     :type tokens: list[str]

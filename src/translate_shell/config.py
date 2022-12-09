@@ -22,9 +22,8 @@ class Configuration(Namespace):
     ]
 
     def __init__(self) -> None:
-        """__init__.
+        """Init.
 
-        :param self:
         :rtype: None
         """
         super().__init__()
@@ -43,9 +42,8 @@ class Configuration(Namespace):
         translators: str,
         is_repl: bool = False,
     ) -> tuple[str, str, str, str]:
-        """process_input.
+        """Process input.
 
-        :param self:
         :param text:
         :type text: str
         :param target_lang:

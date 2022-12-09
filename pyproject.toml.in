@@ -1,5 +1,7 @@
+# use a script to generate true `pyproject.toml`
+# if we use `setup()` in `setup.py`, some metadata will miss
 [build-system]
-requires = ["setuptools >= 45", "setuptools_scm[toml] >= 6.2", "wheel"]
+requires = ["setuptools >= 45", "setuptools_scm[toml] >= 6.2", "shtab"]
 build-backend = "setuptools.build_meta"
 
 # https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
@@ -65,3 +67,9 @@ ignore-words-list = "fo, nd, te"
 
 [tool.pyright]
 exclude = ["templates/__init__.py"]
+
+[tool.coverage.report]
+exclude_lines = ["if TYPE_CHECKING:", "if __name__ == .__main__.:"]
+
+[tool.doq]
+template_path = "templates"

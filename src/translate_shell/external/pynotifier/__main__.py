@@ -13,9 +13,8 @@ class Notification:
     """Notification."""
 
     def __init__(self, *args: Any) -> None:
-        """__init__.
+        """Init.
 
-        :param self:
         :param args:
         :type args: Any
         :rtype: None
@@ -23,7 +22,7 @@ class Notification:
         pass
 
     def send(self) -> None:
-        """send.
+        """Send.
 
         :rtype: None
         """

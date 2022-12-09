@@ -139,7 +139,7 @@ def init(args: Namespace) -> Namespace:
 
 
 def is_sub_thread() -> bool:
-    """is_sub_thread.
+    """Judge if current thread is a subthread.
 
     :rtype: bool
     """
@@ -147,7 +147,7 @@ def is_sub_thread() -> bool:
 
 
 def process(args: Namespace, is_repl: bool = False) -> None:
-    """process.
+    """Process.
 
     :param args:
     :type args: Namespace

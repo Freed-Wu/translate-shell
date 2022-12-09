@@ -45,6 +45,9 @@ repos:
     rev: 3.0.0
     hooks:
       - id: check-mailmap
+      - id: shellcheck
+      - id: shfmt
+        exclude: .*\.zsh$
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.28.0
     hooks:
@@ -109,4 +112,6 @@ repos:
 
 ci:
   skip:
+    - shellcheck
+    - shfmt
     - pyright

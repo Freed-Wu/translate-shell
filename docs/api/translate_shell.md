@@ -2,6 +2,6 @@
 
 ````{eval-rst}
 ```{eval-sh}
-scripts/generate-api.md.sh '' -maxdepth 1
+generate-api.md.sh '' -maxdepth 1
 ```
 ````

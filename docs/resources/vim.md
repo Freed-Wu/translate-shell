@@ -1,5 +1,5 @@
 # Vim Help
 
 ```{eval-sh}
-scripts/generate-vim.md.sh
+generate-vim.md.sh
 ```

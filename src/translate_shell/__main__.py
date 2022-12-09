@@ -17,6 +17,7 @@ from translate_shell.translators import TRANSLATORS
 # for vim
 __file__ = vars().get("__file__", sys.argv[0])
 ASSETS_PATH = Path(__file__).absolute().parent / "assets"
+DESCRIPTION = (ASSETS_PATH / "txt" / "description.txt").read_text()
 VERSION = (ASSETS_PATH / "txt" / "version.txt").read_text()
 EPILOG = (ASSETS_PATH / "txt" / "epilog.txt").read_text()
 PREAMBLE = {
@@ -64,7 +65,10 @@ def get_parser() -> ArgumentParser:
     :rtype: ArgumentParser
     """
     parser = ArgumentParser(
-        "trans", epilog=EPILOG, formatter_class=RawDescriptionHelpFormatter
+        "trans",
+        description=DESCRIPTION,
+        epilog=EPILOG,
+        formatter_class=RawDescriptionHelpFormatter,
     )
     parser.add_argument("-V", "--version", version=VERSION, action="version")
     shtab.add_argument_to(parser, preamble=PREAMBLE)  # type: ignore
@@ -139,7 +143,7 @@ def main() -> None | NoReturn:
     Parse arguments and provide shell completions.
     Parse arguments is before init configuration to provide ``--config``.
 
-    :rtype: None
+    :rtype: None | NoReturn
     """
     parser = get_parser()
     args = parser.parse_args()
