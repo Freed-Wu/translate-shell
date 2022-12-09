@@ -2,7 +2,7 @@
 requires = [
     "setuptools >= 45",
     "setuptools_scm[toml] >= 6.2",
-    "wheel",
+    "setuptools-generate",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -52,29 +52,23 @@ trans = "translate_shell.__main__:main"
 [tool.setuptools_scm]
 write_to = "src/translate_shell/_version.py"
 
+[tool.setuptools-generate]
+write-to = "src/translate_shell/_metainfo.py"
+
+[tool.setuptools-generate.metainfo-template]
+file = "templates/metainfo.py"
+
 [tool.setuptools.package-data]
 translate_shell = [
     "py.typed",
-    "*.json",
-    "*.zsh",
-    "*.txt",
-    "*.png",
+    "assets/*",
 ]
 
 [tool.setuptools.dynamic.optional-dependencies.color]
 file = "requirements/color.txt"
 
-[tool.setuptools.dynamic.optional-dependencies.completion]
-file = "requirements/completion.txt"
-
-[tool.setuptools.dynamic.optional-dependencies.dev]
-file = "requirements/dev.txt"
-
 [tool.setuptools.dynamic.optional-dependencies.keyring]
 file = "requirements/keyring.txt"
-
-[tool.setuptools.dynamic.optional-dependencies.langdetect]
-file = "requirements/langdetect.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.notification]
 file = "requirements/notification.txt"
@@ -87,6 +81,12 @@ file = "requirements/stardict.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.yaml]
 file = "requirements/yaml.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.langdetect]
+file = "requirements/langdetect.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.dev]
+file = "requirements/dev.txt"
 
 [tool.black]
 line-length = 79
@@ -118,3 +118,13 @@ ignore-words-list = "fo, nd, te"
 exclude = [
     "templates/__init__.py",
 ]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+    "\\s*import tomli as tomllib",
+]
+
+[tool.doq]
+template_path = "templates"

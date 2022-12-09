@@ -6,7 +6,7 @@ to check if it imports any variable don't owned by any true module.
 
 
 def init() -> None:
-    """init.
+    """Init.
 
     :rtype: None
     """
@@ -14,10 +14,10 @@ def init() -> None:
 
 
 class _Colorama:
-    """_Colorama."""
+    """Colorama."""
 
     def __getattribute__(self, _: str) -> str:
-        """__getattribute__.
+        """Getattribute.
 
         :param _:
         :type _: str

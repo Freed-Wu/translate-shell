@@ -1,3 +1,0 @@
-trans 0.0.6
-Copyright (C) 2022-2022
-Written by Wu Zhenyu.

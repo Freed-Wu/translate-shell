@@ -10,6 +10,11 @@ from pathlib import Path
 from typing import Literal, NoReturn
 
 from translate_shell import __version__  # type: ignore
+from translate_shell._metainfo import (  # type: ignore
+    DESCRIPTION,
+    EPILOG,
+    VERSION,
+)
 from translate_shell.config import Configuration
 from translate_shell.external import shtab
 from translate_shell.translators import TRANSLATORS
@@ -17,8 +22,6 @@ from translate_shell.translators import TRANSLATORS
 # for vim
 __file__ = vars().get("__file__", sys.argv[0])
 ASSETS_PATH = Path(__file__).absolute().parent / "assets"
-VERSION = (ASSETS_PATH / "txt" / "version.txt").read_text()
-EPILOG = (ASSETS_PATH / "txt" / "epilog.txt").read_text()
 PREAMBLE = {
     "bash": (ASSETS_PATH / "bash" / "preamble.sh").read_text(),
     "zsh": (ASSETS_PATH / "zsh" / "preamble.zsh").read_text(),
@@ -60,11 +63,15 @@ config = Configuration()
 
 def get_parser() -> ArgumentParser:
     """Get a parser for unit test.
+    Provide shell completions.
 
     :rtype: ArgumentParser
     """
     parser = ArgumentParser(
-        "trans", epilog=EPILOG, formatter_class=RawDescriptionHelpFormatter
+        "trans",
+        description=DESCRIPTION,
+        epilog=EPILOG,
+        formatter_class=RawDescriptionHelpFormatter,
     )
     parser.add_argument("-V", "--version", version=VERSION, action="version")
     shtab.add_argument_to(parser, preamble=PREAMBLE)  # type: ignore
@@ -136,10 +143,9 @@ def get_parser() -> ArgumentParser:
 
 def main() -> None | NoReturn:
     """``python -m translate_shell`` call this function.
-    Parse arguments and provide shell completions.
     Parse arguments is before init configuration to provide ``--config``.
 
-    :rtype: None
+    :rtype: None | NoReturn
     """
     parser = get_parser()
     args = parser.parse_args()

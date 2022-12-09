@@ -25,11 +25,7 @@ def number_to_sign(number: int) -> str:
     :type number: int
     :rtype: str
     """
-    sign = ""
-    while number > 0:
-        last_digit = number % 10
-        sign = NUMBER.get(str(last_digit), "") + sign
-        number = number // 10
+    sign = "".join(list(map(NUMBER.get, str(number))))
     return sign
 
 

@@ -15,7 +15,7 @@ class BingTranslator(OnlineTranslator):
     """BingTranslator."""
 
     def __init__(self) -> None:
-        """__init__.
+        """Init.
 
         :rtype: None
         """
@@ -31,7 +31,7 @@ class BingTranslator(OnlineTranslator):
         )
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str
@@ -60,7 +60,7 @@ class BingTranslator(OnlineTranslator):
         return res
 
     def get_phonetic(self, html: str) -> str:
-        """get_phonetic.
+        """Get phonetic.
 
         :param html:
         :type html: str
@@ -74,7 +74,7 @@ class BingTranslator(OnlineTranslator):
         return self.html_unescape(m[0].strip())
 
     def get_explains(self, html: str) -> dict[str, str]:
-        """get_explains.
+        """Get explains.
 
         :param html:
         :type html: str

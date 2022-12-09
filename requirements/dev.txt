@@ -5,7 +5,5 @@ neovim
 pexpect
 pre-commit
 pytest-cov
-setuptools-scm
-shtab
-tomli
+tomli>=1.0.0; python_version < '3.11'
 tomli-w

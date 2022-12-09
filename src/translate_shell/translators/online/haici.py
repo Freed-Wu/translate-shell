@@ -23,7 +23,7 @@ class HaiciTranslator(OnlineTranslator):
         self.timeout = 15
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str
@@ -47,7 +47,7 @@ class HaiciTranslator(OnlineTranslator):
         return res
 
     def get_phonetic(self, html: str) -> str:
-        """get_phonetic.
+        """Get phonetic.
 
         :param html:
         :type html: str
@@ -57,7 +57,7 @@ class HaiciTranslator(OnlineTranslator):
         return m[0] if m else ""
 
     def get_explains(self, html: str) -> dict[str, str]:
-        """get_explains.
+        """Get explains.
 
         :param html:
         :type html: str
@@ -72,11 +72,11 @@ class HaiciTranslator(OnlineTranslator):
         return explains
 
     def get_details(self, html: str) -> dict[str, dict[str, str]]:
-        """get_details.
+        """Get details.
 
         :param html:
         :type html: str
-        :rtype: dict[str, str]
+        :rtype: dict[str, dict[str, str]]
         """
         details = {}
         m = re.findall(r'<div id="s">(.*?)</div>', html)

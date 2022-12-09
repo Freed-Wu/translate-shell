@@ -23,7 +23,7 @@ class Translator:
     """Basic translator. All other translators must be its subclass."""
 
     def __init__(self, name: str) -> None:
-        """__init__.
+        """Init.
 
         :param name:
         :type name: str
@@ -32,7 +32,7 @@ class Translator:
         self._name = name
 
     def create_translation(self, text: str, tl: str, sl: str) -> TRANSLATION:
-        """create_translation.
+        """Create translation.
 
         :param text:
         :type text: str
@@ -55,7 +55,7 @@ class Translator:
         return res
 
     def __call__(self, text: str, tl: str, sl: str) -> dict[str, str] | None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str

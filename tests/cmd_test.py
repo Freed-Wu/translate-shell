@@ -1,11 +1,19 @@
 """Test cmd."""
 from contextlib import suppress
 
-from translate_shell.__main__ import EPILOG, VERSION, get_parser
+from translate_shell.__main__ import get_parser
+from translate_shell._metainfo import (  # type: ignore
+    DESCRIPTION,
+    EPILOG,
+    VERSION,
+)
 
 from . import ASSETS_PATH
 
 parser = get_parser()
+USAGE = (ASSETS_PATH / "txt" / "usage.txt").read_text()
+OPTIONS = (ASSETS_PATH / "txt" / "options.txt").read_text()
+HELP = "\n".join([USAGE, DESCRIPTION, "", OPTIONS, EPILOG])
 
 
 class Test:
@@ -19,8 +27,7 @@ class Test:
         with suppress(SystemExit):
             parser.parse_args(["--help"])
         captured = capsys.readouterr()
-        expected = (ASSETS_PATH / "txt" / "help.txt").read_text()
-        assert captured.out == expected + "\n" + EPILOG
+        assert captured.out.strip() == HELP
 
     def test_version(self, capsys):
         """Test version.
@@ -30,4 +37,4 @@ class Test:
         with suppress(SystemExit):
             parser.parse_args(["--version"])
         captured = capsys.readouterr()
-        assert captured.out == VERSION
+        assert captured.out.strip() == VERSION.strip()

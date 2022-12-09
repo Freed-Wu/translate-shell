@@ -1,5 +1,7 @@
+# use a script to generate true `pyproject.toml`
+# if we use `setup()` in `setup.py`, some metadata will miss
 [build-system]
-requires = ["setuptools >= 45", "setuptools_scm[toml] >= 6.2", "wheel"]
+requires = ["setuptools >= 45", "setuptools_scm[toml] >= 6.2", "setuptools-generate"]
 build-backend = "setuptools.build_meta"
 
 # https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
@@ -34,14 +36,20 @@ Download = "https://github.com/Freed-Wu/translate-shell/releases"
 "Bug Report" = "https://github.com/Freed-Wu/translate-shell/issues"
 Source = "https://github.com/Freed-Wu/translate-shell"
 
+[project.scripts]
+trans = "translate_shell.__main__:main"
+
 [tool.setuptools_scm]
 write_to = "src/translate_shell/_version.py"
 
-[tool.setuptools.package-data]
-translate_shell = ["py.typed", "*.json", "*.zsh", "*.txt", "*.png"]
+[tool.setuptools-generate]
+write-to = "src/translate_shell/_metainfo.py"
 
-[project.scripts]
-trans = "translate_shell.__main__:main"
+[tool.setuptools-generate.metainfo-template]
+file = "templates/metainfo.py"
+
+[tool.setuptools.package-data]
+translate_shell = ["py.typed", "assets/*"]
 
 [tool.black]
 line-length = 79
@@ -65,3 +73,13 @@ ignore-words-list = "fo, nd, te"
 
 [tool.pyright]
 exclude = ["templates/__init__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "if TYPE_CHECKING:",
+  "if __name__ == .__main__.:",
+  "\\s*import tomli as tomllib",
+]
+
+[tool.doq]
+template_path = "templates"

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-for file in requirements/*.txt ; do
+cd "$(dirname "$(dirname "$0")")" || exit 1
+for file in requirements/*.txt; do
 	filename="${file##*/}"
-  cat "$file" | perl -pe's=^([^#]\S*)=- [\1](https://pypi.org/project/\1)=g;s/^#\s*//g;s/^!.*/## '"${filename%%.txt}"'/g'
+	perl -pe's`^([^#\n][^\s>=<^!^]*)`- [\1](https://pypi.org/project/\1)`g;
+	s/^#\s*//g;s/^!.*/## '"${filename%%.txt}"'/g' <"$file"
 done

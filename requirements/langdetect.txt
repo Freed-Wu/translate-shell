@@ -1,4 +1,5 @@
 #!/usr/bin/env -S pip install -r
-# Language detect automatically, only used by stardict.
+# Language detect automatically, only used by
+# [offline translators](resources/translator.md#offline-translators).
 
 langdetect

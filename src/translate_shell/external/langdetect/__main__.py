@@ -11,7 +11,7 @@ LangDetectException = Exception
 
 
 def detect(text: str) -> str:
-    """detect.
+    """Detect.
 
     :param text:
     :type text: str

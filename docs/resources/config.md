@@ -7,8 +7,8 @@ method to customization. See [file location](resources/man.md#files) to know
 where is the config. The file location usually respect standard of every OS
 (history file is similar):
 
-- GNU/Linux, Windows (Msys2, Cygwin): `${XDG_CONFIG_HOME:-$HOME/.config}/translate-shell/config.py`
-- Android (Termux): `${PREFIX:-/data/data/com.termux/files}/home/translate-shell/config.py`
+- GNU/Linux, Android (Termux), Windows (Msys2, Cygwin):
+  `${XDG_CONFIG_HOME:-$HOME/.config}/translate-shell/config.py`
 - Windows (native): `%APPDATA%\Local\translate-shell\config.py`
 - macOS: `$HOME/Library/translate-shell/config.py`
 - dropdown: `$HOME/.translate-shell/config.py`
@@ -184,11 +184,13 @@ Some magic texts are inspired by shell.
 
 And we will preprocess the non-magic text:
 
-- convert `\t` to ` `, useful for translate programming variables
-- strip trailing whitespaces, reduce length due to limitation of some translation engines
-- strip redundant whitespaces, reduce length due to limitation of some translation engines
-- convert `-\n` to ``, useful for reading pdf
-- convert `\n` to ` `, useful for reading pdf
+- convert `\t` to ' ', useful for translate programming variables
+- strip trailing whitespaces, reduce length due to limitation of some
+  translation engines
+- strip redundant whitespaces, reduce length due to limitation of some
+  translation engines
+- remove `-\n`, useful for reading pdf
+- convert `\n` to ' ', useful for reading pdf
 - change `get_char` to `get char`, useful for translate programming variables
 - change `getChar` to `get char`, useful for translate programming variables
 - lowercase, useful for translate programming variables
@@ -199,15 +201,15 @@ Refer <https://github.com/felixonmars/ydcv/issues/67>:
 
 The clipboard get
 
-> Some earlier results suggest\n
+> Some earlier results suggest\\n
 > that incorporating local normalization in linear block transform coding
-> methods can improve cod-\n
+> methods can improve cod-\\n
 > ing performance
 
 If we don't preprocess text, the result of youdaozhiyun will be:
 
-> 一些早期的结果表明\n
-> 在线性分块变换编码方法中加入局部归一化可以提高编码质量\n
+> 一些早期的结果表明\\n
+> 在线性分块变换编码方法中加入局部归一化可以提高编码质量\\n
 > 荷兰国际集团(ing)性能
 
 It is not your need, I believe.
@@ -243,6 +245,7 @@ def process_output(translation):
         for rst in translation.results
     )
     return text
+
 
 config.process_output = process_output
 ```

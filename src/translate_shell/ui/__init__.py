@@ -11,7 +11,7 @@ from threading import get_ident, main_thread
 from types import ModuleType
 from typing import Callable
 
-from .. import APPDIRS, CONFIG_FILE, CONFIG_PATH, HISTORY_FILE, HISTORY_PATH
+from .. import CONFIG_FILE, HISTORY_FILE
 from ..__main__ import get_parser
 from ..config import Configuration
 from ..external import readline
@@ -55,8 +55,8 @@ def init_readline() -> ModuleType:
 
     :rtype: ModuleType
     """
-    APPDIRS.user_data_path.mkdir(parents=True, exist_ok=True)
-    HISTORY_PATH.touch(exist_ok=True)
+    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    HISTORY_FILE.touch(exist_ok=True)
     atexit.register(readline.write_history_file, HISTORY_FILE)  # type: ignore
     readline.read_history_file(HISTORY_FILE)
     return readline
@@ -73,14 +73,14 @@ def init_config(path: Path) -> Configuration:
     try:
         configure_code = path.read_text()
     except FileNotFoundError:
-        logger.info(CONFIG_FILE + "is not found!")
+        logger.info(str(CONFIG_FILE) + "is not found!")
         return config
     namespace = {}
     try:
         exec(configure_code, namespace, namespace)  # nosec: B102
     except Exception as e:
         logger.error(e)
-        logger.warning("Ignore " + CONFIG_FILE)
+        logger.warning("Ignore " + str(CONFIG_FILE))
         return config
     configure = namespace.get("configure")
     if not isinstance(configure, Callable):
@@ -89,10 +89,10 @@ def init_config(path: Path) -> Configuration:
         new_config = configure()
     except Exception as e:
         logger.error(e)
-        logger.warning("Ignore configuration of " + CONFIG_FILE)
+        logger.warning("Ignore configuration of " + str(CONFIG_FILE))
         return config
     if not isinstance(new_config, Configuration):
-        logger.error("configuration of " + CONFIG_FILE + "is not legal!")
+        logger.error("configuration of " + str(CONFIG_FILE) + "is not legal!")
         return config
     return new_config
 
@@ -108,10 +108,10 @@ def init(args: Namespace) -> Namespace:
     :type args: Namespace
     """
     if args.config:
-        config_path = Path(args.config)
+        config_file = Path(args.config)
     else:
-        config_path = CONFIG_PATH
-    config = init_config(config_path)
+        config_file = CONFIG_FILE
+    config = init_config(config_file)
     for action in get_parser()._get_optional_actions():
         if (
             not isinstance(action, _StoreAction)
@@ -139,7 +139,7 @@ def init(args: Namespace) -> Namespace:
 
 
 def is_sub_thread() -> bool:
-    """is_sub_thread.
+    """Judge if current thread is a subthread.
 
     :rtype: bool
     """
@@ -147,7 +147,7 @@ def is_sub_thread() -> bool:
 
 
 def process(args: Namespace, is_repl: bool = False) -> None:
-    """process.
+    """Process.
 
     :param args:
     :type args: Namespace

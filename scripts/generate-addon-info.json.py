@@ -4,12 +4,12 @@ import json
 import sys
 from argparse import Namespace
 
-from setuptools_scm import get_version
+from translate_shell import __version__  # type: ignore
 
 try:
     import tomllib  # type: ignore
 except ImportError:
-    import tomli as tomllib
+    import tomli as tomllib  # type: ignore
 
 
 with open(sys.argv[1], "rb") as f:
@@ -18,7 +18,7 @@ with open(sys.argv[1], "rb") as f:
 data = {
     "name": project.name,
     "description": project.description,
-    "version": get_version().partition(".dev")[0],
+    "version": __version__.partition(".dev")[0],
     "author": project.authors[0]["name"]
     + " <"
     + project.authors[0]["email"]

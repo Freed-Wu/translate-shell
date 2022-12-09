@@ -13,14 +13,14 @@ class Speaker(Translator):
     """Speaker."""
 
     def __init__(self) -> None:
-        """__init__.
+        """Init.
 
         :rtype: None
         """
         super().__init__("speaker")
 
     def __call__(self, text: str, tl: str, sl: str) -> None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str

@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 """Generate translator.md."""
+import logging
+
 from translate_shell.translators import TRANSLATORS
+
+logging.basicConfig(level="CRITICAL")
 
 print(
     "\n".join(

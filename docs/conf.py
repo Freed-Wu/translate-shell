@@ -3,18 +3,14 @@
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 import os
-from datetime import datetime
 
-from setuptools_scm import get_version
-
-from translate_shell.utils.output import ICON_FILE
-
-try:
-    import tomllib  # type: ignore
-except ImportError:
-    import tomli as tomllib
+from translate_shell import __version__ as version
+from translate_shell._metainfo import author, copyright, project
+from translate_shell.utils.output import ICON_FILE as html_favicon
 
 # -- Path setup --------------------------------------------------------------
+scriptdir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "scripts")
+os.environ["PATH"] = scriptdir + os.path.pathsep + os.getenv("PATH", "")
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -22,17 +18,6 @@ except ImportError:
 
 # -- Project information -----------------------------------------------------
 language = "en"
-copyright = "2022-" + str(datetime.now().year)
-version = get_version("..").partition(".dev")[0]
-
-PROJECT_FILE = os.path.join(
-    os.path.dirname(os.path.dirname(__file__)), "pyproject.toml"
-)
-
-with open(PROJECT_FILE, "rb") as f:
-    data = tomllib.load(f)["project"]
-    author = data["authors"][0]["name"]
-    project = data["name"]
 
 # -- General configuration ---------------------------------------------------
 
@@ -42,6 +27,7 @@ with open(PROJECT_FILE, "rb") as f:
 extensions = [
     "sphinx.ext.autodoc",
     "myst_parser",
+    "sphinxcontrib.eval",
 ]
 
 myst_heading_anchors = 3
@@ -66,4 +52,3 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
-html_favicon = ICON_FILE

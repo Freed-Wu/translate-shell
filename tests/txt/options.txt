@@ -1,11 +1,3 @@
-usage: trans [-h] [-V] [--print-completion {bash,zsh,tcsh}]
-             [--print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker}]]
-             [-v] [-q] [--no-clipboard | --clipboard]
-             [--sleep-seconds SLEEP_SECONDS] [--config CONFIG]
-             [--format {json,yaml,text}] [--translators TRANSLATORS]
-             [--target-lang TARGET_LANG] [--source-lang SOURCE_LANG]
-             [text ...]
-
 positional arguments:
   text                  text needed to be translated, empty means entering
                         REPL

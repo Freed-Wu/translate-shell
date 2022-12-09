@@ -10,7 +10,7 @@ class AppDirs:
     """AppDirs."""
 
     def __init__(self, appname: str) -> None:
-        """__init__.
+        """Init.
 
         :param appname:
         :type appname: str

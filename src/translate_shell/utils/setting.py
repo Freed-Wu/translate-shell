@@ -17,7 +17,7 @@ def get_setting(name: str | None) -> str:
     elif name == "dictionary_dirs":
         from .. import STARDICT_DIRS
 
-        result = "\n".join(STARDICT_DIRS)
+        result = "\n".join(map(str, STARDICT_DIRS))
     elif name == "translators":
         from ..translators import TRANSLATORS
 
@@ -44,7 +44,7 @@ def get_setting(name: str | None) -> str:
         result = "\n".join(SETTINGS)
     else:
         result = ""
-    return result
+    return str(result)
 
 
 def print_setting(name: str) -> int:

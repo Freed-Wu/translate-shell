@@ -3,7 +3,7 @@
 """
 try:
     from ._version import __version__, __version_tuple__  # type: ignore
-except ImportError:
+except ImportError:  # For vim
     __version__ = "rolling"
     __version_tuple__ = (0, 0, 0, __version__, "")
 
@@ -13,27 +13,17 @@ __all__ = [
     "__version__",
     "__version_tuple__",
     "APPNAME",
-    "APPDIRS",
-    "CONFIG_PATH",
     "CONFIG_FILE",
-    "HISTORY_PATH",
     "HISTORY_FILE",
-    "STARDICT_PATHS",
     "STARDICT_DIRS",
 ]
 
 APPNAME = __name__.replace("_", "-")
-APPDIRS = AppDirs(APPNAME)
-CONFIG_PATH = APPDIRS.user_config_path / "config.py"
-CONFIG_FILE = str(CONFIG_PATH)
-HISTORY_PATH = APPDIRS.user_data_path / "history.txt"
-HISTORY_FILE = str(HISTORY_PATH)
+appdirs = AppDirs(APPNAME)
+CONFIG_FILE = appdirs.user_config_path / "config.py"
+HISTORY_FILE = appdirs.user_data_path / "history.txt"
 stardict_appdirs = AppDirs("stardict/dic")
-STARDICT_PATHS = [
+STARDICT_DIRS = [
     stardict_appdirs.user_data_path,
     stardict_appdirs.site_data_path,
-]
-STARDICT_DIRS = [
-    stardict_appdirs.user_data_dir,
-    stardict_appdirs.site_data_dir,
 ]

@@ -1,7 +1,7 @@
-# UI
+# Utils
 
 ````{eval-rst}
 ```{eval-sh}
-scripts/generate-api.md.sh ui
+generate-api.md.sh utils
 ```
 ````

@@ -2,6 +2,8 @@
 
 Now this program support GUI in Linux, Android, macOS and Windows.
 
+Need [py-notifier](https://pypi.org/project/py-notifier) to be installed.
+
 ## GNU/Linux
 
 Need [libnotify](https://gitlab.gnome.org/GNOME/libnotify) to be installed.

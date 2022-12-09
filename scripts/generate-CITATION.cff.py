@@ -5,7 +5,7 @@ import sys
 try:
     import tomllib  # type: ignore
 except ImportError:
-    import tomli as tomllib
+    import tomli as tomllib  # type: ignore
 
 with open(sys.argv[1], "r") as f:
     citation = f.read()

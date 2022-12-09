@@ -9,7 +9,7 @@ import tomli_w
 try:
     import tomllib  # type: ignore
 except ImportError:
-    import tomli as tomllib
+    import tomli as tomllib  # type: ignore
 
 with open(sys.argv[1], "rb") as f:
     data = tomllib.load(f)

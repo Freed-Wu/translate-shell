@@ -14,23 +14,21 @@ from ...ui import get_youdaozhiyun_app_info  # type: ignore
 from .. import TRANSLATION
 from . import OnlineTranslator
 
+logger = logging.getLogger(__name__)
+with (ASSETS_PATH / "json" / "youdaozhiyun-error.json").open() as f:
+    ERROR = json.load(f)
 try:
     YDAPPID, YDAPPSEC = get_youdaozhiyun_app_info()
 except Exception:
+    logger.warning("get_youdaozhiyun_app_info() fails. Skip it.")
     YDAPPID = YDAPPSEC = ""
-
-logger = logging.getLogger(__name__)
-
-ERROR = json.loads(
-    (ASSETS_PATH / "json" / "youdaozhiyun_error.json").read_text()
-)
 
 
 class YoudaozhiyunTranslator(OnlineTranslator):
     """YoudaozhiyunTranslator."""
 
     def __init__(self) -> None:
-        """__init__.
+        """Init.
 
         :rtype: None
         """
@@ -38,7 +36,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         self.url = "https://openapi.youdao.com/api"
 
     def sign(self, text: str, salt: str) -> str:
-        """sign.
+        """Sign.
 
         :param text:
         :type text: str
@@ -50,7 +48,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         return self.md5sum(s)
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str

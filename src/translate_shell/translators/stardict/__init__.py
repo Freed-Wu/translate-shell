@@ -7,7 +7,7 @@ better
 """
 import logging
 
-from ... import STARDICT_PATHS
+from ... import STARDICT_DIRS
 from ...external.pystardict import Dictionary
 from .. import TRANSLATION, Translator
 
@@ -15,10 +15,10 @@ logger = logging.getLogger(__name__)
 
 
 def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
-    """parse_tokens.
+    """Parse tokens.
 
-    :param rst:
-    :type rst: str
+    :param tokens:
+    :type tokens: list[str]
     :param res:
     :type res: TRANSLATION
     :rtype: TRANSLATION
@@ -30,12 +30,15 @@ def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
 class StardictTranslator(Translator):
     """StardictTranslator."""
 
-    def __init__(self):
-        """__init__."""
+    def __init__(self) -> None:
+        """Init.
+
+        :rtype: None
+        """
         super().__init__("stardict")
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str
@@ -63,7 +66,7 @@ class StardictTranslator(Translator):
         return res
 
     def get_tokens(self, text: str, tl: str, sl: str) -> tuple[list[str], str]:
-        """get_tokens.
+        """Get tokens.
 
         :param text:
         :type text: str
@@ -86,10 +89,10 @@ class StardictTranslator(Translator):
             logger.warning(sl + " to " + tl + " dictionary is not found!")
             return [], ""
         target_dir = None
-        for dir in STARDICT_PATHS:
+        for dir in STARDICT_DIRS:
             exist = False
             for ext in ["dict.dz", "dict"]:
-                if not (dir / ".".join([dictionary, ext])).exists():
+                if not (dir / (dictionary + "." + ext)).exists():
                     exist = True
                     break
             if exist:
@@ -103,7 +106,7 @@ class StardictTranslator(Translator):
         logger.warning(
             dictionary
             + " is not found in "
-            + ", ".join(map(str, STARDICT_PATHS))
+            + ", ".join(map(str, STARDICT_DIRS))
         )
         return [], dictionary
 

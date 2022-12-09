@@ -25,7 +25,7 @@ class GoogleTranslator(OnlineTranslator):
         self._cnhost = "translate.google.com.hk"
 
     def get_url(self, sl: str, tl: str, qry: str) -> str:
-        """get_url.
+        """Get url.
 
         :param sl:
         :type sl: str
@@ -46,7 +46,7 @@ class GoogleTranslator(OnlineTranslator):
         return url
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
-        """__call__.
+        """Call.
 
         :param text:
         :type text: str
@@ -71,7 +71,7 @@ class GoogleTranslator(OnlineTranslator):
         return res
 
     def get_phonetic(self, obj: list[Any]) -> str:
-        """get_phonetic.
+        """Get phonetic.
 
         :param obj:
         :type obj: list[Any]
@@ -83,7 +83,7 @@ class GoogleTranslator(OnlineTranslator):
         return ""
 
     def get_paraphrase(self, obj: list[Any]) -> str:
-        """get_paraphrase.
+        """Get paraphrase.
 
         :param obj:
         :type obj: list[Any]
@@ -96,7 +96,7 @@ class GoogleTranslator(OnlineTranslator):
         return paraphrase
 
     def get_explains(self, obj: list[Any]) -> dict[str, str]:
-        """get_explains.
+        """Get explains.
 
         :param obj:
         :type obj: list[Any]
@@ -111,7 +111,7 @@ class GoogleTranslator(OnlineTranslator):
         return expls
 
     def get_details(self, resp: list[Any]) -> dict[str, dict[str, str]]:
-        """get_detail.
+        """Get details.
 
         :param resp:
         :type resp: list[Any]
@@ -131,7 +131,7 @@ class GoogleTranslator(OnlineTranslator):
         return result
 
     def get_alternatives(self, resp: list[Any]) -> list[str]:
-        """get_alternatives.
+        """Get alternatives.
 
         :param resp:
         :type resp: list[Any]

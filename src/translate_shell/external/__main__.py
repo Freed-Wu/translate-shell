@@ -12,7 +12,7 @@ from setuptools import find_packages
 
 
 def filter_var(variables: dict[str, Any]) -> dict[str, Any]:
-    """filter_var.
+    """Filter var.
 
     :param variables:
     :type variables: dict[str, Any]
@@ -28,7 +28,7 @@ def filter_var(variables: dict[str, Any]) -> dict[str, Any]:
 
 
 def get_wrong_varnames(file: str, fake_vars: dict[str, Any]) -> list[str]:
-    """get_wrong_varnames.
+    """Get wrong varnames.
 
     :param file:
     :type file: str
@@ -50,7 +50,7 @@ def get_wrong_varnames(file: str, fake_vars: dict[str, Any]) -> list[str]:
 def print_wrong_varnames(
     file: str, fake_vars: dict[str, Any], end: str = "\n"
 ) -> int:
-    """print_wrong_varnames.
+    """Print wrong varnames.
 
     :param file:
     :type file: str
