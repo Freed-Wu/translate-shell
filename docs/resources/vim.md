@@ -1,5 +1,6 @@
 # Vim Help
 
 ```{eval-sh}
-generate-vim.md.sh
+cd ..
+scripts/generate-vim.md.pl doc/*.txt
 ```

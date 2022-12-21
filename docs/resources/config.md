@@ -20,6 +20,7 @@ return a `Configuration` object. An example is as following:
 
 ````python
 ```{eval-sh}
+cd ..
 cat examples/config.py
 ```
 ````
@@ -113,6 +114,7 @@ Quoted from [ydcv](https://github.com/felixonmars/ydcv)
 
 ````python
 ```{eval-sh}
+cd ..
 cat src/*/utils/youdaozhiyun.py
 ```
 ````

@@ -6,7 +6,8 @@ language then do something according to inputs and output a result.
 Current translators are:
 
 ```{eval-sh}
-generate-translator.md.py
+cd ..
+scripts/generate-translator.md.py
 ```
 
 Some translators are out of box and some need configuration, which detail can be

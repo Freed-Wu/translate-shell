@@ -2,15 +2,11 @@
 
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
-import os
-
 from translate_shell import __version__ as version
 from translate_shell._metainfo import author, copyright, project
 from translate_shell.utils.output import ICON_FILE as html_favicon
 
 # -- Path setup --------------------------------------------------------------
-scriptdir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "scripts")
-os.environ["PATH"] = scriptdir + os.path.pathsep + os.getenv("PATH", "")
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
