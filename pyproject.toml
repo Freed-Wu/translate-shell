@@ -1,41 +1,34 @@
 [build-system]
 requires = [
-    "setuptools >= 45",
-    "setuptools_scm[toml] >= 6.2",
-    "setuptools-generate",
+  "setuptools >= 45",
+  "setuptools_scm[toml] >= 6.2",
+  "setuptools-generate",
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "translate-shell"
 description = "Translate text by google, bing, youdaozhiyun, haici, stardict, etc at same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim."
-authors = [
-    { name = "Wu Zhenyu", email = "wuzhenyu@ustc.edu" },
-]
+authors = [{ name = "Wu Zhenyu", email = "wuzhenyu@ustc.edu" }]
 readme = "README.md"
 requires-python = ">= 3.9"
-keywords = [
-    "translate",
-]
+keywords = ["translate"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "Topic :: Software Development :: Build Tools",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    "Operating System :: Microsoft :: Windows",
-    "Operating System :: POSIX",
-    "Operating System :: Unix",
-    "Operating System :: MacOS",
-    "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX",
+  "Operating System :: Unix",
+  "Operating System :: MacOS",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
 ]
-dynamic = [
-    "version",
-    "optional-dependencies",
-]
+dynamic = ["version", "optional-dependencies"]
 
 [project.license]
 text = "GPL v3"
@@ -59,16 +52,20 @@ write-to = "src/translate_shell/_metainfo.py"
 file = "templates/metainfo.py"
 
 [tool.setuptools.package-data]
-translate_shell = [
-    "py.typed",
-    "assets/*",
-]
+translate_shell = ["py.typed", "assets/*"]
 
+# begin: scripts/generate-pyproject.toml.pl
 [tool.setuptools.dynamic.optional-dependencies.color]
 file = "requirements/color.txt"
 
+[tool.setuptools.dynamic.optional-dependencies.dev]
+file = "requirements/dev.txt"
+
 [tool.setuptools.dynamic.optional-dependencies.keyring]
 file = "requirements/keyring.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.langdetect]
+file = "requirements/langdetect.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.notification]
 file = "requirements/notification.txt"
@@ -81,12 +78,7 @@ file = "requirements/stardict.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.yaml]
 file = "requirements/yaml.txt"
-
-[tool.setuptools.dynamic.optional-dependencies.langdetect]
-file = "requirements/langdetect.txt"
-
-[tool.setuptools.dynamic.optional-dependencies.dev]
-file = "requirements/dev.txt"
+# end: scripts/generate-pyproject.toml.pl
 
 [tool.black]
 line-length = 79
@@ -99,31 +91,22 @@ profile = "black"
 add_ignore = "D205, D400"
 
 [tool.bandit]
-skips = [
-    "B310",
-    "B404",
-    "B603",
-]
+skips = ["B310", "B404", "B603"]
 
 [tool.bandit.assert_used]
-skips = [
-    "*_test.py",
-    "test_*.py",
-]
+skips = ["*_test.py", "test_*.py"]
 
 [tool.codespell]
 ignore-words-list = "fo, nd, te"
 
 [tool.pyright]
-exclude = [
-    "templates/__init__.py",
-]
+exclude = ["templates/__init__.py"]
 
 [tool.coverage.report]
 exclude_lines = [
-    "if TYPE_CHECKING:",
-    "if __name__ == .__main__.:",
-    "\\s*import tomli as tomllib",
+  "if TYPE_CHECKING:",
+  "if __name__ == .__main__.:",
+  "\\s*import tomli as tomllib",
 ]
 
 [tool.doq]

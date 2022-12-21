@@ -2,6 +2,7 @@
 
 ````{eval-rst}
 ```{eval-sh}
-generate-api.md.sh translators
+cd ..
+scripts/generate-api.md.pl src/translate_shell/translators/**/*.py
 ```
 ````
