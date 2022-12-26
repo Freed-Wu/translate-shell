@@ -80,7 +80,7 @@ repos:
     hooks:
       - id: black
   - repo: https://github.com/PyCQA/isort
-    rev: 5.11.0
+    rev: 5.11.4
     hooks:
       - id: isort
   - repo: https://github.com/pycqa/pydocstyle
@@ -90,7 +90,7 @@ repos:
         additional_dependencies:
           - toml
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.283
+    rev: v1.1.285
     hooks:
       - id: pyright
   - repo: https://github.com/PyCQA/bandit
@@ -102,7 +102,7 @@ repos:
         additional_dependencies:
           - toml
   - repo: https://github.com/vimjas/vint
-    rev: v0.4a4
+    rev: v0.4a3
     hooks:
       - id: vint
   - repo: https://github.com/google/vimdoc
