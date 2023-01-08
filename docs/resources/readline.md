@@ -14,7 +14,6 @@ I realize a tab complete function to let user use readline better:
 
 ```console
 $ trans
-auto:zh_CN > google,speaker > /dev/shm/translate-shell > 15:10:01 >
 > <TAB>
 ! : < = en zh_CN ...
 > !<TAB>
@@ -27,6 +26,30 @@ auto:zh_CN > google,speaker > /dev/shm/translate-shell > 15:10:01 >
 : :en :zh_CN ...
 > en:<TAB>
 en: en:en en:zh_CN ...
+> =<TAB>
+=bing   =google   =stardict   ...
+> =bing<TAB>
+=bing,
+> =bing,<TAB>
+=bing,google    =bing,stardict    ...
 ```
 
 You can customize it if you like.
+
+## Hotkeys
+
+See <https://www.gnu.org/software/bash/manual/html_node/Readline-Interaction.html>.
+
+Especially, `<M-BS>` can be more useful than `<C-W>`:
+
+```console
+$ trans
+> <dir1/dir2/file1<M-BS>
+<dir1/dir2/
+> <dir1/dir2/file1<C-W>
+
+> =bing,google<M-BS>
+=bing,
+> =bing,google<C-W>
+
+```

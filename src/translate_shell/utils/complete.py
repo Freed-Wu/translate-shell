@@ -20,7 +20,16 @@ def complete(text: str, state: int) -> str:
     volcab = ["=", "<", "!", ":"] + langs
     sl = text.split(":")[0]
     if text.startswith("="):
-        volcab = map(lambda x: "=" + x, TRANSLATORS)
+        length = len("=")
+        left, _, right = text[length:].rpartition(",")
+        if right in TRANSLATORS:
+            volcab = [text + ","]
+        else:
+            translators = left.split(",")
+            volcab = map(
+                lambda x: "=" + left + ("," if left else "") + x,
+                filter(lambda x: x not in translators, TRANSLATORS),
+            )
     elif text.startswith("<"):
         length = len("<")
         dirname = os.path.dirname(text[length:])
@@ -51,6 +60,6 @@ def complete(text: str, state: int) -> str:
                             bins += [file]
         volcab = map(lambda x: "!" + x, bins)
     elif sl in langs + [""] and len(text.split(":")) == 2:
-        volcab = map(lambda x: sl + ":" + x, langs + [""])
+        volcab = map(lambda x: sl + ":" + x, langs)
     results = [x for x in volcab if x.startswith(text)]
     return results[state]
