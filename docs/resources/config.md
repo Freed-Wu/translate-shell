@@ -266,3 +266,9 @@ You can customize `config.get_clipper`.
 See [speaker](resources/translator.md#speaker)
 
 You can customize `config.get_speaker`.
+
+## Readline Complete
+
+See [readline](resources/readline.md#readline)
+
+You can customize `config.complete`.

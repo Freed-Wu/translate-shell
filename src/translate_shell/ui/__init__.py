@@ -59,6 +59,7 @@ def init_readline() -> ModuleType:
     HISTORY_FILE.touch(exist_ok=True)
     atexit.register(readline.write_history_file, HISTORY_FILE)  # type: ignore
     readline.read_history_file(HISTORY_FILE)
+    readline.set_completer_delims(" ")
     return readline
 
 
@@ -135,6 +136,7 @@ def init(args: Namespace) -> Namespace:
     global get_speaker, get_youdaozhiyun_app_info
     get_speaker = args.get_speaker
     get_youdaozhiyun_app_info = args.get_youdaozhiyun_app_info
+    readline.set_completer(args.complete)
     return args
 
 

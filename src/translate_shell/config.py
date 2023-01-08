@@ -19,6 +19,7 @@ class Configuration(Namespace):
         "get_speaker",
         "get_prompt",
         "get_youdaozhiyun_app_info",
+        "complete",
     ]
 
     def __init__(self) -> None:
@@ -118,3 +119,16 @@ class Configuration(Namespace):
         from .utils.youdaozhiyun import get_youdaozhiyun_app_info
 
         return get_youdaozhiyun_app_info()
+
+    def complete(self, text: str, state: int) -> str:
+        """Complete.
+
+        :param text:
+        :type text: str
+        :param state:
+        :type state: int
+        :rtype: str
+        """
+        from .utils.complete import complete
+
+        return complete(text, state)
