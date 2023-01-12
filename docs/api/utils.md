@@ -3,6 +3,7 @@
 ````{eval-rst}
 ```{eval-bash}
 cd ..
-scripts/generate-api.md.pl src/*/utils/**/*.py
+shopt -s globstar
+scripts/generate-api.md.pl src/*/utils/*.py
 ```
 ````
