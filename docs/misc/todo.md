@@ -1,6 +1,6 @@
 # TODO
 
-```{eval-sh}
+```{eval-bash}
 cd ..
 scripts/generate-todo.md.pl src/**/*
 ```

@@ -1,8 +1,8 @@
 # UI
 
 ````{eval-rst}
-```{eval-sh}
+```{eval-bash}
 cd ..
-scripts/generate-api.md.pl src/translate_shell/ui/**/*.py
+scripts/generate-api.md.pl src/*/ui/**/*.py
 ```
 ````

@@ -1,6 +1,6 @@
 # Acknowledgements
 
-```{eval-sh}
+```{eval-bash}
 cd ..
 scripts/generate-acknowledgements.md.pl src/**/*
 ```
