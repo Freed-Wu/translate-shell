@@ -1,3 +1,4 @@
+#!/usr/bin/env -S pre-commit run -ac
 ---
 exclude: ^assets/txt/.*\.txt$
 repos:

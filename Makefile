@@ -1,3 +1,4 @@
+#!/usr/bin/env -S make -f
 PREFIX = /usr
 BINNAME = trans
 THEMIS = themis

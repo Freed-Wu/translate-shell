@@ -1,3 +1,4 @@
+#!/usr/bin/env -S yamllint -c
 ---
 extends: default
 
