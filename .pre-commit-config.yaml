@@ -34,7 +34,7 @@ repos:
         additional_dependencies:
           - tomli
   - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.18.0
+    rev: v0.19.0dev
     hooks:
       - id: gitlint
         args:
@@ -51,7 +51,7 @@ repos:
       - id: shfmt
         exclude: .*\.zsh$
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.28.0
+    rev: v1.29.0
     hooks:
       - id: yamllint
   - repo: https://github.com/executablebooks/mdformat
@@ -83,13 +83,13 @@ repos:
     hooks:
       - id: isort
   - repo: https://github.com/pycqa/pydocstyle
-    rev: 6.1.1
+    rev: 6.2.3
     hooks:
       - id: pydocstyle
         additional_dependencies:
           - toml
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.286
+    rev: v1.1.289
     hooks:
       - id: pyright
   - repo: https://github.com/PyCQA/bandit
@@ -101,7 +101,7 @@ repos:
         additional_dependencies:
           - toml
   - repo: https://github.com/vimjas/vint
-    rev: v0.4a4
+    rev: v0.4a3
     hooks:
       - id: vint
   - repo: https://github.com/google/vimdoc
