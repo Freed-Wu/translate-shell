@@ -13,6 +13,7 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
       - id: end-of-file-fixer
+        exclude: ^templates/class\.txt$
       - id: detect-private-key
       - id: check-symlinks
       - id: check-ast
@@ -62,10 +63,7 @@ repos:
         additional_dependencies:
           - mdformat-gfm
           - mdformat-myst
-          - mdformat-tables
           - mdformat-toc
-          - mdformat-footnote
-          - mdformat-frontmatter
           - mdformat-deflist
           - mdformat-beautysh
           - mdformat-black
