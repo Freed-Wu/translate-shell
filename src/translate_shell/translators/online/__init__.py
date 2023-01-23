@@ -74,9 +74,7 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
             r = urlopen(req, timeout=self.timeout)
         except (URLError, HTTPError, socket.timeout):
             logger.warning(
-                "Translator %s timed out, please check your network"
-                % self._name
-            )
+                "Translator %s timed out, please check your network", self._name)
             return ""
 
         charset = r.headers.get_param("charset") or "utf-8"
