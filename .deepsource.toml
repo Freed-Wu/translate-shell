@@ -1,6 +1,6 @@
 version = 1
 exclude_patterns = []
-test_patterns = ["*_test.py", "test_*.py"]
+test_patterns = ["tests/*_test.py", "tests/test_*.py"]
 
 [[analyzers]]
 name = "python"
