@@ -86,16 +86,14 @@ class Configuration(Namespace):
         return get_clipper()
 
     @staticmethod
-    def get_speaker(query: str) -> list[str]:
+    def get_speaker(unused_query: str) -> list[str]:
         """Get speaker.
 
-        :param query:
-        :type query: str
+        :param unused_query:
+        :type unused_query: str
         :rtype: list[str]
         """
-        from .utils.speakers import get_speaker
-
-        return get_speaker(query)
+        return []
 
     @staticmethod
     def get_prompt(text: str, tl: str, sl: str, translators: str) -> str:
@@ -116,16 +114,14 @@ class Configuration(Namespace):
         return get_prompt(text, tl, sl, translators)
 
     @staticmethod
-    def get_youdaozhiyun_app_info(*args: Any) -> tuple[str, str]:
+    def get_youdaozhiyun_app_info(*unused_args: Any) -> tuple[str, str]:
         """Get youdaozhiyun APP info.
 
-        :param args:
-        :type args: Any
+        :param unused_args:
+        :type unused_args: Any
         :rtype: tuple[str, str]
         """
-        from .utils.youdaozhiyun import get_youdaozhiyun_app_info
-
-        return get_youdaozhiyun_app_info(*args)
+        return "", ""
 
     @staticmethod
     def complete(text: str, state: int) -> str:

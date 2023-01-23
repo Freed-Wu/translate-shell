@@ -30,7 +30,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         """
         super().__init__("youdaozhiyun")
         self.url = "https://openapi.youdao.com/api"
-        self.app_id, self.app_sec = self.get_youdaozhiyun_app_info()
+        self.app_id, self.app_sec = self.__class__.get_youdaozhiyun_app_info()
 
     def sign(self, text: str, salt: str) -> str:
         """Sign.

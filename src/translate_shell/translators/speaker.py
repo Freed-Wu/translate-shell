@@ -34,7 +34,7 @@ class Speaker(Translator):
         :type sl: str
         :rtype: None
         """
-        tokens = self.get_speaker(text)
+        tokens = self.__class__.get_speaker(text)
         if tokens:
             check_output(tokens)
 
