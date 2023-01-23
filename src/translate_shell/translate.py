@@ -61,7 +61,7 @@ def translate(
     text: str,
     target_lang: str = "auto",
     source_lang: str = "auto",
-    translators: list[Callable[[], Translator]] | list[str] = ["google"],
+    translators: list[Callable[[], Translator]] | list[str] | None = None,
 ) -> Translation:
     """Translate.
 
@@ -72,9 +72,11 @@ def translate(
     :param source_lang:
     :type source_lang: str
     :param translators:
-    :type translators: list[Callable[[], Translator] | str]
+    :type translators: list[Callable[[], Translator] | str] | None
     :rtype: Translation
     """
+    if translators is None:
+        translators = ["google"]
     translation = Translation(text, target_lang, source_lang)
 
     true_translators = []
