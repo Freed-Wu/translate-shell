@@ -67,24 +67,24 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
                 url = url + "?" + query_string
                 data = None
 
-        if url.startswith("http"):
+        if url.lower().startswith("http"):
             req = Request(url, data, header)
         else:
             return ""
 
         try:
-            r = urlopen(req, timeout=self.timeout)
+            with urlopen(req, timeout=self.timeout) as r:
+                charset = r.headers.get_param("charset") or "utf-8"
+
+                r = r.read().decode(charset)
+                return r
+
         except (HTTPError, socket.timeout):
             logger.warning(
                 "Translator %s timed out, please check your network",
                 self._name,
             )
             return ""
-
-        charset = r.headers.get_param("charset") or "utf-8"
-
-        r = r.read().decode(charset)
-        return r
 
     def http_get(
         self, url: str, data: Any = None, header: dict[str, str] | None = None

@@ -4,7 +4,6 @@ import json
 import logging
 import os
 import signal
-import sys
 from argparse import Namespace, _StoreAction
 from pathlib import Path
 from threading import get_ident, main_thread
