@@ -132,7 +132,8 @@ def process_output(translation: Translation) -> str:
                     f"termux-notification -t Translation --group {APPNAME} "
                     f"--icon {ICON_FILE} -c"
                 )
-                + [text], 
-            check=True)
+                + [text],
+                check=True,
+            )
         Notification("Translation", text, 10, "low", ICON_FILE, APPNAME).send()
     return rst
