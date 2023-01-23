@@ -42,16 +42,17 @@ class Translator:
         :type sl: str
         :rtype: TRANSLATION
         """
-        res = {}
-        res["translator"] = self._name
-        res["sl"] = sl
-        res["tl"] = tl
-        res["text"] = text
-        res["phonetic"] = ""
-        res["paraphrase"] = ""
-        res["explains"] = {}
-        res["details"] = {}
-        res["alternatives"] = {}
+        res = {
+            "translator": self._name,
+            "sl": sl,
+            "tl": tl,
+            "text": text,
+            "phonetic": "",
+            "paraphrase": "",
+            "explains": {},
+            "details": {},
+            "alternatives": {},
+        }
         return res
 
     def __call__(self, text: str, tl: str, sl: str) -> dict[str, str] | None:

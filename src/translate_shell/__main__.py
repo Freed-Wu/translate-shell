@@ -155,9 +155,16 @@ def main() -> None | NoReturn:
 
         sys.exit(print_setting(args.print_setting))
 
-    from .ui import main
-
-    main(args)
+    try:
+        import vim  # type: ignore
+    except ImportError:
+        if not sys.stdin.isatty():
+            args.text = [sys.stdin.read()] + args.text
+    if args.text:
+        from translate_shell.ui.cli import run
+    else:
+        from translate_shell.ui.repl import run
+    run(args)
 
 
 if __name__ == "__main__":

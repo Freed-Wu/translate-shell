@@ -11,21 +11,21 @@ _logger = _logging.getLogger(__name__)
 class Dictionary:
     """Dictionary."""
 
-    def __init__(self, path: str) -> None:
+    def __init__(self, unused_path: str) -> None:
         """Init.
 
-        :param path:
-        :type path: str
+        :param unused_path:
+        :type unused_path: str
         :rtype: None
         """
-        _logger.error("Please install pyyaml firstly!")
+        _logger.error("Please install pystardict firstly!")
 
     @staticmethod
-    def get(text: str) -> str:
+    def get(unused_text: str) -> str:
         """Get.
 
-        :param text:
-        :type text: str
+        :param unused_text:
+        :type unused_text: str
         :rtype: str
         """
         return ""

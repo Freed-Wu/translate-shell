@@ -4,7 +4,7 @@ from logging import Handler
 from typing import Any
 
 
-class RichHandler(Handler):
+class RichHandler(Handler):  # skipcq: PY-A6006
     """RichHandler."""
 
     def __init__(self, **kwargs: Any) -> None:

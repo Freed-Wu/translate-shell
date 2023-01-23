@@ -5,7 +5,7 @@ import logging
 import socket
 from copy import deepcopy
 from typing import Any
-from urllib.error import HTTPError, URLError
+from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -53,11 +53,10 @@ class OnlineTranslator(Translator):
         if header:
             header = deepcopy(header)
         else:
-            header = {}
-            header[
-                "User-Agent"
-            ] = "Mozilla/5.0 (X11; Linux x86_64) \
+            header = {
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) \
 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+            }
 
         if post:
             if data:
@@ -68,7 +67,10 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
                 url = url + "?" + query_string
                 data = None
 
-        req = Request(url, data, header)
+        if url.startswith("http"):
+            req = Request(url, data, header)
+        else:
+            return ""
 
         try:
             r = urlopen(req, timeout=self.timeout)

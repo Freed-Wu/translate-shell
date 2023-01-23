@@ -31,25 +31,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def main(args: Namespace) -> None:
-    """Call CLI/REPL (containing GUI).
-
-    :param args:
-    :type args: Namespace
-    :rtype: None
-    """
-    try:
-        import vim  # type: ignore
-    except ImportError:
-        if not sys.stdin.isatty():
-            args.text = [sys.stdin.read()] + args.text
-    if args.text:
-        from .cli import run
-    else:
-        from .repl import run
-    run(args)
-
-
 def init_readline() -> ModuleType:
     """Init readline.
 
@@ -78,9 +59,10 @@ def init_config(path: Path) -> Configuration:
         return config
     namespace = {}
     try:
+        # skipcq: PYL-W0122
         exec(configure_code, namespace, namespace)  # nosec: B102
-    except Exception as e:
-        logger.error(e)  # skipcq: PYL-W0703
+    except Exception as e:  # skipcq: PYL-W0703
+        logger.error(e)
         logger.warning("Ignore " + str(CONFIG_FILE))
         return config
     configure = namespace.get("configure")
@@ -129,10 +111,10 @@ def init(args: Namespace) -> Namespace:
         if value is not None:
             setattr(args, attr, value)
     args.text = " ".join(args.text)
-    readline = init_readline()
-    readline.set_completer(args.complete)
+    _readline = init_readline()
+    _readline.set_completer(args.complete)
     if args.text:
-        readline.add_history(args.text)
+        _readline.add_history(args.text)
     args.last_text = ""
     logging.root.level += 10 * (args.quiet - args.verbose)
     # override default functions

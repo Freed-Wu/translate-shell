@@ -16,12 +16,12 @@ def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
     explains = {}
     for token in tokens:
         if len(token) != len(_RE_JAPANESE.findall(token)):
-            if last_key == "" or last_key in explains.keys():
+            if last_key == "" or last_key in explains:
                 last_key = token
             else:
                 last_key += "; " + token
         else:
-            if last_key in explains.keys():
+            if last_key in explains:
                 explains[last_key] += "; " + token
             else:
                 if last_key == "":

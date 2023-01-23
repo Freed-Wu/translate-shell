@@ -16,9 +16,9 @@ def run(args: Namespace) -> None:
     """
     args = init(args)
     if args.clipboard:
-        from .gui import run
+        from .gui import run as _run
 
-        task = Thread(target=run, args=(args,))
+        task = Thread(target=_run, args=(args,))
         task.daemon = True
         task.start()
     while True:

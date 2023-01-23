@@ -8,20 +8,20 @@ Because Windows don't have
 """
 
 
-def read_history_file(path: str) -> None:
+def read_history_file(unused_path: str) -> None:
     """Read history file.
 
-    :param path:
-    :type path: str
+    :param unused_path:
+    :type unused_path: str
     :rtype: None
     """
 
 
-def add_history(path: str) -> None:
+def add_history(unused_path: str) -> None:
     """Add history.
 
-    :param path:
-    :type path: str
+    :param unused_path:
+    :type unused_path: str
     :rtype: None
     """
 
