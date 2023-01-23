@@ -38,10 +38,9 @@ class GoogleTranslator(OnlineTranslator):
         http_host = self._cnhost if "zh" in tl else self._host
         qry = quote_plus(qry)
         url = (
-            "https://{}/translate_a/single?client=gtx&sl={}&tl={}&dt=at&dt=bd&"
-            "dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&q={}".format(
-                http_host, sl, tl, qry
-            )
+            f"https://{http_host}/translate_a/single?client=gtx&sl={sl}"
+            "&tl={tl}&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss"
+            "&dt=t&q={qry}"
         )
         return url
 
