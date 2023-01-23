@@ -35,9 +35,9 @@ def get_setting(name: str | None) -> str:
 
         result = " ".join(get_clipper())
     elif name == "speaker":
-        from .speakers import get_speaker
+        from ..translators.speaker import Speaker
 
-        result = " ".join(get_speaker("")).strip()
+        result = " ".join(Speaker.get_speaker("")).strip()
     elif name is None:
         from ..__main__ import SETTINGS
 
