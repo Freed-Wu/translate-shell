@@ -4,6 +4,7 @@
 to check if any fake module imports any variable don't owned by any true module.
 """
 import os
+import sys
 from importlib import import_module
 from pathlib import Path
 from typing import Any, NoReturn, _SpecialForm
@@ -74,7 +75,7 @@ def main_once(file: str, fake_vars: dict[str, Any]) -> NoReturn:
     :type fake_vars: dict[str, Any]
     :rtype: NoReturn
     """
-    exit(print_wrong_varnames(file, fake_vars, ""))
+    sys.exit(print_wrong_varnames(file, fake_vars, ""))
 
 
 def main() -> NoReturn:
@@ -89,7 +90,7 @@ def main() -> NoReturn:
         module = import_module(fake_name + ".__main__")
         file: str = module.__file__  # type: ignore
         wrong_vars_number += print_wrong_varnames(file, vars(module))
-    exit(wrong_vars_number)
+    sys.exit(wrong_vars_number)
 
 
 if __name__ == "__main__":

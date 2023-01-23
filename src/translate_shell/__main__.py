@@ -153,7 +153,7 @@ def main() -> None | NoReturn:
     if args.print_setting != "":
         from translate_shell.utils.setting import print_setting
 
-        exit(print_setting(args.print_setting))
+        sys.exit(print_setting(args.print_setting))
 
     from .ui import main
 
