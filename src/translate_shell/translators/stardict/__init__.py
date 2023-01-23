@@ -90,14 +90,14 @@ class StardictTranslator(Translator):
             logger.warning(sl + " to " + tl + " dictionary is not found!")
             return [], ""
         target_dir = None
-        for dir in STARDICT_DIRS:
+        for directory in STARDICT_DIRS:
             exist = False
             for ext in ["dict.dz", "dict"]:
-                if not (dir / (dictionary + "." + ext)).exists():
+                if not (directory / (dictionary + "." + ext)).exists():
                     exist = True
                     break
             if exist:
-                target_dir = dir
+                target_dir = directory
                 break
         if target_dir:
             tokens = (
