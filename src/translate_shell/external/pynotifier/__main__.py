@@ -19,7 +19,6 @@ class Notification:
         :type args: Any
         :rtype: None
         """
-        pass
 
     @staticmethod
     def send() -> None:

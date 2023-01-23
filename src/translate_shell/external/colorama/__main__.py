@@ -10,7 +10,6 @@ def init() -> None:
 
     :rtype: None
     """
-    pass
 
 
 class _Colorama:

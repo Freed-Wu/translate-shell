@@ -15,7 +15,6 @@ def read_history_file(path: str) -> None:
     :type path: str
     :rtype: None
     """
-    pass
 
 
 def add_history(path: str) -> None:
@@ -25,7 +24,6 @@ def add_history(path: str) -> None:
     :type path: str
     :rtype: None
     """
-    pass
 
 
 if __name__ == "__main__":
