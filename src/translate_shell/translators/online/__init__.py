@@ -73,7 +73,7 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
             return ""
 
         try:
-            with urlopen(req, timeout=self.timeout) as r:
+            with urlopen(req, timeout=self.timeout) as r:  # skipcq: BAN-B310
                 charset = r.headers.get_param("charset") or "utf-8"
 
                 r = r.read().decode(charset)
