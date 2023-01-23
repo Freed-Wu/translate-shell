@@ -134,7 +134,7 @@ def process_shell(text: str, char: str = "!") -> str:
     if tokens == []:
         tokens = os.getenv("SHELL", "sh")
     try:
-        run(tokens)
+        run(tokens, check=True)
     except Exception as e:
         logger.error(e)
     return ""

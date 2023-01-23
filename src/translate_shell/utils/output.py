@@ -125,14 +125,14 @@ def process_output(translation: Translation) -> str:
         # https://github.com/YuriyLisovskiy/pynotifier/issues/21
         text = PAT.sub("", rst)
         if which("termux-toast"):
-            run(split("termux-toast -g top") + [text])
+            run(split("termux-toast -g top") + [text], check=True)
         if which("termux-notification"):
             run(
                 split(
                     f"termux-notification -t Translation --group {APPNAME} "
                     f"--icon {ICON_FILE} -c"
                 )
-                + [text]
-            )
+                + [text], 
+            check=True)
         Notification("Translation", text, 10, "low", ICON_FILE, APPNAME).send()
     return rst
