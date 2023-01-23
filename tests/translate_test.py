@@ -15,7 +15,7 @@ class Test:
     @pytest.mark.skipif(
         sys.platform == "win32", reason="'charmap' codec can't decode byte"
     )
-    def test_google(self):
+    def test_google(self) -> None:
         """Test google"""
         rst = vars(translate("The Mythical Man-Month", "zh_TW"))
         expected = json.loads(

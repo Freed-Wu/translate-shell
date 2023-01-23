@@ -20,7 +20,7 @@ class Test:
     """Test."""
 
     @staticmethod
-    def test_help(capsys):
+    def test_help(capsys) -> None:
         """Test help.
 
         :param capsys:
@@ -31,7 +31,7 @@ class Test:
         assert captured.out.strip() == HELP
 
     @staticmethod
-    def test_version(capsys):
+    def test_version(capsys) -> None:
         """Test version.
 
         :param capsys:

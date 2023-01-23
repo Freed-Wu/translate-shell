@@ -18,17 +18,6 @@ NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
 ICON_FILE = str(ASSETS_PATH / "images" / "icon.png")
 
 
-def number_to_sign(number: int) -> str:
-    """number_to_sign.
-
-    :param number:
-    :type number: int
-    :rtype: str
-    """
-    sign = "".join(list(map(NUMBER.get, str(number))))
-    return sign
-
-
 def process_output_p10k(translation: Translation) -> str:
     """process_output_p10k.
 
@@ -99,7 +88,7 @@ def process_output_p10k(translation: Translation) -> str:
                     Fore.GREEN
                     + Style.BRIGHT
                     + " "
-                    + number_to_sign(i)
+                    + NUMBER.get(i, i)
                     + " "
                     + Style.RESET_ALL
                     + " "
