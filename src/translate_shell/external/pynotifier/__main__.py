@@ -21,7 +21,8 @@ class Notification:
         """
         pass
 
-    def send(self) -> None:
+    @staticmethod
+    def send() -> None:
         """Send.
 
         :rtype: None

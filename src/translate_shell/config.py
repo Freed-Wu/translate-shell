@@ -35,8 +35,8 @@ class Configuration(Namespace):
         self.sleep_seconds: float = 0.1
         self.clipboard: bool = True
 
+    @staticmethod
     def process_input(
-        self,
         text: str,
         target_lang: str,
         source_lang: str,
@@ -63,7 +63,8 @@ class Configuration(Namespace):
             text, target_lang, source_lang, translators, is_repl
         )
 
-    def process_output(self, translation: Translation) -> str:
+    @staticmethod
+    def process_output(translation: Translation) -> str:
         """Process output.
 
         :param translation:
@@ -74,7 +75,8 @@ class Configuration(Namespace):
 
         return process_output(translation)
 
-    def get_clipper(self) -> list[str]:
+    @staticmethod
+    def get_clipper() -> list[str]:
         """Get clipper.
 
         :rtype: list[str]
@@ -83,7 +85,8 @@ class Configuration(Namespace):
 
         return get_clipper()
 
-    def get_speaker(self, query: str) -> list[str]:
+    @staticmethod
+    def get_speaker(query: str) -> list[str]:
         """Get speaker.
 
         :param query:
@@ -94,7 +97,8 @@ class Configuration(Namespace):
 
         return get_speaker(query)
 
-    def get_prompt(self, text: str, tl: str, sl: str, translators: str) -> str:
+    @staticmethod
+    def get_prompt(text: str, tl: str, sl: str, translators: str) -> str:
         """Get prompt.
 
         :param text:
@@ -111,7 +115,8 @@ class Configuration(Namespace):
 
         return get_prompt(text, tl, sl, translators)
 
-    def get_youdaozhiyun_app_info(self) -> tuple[str, str]:
+    @staticmethod
+    def get_youdaozhiyun_app_info() -> tuple[str, str]:
         """Get youdaozhiyun app info.
 
         :rtype: tuple[str, str]
@@ -120,7 +125,8 @@ class Configuration(Namespace):
 
         return get_youdaozhiyun_app_info()
 
-    def complete(self, text: str, state: int) -> str:
+    @staticmethod
+    def complete(text: str, state: int) -> str:
         """Complete.
 
         :param text:

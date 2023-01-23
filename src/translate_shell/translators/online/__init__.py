@@ -114,7 +114,8 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
         """
         return self.request(url, data, True, header)
 
-    def md5sum(self, text: str | bytes) -> str:
+    @staticmethod
+    def md5sum(text: str | bytes) -> str:
         """Md5sum.
 
         :param text:
@@ -129,7 +130,8 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
         m.update(text)
         return m.hexdigest()
 
-    def html_unescape(self, text: str) -> str:
+    @staticmethod
+    def html_unescape(text: str) -> str:
         """Html unescape.
 
         :param text:

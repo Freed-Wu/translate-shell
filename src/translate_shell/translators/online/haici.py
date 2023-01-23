@@ -46,7 +46,8 @@ class HaiciTranslator(OnlineTranslator):
         res["details"] = self.get_details(resp)
         return res
 
-    def get_phonetic(self, html: str) -> str:
+    @staticmethod
+    def get_phonetic(html: str) -> str:
         """Get phonetic.
 
         :param html:
@@ -56,7 +57,8 @@ class HaiciTranslator(OnlineTranslator):
         m = re.findall(r"<span class='p'> \[(.*?)\]</span>", html)
         return m[0] if m else ""
 
-    def get_explains(self, html: str) -> dict[str, str]:
+    @staticmethod
+    def get_explains(html: str) -> dict[str, str]:
         """Get explains.
 
         :param html:
@@ -71,7 +73,8 @@ class HaiciTranslator(OnlineTranslator):
                 explains[k + dot] = v
         return explains
 
-    def get_details(self, html: str) -> dict[str, dict[str, str]]:
+    @staticmethod
+    def get_details(html: str) -> dict[str, dict[str, str]]:
         """Get details.
 
         :param html:

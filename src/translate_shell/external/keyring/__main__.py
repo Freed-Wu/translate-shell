@@ -11,7 +11,8 @@ _logger = _logging.getLogger(__name__)
 class _Keyring:
     """Keyring."""
 
-    def get_password(self, *args: str) -> str:
+    @staticmethod
+    def get_password(*args: str) -> str:
         """Get password.
 
         :param args:
