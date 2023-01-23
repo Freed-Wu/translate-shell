@@ -14,8 +14,8 @@ from .. import TRANSLATION, Translator
 logger = logging.getLogger(__name__)
 
 
-def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
-    """Parse tokens.
+def parse_tokens_fallback(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
+    """Parse tokens for fallback.
 
     :param tokens:
     :type tokens: list[str]
@@ -61,7 +61,7 @@ class StardictTranslator(Translator):
         elif dictionary == "jmdict-ja-en":
             from .jmdict_ja_en import parse_tokens
         else:
-            from . import parse_tokens
+            parse_tokens = parse_tokens_fallback
         res = parse_tokens(tokens, res)
         return res
 
