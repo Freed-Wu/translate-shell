@@ -88,7 +88,7 @@ def process_output_p10k(translation: Translation) -> str:
                     Fore.GREEN
                     + Style.BRIGHT
                     + " "
-                    + NUMBER.get(i, i)
+                    + NUMBER.get(str(i), str(i))
                     + " "
                     + Style.RESET_ALL
                     + " "
