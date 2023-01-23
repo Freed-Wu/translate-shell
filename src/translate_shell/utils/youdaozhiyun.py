@@ -2,26 +2,39 @@
 import logging
 
 from ..external.keyring import get_keyring
+from ..external.keyring.errors import NoKeyringError
 
 logger = logging.getLogger(__name__)
 
 
 def get_youdaozhiyun_app_info(
-    ydappid_path: str = "youdaozhiyun/appid",
-    ydappsec_path: str = "youdaozhiyun/appsec",
+    service_name: str = "youdaozhiyun",
+    user_name4appid: str = "appid",
+    user_name4appsec: str = "appsec",
 ) -> tuple[str, str]:
-    """get_youdaozhiyun_app_info.
+    """Get youdaozhiyun app info.
 
-    :param ydappid_path:
-    :type ydappid_path: str
-    :param ydappsec_path:
-    :type ydappsec_path: str
+    :param service_name:
+    :type service_name: str
+    :param user_name4appid:
+    :type user_name4appid: str
+    :param user_name4appsec:
+    :type user_name4appsec: str
     :rtype: tuple[str, str]
     """
-    YDAPPID = YDAPPSEC = ""
     keyring = get_keyring()
-    if _YDAPPID := keyring.get_password(*ydappid_path.split("/")):
-        YDAPPID = _YDAPPID
-    if _YDAPPSEC := keyring.get_password(*ydappsec_path.split("/")):
-        YDAPPSEC = _YDAPPSEC
+    try:
+        YDAPPID = keyring.get_password(service_name, user_name4appid)
+        YDAPPSEC = keyring.get_password(service_name, user_name4appsec)
+    except NoKeyringError:
+        logger.error("no installed backend!")
+        return "", ""
+    if not YDAPPID:
+        logger.error(service_name + "/" + user_name4appid + "has no password!")
+        return "", ""
+    if not YDAPPSEC:
+        logger.error(
+            service_name + "/" + user_name4appsec + "has no password!"
+        )
+        return "", ""
     return YDAPPID, YDAPPSEC

@@ -34,7 +34,7 @@ pyproject.toml: scripts/generate-pyproject.toml.pl requirements/*.txt
 CITATION.cff: scripts/generate-CITATION.cff.pl pyproject.toml
 	$^ $@
 
-src/translate_shell/external/*/__init__.py: scripts/generate-__init__.py.pl
+src/translate_shell/external/%/__init__.py: scripts/generate-__init__.py.pl
 	$^ $@ src/translate_shell/external/shtab/__init__.py > $@
 # }}} build #
 
@@ -46,7 +46,7 @@ build-docs:
 addon-info.json: scripts/generate-addon-info.json.pl pyproject.toml
 	$^ $@
 
-doc/*.txt: addon-info.json $(shell find . -type f -name '*.vim')
+doc/%.txt: addon-info.json $(shell find . -type f -name '*.vim')
 	vimdoc .
 # }}} build-docs #
 

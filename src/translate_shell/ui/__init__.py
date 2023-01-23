@@ -80,7 +80,7 @@ def init_config(path: Path) -> Configuration:
     try:
         exec(configure_code, namespace, namespace)  # nosec: B102
     except Exception as e:
-        logger.error(e)
+        logger.error(e)  # skipcq: PYL-W0703
         logger.warning("Ignore " + str(CONFIG_FILE))
         return config
     configure = namespace.get("configure")
@@ -88,12 +88,14 @@ def init_config(path: Path) -> Configuration:
         return config
     try:
         new_config = configure()
-    except Exception as e:
+    except Exception as e:  # skipcq: PYL-W0703
         logger.error(e)
-        logger.warning("Ignore configuration of " + str(CONFIG_FILE))
+        logger.warning("Ignore configuration() of " + str(CONFIG_FILE))
         return config
     if not isinstance(new_config, Configuration):
-        logger.error("configuration of " + str(CONFIG_FILE) + "is not legal!")
+        logger.error(
+            "configuration() of " + str(CONFIG_FILE) + "is not legal!"
+        )
         return config
     return new_config
 
@@ -113,7 +115,7 @@ def init(args: Namespace) -> Namespace:
     else:
         config_file = CONFIG_FILE
     config = init_config(config_file)
-    for action in get_parser()._get_optional_actions():
+    for action in get_parser()._get_optional_actions():  # skipcq: PYL-W0212
         if (
             not isinstance(action, _StoreAction)
             or getattr(args, action.dest) != action.default

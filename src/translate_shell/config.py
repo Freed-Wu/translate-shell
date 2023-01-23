@@ -4,7 +4,7 @@
 Define a class for user customization.
 """
 from argparse import Namespace
-from typing import Literal
+from typing import Any, Literal
 
 from .translate import Translation
 
@@ -116,14 +116,16 @@ class Configuration(Namespace):
         return get_prompt(text, tl, sl, translators)
 
     @staticmethod
-    def get_youdaozhiyun_app_info() -> tuple[str, str]:
-        """Get youdaozhiyun app info.
+    def get_youdaozhiyun_app_info(*args: Any) -> tuple[str, str]:
+        """Get youdaozhiyun APP info.
 
+        :param args:
+        :type args: Any
         :rtype: tuple[str, str]
         """
         from .utils.youdaozhiyun import get_youdaozhiyun_app_info
 
-        return get_youdaozhiyun_app_info()
+        return get_youdaozhiyun_app_info(*args)
 
     @staticmethod
     def complete(text: str, state: int) -> str:

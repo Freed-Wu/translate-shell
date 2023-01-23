@@ -135,7 +135,7 @@ def process_shell(text: str, char: str = "!") -> str:
         tokens = os.getenv("SHELL", "sh")
     try:
         run(tokens, check=True)
-    except Exception as e:
+    except Exception as e:  # skipcq: PYL-W0703
         logger.error(e)
     return ""
 
@@ -154,7 +154,7 @@ def process_file(text: str, char: str = "<") -> str:
     code = text.lstrip(char)
     try:
         text = Path(code).read_text()
-    except Exception as e:
+    except (PermissionError, FileNotFoundError, IsADirectoryError) as e:
         logger.error(e)
         text = ""
     return text
