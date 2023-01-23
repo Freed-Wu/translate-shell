@@ -19,8 +19,8 @@ from ..external.rich import traceback
 from ..external.rich.logging import RichHandler
 from ..translate import translate
 from ..translators import TRANSLATORS, get_dummy
-from ..utils.speakers import get_speaker
-from ..utils.youdaozhiyun import get_youdaozhiyun_app_info
+from ..translators.online.youdaozhiyun import YoudaozhiyunTranslator
+from ..translators.speaker import Speaker
 
 traceback.install()
 logging.basicConfig(
@@ -130,15 +130,16 @@ def init(args: Namespace) -> Namespace:
             setattr(args, attr, value)
     args.text = " ".join(args.text)
     readline = init_readline()
+    readline.set_completer(args.complete)
     if args.text:
         readline.add_history(args.text)
     args.last_text = ""
     logging.root.level += 10 * (args.quiet - args.verbose)
-
-    global get_speaker, get_youdaozhiyun_app_info
-    get_speaker = args.get_speaker
-    get_youdaozhiyun_app_info = args.get_youdaozhiyun_app_info
-    readline.set_completer(args.complete)
+    # override default functions
+    YoudaozhiyunTranslator.get_youdaozhiyun_app_info = (
+        args.get_youdaozhiyun_app_info
+    )
+    Speaker.get_speaker = args.get_speaker
     return args
 
 

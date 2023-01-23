@@ -10,18 +10,14 @@ import logging
 import random
 
 from ...__main__ import ASSETS_PATH
-from ...ui import get_youdaozhiyun_app_info  # type: ignore
+from ...external.keyring import get_keyring
+from ...external.keyring.errors import NoKeyringError
 from .. import TRANSLATION
 from . import OnlineTranslator
 
 logger = logging.getLogger(__name__)
 with (ASSETS_PATH / "json" / "youdaozhiyun-error.json").open() as f:
     ERROR = json.load(f)
-try:
-    YDAPPID, YDAPPSEC = get_youdaozhiyun_app_info()
-except Exception:
-    logger.warning("get_youdaozhiyun_app_info() fails. Skip it.")
-    YDAPPID = YDAPPSEC = ""
 
 
 class YoudaozhiyunTranslator(OnlineTranslator):
@@ -34,6 +30,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         """
         super().__init__("youdaozhiyun")
         self.url = "https://openapi.youdao.com/api"
+        self.app_id, self.app_sec = self.get_youdaozhiyun_app_info()
 
     def sign(self, text: str, salt: str) -> str:
         """Sign.
@@ -44,7 +41,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         :type salt: str
         :rtype: str
         """
-        s = YDAPPID + text + salt + YDAPPSEC
+        s = self.app_id + text + salt + self.app_sec
         return self.md5sum(s)
 
     def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
@@ -67,7 +64,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         else:
             to = tl
         data = {
-            "appKey": YDAPPID,
+            "appKey": self.app_id,
             "q": text,
             "from": sl,
             "to": to,
@@ -97,3 +94,38 @@ class YoudaozhiyunTranslator(OnlineTranslator):
             res["phonetic"] = basic.get("phonetic", "")
             res["explains"] = basic.get("explains", [])
         return res
+
+    @staticmethod
+    def get_youdaozhiyun_app_info(
+        service_name: str = "youdaozhiyun",
+        user_name4appid: str = "appid",
+        user_name4appsec: str = "appsec",
+    ) -> tuple[str, str]:
+        """Get youdaozhiyun app info.
+
+        :param service_name:
+        :type service_name: str
+        :param user_name4appid:
+        :type user_name4appid: str
+        :param user_name4appsec:
+        :type user_name4appsec: str
+        :rtype: tuple[str, str]
+        """
+        keyring = get_keyring()
+        try:
+            YDAPPID = keyring.get_password(service_name, user_name4appid)
+            YDAPPSEC = keyring.get_password(service_name, user_name4appsec)
+        except NoKeyringError:
+            logger.error("no installed backend!")
+            return "", ""
+        if not YDAPPID:
+            logger.error(
+                service_name + "/" + user_name4appid + "has no password!"
+            )
+            return "", ""
+        if not YDAPPSEC:
+            logger.error(
+                service_name + "/" + user_name4appsec + "has no password!"
+            )
+            return "", ""
+        return YDAPPID, YDAPPSEC

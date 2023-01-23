@@ -108,27 +108,14 @@ Quoted from [ydcv](https://github.com/felixonmars/ydcv)
 > 创建的自然语言翻译服务-文本翻译实例。 得到的应用 ID / 应用密钥即为本工具的
 > YDAPPID/YDAPPSEC。
 
-[keyring](https://pypi.org/project/keyring) allow to encrypt password, and
-[keyring-pass](https://pypi.org/project/keyring-pass) make keyring work with
-[pass](https://www.passwordstore.org).
+[keyring](https://pypi.org/project/keyring) allows user to encrypt password.
 
-````python
-```{eval-sh}
-cd ..
-cat src/*/utils/youdaozhiyun.py
+Create two passwords:
+
+```sh
+keyring set youdaozhiyun appid XXX
+keyring set youdaozhiyun appsec YYY
 ```
-````
-
-Create two secrets `youdaozhiyun/appid` and `youdaozhiyun/appsec` by
-
-```shell
-pass insert XXX/XXX
-```
-
-When you use youdaozhiyun to translate in the first time, it asks you to input a
-[GPG](https://github.com/gpg/gnupg) password to continue, which is more secure.
-
-![gpg](https://user-images.githubusercontent.com/32936898/204803527-bc655fcb-c47d-461a-81a0-d46262844509.png)
 
 This is an implementation of <https://github.com/felixonmars/ydcv/issues/76>.
 
