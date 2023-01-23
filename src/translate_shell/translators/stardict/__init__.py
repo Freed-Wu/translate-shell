@@ -65,7 +65,8 @@ class StardictTranslator(Translator):
         res = parse_tokens(tokens, res)
         return res
 
-    def get_tokens(self, text: str, tl: str, sl: str) -> tuple[list[str], str]:
+    @staticmethod
+    def get_tokens(text: str, tl: str, sl: str) -> tuple[list[str], str]:
         """Get tokens.
 
         :param text:

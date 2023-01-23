@@ -70,7 +70,8 @@ class GoogleTranslator(OnlineTranslator):
         res["alternatives"] = self.get_alternatives(obj)
         return res
 
-    def get_phonetic(self, obj: list[Any]) -> str:
+    @staticmethod
+    def get_phonetic(obj: list[Any]) -> str:
         """Get phonetic.
 
         :param obj:
@@ -82,7 +83,8 @@ class GoogleTranslator(OnlineTranslator):
                 return x[3]
         return ""
 
-    def get_paraphrase(self, obj: list[Any]) -> str:
+    @staticmethod
+    def get_paraphrase(obj: list[Any]) -> str:
         """Get paraphrase.
 
         :param obj:
@@ -95,7 +97,8 @@ class GoogleTranslator(OnlineTranslator):
                 paraphrase += x[0]
         return paraphrase
 
-    def get_explains(self, obj: list[Any]) -> dict[str, str]:
+    @staticmethod
+    def get_explains(obj: list[Any]) -> dict[str, str]:
         """Get explains.
 
         :param obj:
@@ -110,7 +113,8 @@ class GoogleTranslator(OnlineTranslator):
                     expls[x[0][0]] += i[0] + "; "
         return expls
 
-    def get_details(self, resp: list[Any]) -> dict[str, dict[str, str]]:
+    @staticmethod
+    def get_details(resp: list[Any]) -> dict[str, dict[str, str]]:
         """Get details.
 
         :param resp:

@@ -19,7 +19,8 @@ HELP = "\n".join([USAGE, DESCRIPTION, "", OPTIONS, EPILOG])
 class Test:
     """Test."""
 
-    def test_help(self, capsys):
+    @staticmethod
+    def test_help(capsys):
         """Test help.
 
         :param capsys:
@@ -29,7 +30,8 @@ class Test:
         captured = capsys.readouterr()
         assert captured.out.strip() == HELP
 
-    def test_version(self, capsys):
+    @staticmethod
+    def test_version(capsys):
         """Test version.
 
         :param capsys:

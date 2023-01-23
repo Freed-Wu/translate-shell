@@ -20,7 +20,8 @@ class Dictionary:
         """
         _logger.error("Please install pyyaml firstly!")
 
-    def get(self, text: str) -> str:
+    @staticmethod
+    def get(text: str) -> str:
         """Get.
 
         :param text:
