@@ -7,7 +7,6 @@ def install() -> None:
 
     :rtype: None
     """
-    pass
 
 
 if __name__ == "__main__":
