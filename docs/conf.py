@@ -2,9 +2,11 @@
 
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
-from translate_shell import __version__ as version
+from translate_shell import __version__ as version  # type: ignore
 from translate_shell._metainfo import author, copyright, project
 from translate_shell.utils.output import ICON_FILE as html_favicon
+
+__all__ = ["version", "author", "copyright", "project", "html_favicon"]
 
 # -- Path setup --------------------------------------------------------------
 
