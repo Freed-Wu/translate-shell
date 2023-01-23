@@ -88,8 +88,7 @@ def process_clipboard(text: str, prompt: str) -> str:
     """
     if text:
         return "\n" + prompt + text
-    else:
-        return prompt
+    return prompt
 
 
 def get_prompt(text: str, tl: str, sl: str, translators: str) -> str:
