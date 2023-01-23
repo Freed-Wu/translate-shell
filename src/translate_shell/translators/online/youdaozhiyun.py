@@ -80,12 +80,13 @@ class YoudaozhiyunTranslator(OnlineTranslator):
             try:
                 obj = json.loads(resp)
             except json.decoder.JSONDecodeError:
-                return
+                logger.error("Wrong json format!")
+                return None
         else:
-            return
+            return None
         if obj["errorCode"] != 0:
             logger.warning(ERROR.get(obj["errorCode"], "Unknown error!"))
-            return
+            return None
 
         res = self.create_translation(text, tl, sl)
         basic = obj.get("basic")

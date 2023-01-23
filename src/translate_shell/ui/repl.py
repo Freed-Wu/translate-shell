@@ -30,6 +30,7 @@ def run(args: Namespace) -> None:
             )
             process(args, True)
         except KeyboardInterrupt:
+            # skipcq: PYL-W0511
             # TODO: make the last line gray like ptpython
             print("")
             continue

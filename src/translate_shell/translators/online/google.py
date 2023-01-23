@@ -58,7 +58,7 @@ class GoogleTranslator(OnlineTranslator):
         url = self.get_url(sl, tl, text)
         resp = self.http_get(url)
         if not resp:
-            return
+            return None
         obj = json.loads(resp)
 
         res = self.create_translation(text, tl, sl)

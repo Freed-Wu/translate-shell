@@ -38,7 +38,7 @@ class HaiciTranslator(OnlineTranslator):
         req["q"] = quote_plus(text)
         resp = self.http_get(url, req)
         if not resp:
-            return
+            return None
 
         res = self.create_translation(text, tl, sl)
         res["phonetic"] = self.get_phonetic(resp)

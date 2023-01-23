@@ -53,7 +53,7 @@ class BingTranslator(OnlineTranslator):
         }
         resp = self.http_get(url, None, headers)
         if not resp:
-            return
+            return None
         res = self.create_translation(text, tl, sl)
         res["phonetic"] = self.get_phonetic(resp)
         res["explains"] = self.get_explains(resp)

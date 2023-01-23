@@ -50,7 +50,7 @@ class StardictTranslator(Translator):
         """
         tokens, dictionary = self.get_tokens(text, tl, sl)
         if tokens == []:
-            return
+            return None
         res = self.create_translation(text, tl, sl)
         if dictionary == "langdao-ec-gb":
             from .langdao_ec_gb import parse_tokens
