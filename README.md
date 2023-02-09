@@ -4,6 +4,7 @@
 [![github/workflow](https://github.com/Freed-Wu/translate-shell/actions/workflows/main.yml/badge.svg)](https://github.com/Freed-Wu/translate-shell/actions)
 [![codecov](https://codecov.io/gh/Freed-Wu/translate-shell/branch/main/graph/badge.svg)](https://codecov.io/gh/Freed-Wu/translate-shell)
 [![readthedocs](https://shields.io/readthedocs/translate-shell)](https://translate-shell.readthedocs.io)
+[![DeepSource](https://deepsource.io/gh/Freed-Wu/translate-shell.svg/?show_trend=true)](https://deepsource.io/gh/Freed-Wu/translate-shell)
 
 [![github/downloads](https://shields.io/github/downloads/Freed-Wu/translate-shell/total)](https://github.com/Freed-Wu/translate-shell/releases)
 [![github/downloads/latest](https://shields.io/github/downloads/Freed-Wu/translate-shell/latest/total)](https://github.com/Freed-Wu/translate-shell/releases/latest)
