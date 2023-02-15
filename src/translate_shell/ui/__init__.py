@@ -81,7 +81,7 @@ def init_config(path: Path) -> Configuration:
     return new_config
 
 
-def init(args: Namespace) -> Namespace:
+def init(args: Namespace) -> None:
     """Init args.
 
     Because ``langdetect`` and many online translators use ``zh-cn`` not
@@ -90,6 +90,7 @@ def init(args: Namespace) -> Namespace:
 
     :param args:
     :type args: Namespace
+    :rtype: None
     """
     if args.config:
         config_file = Path(args.config)
@@ -121,7 +122,6 @@ def init(args: Namespace) -> Namespace:
         args.get_youdaozhiyun_app_info
     )
     Speaker.get_speaker = args.get_speaker
-    return args
 
 
 def is_sub_thread() -> bool:

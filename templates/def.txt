@@ -3,7 +3,7 @@
 {% for p in params -%}
 :param {{ p.argument }}:
 {% if p.annotation -%}
-:type {{ p.argument }}: {{ p.annotation }}
+:type {{ p.argument }}: {{ p.annotation.strip('"') }}
 {% endif -%}
 {% endfor -%}
 {% if return_type -%}

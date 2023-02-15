@@ -13,5 +13,5 @@ def run(args: Namespace) -> None:
     :type args: Namespace
     :rtype: None
     """
-    args = init(args)
+    init(args)
     process(args)
