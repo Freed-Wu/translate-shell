@@ -88,7 +88,7 @@ repos:
         additional_dependencies:
           - tomli
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.292
+    rev: v1.1.294
     hooks:
       - id: pyright
   - repo: https://github.com/PyCQA/bandit
@@ -100,7 +100,7 @@ repos:
         additional_dependencies:
           - toml
   - repo: https://github.com/vimjas/vint
-    rev: v0.4a4
+    rev: v0.4a3
     hooks:
       - id: vint
   - repo: https://github.com/google/vimdoc
