@@ -104,9 +104,9 @@ class GoogleTranslator(OnlineTranslator):
         expls = {}
         if obj[1]:
             for x in obj[1]:
-                expls[x[0][0]] = ""
+                expls[x[0]] = ""
                 for i in x[2]:
-                    expls[x[0][0]] += i[0] + "; "
+                    expls[x[0]] += i[0] + "; "
         return expls
 
     @staticmethod
