@@ -13,7 +13,7 @@ from ..external.colorama import Fore, Style
 from ..external.pynotifier import Notification
 from ..translate import Translation
 from ..ui import is_sub_thread
-from .prompt import p10k_sections
+from .misc import p10k_sections
 
 PAT = re.compile(r"\x1b\[[0-9;]+?m")
 NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
