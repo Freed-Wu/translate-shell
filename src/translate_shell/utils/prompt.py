@@ -1,18 +1,11 @@
 """Get prompt
 =============
 """
-import os
-from contextlib import suppress
-from datetime import datetime
-from pathlib import Path
-
-from ..external.colorama import Back, Fore, Style, init
-
-init()
+from .misc import p10k_sections, section_path, section_time
 
 
 def prompt_p10k(tl: str, sl: str, translators: str) -> str:
-    """prompt_p10k.
+    """Prompt p10k.
 
     :param tl:
     :type tl: str
@@ -22,63 +15,35 @@ def prompt_p10k(tl: str, sl: str, translators: str) -> str:
     :type translators: str
     :rtype: str
     """
-    cwd = os.getcwd()
-    if os.access(cwd, 7):
-        logo = "  "
-    else:
-        logo = "  "
-    with suppress(ValueError):
-        cwd = str(Path(cwd).relative_to(Path.home()))
-        if cwd == ".":
-            cwd = "~"
-        else:
-            cwd = "~/" + cwd
-    head, mid, tail = cwd.rpartition("/")
-    prompt = (
-        Fore.BLACK
-        + Back.YELLOW
-        + " 韛"
-        + sl
-        + ":"
-        + tl
-        + " "
-        + Fore.YELLOW
-        + Back.BLACK
-        + ""
-        + Fore.GREEN
-        + "  "
-        + translators
-        + " "
-        + Fore.BLACK
-        + Back.BLUE
-        + ""
-        + Fore.WHITE
-        + logo
-        + head
-        + mid
-        + Style.BRIGHT
-        + tail
-        + " "
-        + Style.RESET_ALL
-        + Fore.BLUE
-        + Back.WHITE
-        + ""
-        + Fore.BLACK
-        + "  "
-        + datetime.now().strftime("%T")
-        + " "
-        + Fore.WHITE
-        + Back.RESET
-        + ""
-        + Style.RESET_ALL
-        + "\n"
-        + "❯ "
-    )
+    # Config
+    insert_lang = "韛{sl}:{tl}"
+    insert_translators = " {translators}"
+    insert_time = " {time}"
+    time_format = "%H:%M:%S"
+
+    sep = ""
+    insert_text = " {text} "
+    sections = [
+        ("BLACK", "YELLOW", insert_lang.format(sl=sl, tl=tl)),
+        (
+            "GREEN",
+            "BLACK",
+            insert_translators.format(translators=translators),
+        ),
+        ("WHITE", "BLUE", section_path),
+        (
+            "BLACK",
+            "WHITE",
+            lambda: insert_time.format(time=section_time(time_format)),
+        ),
+    ]
+    prompt = p10k_sections(sections, insert_text, sep)
+    prompt += "\n❯ "
     return prompt
 
 
 def process_clipboard(text: str, prompt: str) -> str:
-    """process_clipboard.
+    """Process clipboard.
 
     :param text:
     :type text: str

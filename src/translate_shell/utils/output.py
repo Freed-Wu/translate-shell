@@ -9,80 +9,102 @@ from subprocess import run
 
 from .. import APPNAME
 from ..__main__ import ASSETS_PATH
+from ..external.colorama import Fore, Style
 from ..external.pynotifier import Notification
 from ..translate import Translation
 from ..ui import is_sub_thread
+from .prompt import p10k_sections
 
 PAT = re.compile(r"\x1b\[[0-9;]+?m")
 NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
 ICON_FILE = str(ASSETS_PATH / "images" / "icon.png")
 
 
+def process_output_firstline(rst: dict) -> str:
+    """Process output firstline.
+
+    :param rst:
+    :type rst: dict
+    :rtype: str
+    """
+    # Config
+    insert_translator = " {translator}"
+    insert_paraphrase = " {paraphrase}"
+    insert_phonetic = " {phonetic}"
+
+    sep = ""
+    insert_text = " {text} "
+    sections = [
+        (
+            "GREEN",
+            "BLACK",
+            insert_translator.format(translator=rst["translator"]),
+        ),
+        (
+            "WHITE",
+            "BLUE",
+            insert_paraphrase.format(paraphrase=rst["paraphrase"]),
+        ),
+        ("BLACK", "WHITE", insert_phonetic.format(phonetic=rst["phonetic"])),
+    ]
+
+    prompt = p10k_sections(sections, insert_text, sep)
+    return prompt
+
+
+def process_output_explain(explain: list[str]) -> str:
+    """Process output explain.
+
+    :param explain:
+    :type explain: list[str]
+    :rtype: str
+    """
+    # Config
+    insert_name = " {name}"
+
+    sep = ""
+    insert_text = " {text} "
+    sections = [
+        ("WHITE", "BLUE", insert_name.format(name=explain[0])),
+    ]
+    prompt = p10k_sections(sections, insert_text, sep)  # type: ignore
+    prompt += " " + explain[1]
+    return prompt
+
+
+def process_output_pos(pos: str) -> str:
+    """Process output pos.
+
+    :param pos:
+    :type pos: str
+    :rtype: str
+    """
+    # Config
+    insert_pos = " {pos}"
+
+    sep = ""
+    insert_text = " {text} "
+    sections = [
+        ("WHITE", "BLUE", insert_pos.format(pos=pos)),
+    ]
+    prompt = p10k_sections(sections, insert_text, sep)  # type: ignore
+    return prompt
+
+
 def process_output_p10k(translation: Translation) -> str:
-    """process_output_p10k.
+    """Process output p10k.
 
     :param translation:
     :type translation: Translation
     :rtype: str
     """
-    from ..external.colorama import Back, Fore, Style, init
-
-    init()
     outputs = []
     for rst in translation.results:
-        outputs += [
-            Fore.GREEN
-            + Back.BLACK
-            + "  "
-            + rst["translator"]
-            + " "
-            + Fore.BLACK
-            + Back.BLUE
-            + ""
-            + Fore.WHITE
-            + "  "
-            + Style.BRIGHT
-            + rst["paraphrase"]
-            + " "
-            + Style.RESET_ALL
-            + Fore.BLUE
-            + Back.WHITE
-            + ""
-            + Fore.BLACK
-            + "  "
-            + rst["phonetic"]
-            + " "
-            + Fore.WHITE
-            + Back.RESET
-            + ""
-            + Style.RESET_ALL
-        ]
+        outputs += [process_output_firstline(rst)]
         for i, explain in enumerate(rst["explains"].items(), 1):
-            outputs += [
-                Fore.WHITE
-                + Back.BLUE
-                + "  "
-                + explain[0]
-                + " "
-                + Fore.BLUE
-                + Back.RESET
-                + ""
-                + Style.RESET_ALL
-                + " "
-                + explain[1]
-            ]
+            outputs += [process_output_explain(explain)]
         for pos, details in rst["details"].items():
-            outputs += [
-                Fore.WHITE
-                + Back.BLUE
-                + "  "
-                + pos
-                + " "
-                + Fore.BLUE
-                + Back.RESET
-                + ""
-                + Style.RESET_ALL
-            ]
+            outputs += [process_output_pos(pos)]
             for i, examples in enumerate(details.items(), 1):
                 outputs += [
                     Fore.GREEN
@@ -124,5 +146,8 @@ def process_output(translation: Translation) -> str:
                 + [text],
                 check=True,
             )
-        Notification("Translation", text, 10, "low", ICON_FILE, APPNAME).send()
+        else:
+            Notification(
+                "Translation", text, 10, "low", ICON_FILE, APPNAME
+            ).send()
     return rst

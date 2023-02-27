@@ -148,6 +148,9 @@ auto:zh_CN>
 
 The screenshot is same as above in [logger](#logger).
 
+The functions in [misc](translate_shell.utils.misc) should be useful for
+customization.
+
 ## Process Input
 
 ### Magic text
@@ -240,6 +243,9 @@ config.process_output = process_output
 ```
 
 The screenshot is same as above in [logger](#logger).
+
+The functions in [misc](translate_shell.utils.misc) should be useful for
+customization.
 
 ## Translate Clipboard
 
