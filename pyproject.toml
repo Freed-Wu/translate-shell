@@ -54,7 +54,7 @@ write_to = "src/translate_shell/_version.py"
 write-to = "src/translate_shell/_metainfo.py"
 
 [tool.setuptools-generate.metainfo-template]
-file = "templates/metainfo.py"
+file = "templates/metainfo.py.j2"
 
 [tool.setuptools.package-data]
 translate_shell = ["py.typed", "assets/*"]
