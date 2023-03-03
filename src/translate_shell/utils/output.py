@@ -17,7 +17,7 @@ from .misc import p10k_sections
 
 PAT = re.compile(r"\x1b\[[0-9;]+?m")
 NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
-ICON_FILE = str(ASSETS_PATH / "images" / "icon.png")
+ICON_FILE = str(ASSETS_PATH / "images" / "translate-shell.png")
 
 
 def process_output_firstline(rst: dict) -> str:

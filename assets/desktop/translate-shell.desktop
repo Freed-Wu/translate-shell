@@ -4,6 +4,6 @@ Name = translate-shell
 GenericName = Translate
 Type = Application
 Exec = trans
-Icon = /usr/share/translate-shell/images/icon.png
+Icon = translate-shell
 Terminal = false
 Categories = Education

@@ -9,7 +9,7 @@ BASH_COMPLETION = $(PREFIX)/share/bash-completion/completions/$(BINNAME)
 ZSH_COMPLETION = $(PREFIX)/share/zsh/site-functions/_$(BINNAME)
 TCSH_COMPLETION = /etc/profile.d/$(BINNAME).csh
 DESKTOP_ENTRY = $(PREFIX)/share/applications/translate-shell.desktop
-ICON = $(PREFIX)/share/$(LIBNAME)/images/icon.png
+ICON = $(PREFIX)/share/$(LIBNAME)/images/translate-shell.png
 EXTERNAL_MAIN_PY = $(shell find $(LIBPATH)/external/* -name __main__.py -not -wholename '*/shtab/*')
 EXTERNAL_INIT_PY = $(addsuffix __init__.py,$(dir $(EXTERNAL_MAIN_PY)))
 IGNORE_PY = $(LIBPATH)/_version.py $(LIBPATH)/_metainfo.py
@@ -78,7 +78,7 @@ install-tcsh-completion: build/resources/trans.csh
 	install -Dm644 $< $(TCSH_COMPLETION)
 
 .PHONY: install-desktop-entry
-install-desktop-entry: assets/desktop/*.desktop $(LIBPATH)/assets/images/icon.png
+install-desktop-entry: assets/desktop/*.desktop $(LIBPATH)/assets/images/translate-shell.png
 	install -D $< $(DESKTOP_ENTRY)
 	install -D $(wordlist 2,2,$^) $(ICON)
 # }}} install #
