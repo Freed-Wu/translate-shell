@@ -17,7 +17,8 @@ GENERATE_PY = $(EXTERNAL_INIT_PY) $(IGNORE_PY)
 SRC = $(shell find src -type f -name '*.py')
 
 .PHONY: default
-default: install
+# they depend .git so need to be made when git commit
+default: doc/translate-shell.txt addon-info.json package.json CHANGELOG.md
 
 # build {{{ #
 .PHONY: build
@@ -45,6 +46,12 @@ build-docs:
 
 addon-info.json: scripts/generate-addon-info.json.pl pyproject.toml
 	$^ $@
+
+package.json: scripts/generate-addon-info.json.pl pyproject.toml
+	$^ $@
+
+CHANGELOG.md:
+	gitmoji-changelog
 
 doc/%.txt: addon-info.json $(shell find . -type f -name '*.vim')
 	vimdoc .
