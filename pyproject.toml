@@ -1,4 +1,3 @@
-#!/usr/bin/env -S make -B
 [build-system]
 requires = [
   "setuptools >= 45",
@@ -56,7 +55,7 @@ write-to = "src/translate_shell/_metainfo.py"
 [tool.setuptools-generate.metainfo-template]
 file = "templates/metainfo.py.j2"
 
-# begin: scripts/generate-pyproject.toml.pl
+# begin: scripts/update-pyproject.toml.pl
 [tool.setuptools.dynamic.optional-dependencies.color]
 file = "requirements/color.txt"
 
@@ -80,7 +79,7 @@ file = "requirements/stardict.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.yaml]
 file = "requirements/yaml.txt"
-# end: scripts/generate-pyproject.toml.pl
+# end: scripts/update-pyproject.toml.pl
 
 [tool.black]
 line-length = 79

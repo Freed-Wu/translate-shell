@@ -3,13 +3,13 @@
 <a name="next"></a>
 ## next
 
-### Changed
+### Removed
 
-- 🎨 Remove unused keys in pyproject.toml [[16ad0fb](https://github.com/Freed-Wu/translate-shell/commit/16ad0fbb6ba48294af909b5cde9af411b356db72)]
+- 🔥 Remove Makefile [[ac9f49f](https://github.com/Freed-Wu/translate-shell/commit/ac9f49fea7f7685a50426298b8aaca618eaa7e79)]
 
 ### Miscellaneous
 
-- 📝 Add Changelog [[b72b133](https://github.com/Freed-Wu/translate-shell/commit/b72b133e67558ade158cd22004741243fbc9430f)]
+- 📝 Add Changelog [[9e94297](https://github.com/Freed-Wu/translate-shell/commit/9e9429742a509e165dab80e9f489b669c575eb8d)]
 
 
 <a name="0.0.14"></a>
