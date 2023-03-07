@@ -149,7 +149,10 @@ auto:zh_CN>
 The screenshot is same as above in [logger](#logger).
 
 The functions in [misc](translate_shell.utils.misc) should be useful for
-customization.
+customization. BTW, you can use these functions to define your prompt of
+python, too. See [prompt](https://github.com/Freed-Wu/my-dotfiles/wiki).
+
+![python](https://user-images.githubusercontent.com/32936898/205494856-6f11d1a1-b2e3-469d-91c7-8a24c400fa78.jpg)
 
 ## Process Input
 
