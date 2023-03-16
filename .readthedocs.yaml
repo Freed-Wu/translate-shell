@@ -7,7 +7,8 @@ build:
   tools:
     python: "3"
 
-formats: all
+formats:
+  - htmlzip
 
 python:
   install:
