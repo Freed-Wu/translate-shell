@@ -13,6 +13,8 @@ options:
   -q, --quiet           reduce logger level
   --no-clipboard        disable clipboard
   --clipboard           enable clipboard (default)
+  --no-notification     disable notification
+  --notification        enable notification (default)
   --sleep-seconds SLEEP_SECONDS
                         avoid checkout clipboard too frequently. default: 0.1
   --config CONFIG       use a python file as config

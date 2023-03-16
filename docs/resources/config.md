@@ -56,6 +56,8 @@ config.translators = "google,bing,haici"
 config.format = "json"
 # Disable translate clipboard automatically
 config.clipboard = False
+# Disable notification of translation automatically
+config.notification = False
 # Translate clipboard every 0.5 seconds
 config.sleep_seconds = 0.5
 # GUI translation window duration time
@@ -262,6 +264,12 @@ You can customize `config.get_clipper`.
 See [speaker](resources/translator.md#speaker)
 
 You can customize `config.get_speaker`.
+
+## Notify
+
+See [GUI](resources/gui.md#GUI).
+
+You can customize `config.notify`.
 
 ## Readline Complete
 

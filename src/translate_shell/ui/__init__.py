@@ -183,6 +183,8 @@ def process(args: Namespace, is_repl: bool = False) -> None:
         rst = yaml.dump(vars(translation))
     else:
         rst = args.process_output(translation)
+        if rst and args.notification and is_sub_thread():
+            args.notify(rst)
     if rst:
         if is_sub_thread():
             os.kill(os.getpid(), signal.SIGINT)

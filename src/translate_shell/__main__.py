@@ -102,6 +102,18 @@ def get_parser() -> ArgumentParser:
     group.add_argument(
         "--clipboard", action="store_true", help="enable clipboard (default)"
     )
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
+        "--no-notification",
+        action="store_false",
+        dest="notification",
+        help="disable notification",
+    )
+    group.add_argument(
+        "--notification",
+        action="store_true",
+        help="enable notification (default)",
+    )
     parser.add_argument(
         "--sleep-seconds",
         type=float,

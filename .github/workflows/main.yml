@@ -15,9 +15,9 @@ permissions:
   contents: write
 
 env:
+  PYTHONUTF8: "1"
   python-version: 3.x
   cache: pip
-  themis: vim-themis/bin/themis
 
 jobs:
   test:
@@ -27,8 +27,7 @@ jobs:
         runs-on:
           - ubuntu-latest
           - macos-latest
-          # CHANGELOG.md is utf-8 while windows is utf-16
-          # - windows-latest
+          - windows-latest
         neovim:
           - true
           - false
@@ -60,17 +59,12 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -e '.[dev]'
-      - name: Test for Linux and macOS
-        if: runner.os != 'Windows'
+      - name: Test
         env:
-          SKIP: make
           THEMIS_VIM: ${{ steps.vim.outputs.executable }}
         run: |
-          make THEMIS=$themis test
-      - name: Test for Windows
-        if: runner.os == 'Windows'
-        run: |
-          $themis
+          vim-themis/bin/themis
+          pre-commit run -a
           pytest --cov
       - uses: codecov/codecov-action@v3
   build:

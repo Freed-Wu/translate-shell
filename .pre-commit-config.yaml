@@ -27,13 +27,13 @@ repos:
     hooks:
       - id: remove-crlf
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.2
+    rev: v2.2.4
     hooks:
       - id: codespell
         additional_dependencies:
           - tomli
   - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.19.0dev
+    rev: v0.19.1
     hooks:
       - id: gitlint
         args:
@@ -74,7 +74,7 @@ repos:
         additional_dependencies:
           - markdown-it-texmath@0.9.1
   - repo: https://github.com/Freed-Wu/pre-commit-hooks
-    rev: 0.0.9
+    rev: 0.0.10
     hooks:
       - id: update-CITATION.cff
       - id: update-pyproject.toml
@@ -95,17 +95,17 @@ repos:
         additional_dependencies:
           - tomli
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.295
+    rev: v1.1.298
     hooks:
       - id: pyright
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.4
+    rev: 1.7.5
     hooks:
       - id: bandit
         args:
           - -cpyproject.toml
         additional_dependencies:
-          - toml
+          - tomli
   - repo: https://github.com/vimjas/vint
     rev: v0.4a4
     hooks:

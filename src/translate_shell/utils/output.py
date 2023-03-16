@@ -2,22 +2,13 @@
 =================
 """
 import json
-import re
-from shlex import split
-from shutil import which
-from subprocess import run
 
-from .. import APPNAME
 from ..__main__ import ASSETS_PATH
 from ..external.colorama import Fore, Style
-from ..external.pynotifier import Notification
 from ..translate import Translation
-from ..ui import is_sub_thread
 from .misc import p10k_sections
 
-PAT = re.compile(r"\x1b\[[0-9;]+?m")
 NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
-ICON_FILE = str(ASSETS_PATH / "images" / "translate-shell.png")
 
 
 def process_output_firstline(rst: dict) -> str:
@@ -132,22 +123,4 @@ def process_output(translation: Translation) -> str:
     :rtype: str
     """
     rst = process_output_p10k(translation)
-    if rst and is_sub_thread():
-        # https://github.com/YuriyLisovskiy/pynotifier/issues/21
-        text = PAT.sub("", rst)
-        if which("termux-toast"):
-            run(split("termux-toast -g top") + [text], check=True)
-        if which("termux-notification"):
-            run(
-                split(
-                    f"termux-notification -t Translation --group {APPNAME} "
-                    f"--icon {ICON_FILE} -c"
-                )
-                + [text],
-                check=True,
-            )
-        else:
-            Notification(
-                "Translation", text, 10, "low", ICON_FILE, APPNAME
-            ).send()
     return rst

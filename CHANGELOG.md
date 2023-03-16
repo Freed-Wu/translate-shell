@@ -1,25 +1,5 @@
 # Changelog
 
-<a name="0.0.16"></a>
-## 0.0.16 (2023-03-04)
-
-### Removed
-
-- 🔥 Remove Makefile [[c3a835c](https://github.com/Freed-Wu/translate-shell/commit/c3a835c2d1b5416c97e82ebfbdef4630db9a3d6e)]
-
-
-<a name="0.0.15"></a>
-## 0.0.15 (2023-03-04)
-
-### Changed
-
-- 🎨 Remove unused keys in pyproject.toml [[16ad0fb](https://github.com/Freed-Wu/translate-shell/commit/16ad0fbb6ba48294af909b5cde9af411b356db72)]
-
-### Miscellaneous
-
-- 📝 Add Changelog [[9e94297](https://github.com/Freed-Wu/translate-shell/commit/9e9429742a509e165dab80e9f489b669c575eb8d)]
-
-
 <a name="0.0.14"></a>
 ## 0.0.14 (2023-03-03)
 

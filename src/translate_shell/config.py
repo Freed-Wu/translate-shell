@@ -19,6 +19,7 @@ class Configuration(Namespace):
         "get_speaker",
         "get_prompt",
         "get_youdaozhiyun_app_info",
+        "notify",
         "complete",
     ]
 
@@ -122,6 +123,18 @@ class Configuration(Namespace):
         :rtype: tuple[str, str]
         """
         return "", ""
+
+    @staticmethod
+    def notify(rst: str) -> None:
+        """Notify.
+
+        :param rst:
+        :type rst: str
+        :rtype: None
+        """
+        from .utils.notify import notify
+
+        notify(rst)
 
     @staticmethod
     def complete(text: str, state: int) -> str:
