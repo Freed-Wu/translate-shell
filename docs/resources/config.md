@@ -3,7 +3,7 @@
 The config is the actual feature to make this program is different than other
 programs:
 I allow user to write config in python, which provide more flexible and free
-method to customization. See [file location](resources/man.md#files) to know
+method to customization. See [file location](/resources/man.md#files) to know
 where is the config. The file location usually respect standard of every OS
 (history file is similar):
 
@@ -43,7 +43,7 @@ By default,
 `trans` is
 `trans --source-lang=auto --target-lang=auto --engines=google --format=text --clipboard`.
 You can change it in config.
-About options' meanings, you can see [options](resources/man.md#options).
+About options' meanings, you can see [options](/resources/man.md#options).
 About options' legal values, you can see `trans --print-setting`.
 
 ```python
@@ -125,7 +125,7 @@ This is an implementation of <https://github.com/felixonmars/ydcv/issues/76>.
 
 Default prompt string style is inspired by
 [powerlevel10k](https://github.com/romkatv/powerlevel10k). You need install some
-requirements to provide [color](resources/requirements.md#color) and
+requirements to provide [color](/resources/requirements.md#color) and
 [fonts](https://github.com/ryanoasis/nerd-fonts). All screenshots are using
 JetBrainsMono Nerd Font Mono.
 
@@ -261,18 +261,18 @@ You can customize `config.get_clipper`.
 
 ## Speaker
 
-See [speaker](resources/translator.md#speaker)
+See [speaker](/resources/translator.md#speaker)
 
 You can customize `config.get_speaker`.
 
 ## Notify
 
-See [GUI](resources/gui.md#GUI).
+See [GUI](/resources/gui.md#GUI).
 
 You can customize `config.notify`.
 
 ## Readline Complete
 
-See [readline](resources/readline.md#readline)
+See [readline](/resources/readline.md#readline)
 
 You can customize `config.complete`.

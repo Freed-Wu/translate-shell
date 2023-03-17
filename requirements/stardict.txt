@@ -1,5 +1,5 @@
 #!/usr/bin/env -S pip install -r
 # Support translate offline by stardict.
-# See [offline translators](resources/translator.md#offline-translators).
+# See [offline translators](/resources/translator.md#offline-translators).
 
 PyStarDict

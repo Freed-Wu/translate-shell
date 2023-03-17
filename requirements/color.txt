@@ -1,7 +1,7 @@
 #!/usr/bin/env -S pip install -r
 # Provide a prompt/output style like
 # [powerlevel10k](https://github.com/romkatv/powerlevel10k).
-# See [prompt](resources/config.md#prompt) and
-# [process output](resources/config.md#process-output).
+# See [prompt](/resources/config.md#prompt) and
+# [process output](/resources/config.md#process-output).
 
 colorama

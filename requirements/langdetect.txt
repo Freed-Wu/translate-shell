@@ -1,5 +1,5 @@
 #!/usr/bin/env -S pip install -r
 # Language detect automatically, only used by
-# [offline translators](resources/translator.md#offline-translators).
+# [offline translators](/resources/translator.md#offline-translators).
 
 langdetect
