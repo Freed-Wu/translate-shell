@@ -1,5 +1,5 @@
 #!/usr/bin/env -S perl -n
-$. = 1 unless $#ARGV == $oldargc;
+$.       = 1 unless $#ARGV == $oldargc;
 $oldargc = $#ARGV;
 next unless $. == 1;
 $_ = $ARGV;

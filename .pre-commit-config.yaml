@@ -47,8 +47,8 @@ repos:
     hooks:
       - id: check-mailmap
       - id: shellcheck
-      - id: shfmt
-        exclude: .*\.zsh$
+        exclude_types:
+          - zsh
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.29.0
     hooks:
@@ -80,6 +80,16 @@ repos:
       - id: update-pyproject.toml
       - id: update-package.json
       - id: update-addon-info.json
+  - repo: https://github.com/perltidy/perltidy
+    rev: "20230309"
+    hooks:
+      - id: perltidy
+  - repo: https://github.com/scop/pre-commit-shfmt
+    rev: v3.6.0-1
+    hooks:
+      - id: shfmt
+        exclude_types:
+          - zsh
   - repo: https://github.com/psf/black
     rev: 23.1.0
     hooks:
@@ -118,5 +128,4 @@ repos:
 ci:
   skip:
     - shellcheck
-    - shfmt
     - pyright
