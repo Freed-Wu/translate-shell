@@ -252,6 +252,12 @@ The screenshot is same as above in [logger](#logger).
 The functions in [misc](translate_shell.utils.misc) should be useful for
 customization.
 
+If you install
+[wakatime/repl-python-wakatime](https://github.com/wakatime/repl-python-wakatime)
+and [wakatime/wakatime-cli](https://github.com/wakatime/wakatime-cli),
+default `process_output()` will call `wakatime_hook()` to record your
+translating time in [wakatime](https://wakatime.com).
+
 ## Translate Clipboard
 
 In REPL, translate-shell can translate any content in clipboard, when it has

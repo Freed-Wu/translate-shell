@@ -2,6 +2,7 @@
 =================
 """
 import json
+from contextlib import suppress
 
 from ..__main__ import ASSETS_PATH
 from ..external.colorama import Fore, Style
@@ -123,4 +124,10 @@ def process_output(translation: Translation) -> str:
     :rtype: str
     """
     rst = process_output_p10k(translation)
+    with suppress(ImportError):
+        from repl_python_wakatime import wakatime_hook
+
+        wakatime_hook(
+            plugin="translate-shell-wakatime", category="translating"
+        )
     return rst

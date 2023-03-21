@@ -1,9 +1,5 @@
 [build-system]
-requires = [
-  "setuptools >= 45",
-  "setuptools_scm[toml] >= 6.2",
-  "setuptools-generate",
-]
+requires = ["setuptools_scm[toml] >= 6.2", "setuptools-generate"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -76,6 +72,9 @@ file = "requirements/rich.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.stardict]
 file = "requirements/stardict.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.wakatime]
+file = "requirements/wakatime.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.yaml]
 file = "requirements/yaml.txt"

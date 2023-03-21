@@ -1,5 +1,61 @@
 # Changelog
 
+<a name="next"></a>
+## next
+
+### Added
+
+- ✨ Add wakatime [[8ac651c](https://github.com/Freed-Wu/translate-shell/commit/8ac651cc72b8086dbbda294d9974af0aab5c3b40)]
+- 👷‍♂️ Add pre-commit-shfmt, perltidy [[7224d16](https://github.com/Freed-Wu/translate-shell/commit/7224d16702c663c51d845fa856798b31b6826ff7)]
+- 👷‍♂️ Add dependabot [[14c2ebc](https://github.com/Freed-Wu/translate-shell/commit/14c2ebcb48b0c126358b67b5fde061ea7308d5c2)]
+
+### Removed
+
+- ➖ Remove some dev dependencies [[e11b522](https://github.com/Freed-Wu/translate-shell/commit/e11b5222d2a7f33d5981cced2d14f169c984686e)]
+
+### Fixed
+
+- 💚 Remove pre-commit from github action [[7ffba6b](https://github.com/Freed-Wu/translate-shell/commit/7ffba6b730e9ca91487686e5c325df0b97058a04)]
+- 💚 Disable latex docs [[1adf3f2](https://github.com/Freed-Wu/translate-shell/commit/1adf3f2e385d42fee610341910f86e1f257da6a6)]
+- 💚 Fix github action about windows [[41fe26c](https://github.com/Freed-Wu/translate-shell/commit/41fe26c7723faef4e8ab5edc1f2b6918dd02f305)]
+
+### Miscellaneous
+
+- 📝 Fix invalid URLs in docs [[8a71704](https://github.com/Freed-Wu/translate-shell/commit/8a7170462ca8dd7fd385d57181801263d0b1259b)]
+
+
+<a name="0.0.17"></a>
+## 0.0.17 (2023-03-16)
+
+### Added
+
+- ✨ Support customizing notifying [[a8aed28](https://github.com/Freed-Wu/translate-shell/commit/a8aed280defbae568e950debd95e33cfbdae332c)]
+
+### Miscellaneous
+
+- 📝 Add prompt in config.md [[019be95](https://github.com/Freed-Wu/translate-shell/commit/019be953ab982d59edb97af7e23c2a0af4966248)]
+
+
+<a name="0.0.16"></a>
+## 0.0.16 (2023-03-04)
+
+### Removed
+
+- 🔥 Remove Makefile [[c3a835c](https://github.com/Freed-Wu/translate-shell/commit/c3a835c2d1b5416c97e82ebfbdef4630db9a3d6e)]
+
+
+<a name="0.0.15"></a>
+## 0.0.15 (2023-03-04)
+
+### Changed
+
+- 🎨 Remove unused keys in pyproject.toml [[16ad0fb](https://github.com/Freed-Wu/translate-shell/commit/16ad0fbb6ba48294af909b5cde9af411b356db72)]
+
+### Miscellaneous
+
+- 📝 Add Changelog [[9e94297](https://github.com/Freed-Wu/translate-shell/commit/9e9429742a509e165dab80e9f489b669c575eb8d)]
+
+
 <a name="0.0.14"></a>
 ## 0.0.14 (2023-03-03)
 

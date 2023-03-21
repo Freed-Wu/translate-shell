@@ -1,0 +1,4 @@
+#!/usr/bin/env -S pip install -r
+# See [process output](/resources/config.md#process-output).
+
+repl-python-wakatime
