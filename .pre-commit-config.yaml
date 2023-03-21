@@ -85,11 +85,9 @@ repos:
     hooks:
       - id: perltidy
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.6.0-1
+    rev: v3.6.0-2
     hooks:
       - id: shfmt
-        exclude_types:
-          - zsh
   - repo: https://github.com/psf/black
     rev: 23.1.0
     hooks:
