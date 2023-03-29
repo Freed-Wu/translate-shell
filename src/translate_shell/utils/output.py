@@ -9,7 +9,9 @@ from ..external.colorama import Fore, Style
 from ..translate import Translation
 from .misc import p10k_sections
 
-NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text())
+NUMBER = json.loads(
+    (ASSETS_PATH / "json" / "number.json").read_text(encoding="utf-8")
+)
 
 
 def process_output_firstline(rst: dict) -> str:

@@ -16,8 +16,11 @@ from .. import TRANSLATION
 from . import OnlineTranslator
 
 logger = logging.getLogger(__name__)
-with (ASSETS_PATH / "json" / "youdaozhiyun-error.json").open() as f:
-    ERROR = json.load(f)
+ERROR = json.loads(
+    (ASSETS_PATH / "json" / "youdaozhiyun-error.json").read_text(
+        encoding="utf-8"
+    )
+)
 
 
 class YoudaozhiyunTranslator(OnlineTranslator):

@@ -5,7 +5,19 @@
 
 ### Added
 
-- ✨ Add wakatime [[8ac651c](https://github.com/Freed-Wu/translate-shell/commit/8ac651cc72b8086dbbda294d9974af0aab5c3b40)]
+- 👷‍♂️ Update .pre-commit-config.yaml [[2827464](https://github.com/Freed-Wu/translate-shell/commit/28274648a080cadd28483f745079d69f67f49dec)]
+
+### Miscellaneous
+
+- 📝 Add translation for zh_CN [[064658b](https://github.com/Freed-Wu/translate-shell/commit/064658bee23240cc5dd1df169c045081d3458b96)]
+
+
+<a name="0.0.18"></a>
+## 0.0.18 (2023-03-21)
+
+### Added
+
+- ✨ Support wakatime [[4ec84c7](https://github.com/Freed-Wu/translate-shell/commit/4ec84c7607c2d080f633473f1983beb011296164)]
 - 👷‍♂️ Add pre-commit-shfmt, perltidy [[7224d16](https://github.com/Freed-Wu/translate-shell/commit/7224d16702c663c51d845fa856798b31b6826ff7)]
 - 👷‍♂️ Add dependabot [[14c2ebc](https://github.com/Freed-Wu/translate-shell/commit/14c2ebcb48b0c126358b67b5fde061ea7308d5c2)]
 
