@@ -1,0 +1,596 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../../CHANGELOG.md:2
+msgid "Changelog"
+msgstr ""
+
+#: ../../../CHANGELOG.md:4
+msgid "<a name=\"next\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:5
+msgid "next"
+msgstr ""
+
+#: ../../../CHANGELOG.md:7 ../../../CHANGELOG.md:31 ../../../CHANGELOG.md:84
+#: ../../../CHANGELOG.md:108 ../../../CHANGELOG.md:192
+#: ../../../CHANGELOG.md:200 ../../../CHANGELOG.md:224
+msgid "Added"
+msgstr ""
+
+#: ../../../CHANGELOG.md:9
+msgid ""
+"✨ Add wakatime [[8ac651c](https://github.com/Freed-Wu/translate-"
+"shell/commit/8ac651cc72b8086dbbda294d9974af0aab5c3b40)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:10
+msgid ""
+"👷‍♂️ Add pre-commit-shfmt, perltidy [[7224d16](https://github.com/Freed-"
+"Wu/translate-shell/commit/7224d16702c663c51d845fa856798b31b6826ff7)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:11
+msgid ""
+"👷‍♂️ Add dependabot [[14c2ebc](https://github.com/Freed-Wu/translate-"
+"shell/commit/14c2ebcb48b0c126358b67b5fde061ea7308d5c2)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:13 ../../../CHANGELOG.md:43 ../../../CHANGELOG.md:176
+#: ../../../CHANGELOG.md:184
+msgid "Removed"
+msgstr ""
+
+#: ../../../CHANGELOG.md:15
+msgid ""
+"➖ Remove some dev dependencies [[e11b522](https://github.com/Freed-Wu"
+"/translate-shell/commit/e11b5222d2a7f33d5981cced2d14f169c984686e)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:17 ../../../CHANGELOG.md:68 ../../../CHANGELOG.md:88
+#: ../../../CHANGELOG.md:100 ../../../CHANGELOG.md:129
+#: ../../../CHANGELOG.md:216
+msgid "Fixed"
+msgstr ""
+
+#: ../../../CHANGELOG.md:19
+msgid ""
+"💚 Remove pre-commit from github action [[7ffba6b](https://github.com"
+"/Freed-Wu/translate-"
+"shell/commit/7ffba6b730e9ca91487686e5c325df0b97058a04)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:20
+msgid ""
+"💚 Disable latex docs [[1adf3f2](https://github.com/Freed-Wu/translate-"
+"shell/commit/1adf3f2e385d42fee610341910f86e1f257da6a6)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:21
+msgid ""
+"💚 Fix github action about windows [[41fe26c](https://github.com/Freed-Wu"
+"/translate-shell/commit/41fe26c7723faef4e8ab5edc1f2b6918dd02f305)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:23 ../../../CHANGELOG.md:35 ../../../CHANGELOG.md:55
+#: ../../../CHANGELOG.md:92 ../../../CHANGELOG.md:138 ../../../CHANGELOG.md:156
+#: ../../../CHANGELOG.md:168
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../../../CHANGELOG.md:25
+msgid ""
+"📝 Fix invalid URLs in docs [[8a71704](https://github.com/Freed-Wu"
+"/translate-shell/commit/8a7170462ca8dd7fd385d57181801263d0b1259b)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:28
+msgid "<a name=\"0.0.17\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:29
+msgid "0.0.17 (2023-03-16)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:33
+msgid ""
+"✨ Support customizing notifying [[a8aed28](https://github.com/Freed-Wu"
+"/translate-shell/commit/a8aed280defbae568e950debd95e33cfbdae332c)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:37
+msgid ""
+"📝 Add prompt in config.md [[019be95](https://github.com/Freed-Wu"
+"/translate-shell/commit/019be953ab982d59edb97af7e23c2a0af4966248)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:40
+msgid "<a name=\"0.0.16\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:41
+msgid "0.0.16 (2023-03-04)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:45
+msgid ""
+"🔥 Remove Makefile [[c3a835c](https://github.com/Freed-Wu/translate-"
+"shell/commit/c3a835c2d1b5416c97e82ebfbdef4630db9a3d6e)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:48
+msgid "<a name=\"0.0.15\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:49
+msgid "0.0.15 (2023-03-04)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:51 ../../../CHANGELOG.md:63 ../../../CHANGELOG.md:76
+#: ../../../CHANGELOG.md:117 ../../../CHANGELOG.md:164
+#: ../../../CHANGELOG.md:208
+msgid "Changed"
+msgstr ""
+
+#: ../../../CHANGELOG.md:53
+msgid ""
+"🎨 Remove unused keys in pyproject.toml [[16ad0fb](https://github.com"
+"/Freed-Wu/translate-"
+"shell/commit/16ad0fbb6ba48294af909b5cde9af411b356db72)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:57
+msgid ""
+"📝 Add Changelog [[9e94297](https://github.com/Freed-Wu/translate-"
+"shell/commit/9e9429742a509e165dab80e9f489b669c575eb8d)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:60
+msgid "<a name=\"0.0.14\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:61
+msgid "0.0.14 (2023-03-03)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:65
+msgid ""
+"🚚 Change template extension to jinja2 [[939d116](https://github.com"
+"/Freed-Wu/translate-"
+"shell/commit/939d116ef755c9ba745d0b9df7edb84e40393ccd)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:66
+msgid ""
+"🎨 Little update for module import [[fadc959](https://github.com/Freed-Wu"
+"/translate-shell/commit/fadc9594c26d88655e26cdd65dcd8179e8f2d668)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:70
+msgid ""
+"🐛 Fix icon path to respect FHS [[1736b86](https://github.com/Freed-Wu"
+"/translate-shell/commit/1736b86dfefbdf25981c924971dbb9946079accd)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:73
+msgid "<a name=\"0.0.13\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:74
+msgid "0.0.13 (2023-02-27)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:78
+msgid ""
+"🎨 Improve code of powerlevel10k sections [[44de5d1](https://github.com"
+"/Freed-Wu/translate-"
+"shell/commit/44de5d10b40bbf7d5eab0301d7964a540863b3a1)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:81
+msgid "<a name=\"0.0.12\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:82
+msgid "0.0.12 (2023-02-21)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:86
+msgid ""
+"👷‍♂️ Update pre-commit [[a187d7a](https://github.com/Freed-Wu/translate-"
+"shell/commit/a187d7ad64a7e83d7b3fbfb2a6eb21501300776d)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:90
+msgid ""
+"🚑 Fix [#24](https://github.com/Freed-Wu/translate-shell/issues/24), "
+"google&#x27;s explains [[983d944](https://github.com/Freed-Wu/translate-"
+"shell/commit/983d944b5b26f203312a98d035fae98cdde4f3cd)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:94
+msgid ""
+"📝 Add deepsource badge [[878f5d6](https://github.com/Freed-Wu/translate-"
+"shell/commit/878f5d62c1f943b8313204c69cfffc30762ae294)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:97
+msgid "<a name=\"0.0.11\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:98
+msgid "0.0.11 (2023-01-23)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:102
+msgid ""
+"🚑 Fix str() [[d687703](https://github.com/Freed-Wu/translate-"
+"shell/commit/d687703fd8cd6d0fb17a0e6ab3f8b0db6fe49ff5)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:105
+msgid "<a name=\"0.0.10\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:106
+msgid "0.0.10 (2023-01-23)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:110
+msgid ""
+"✅ Fix test [[9a10f7a](https://github.com/Freed-Wu/translate-"
+"shell/commit/9a10f7a2e174e8202635b656c30a12b54d8d3561)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:111
+msgid ""
+"✅ Fix pyright [[cb99ed6](https://github.com/Freed-Wu/translate-"
+"shell/commit/cb99ed6de7e94bd8ec8252d43b8f23092b8fbc6a)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:112
+msgid ""
+"✅ Skip a audit [[2a61a1d](https://github.com/Freed-Wu/translate-"
+"shell/commit/2a61a1d985717fe6e636d230fac7038ae06d0518)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:113
+msgid ""
+"✅ Update test_patterns [[92d8284](https://github.com/Freed-Wu/translate-"
+"shell/commit/92d8284d16f571e2ec5d675c656958ae4aac6543)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:114
+msgid ""
+"👷‍♂️ Add .deepsource.toml [[d2e1133](https://github.com/Freed-Wu"
+"/translate-shell/commit/d2e1133baad8c06c70f338dd2316e09495b8ddaa)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:115
+msgid ""
+"👷‍♂️ Update pre-commit [[5cf8a6c](https://github.com/Freed-Wu/translate-"
+"shell/commit/5cf8a6cbf614f5d3d85e1a327b07009c2be19b1b)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:119
+msgid ""
+"🎨 Remove unused module [[d9f2a42](https://github.com/Freed-Wu/translate-"
+"shell/commit/d9f2a42e3e6425f13dbe2249b4b4098eeeeb2657)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:120
+msgid ""
+"🎨 Fix many anti patterns [[b9d1a8c](https://github.com/Freed-Wu"
+"/translate-shell/commit/b9d1a8cb88b2dfb421ed729bdbae85c839075373)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:121
+msgid ""
+"♻️ Remove some &#x27;global&#x27;s [[5d77268](https://github.com/Freed-Wu"
+"/translate-shell/commit/5d77268ea6fb4952e0259987a79e8571ec730d39)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:122
+msgid ""
+"♻️ Rewrite get_youdaozhiyun_app_info() [[e9c0c75](https://github.com"
+"/Freed-Wu/translate-"
+"shell/commit/e9c0c753448dce5c6045bb2ce37358432bb9c5ed)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:123
+msgid ""
+"🎨 Fix [#19](https://github.com/Freed-Wu/translate-shell/issues/19): "
+"module imports itself [[9c8fc98](https://github.com/Freed-Wu/translate-"
+"shell/commit/9c8fc98b39ca4f60374d61e9feb2e424fae2522f)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:124
+msgid ""
+"🎨 Fix [#17](https://github.com/Freed-Wu/translate-shell/issues/17) about "
+"redefinition [[ff058af](https://github.com/Freed-Wu/translate-"
+"shell/commit/ff058af1dc90300b8f4e399fd9a3e5732915ed1c)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:125
+msgid ""
+"🎨 Fix [#16](https://github.com/Freed-Wu/translate-shell/issues/16), add "
+"__all__ [[34fddc4](https://github.com/Freed-Wu/translate-"
+"shell/commit/34fddc415674e386646cb2a07497630ce120e566)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:126
+msgid ""
+"🎨 Fix [#14](https://github.com/Freed-Wu/translate-shell/issues/14), fix "
+"inconsistent return [[6e4a057](https://github.com/Freed-Wu/translate-"
+"shell/commit/6e4a05701e4d24b1f2ad5b014ae11bc840a68d2a)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:127
+msgid ""
+"🎨 Fix [#12](https://github.com/Freed-Wu/translate-shell/issues/12), "
+"format templates/metainfo.py [[ca75799](https://github.com/Freed-Wu"
+"/translate-shell/commit/ca75799a34ed1ed5c68c2f0ccbb6ba161182e05e)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:131
+msgid ""
+"🐛 Fix wrong calls of static methods [[4689bb6](https://github.com/Freed-"
+"Wu/translate-shell/commit/4689bb6bdf7f1ba5e290e0fd5338432e1c40f3f4)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:132
+msgid ""
+"🐛 Fix [#20](https://github.com/Freed-Wu/translate-shell/issues/20): "
+"Exceptions are overlapping [[c559b5e](https://github.com/Freed-Wu"
+"/translate-shell/commit/c559b5eae6bf077659f547a1dba9106fcda16391)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:133
+msgid ""
+"🐛 Use &#x60;sys.exit()&#x60; calls [[ddd4359](https://github.com/Freed-Wu"
+"/translate-shell/commit/ddd43593ec105ffc978b007f8225b239f94409b5)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:134
+msgid ""
+"🐛 Fix [#9](https://github.com/Freed-Wu/translate-shell/issues/9), remove "
+"str.format [[21f12f3](https://github.com/Freed-Wu/translate-"
+"shell/commit/21f12f347b528c8b8f76408fbb242909946629ae)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:135
+msgid ""
+"🐛 Change eval-sh to eval-bash [[34bbce4](https://github.com/Freed-Wu"
+"/translate-shell/commit/34bbce4acb9c691d95dda7e4cc796d736a216c2b)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:136
+msgid ""
+"💚 Only upload when CI machine is linux [[6dc0820](https://github.com"
+"/Freed-Wu/translate-"
+"shell/commit/6dc082016d8df6de0eacf93a81191b47ddc58224)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:140
+msgid ""
+"Format code with black [[8d0bb18](https://github.com/Freed-Wu/translate-"
+"shell/commit/8d0bb182cab7394ffe68496f2a326a7650897d7e)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:141
+msgid ""
+"Set &#x60;check&#x60; flag to &#x60;True&#x60; "
+"[[41fe780](https://github.com/Freed-Wu/translate-"
+"shell/commit/41fe7808d4d1b09103180488d51a7bec372f7488)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:142
+msgid ""
+"Fix dangerous default argument [[044c9bc](https://github.com/Freed-Wu"
+"/translate-shell/commit/044c9bcf5a04cc4484d55fa82393610d1161796a)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:143
+msgid ""
+"Remove unnecessary &#x60;pass&#x60; [[b0ddb44](https://github.com/Freed-"
+"Wu/translate-shell/commit/b0ddb447198ef5e0fb25112026b4325e6457bc2a)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:144
+msgid ""
+"Refactor unnecessary &#x60;else&#x60; / &#x60;elif&#x60; when "
+"&#x60;if&#x60; block has a &#x60;return&#x60; statement "
+"[[f788363](https://github.com/Freed-Wu/translate-"
+"shell/commit/f7883636ca0e6e149e92ddc11e5138b37e9a645f)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:145
+msgid ""
+"Change methods not using its bound instance to staticmethods "
+"[[7c6c971](https://github.com/Freed-Wu/translate-"
+"shell/commit/7c6c97141078ce7ade190587e4754bbc1fa8dfd0)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:146
+msgid ""
+"Format code with black [[df47aa9](https://github.com/Freed-Wu/translate-"
+"shell/commit/df47aa90f3b426b8f54ec38944990900f9766ff7)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:147
+msgid ""
+"Pass string format arguments as logging method parameters "
+"[[98a6536](https://github.com/Freed-Wu/translate-"
+"shell/commit/98a65364cb35cc367ee7cbb4fb2ba2511296ffe4)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:148
+msgid ""
+"📝 Fix todo.md/acknowledge.md [[8cb3378](https://github.com/Freed-Wu"
+"/translate-shell/commit/8cb3378cad84511b3d25d6e6080f1e10446f5e53)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:149
+msgid ""
+"📝 Add globstar [[1fc1a51](https://github.com/Freed-Wu/translate-"
+"shell/commit/1fc1a517eee1e24dcacb2e007a075d5e3254414a)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:150
+msgid ""
+"🧑‍💻 Add executable mode for convenient [[333aedc](https://github.com"
+"/Freed-Wu/translate-"
+"shell/commit/333aedc20b3baa11b326cd61dd7241a0a6a8af85)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:153
+msgid "<a name=\"0.0.9\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:154
+msgid "0.0.9 (2023-01-09)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:158
+msgid ""
+"📝 Update readline.md [[61140ee](https://github.com/Freed-Wu/translate-"
+"shell/commit/61140ee0889452f4d261de56fbf79073eff93255)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:161
+msgid "<a name=\"0.0.8\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:162
+msgid "0.0.8 (2023-01-08)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:166
+msgid ""
+"💄 Add readline tab complete function [[3cf533e](https://github.com/Freed-"
+"Wu/translate-shell/commit/3cf533e55c1ac72035de952d7bdee29ee6c545e5)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:170
+msgid ""
+"📝 Fix wrong document build path [[3afec95](https://github.com/Freed-Wu"
+"/translate-shell/commit/3afec95a8cd2385602d508ca402f8d9602d7f35e)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:173
+msgid "<a name=\"0.0.7\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:174
+msgid "0.0.7 (2022-12-14)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:178
+msgid ""
+"➖ Remove build-misc from github actions [[f1dd72a](https://github.com"
+"/Freed-Wu/translate-"
+"shell/commit/f1dd72abc3c80a80dabf6485e3a90c3187a73eef)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:181
+msgid "<a name=\"0.0.6\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:182
+msgid "0.0.6 (2022-12-08)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:186
+msgid ""
+"🔥 Remove invalid code about SHELL [[fbdfcbe](https://github.com/Freed-Wu"
+"/translate-shell/commit/fbdfcbe03809546253b4e31f08255342acde311d)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:189
+msgid "<a name=\"0.0.5\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:190
+msgid "0.0.5 (2022-12-07)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:194
+msgid ""
+"✨ Support Android [[0189a77](https://github.com/Freed-Wu/translate-"
+"shell/commit/0189a77a5c075475e22dd96f177b88ef1a226668)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:197
+msgid "<a name=\"0.0.4\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:198
+msgid "0.0.4 (2022-12-05)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:202
+msgid ""
+"✨ Support GUI [[888007e](https://github.com/Freed-Wu/translate-"
+"shell/commit/888007ea4f7aa01a9aeebf8f71bffd770d6d2e07)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:205
+msgid "<a name=\"0.0.3\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:206
+msgid "0.0.3 (2022-12-04)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:210
+msgid ""
+"♻️ Rewrite clipboard [[3c94cd9](https://github.com/Freed-Wu/translate-"
+"shell/commit/3c94cd9d817d7f0664b520dafcda76bf0df199ae)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:213
+msgid "<a name=\"0.0.2\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:214
+msgid "0.0.2 (2022-12-03)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:218
+msgid ""
+"🐛 Fix missing files [[8ea4fbb](https://github.com/Freed-Wu/translate-"
+"shell/commit/8ea4fbbfe3d9fc8576a8cbc8148c5e72edb26f2e)]"
+msgstr ""
+
+#: ../../../CHANGELOG.md:221
+msgid "<a name=\"0.0.1\"></a>"
+msgstr ""
+
+#: ../../../CHANGELOG.md:222
+msgid "0.0.1 (2022-12-03)"
+msgstr ""
+
+#: ../../../CHANGELOG.md:226
+msgid ""
+"🎉 Initial [[d410c5d](https://github.com/Freed-Wu/translate-"
+"shell/commit/d410c5dce390205f23113831f8f4eef9e0b8423c)]"
+msgstr ""
+

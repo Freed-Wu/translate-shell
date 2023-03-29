@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../misc/todo.md:1
+msgid "TODO"
+msgstr ""
+
+#: ../../misc/todo.md:3
+msgid ""
+"[translators/online/yandex.py:4](https://github.com/Freed-Wu/translate-"
+"shell/tree/main/src/translate_shell/translators/online/yandex.py#L4): "
+"Refer <https://github.com/soimort/translate-shell>"
+msgstr ""
+
+#: ../../misc/todo.md:4
+msgid ""
+"[translators/online/youdao.py:4](https://github.com/Freed-Wu/translate-"
+"shell/tree/main/src/translate_shell/translators/online/youdao.py#L4): "
+"Refer <https://github.com/ChestnutHeng/Wudao-dict>"
+msgstr ""
+
+#: ../../misc/todo.md:5
+msgid ""
+"[translators/stardict/__init__.py:4](https://github.com/Freed-Wu"
+"/translate-"
+"shell/tree/main/src/translate_shell/translators/stardict/__init__.py#L4):"
+" more stardicts."
+msgstr ""
+
+#: ../../misc/todo.md:6
+msgid ""
+"[translators/stardict/__init__.py:5](https://github.com/Freed-Wu"
+"/translate-"
+"shell/tree/main/src/translate_shell/translators/stardict/__init__.py#L5):"
+" Create different subclasses for different dict to get phonetic, explains"
+msgstr ""
+
+#: ../../misc/todo.md:7
+msgid ""
+"[ui/repl.py:34](https://github.com/Freed-Wu/translate-"
+"shell/tree/main/src/translate_shell/ui/repl.py#L34): make the last line "
+"gray like ptpython"
+msgstr ""
+

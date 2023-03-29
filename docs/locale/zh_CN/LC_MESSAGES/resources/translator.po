@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../resources/translator.md:1
+msgid "Translator"
+msgstr ""
+
+#: ../../resources/translator.md:3
+msgid ""
+"A translator is a function which input text, target language and source "
+"language then do something according to inputs and output a result."
+msgstr ""
+
+#: ../../resources/translator.md:6
+msgid "Current translators are:"
+msgstr ""
+
+#: ../../resources/translator.md:8
+msgid "[stardict](translate_shell.translators.stardict)"
+msgstr ""
+
+#: ../../resources/translator.md:9
+msgid "[google](translate_shell.translators.online.google)"
+msgstr ""
+
+#: ../../resources/translator.md:10
+msgid "[speaker](translate_shell.translators.speaker)"
+msgstr ""
+
+#: ../../resources/translator.md:11
+msgid "[yandex](translate_shell.translators)"
+msgstr ""
+
+#: ../../resources/translator.md:12
+msgid "[youdao](translate_shell.translators)"
+msgstr ""
+
+#: ../../resources/translator.md:13
+msgid "[youdaozhiyun](translate_shell.translators.online.youdaozhiyun)"
+msgstr ""
+
+#: ../../resources/translator.md:14
+msgid "[bing](translate_shell.translators.online.bing)"
+msgstr ""
+
+#: ../../resources/translator.md:15
+msgid "[haici](translate_shell.translators.online.haici)"
+msgstr ""
+
+#: ../../resources/translator.md:17
+msgid ""
+"Some translators are out of box and some need configuration, which detail"
+" can be found by clicking the above hyperlink."
+msgstr ""
+
+#: ../../resources/translator.md:20
+msgid "**NOTE**:"
+msgstr ""
+
+#: ../../resources/translator.md:22
+msgid "stardict and haici only support translate word, not sentence."
+msgstr ""
+
+#: ../../resources/translator.md:23
+msgid ""
+"bing supports swapping languages automatically, which means `en:zh_CN` is"
+" same as `zh_CN:en`."
+msgstr ""
+
+#: ../../resources/translator.md:25
+msgid "haici is the slowest translator currently which often timeout."
+msgstr ""
+
+#: ../../resources/translator.md:27
+msgid "These translators can be divided to three types:"
+msgstr ""
+
+#: ../../resources/translator.md:29
+msgid "Speaker"
+msgstr ""
+
+#: ../../resources/translator.md:31
+msgid ""
+"Speaker play the pronunciation of text in target language. Now it only "
+"use offline software to speak. See `trans --print-setting speaker`."
+msgstr ""
+
+#: ../../resources/translator.md:34
+msgid ""
+"<https://github.com/voldikss/vim-translator/issues/68> Online speaker is "
+"a little hard to realize."
+msgstr ""
+
+#: ../../resources/translator.md:36
+msgid ""
+"<https://github.com/felixonmars/ydcv/blob/2db05d41e1fc927cd0c49aad101ed6a21ad92c2b/src/ydcv.py#L148-L158>"
+" speaks by youdaozhiyun."
+msgstr ""
+
+#: ../../resources/translator.md:39
+msgid "Offline Translators"
+msgstr ""
+
+#: ../../resources/translator.md:41
+msgid ""
+"Now only support [stardict](translate_shell.translators.stardict). "
+"Offline translator requires user to download "
+"[dictionary](http://download.huzheng.org) in advance. If you have a "
+"package manager, you can use it to download, too:"
+msgstr ""
+
+#: ../../resources/translator.md:50
+msgid ""
+"[stardict](https://github.com/huzheng001/stardict-3) the famous "
+"dictionary."
+msgstr ""
+
+#: ../../resources/translator.md:51
+msgid ""
+"[stardict](https://github.com/Dushistov/sdcv) a console version of "
+"[stardict](https://github.com/huzheng001/stardict-3)."
+msgstr ""
+
+#: ../../resources/translator.md:53
+msgid ""
+"[ecdict](https://github.com/skywind3000/ECDICT) a collection of high "
+"frequency vocabulary."
+msgstr ""
+
+#: ../../resources/translator.md:55
+msgid ""
+"[coc-ecdict](https://github.com/fannheyward/coc-ecdict) a port of "
+"[ecdict](https://github.com/skywind3000/ECDICT) for "
+"[coc.nvim](https://github.com/neoclide/coc.nvim)."
+msgstr ""
+
+#: ../../resources/translator.md:59
+msgid "Online Translators"
+msgstr ""
+
+#: ../../resources/translator.md:61
+msgid "Offline translator translate text by online translate engines."
+msgstr ""
+
+#: ../../resources/translator.md:63
+msgid ""
+"[translate-shell (awk)](https://github.com/soimort/translate-shell): "
+"written in [gawk](https://github.com/onetrueawk/awk). I am in respect to "
+"a developer can use gawk to write a good software. However, I cannot do "
+"any help because I don't know awk. It has a inspiring feature which user "
+"can use magic text like `en:zh_CN` to change some settings when in REPL. "
+"I realize it and use its name to name this program to salute."
+msgstr ""
+
+#: ../../resources/translator.md:70
+msgid ""
+"[translator](https://github.com/skywind3000/translator) should be the "
+"first CLI program to translate text by many different online translate "
+"engines at once to the best of my knowledge. I use multi threads to "
+"realize it."
+msgstr ""
+
+#: ../../resources/translator.md:73
+msgid ""
+"[vim-translator](https://github.com/voldikss/vim-translator) a port of "
+"[translator](https://github.com/skywind3000/translator) for "
+"[vim](https://github.com/vim/vim)."
+msgstr ""
+
+#: ../../resources/translator.md:76
+msgid ""
+"[coc-translator](https://github.com/voldikss/coc-translator) a rewrite of"
+" [translator](https://github.com/skywind3000/translator) for "
+"[coc.nvim](https://github.com/neoclide/coc.nvim)."
+msgstr ""
+
+#: ../../resources/translator.md:79
+msgid "[ydcv](https://github.com/felixonmars/ydcv) only support youdaozhiyun."
+msgstr ""
+
+#: ../../resources/translator.md:80
+msgid ""
+"[wudao-dict](https://github.com/ChestnutHeng/Wudao-dict) only support "
+"youdao."
+msgstr ""
+
+#: ../../resources/translator.md:81
+msgid ""
+"[deepl](https://github.com/DeepLcom/deepl-python) It is said it's the "
+"most accurate translate engine."
+msgstr ""
+

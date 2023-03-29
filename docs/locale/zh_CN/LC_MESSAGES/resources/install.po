@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../resources/install.md:1
+msgid "Install & Uninstall"
+msgstr ""
+
+#: ../../resources/install.md:3
+msgid "[AUR](https://aur.archlinux.org/packages/python-translate-shell)"
+msgstr ""
+
+#: ../../resources/install.md:5 ../../resources/install.md:19
+msgid "Install:"
+msgstr ""
+
+#: ../../resources/install.md:11
+msgid "uninstall:"
+msgstr ""
+
+#: ../../resources/install.md:17
+msgid "[PYPI](https://pypi.org/project/translate-shell)"
+msgstr ""
+
+#: ../../resources/install.md:25
+msgid "See [requirements](requirements) to know `extra_requires`."
+msgstr ""
+
+#: ../../resources/install.md:31
+msgid ""
+"Since now, pip don't support installing man and shell completions. You "
+"must install them manually."
+msgstr ""
+
+#: ../../resources/install.md:34
+msgid ""
+"Download shell completions and man from [releases](https://github.com"
+"/Freed-Wu/translate-shell/releases) to the correct paths:"
+msgstr ""
+
+#: ../../resources/install.md:38
+msgid "bash: `/usr/share/bash-completion/completions/trans`"
+msgstr ""
+
+#: ../../resources/install.md:39
+msgid "zsh: `/usr/share/zsh/site-functions/_trans`"
+msgstr ""
+
+#: ../../resources/install.md:40
+msgid "tcsh: `/etc/profile.d/trans.csh`"
+msgstr ""
+
+#: ../../resources/install.md:41
+msgid "man: `/usr/share/man/man1/trans.1.gz`"
+msgstr ""
+
+#: ../../resources/install.md:43
+msgid ""
+"**NOTE**: the paths of man and shell completion vary from different OS. "
+"The path of the above code is just for GNU/Linux. For other OSs, do a "
+"substitution:"
+msgstr ""
+
+#: ../../resources/install.md:46
+msgid "GNU/Linux, Windows (msys/Msys2, Cygwin): `/usr/share`, `/etc`"
+msgstr ""
+
+#: ../../resources/install.md:47
+msgid "Windows (non-msys/Msys2): `$MINGW_PREFIX/share`,`/etc`"
+msgstr ""
+
+#: ../../resources/install.md:48
+msgid "BSD, Darwin, GNU/Linux (Homebrew): `/usr/local/share`, `/usr/local/etc`"
+msgstr ""
+
+#: ../../resources/install.md:49
+msgid ""
+"Android (Termux): `/data/data/com.termux/files/usr/share`, "
+"`/data/data/com.termux/files/usr/etc`"
+msgstr ""
+
+#: ../../resources/install.md:51
+msgid "Android (Magisk): `/system/usr/share`, `/system/etc`"
+msgstr ""
+
+#: ../../resources/install.md:53
+msgid ""
+"And for GNU/Linux user, [a desktop "
+"entry](https://raw.githubusercontent.com/Freed-Wu/translate-"
+"shell/main/assets/desktop/translate-shell.desktop) is also provided, "
+"which should be installed to `/usr/share/applications/`."
+msgstr ""
+
+#: ../../resources/install.md:57
+msgid "Uninstall:"
+msgstr ""
+
+#: ../../resources/install.md:63
+msgid "Delete shell completions, man and desktop entry by yourself."
+msgstr ""
+

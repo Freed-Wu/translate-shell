@@ -1,0 +1,464 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# Wu Zhenyu <wuzhenyu@ustc.edu>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 11:11+0800\n"
+"PO-Revision-Date: 2023-03-29 11:11+0800\n"
+"Last-Translator: Wu Zhenyu <wuzhenyu@ustc.edu>\n"
+"Language-Team: Wu Zhenyu <wuzhenyu@ustc.edu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../index.md:3
+msgid "Resources"
+msgstr "资源"
+
+#: ../../index.md:12
+msgid "Misc"
+msgstr "杂项"
+
+#: ../../index.md:21
+msgid "API"
+msgstr "应用编程接口"
+
+#: ../../index.md:30
+msgid "Index"
+msgstr "索引"
+
+#: ../../../README.md:2
+msgid "translate-shell"
+msgstr ""
+
+#: ../../../README.md:4
+msgid ""
+"[![pre-commit.ci status](https://results.pre-commit.ci/badge/github"
+"/Freed-Wu/translate-shell/main.svg)](https://results.pre-"
+"commit.ci/latest/github/Freed-Wu/translate-shell/main) "
+"[![github/workflow](https://github.com/Freed-Wu/translate-"
+"shell/actions/workflows/main.yml/badge.svg)](https://github.com/Freed-Wu"
+"/translate-shell/actions) [![codecov](https://codecov.io/gh/Freed-Wu"
+"/translate-shell/branch/main/graph/badge.svg)](https://codecov.io/gh"
+"/Freed-Wu/translate-shell) [![readthedocs](https://shields.io/readthedocs"
+"/translate-shell)](https://translate-shell.readthedocs.io) "
+"[![DeepSource](https://deepsource.io/gh/Freed-Wu/translate-"
+"shell.svg/?show_trend=true)](https://deepsource.io/gh/Freed-Wu/translate-"
+"shell)"
+msgstr ""
+
+#: ../../../README.md:4
+msgid "pre-commit.ci status"
+msgstr ""
+
+#: ../../../README.md:4
+msgid "github/workflow"
+msgstr ""
+
+#: ../../../README.md:4
+msgid "codecov"
+msgstr ""
+
+#: ../../../README.md:4
+msgid "readthedocs"
+msgstr ""
+
+#: ../../../README.md:4
+msgid "DeepSource"
+msgstr ""
+
+#: ../../../README.md:10
+msgid ""
+"[![github/downloads](https://shields.io/github/downloads/Freed-Wu"
+"/translate-shell/total)](https://github.com/Freed-Wu/translate-"
+"shell/releases) "
+"[![github/downloads/latest](https://shields.io/github/downloads/Freed-Wu"
+"/translate-shell/latest/total)](https://github.com/Freed-Wu/translate-"
+"shell/releases/latest) [![github/issues](https://shields.io/github/issues"
+"/Freed-Wu/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/issues) [![github/issues-closed](https://shields.io/github/issues-"
+"closed/Freed-Wu/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/issues?q=is%3Aissue+is%3Aclosed) [![github/issues-"
+"pr](https://shields.io/github/issues-pr/Freed-Wu/translate-"
+"shell)](https://github.com/Freed-Wu/translate-shell/pulls) [![github"
+"/issues-pr-closed](https://shields.io/github/issues-pr-closed/Freed-Wu"
+"/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/pulls?q=is%3Apr+is%3Aclosed) "
+"[![github/discussions](https://shields.io/github/discussions/Freed-Wu"
+"/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/discussions) "
+"[![github/milestones](https://shields.io/github/milestones/all/Freed-Wu"
+"/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/milestones) [![github/forks](https://shields.io/github/forks/Freed-"
+"Wu/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/network/members) [![github/stars](https://shields.io/github/stars"
+"/Freed-Wu/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/stargazers) [![github/watchers](https://shields.io/github/watchers"
+"/Freed-Wu/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/watchers) "
+"[![github/contributors](https://shields.io/github/contributors/Freed-Wu"
+"/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/graphs/contributors) [![github/commit-"
+"activity](https://shields.io/github/commit-activity/w/Freed-Wu/translate-"
+"shell)](https://github.com/Freed-Wu/translate-shell/graphs/commit-"
+"activity) [![github/last-commit](https://shields.io/github/last-commit"
+"/Freed-Wu/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/commits) [![github/release-date](https://shields.io/github/release-"
+"date/Freed-Wu/translate-shell)](https://github.com/Freed-Wu/translate-"
+"shell/releases/latest)"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/downloads"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/downloads/latest"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/issues"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/issues-closed"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/issues-pr"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/issues-pr-closed"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/discussions"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/milestones"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/forks"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/stars"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/watchers"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/contributors"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/commit-activity"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/last-commit"
+msgstr ""
+
+#: ../../../README.md:10
+msgid "github/release-date"
+msgstr ""
+
+#: ../../../README.md:26
+msgid ""
+"[![github/license](https://shields.io/github/license/Freed-Wu/translate-"
+"shell)](https://github.com/Freed-Wu/translate-shell/blob/main/LICENSE) "
+"[![github/languages](https://shields.io/github/languages/count/Freed-Wu"
+"/translate-shell)](https://github.com/Freed-Wu/translate-shell) "
+"[![github/languages/top](https://shields.io/github/languages/top/Freed-Wu"
+"/translate-shell)](https://github.com/Freed-Wu/translate-shell) [![github"
+"/directory-file-count](https://shields.io/github/directory-file-count"
+"/Freed-Wu/translate-shell)](https://github.com/Freed-Wu/translate-shell) "
+"[![github/code-size](https://shields.io/github/languages/code-size/Freed-"
+"Wu/translate-shell)](https://github.com/Freed-Wu/translate-shell) "
+"[![github/repo-size](https://shields.io/github/repo-size/Freed-Wu"
+"/translate-shell)](https://github.com/Freed-Wu/translate-shell) "
+"[![github/v](https://shields.io/github/v/release/Freed-Wu/translate-"
+"shell)](https://github.com/Freed-Wu/translate-shell)"
+msgstr ""
+
+#: ../../../README.md:26
+msgid "github/license"
+msgstr ""
+
+#: ../../../README.md:26
+msgid "github/languages"
+msgstr ""
+
+#: ../../../README.md:26
+msgid "github/languages/top"
+msgstr ""
+
+#: ../../../README.md:26
+msgid "github/directory-file-count"
+msgstr ""
+
+#: ../../../README.md:26
+msgid "github/code-size"
+msgstr ""
+
+#: ../../../README.md:26
+msgid "github/repo-size"
+msgstr ""
+
+#: ../../../README.md:26
+msgid "github/v"
+msgstr ""
+
+#: ../../../README.md:34
+msgid ""
+"[![pypi/status](https://shields.io/pypi/status/translate-"
+"shell)](https://pypi.org/project/translate-shell/#description) "
+"[![pypi/v](https://shields.io/pypi/v/translate-"
+"shell)](https://pypi.org/project/translate-shell/#history) "
+"[![pypi/downloads](https://shields.io/pypi/dd/translate-"
+"shell)](https://pypi.org/project/translate-shell/#files) "
+"[![pypi/format](https://shields.io/pypi/format/translate-"
+"shell)](https://pypi.org/project/translate-shell/#files) "
+"[![pypi/implementation](https://shields.io/pypi/implementation/translate-"
+"shell)](https://pypi.org/project/translate-shell/#files) "
+"[![pypi/pyversions](https://shields.io/pypi/pyversions/translate-"
+"shell)](https://pypi.org/project/translate-shell/#files)"
+msgstr ""
+
+#: ../../../README.md:34
+msgid "pypi/status"
+msgstr ""
+
+#: ../../../README.md:34
+msgid "pypi/v"
+msgstr ""
+
+#: ../../../README.md:34
+msgid "pypi/downloads"
+msgstr ""
+
+#: ../../../README.md:34
+msgid "pypi/format"
+msgstr ""
+
+#: ../../../README.md:34
+msgid "pypi/implementation"
+msgstr ""
+
+#: ../../../README.md:34
+msgid "pypi/pyversions"
+msgstr ""
+
+#: ../../../README.md:41
+msgid ""
+"Translate text by google, bing, youdaozhiyun, haici, stardict, etc at "
+"same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, "
+"python, shell and vim."
+msgstr "从命令行，图形用户界面（ GNU/Linux ， Android ， macOS 和 Windows ）， REPL ， python ， shell ， vim 同时翻译文本通过谷歌，必应，有道智云，海词，星际词典等"
+
+#: ../../../README.md:44
+msgid "Usage"
+msgstr "用法"
+
+#: ../../../README.md:46
+msgid "UI"
+msgstr "用户界面"
+
+#: ../../../README.md:48 ../../../README.md:54
+msgid "CLI"
+msgstr "命令行"
+
+#: ../../../README.md:54
+msgid ""
+"![CLI](https://user-"
+"images.githubusercontent.com/32936898/205699472-5349d422-54c9-47a3-afc0-53a17f0acaf8.jpg)"
+msgstr ""
+
+#: ../../../README.md:56 ../../../README.md:76
+msgid "REPL"
+msgstr ""
+
+#: ../../../README.md:76
+msgid ""
+"![REPL](https://user-"
+"images.githubusercontent.com/32936898/205617815-3a2ba6b4-2673-4233-907b-"
+"202ffd4a9e44.jpg)"
+msgstr ""
+
+#: ../../../README.md:78
+msgid "TUI"
+msgstr "文本用户界面"
+
+#: ../../../README.md:80 ../../../README.md:86
+msgid "Vim"
+msgstr ""
+
+#: ../../../README.md:86
+msgid ""
+"![Vim](https://user-"
+"images.githubusercontent.com/32936898/205475332-61c0a90e-b145-4af0-8658-c0cf45b87150.jpg)"
+msgstr ""
+
+#: ../../../README.md:88
+msgid "GUI"
+msgstr "图形用户界面"
+
+#: ../../../README.md:90 ../../../README.md:92
+msgid "GNU/Linux"
+msgstr ""
+
+#: ../../../README.md:92
+msgid ""
+"![GNU/Linux](https://user-"
+"images.githubusercontent.com/32936898/205699484-c6fdefd5-dca2-4263-aed4-e41d9d16fde6.jpg)"
+msgstr ""
+
+#: ../../../README.md:94
+msgid "Android"
+msgstr ""
+
+#: ../../../README.md:96
+msgid ""
+"![android-toast](https://user-"
+"images.githubusercontent.com/32936898/206078648-0db6480f-"
+"7e35-4252-9f33-9fb51e03e172.jpg)"
+msgstr ""
+
+#: ../../../README.md:96
+msgid "android-toast"
+msgstr ""
+
+#: ../../../README.md:98
+msgid "Script"
+msgstr "脚本"
+
+#: ../../../README.md:100
+msgid "Python"
+msgstr ""
+
+#: ../../../README.md:126
+msgid "Shell Script"
+msgstr "Shell 脚本"
+
+#: ../../../README.md:133
+msgid "Vim Script"
+msgstr "Vim 脚本"
+
+#: ../../../README.md:142
+msgid "Features"
+msgstr "特征"
+
+#: ../../../README.md:144
+msgid ""
+"Translate with different translators at same time, like "
+"[translator](https://github.com/skywind3000/translator)"
+msgstr "同时使用多个翻译引擎"
+
+#: ../../../README.md:145
+msgid ""
+"Translate clipboard contents automatically, like "
+"[ydcv](https://github.com/felixonmars/ydcv)"
+msgstr "划词翻译"
+
+#: ../../../README.md:146
+msgid "Speak the pronunciation of words"
+msgstr "播放发音"
+
+#: ../../../README.md:147
+msgid "Support online translate engines"
+msgstr "支持在线翻译引擎"
+
+#: ../../../README.md:148
+msgid "Support offline dictionaries"
+msgstr "支持离线词典"
+
+#: ../../../README.md:149
+msgid "Many methods to use, from shell, python and vim"
+msgstr "多种使用方式：shell，python，vim"
+
+#: ../../../README.md:150
+msgid ""
+"Magic text, like `en:` to change source language, `:zh_CN` to change "
+"target language, `<file` to translate file, etc."
+msgstr "魔术文本：`en:` 改变翻译来源为英文，`:zh_CN` 改变翻译目标为中文，`<file` 翻译文件 file 的内容"
+
+#: ../../../README.md:152
+msgid "Allow customization by `config.py`"
+msgstr "允许自定义"
+
+#: ../../../README.md:153
+msgid ""
+"Good shell completions, especially for [zsh](https://github.com/zsh-"
+"users/zsh), complete options and translation history"
+msgstr "好的命令行补全，尤其是 zsh ，补全选项和翻译历史"
+
+#: ../../../README.md:155
+msgid "Manpage: `man trans`"
+msgstr "用户手册：`man trans`"
+
+#: ../../../README.md:156
+msgid "Beautiful UI"
+msgstr "漂亮的用户界面"
+
+#: ../../../README.md:157
+msgid "Cross platforms"
+msgstr "跨平台"
+
+#: ../../../README.md:158
+msgid "Rich API, can be easily called from shell and python"
+msgstr "丰富的应用编程接口，从 shell 和 python 轻松调用"
+
+#: ../../../README.md:159
+msgid "Good document"
+msgstr "好的文档"
+
+#: ../../../README.md:160
+msgid "Unit test, keep code quality"
+msgstr "单元测试，保证代码质量"
+
+#: ../../../README.md:161
+msgid "CI/CD"
+msgstr "持续集成/持续部署"
+
+#: ../../../README.md:162
+msgid "clean code"
+msgstr "干净的代码"
+
+#: ../../../README.md:163
+msgid "Respect [PEP484](https://peps.python.org/pep-0484/)"
+msgstr "尊重 [PEP484](https://peps.python.org/pep-0484/)"
+
+#: ../../../README.md:164
+msgid "Respect [PEP621](https://peps.python.org/pep-0621/)"
+msgstr "尊重 [PEP621](https://peps.python.org/pep-0621/)"
+
+#: ../../../README.md:165
+msgid ""
+"Respect [XDG](https://specifications.freedesktop.org/basedir-spec"
+"/basedir-spec-latest.html)"
+msgstr "尊重 [XDG](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)"
+
+#: ../../../README.md:167
+msgid "The last but not least: **it is a libre software**."
+msgstr "最后但并非不重要：**它是开源软件**."
+
+#: ../../../README.md:169
+msgid "See [document](https://translate-shell.readthedocs.io) to know more."
+msgstr "看看 [文档](https://translate-shell.readthedocs.io)。"
+
+#: ../../../README.md:171
+msgid "PS: PR is welcome! Please make code clean and keep test pass!"
+msgstr "此外：欢迎贡献代码啊！请保持代码干净和测试通过！"
+

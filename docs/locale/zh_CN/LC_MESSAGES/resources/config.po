@@ -1,0 +1,473 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../resources/config.md:1
+msgid "Config"
+msgstr ""
+
+#: ../../resources/config.md:3
+msgid ""
+"The config is the actual feature to make this program is different than "
+"other programs: I allow user to write config in python, which provide "
+"more flexible and free method to customization. See [file "
+"location](/resources/man.md#files) to know where is the config. The file "
+"location usually respect standard of every OS (history file is similar):"
+msgstr ""
+
+#: ../../resources/config.md:10
+msgid ""
+"GNU/Linux, Android (Termux), Windows (Msys2, Cygwin): "
+"`${XDG_CONFIG_HOME:-$HOME/.config}/translate-shell/config.py`"
+msgstr ""
+
+#: ../../resources/config.md:12
+msgid "Windows (native): `%APPDATA%\\Local\\translate-shell\\config.py`"
+msgstr ""
+
+#: ../../resources/config.md:13
+msgid "macOS: `$HOME/Library/translate-shell/config.py`"
+msgstr ""
+
+#: ../../resources/config.md:14
+msgid "dropdown: `$HOME/.translate-shell/config.py`"
+msgstr ""
+
+#: ../../resources/config.md:16
+msgid ""
+"This is a implementation of "
+"<https://github.com/felixonmars/ydcv/issues/55>."
+msgstr ""
+
+#: ../../resources/config.md:18
+msgid ""
+"the config file must have a function named `configure()` which input "
+"nothing and return a `Configuration` object. An example is as following:"
+msgstr ""
+
+#: ../../resources/config.md:37
+msgid ""
+"If you have a completion provided by LSP, you can see which attribute can"
+" be defined:"
+msgstr ""
+
+#: ../../resources/config.md:40
+msgid ""
+"[vim](https://github.com/vim/vim) with "
+"[coc.nvim](https://github.com/neoclide/coc.nvim) ![vim](https://user-"
+"images.githubusercontent.com/32936898/204821945-9d0b5e56-1a49-433a-"
+"9b76-08cf3413e1e3.png)"
+msgstr ""
+
+#: ../../resources/config.md:40
+msgid "vim"
+msgstr ""
+
+#: ../../resources/config.md:43
+msgid ""
+"[ptpython](https://github.com/prompt-toolkit/ptpython) ![ptpython](https"
+"://user-"
+"images.githubusercontent.com/32936898/205172694-837df6c3-a920-44c0-a2d5-95a021299c58.png)"
+msgstr ""
+
+#: ../../resources/config.md:43
+msgid "ptpython"
+msgstr ""
+
+#: ../../resources/config.md:45
+msgid ""
+"[python](https://github.com/python/cpython) with "
+"[jedi](https://github.com/davidhalter/jedi) ![python](https://user-"
+"images.githubusercontent.com/32936898/205172684-60f5f910-0dd0-4755-bd0e-"
+"05dc1319e9e5.png)"
+msgstr ""
+
+#: ../../resources/config.md:45 ../../resources/config.md:166
+msgid "python"
+msgstr ""
+
+#: ../../resources/config.md:49
+msgid "CLI Options' Default Values"
+msgstr ""
+
+#: ../../resources/config.md:51
+msgid ""
+"By default, `trans` is `trans --source-lang=auto --target-lang=auto "
+"--engines=google --format=text --clipboard`. You can change it in config."
+" About options' meanings, you can see "
+"[options](/resources/man.md#options). About options' legal values, you "
+"can see `trans --print-setting`."
+msgstr ""
+
+#: ../../resources/config.md:76
+msgid "Logger"
+msgstr ""
+
+#: ../../resources/config.md:78
+msgid "By default, python's logging is very ugly:"
+msgstr ""
+
+#: ../../resources/config.md:86
+msgid "I advise [rich](https://rich.readthedocs.io/en/latest/logging.html):"
+msgstr ""
+
+#: ../../resources/config.md:101
+msgid ""
+"The log has color (different from log level), time, filename and "
+"linenumber! The warning is red and the info is blue. Great!"
+msgstr ""
+
+#: ../../resources/config.md:104
+msgid ""
+"![color](https://user-images.githubusercontent.com/32936898/204815646"
+"-ce28f69a-541e-4b1c-b8f3-0ac6b92a2a62.png)"
+msgstr ""
+
+#: ../../resources/config.md:104
+msgid "color"
+msgstr ""
+
+#: ../../resources/config.md:106
+msgid ""
+"Default level is `WARNING`, which make `logger.info` will not display. "
+"Change it to `INFO` by `trans --verbose` or `level=\"INFO\"` in "
+"`config.py`."
+msgstr ""
+
+#: ../../resources/config.md:109
+msgid "Secret"
+msgstr ""
+
+#: ../../resources/config.md:111
+msgid ""
+"Some online translator need user to input a APP ID and secret. However, "
+"put these information in configuration file directly is unsafe. Some user"
+" know `chmod 600`, it is good, however, I can provide a better solution. "
+"Let us take [youdaozhiyun](https://ai.youdao.com) as an example:"
+msgstr ""
+
+#: ../../resources/config.md:116
+msgid "Quoted from [ydcv](https://github.com/felixonmars/ydcv)"
+msgstr ""
+
+#: ../../resources/config.md:118
+msgid ""
+"翻译实例-创建实例-选\"文本翻译\"， 我的应用-创建应用-接入方式：API-选择绑定刚才 创建的自然语言翻译服务-文本翻译实例。 得到的应用 "
+"ID / 应用密钥即为本工具的 YDAPPID/YDAPPSEC。"
+msgstr ""
+
+#: ../../resources/config.md:122
+msgid ""
+"[keyring](https://pypi.org/project/keyring) allows user to encrypt "
+"password."
+msgstr ""
+
+#: ../../resources/config.md:124
+msgid "Create two passwords:"
+msgstr ""
+
+#: ../../resources/config.md:131
+msgid ""
+"This is an implementation of "
+"<https://github.com/felixonmars/ydcv/issues/76>."
+msgstr ""
+
+#: ../../resources/config.md:133
+msgid "Prompt"
+msgstr ""
+
+#: ../../resources/config.md:135
+msgid ""
+"Default prompt string style is inspired by "
+"[powerlevel10k](https://github.com/romkatv/powerlevel10k). You need "
+"install some requirements to provide "
+"[color](/resources/requirements.md#color) and "
+"[fonts](https://github.com/ryanoasis/nerd-fonts). All screenshots are "
+"using JetBrainsMono Nerd Font Mono."
+msgstr ""
+
+#: ../../resources/config.md:141
+msgid "You can customize `config.get_prompt`:"
+msgstr ""
+
+#: ../../resources/config.md:153
+msgid "It will give you like"
+msgstr ""
+
+#: ../../resources/config.md:160 ../../resources/config.md:259
+msgid "The screenshot is same as above in [logger](#logger)."
+msgstr ""
+
+#: ../../resources/config.md:162
+msgid ""
+"The functions in [misc](translate_shell.utils.misc) should be useful for "
+"customization. BTW, you can use these functions to define your prompt of "
+"python, too. See [prompt](https://github.com/Freed-Wu/my-dotfiles/wiki)."
+msgstr ""
+
+#: ../../resources/config.md:166
+msgid ""
+"![python](https://user-"
+"images.githubusercontent.com/32936898/205494856-6f11d1a1-b2e3-469d-"
+"91c7-8a24c400fa78.jpg)"
+msgstr ""
+
+#: ../../resources/config.md:168
+msgid "Process Input"
+msgstr ""
+
+#: ../../resources/config.md:170
+msgid "Magic text"
+msgstr ""
+
+#: ../../resources/config.md:172
+msgid ""
+"Any user who comes from [translate-shell "
+"(awk)](https://github.com/soimort/translate-shell) know it has an "
+"interesting function, that is user can input `en:zh_CN` to change source "
+"language and target language. I can it `magic text`: any text will be "
+"truly translated. I want to provide user more freedom. By default, we "
+"have the following magic texts:"
+msgstr ""
+
+#: ../../resources/config.md:179
+msgid ""
+"`sl:tl` can change source language and target language. `sl:` and `:tl` "
+"is same."
+msgstr ""
+
+#: ../../resources/config.md:180
+msgid "`:` will swap source language and target language."
+msgstr ""
+
+#: ../../resources/config.md:181
+msgid "`=translator1,translator2,...` will change translators."
+msgstr ""
+
+#: ../../resources/config.md:182
+msgid "`=` will display current translators."
+msgstr ""
+
+#: ../../resources/config.md:183
+msgid "`!XXX` will execute `XXX` in shell command."
+msgstr ""
+
+#: ../../resources/config.md:184
+msgid "`!` will execute `$SHELL` or `sh` if `$SHELL` is not exist."
+msgstr ""
+
+#: ../../resources/config.md:185
+msgid "`<filename` will translate file contents."
+msgstr ""
+
+#: ../../resources/config.md:187
+msgid "Some magic texts are inspired by shell."
+msgstr ""
+
+#: ../../resources/config.md:189
+msgid "Preprocess"
+msgstr ""
+
+#: ../../resources/config.md:191
+msgid "And we will preprocess the non-magic text:"
+msgstr ""
+
+#: ../../resources/config.md:193
+msgid "convert `\\t` to ' ', useful for translate programming variables"
+msgstr ""
+
+#: ../../resources/config.md:194
+msgid ""
+"strip trailing whitespaces, reduce length due to limitation of some "
+"translation engines"
+msgstr ""
+
+#: ../../resources/config.md:196
+msgid ""
+"strip redundant whitespaces, reduce length due to limitation of some "
+"translation engines"
+msgstr ""
+
+#: ../../resources/config.md:198
+msgid "remove `-\\n`, useful for reading pdf"
+msgstr ""
+
+#: ../../resources/config.md:199
+msgid "convert `\\n` to ' ', useful for reading pdf"
+msgstr ""
+
+#: ../../resources/config.md:200
+msgid ""
+"change `get_char` to `get char`, useful for translate programming "
+"variables"
+msgstr ""
+
+#: ../../resources/config.md:201
+msgid "change `getChar` to `get char`, useful for translate programming variables"
+msgstr ""
+
+#: ../../resources/config.md:202
+msgid "lowercase, useful for translate programming variables"
+msgstr ""
+
+#: ../../resources/config.md:204
+msgid "Refer <https://github.com/felixonmars/ydcv/issues/67>:"
+msgstr ""
+
+#: ../../resources/config.md:206
+msgid ""
+"![paper](https://user-"
+"images.githubusercontent.com/32936898/180610184-008b7eb8-c20e-"
+"494e-a391-efe0844b0fca.png)"
+msgstr ""
+
+#: ../../resources/config.md:206
+msgid "paper"
+msgstr ""
+
+#: ../../resources/config.md:208
+msgid "The clipboard get"
+msgstr ""
+
+#: ../../resources/config.md:210
+msgid ""
+"Some earlier results suggest\\\\n that incorporating local normalization "
+"in linear block transform coding methods can improve cod-\\\\n ing "
+"performance"
+msgstr ""
+
+#: ../../resources/config.md:215
+msgid "If we don't preprocess text, the result of youdaozhiyun will be:"
+msgstr ""
+
+#: ../../resources/config.md:217
+msgid "一些早期的结果表明\\\\n 在线性分块变换编码方法中加入局部归一化可以提高编码质量\\\\n 荷兰国际集团(ing)性能"
+msgstr ""
+
+#: ../../resources/config.md:221
+msgid "It is not your need, I believe."
+msgstr ""
+
+#: ../../resources/config.md:223
+msgid "After preprocess:"
+msgstr ""
+
+#: ../../resources/config.md:225
+msgid ""
+"Some earlier results suggest that incorporating local normalization in "
+"linear block transform coding methods can improve coding performance"
+msgstr ""
+
+#: ../../resources/config.md:228
+msgid "The result is your need:"
+msgstr ""
+
+#: ../../resources/config.md:230
+msgid "一些早期的研究结果表明，在线性块变换编码方法中加入局部归一化可以提高编码性能"
+msgstr ""
+
+#: ../../resources/config.md:232
+msgid ""
+"This [PR](https://github.com/felixonmars/ydcv/issues/67) has been ignored"
+" by the author, so I have to create this software for myself."
+msgstr ""
+
+#: ../../resources/config.md:235
+msgid "You can customize `config.process_input`."
+msgstr ""
+
+#: ../../resources/config.md:237
+msgid "Process output"
+msgstr ""
+
+#: ../../resources/config.md:239
+msgid ""
+"You can customize `config.process_output`. Same as [prompt](#prompt), a "
+"p10k output style has been provided."
+msgstr ""
+
+#: ../../resources/config.md:242
+msgid "You can customize `config.process_output`:"
+msgstr ""
+
+#: ../../resources/config.md:261
+msgid ""
+"The functions in [misc](translate_shell.utils.misc) should be useful for "
+"customization."
+msgstr ""
+
+#: ../../resources/config.md:264
+msgid ""
+"If you install [wakatime/repl-python-"
+"wakatime](https://github.com/wakatime/repl-python-wakatime) and [wakatime"
+"/wakatime-cli](https://github.com/wakatime/wakatime-cli), default "
+"`process_output()` will call `wakatime_hook()` to record your translating"
+" time in [wakatime](https://wakatime.com)."
+msgstr ""
+
+#: ../../resources/config.md:270
+msgid "Translate Clipboard"
+msgstr ""
+
+#: ../../resources/config.md:272
+msgid ""
+"In REPL, translate-shell can translate any content in clipboard, when it "
+"has changed."
+msgstr ""
+
+#: ../../resources/config.md:275
+msgid "You can customize `config.get_clipper`."
+msgstr ""
+
+#: ../../resources/config.md:277
+msgid "Speaker"
+msgstr ""
+
+#: ../../resources/config.md:279
+msgid "See [speaker](/resources/translator.md#speaker)"
+msgstr ""
+
+#: ../../resources/config.md:281
+msgid "You can customize `config.get_speaker`."
+msgstr ""
+
+#: ../../resources/config.md:283
+msgid "Notify"
+msgstr ""
+
+#: ../../resources/config.md:285
+msgid "See [GUI](/resources/gui.md#GUI)."
+msgstr ""
+
+#: ../../resources/config.md:287
+msgid "You can customize `config.notify`."
+msgstr ""
+
+#: ../../resources/config.md:289
+msgid "Readline Complete"
+msgstr ""
+
+#: ../../resources/config.md:291
+msgid "See [readline](/resources/readline.md#readline)"
+msgstr ""
+
+#: ../../resources/config.md:293
+msgid "You can customize `config.complete`."
+msgstr ""
+

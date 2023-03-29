@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../api/ui.md:1
+msgid "UI"
+msgstr ""
+
+#: of translate_shell.ui.cli:2
+msgid "Command Line interface"
+msgstr ""
+
+#: of translate_shell.ui.cli.run:1 translate_shell.ui.repl.run:1
+msgid "Run."
+msgstr ""
+
+#: of translate_shell.ui.cli.run translate_shell.ui.gui.run
+#: translate_shell.ui.init translate_shell.ui.init_config
+#: translate_shell.ui.process translate_shell.ui.repl.run
+msgid "Parameters"
+msgstr ""
+
+#: of translate_shell.ui.cli.run translate_shell.ui.gui.run
+#: translate_shell.ui.init translate_shell.ui.init_config
+#: translate_shell.ui.init_readline translate_shell.ui.is_sub_thread
+#: translate_shell.ui.process translate_shell.ui.repl.run
+msgid "Return type"
+msgstr ""
+
+#: of translate_shell.ui.gui:2
+msgid "Graphics User Interface"
+msgstr ""
+
+#: of translate_shell.ui.gui.run:1
+msgid "Translate clipboard automatically."
+msgstr ""
+
+#: of translate_shell.ui:1
+msgid "Define common functions shared by CLI and REPL."
+msgstr ""
+
+#: of translate_shell.ui.init:1
+msgid "Init args."
+msgstr ""
+
+#: of translate_shell.ui.init:3
+msgid ""
+"Because ``langdetect`` and many online translators use ``zh-cn`` not "
+"``zh_CN``, we need preprocess. We must ignore ``--help``, ``--version``, "
+"and other arguments which cannot be customized."
+msgstr ""
+
+#: of translate_shell.ui.init_config:1
+msgid "Read config file."
+msgstr ""
+
+#: of translate_shell.ui.init_readline:1
+msgid "Init readline."
+msgstr ""
+
+#: of translate_shell.ui.is_sub_thread:1
+msgid "Judge if current thread is a subthread."
+msgstr ""
+
+#: of translate_shell.ui.process:1
+msgid "Process."
+msgstr ""
+
+#: of translate_shell.ui.process:5
+msgid "If the input is REPL's stdin, it is ``True``."
+msgstr ""
+
+#: of translate_shell.ui.repl:2
+msgid "Read-eval-print Loop"
+msgstr ""
+

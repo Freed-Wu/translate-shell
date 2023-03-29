@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../api/translate_shell.md:1
+msgid "Translate Shell"
+msgstr ""
+
+#: of translate_shell.config:2
+msgid "config"
+msgstr ""
+
+#: of translate_shell.config:4
+msgid "Define a class for user customization."
+msgstr ""
+
+#: of translate_shell.config.Configuration:1
+msgid "Configuration."
+msgstr ""
+
+#: of translate_shell.config.Configuration.complete:1
+msgid "Complete."
+msgstr ""
+
+#: of translate_shell.config.Configuration.complete
+#: translate_shell.config.Configuration.get_prompt
+#: translate_shell.config.Configuration.get_speaker
+#: translate_shell.config.Configuration.get_youdaozhiyun_app_info
+#: translate_shell.config.Configuration.notify
+#: translate_shell.config.Configuration.process_input
+#: translate_shell.config.Configuration.process_output
+#: translate_shell.translate.translate translate_shell.translate.translate_once
+msgid "Parameters"
+msgstr ""
+
+#: of translate_shell.__main__.get_parser translate_shell.__main__.main
+#: translate_shell.config.Configuration.complete
+#: translate_shell.config.Configuration.get_clipper
+#: translate_shell.config.Configuration.get_prompt
+#: translate_shell.config.Configuration.get_speaker
+#: translate_shell.config.Configuration.get_youdaozhiyun_app_info
+#: translate_shell.config.Configuration.notify
+#: translate_shell.config.Configuration.process_input
+#: translate_shell.config.Configuration.process_output
+#: translate_shell.translate.translate translate_shell.translate.translate_once
+msgid "Return type"
+msgstr ""
+
+#: of translate_shell.config.Configuration.get_clipper:1
+msgid "Get clipper."
+msgstr ""
+
+#: of translate_shell.config.Configuration.get_prompt:1
+msgid "Get prompt."
+msgstr ""
+
+#: of translate_shell.config.Configuration.get_speaker:1
+msgid "Get speaker."
+msgstr ""
+
+#: of translate_shell.config.Configuration.get_youdaozhiyun_app_info:1
+msgid "Get youdaozhiyun APP info."
+msgstr ""
+
+#: of translate_shell.config.Configuration.notify:1
+msgid "Notify."
+msgstr ""
+
+#: of translate_shell.config.Configuration.process_input:1
+msgid "Process input."
+msgstr ""
+
+#: of translate_shell.config.Configuration.process_output:1
+msgid "Process output."
+msgstr ""
+
+#: of translate_shell:1
+msgid ""
+"Provide ``__version__`` for `importlib.metadata.version() "
+"<https://docs.python.org/3/library/importlib.metadata.html#distribution-"
+"versions>`_."
+msgstr ""
+
+#: of translate_shell.__main__:1
+msgid ""
+"This module can be called by `python -m "
+"<https://docs.python.org/3/library/__main__.html>`_. See `man "
+"<../resources/man.html>`_."
+msgstr ""
+
+#: of translate_shell.__main__.get_parser:1
+msgid "Get a parser for unit test. Provide shell completions."
+msgstr ""
+
+#: of translate_shell.__main__.main:1
+msgid ""
+"``python -m translate_shell`` call this function. Parse arguments is "
+"before init configuration to provide ``--config``."
+msgstr ""
+
+#: of translate_shell.translate:2
+msgid "translate"
+msgstr ""
+
+#: of translate_shell.translate:4
+msgid "Define some utilities."
+msgstr ""
+
+#: of translate_shell.translate.Translation:1
+msgid "Translation."
+msgstr ""
+
+#: of translate_shell.translate.translate:1
+msgid "Translate."
+msgstr ""
+
+#: of translate_shell.translate.translate_once:1
+msgid "Translate once without multi threads."
+msgstr ""
+
+#: of translate_shell.translate.translate_once:3
+msgid "individual for each thread"
+msgstr ""
+
+#: of translate_shell.translate.translate_once:5
+msgid "same for each thread"
+msgstr ""
+

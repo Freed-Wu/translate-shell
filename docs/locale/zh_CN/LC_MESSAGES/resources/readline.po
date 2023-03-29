@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../resources/readline.md:1
+msgid "Readline"
+msgstr ""
+
+#: ../../resources/readline.md:3
+msgid ""
+"This program uses readline which is installed by default in linux and "
+"macOS (in fact, macOS uses a compatible editline). About configuration of"
+" readline, you can see "
+"<https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-"
+"Syntax.html> or refer [my dotfile](https://github.com/Freed-Wu/my-"
+"dotfiles/blob/main/.inputrc)."
+msgstr ""
+
+#: ../../resources/readline.md:9
+msgid ""
+"A suggested program is [fzf-tab-completion](https://github.com/lincheney"
+"/fzf-tab-completion) which allow you to use fzf to complete readline."
+msgstr ""
+
+#: ../../resources/readline.md:13
+msgid "I realize a tab complete function to let user use readline better:"
+msgstr ""
+
+#: ../../resources/readline.md:37
+msgid "You can customize it if you like."
+msgstr ""
+
+#: ../../resources/readline.md:39
+msgid "Hotkeys"
+msgstr ""
+
+#: ../../resources/readline.md:41
+msgid ""
+"See <https://www.gnu.org/software/bash/manual/html_node/Readline-"
+"Interaction.html>."
+msgstr ""
+
+#: ../../resources/readline.md:43
+msgid "Especially, `<M-BS>` can be more useful than `<C-W>`:"
+msgstr ""
+

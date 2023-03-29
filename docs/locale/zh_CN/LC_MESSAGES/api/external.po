@@ -1,0 +1,242 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../api/external.md:1
+msgid "External"
+msgstr ""
+
+#: of translate_shell.external.colorama:2
+msgid "Fake colorama"
+msgstr ""
+
+#: of translate_shell.external.colorama.__main__:1
+#: translate_shell.external.keyring.__main__:1
+#: translate_shell.external.keyring.errors.__main__:1
+#: translate_shell.external.langdetect.__main__:1
+#: translate_shell.external.platformdirs.__main__:1
+#: translate_shell.external.pynotifier.__main__:1
+#: translate_shell.external.pystardict.__main__:1
+#: translate_shell.external.readline.__main__:1
+#: translate_shell.external.rich.__main__:1
+#: translate_shell.external.shtab.__main__:1
+#: translate_shell.external.yaml.__main__:1
+msgid ""
+"This module can be called by `python -m "
+"<https://docs.python.org/3/library/__main__.html>`_ to check if it "
+"imports any variable don't owned by any true module."
+msgstr ""
+
+#: of translate_shell.external.colorama.__main__.init:1
+msgid "Init."
+msgstr ""
+
+#: of translate_shell.external.__main__.filter_var
+#: translate_shell.external.__main__.get_wrong_varnames
+#: translate_shell.external.__main__.main
+#: translate_shell.external.__main__.main_once
+#: translate_shell.external.__main__.print_wrong_varnames
+#: translate_shell.external.colorama.__main__.init
+#: translate_shell.external.keyring.__main__.get_keyring
+#: translate_shell.external.langdetect.__main__.detect
+#: translate_shell.external.pynotifier.__main__.Notification.send
+#: translate_shell.external.pystardict.__main__.Dictionary.get
+#: translate_shell.external.readline.__main__.add_history
+#: translate_shell.external.readline.__main__.read_history_file
+#: translate_shell.external.rich.logging.__main__.RichHandler.emit
+#: translate_shell.external.rich.traceback.__main__.install
+#: translate_shell.external.shtab.__main__.add_argument_to
+#: translate_shell.external.yaml.__main__.dump
+msgid "Return type"
+msgstr ""
+
+#: of translate_shell.external:1
+msgid ""
+"Wrap extern modules to `extras_require "
+"<https://setuptools.pypa.io/en/latest/userguide/dependency_management.html"
+"#optional-dependencies>`_."
+msgstr ""
+
+#: of translate_shell.external.keyring.errors:2
+msgid "Fake errors"
+msgstr ""
+
+#: of translate_shell.external.keyring:2
+msgid "Fake keyring"
+msgstr ""
+
+#: of translate_shell.external.keyring.__main__.get_keyring:1
+msgid "Get keyring."
+msgstr ""
+
+#: of translate_shell.external.langdetect:2
+msgid "Fake langdetect"
+msgstr ""
+
+#: of translate_shell.external.langdetect.__main__.detect:1
+msgid "Detect."
+msgstr ""
+
+#: of translate_shell.external.__main__.filter_var
+#: translate_shell.external.__main__.get_wrong_varnames
+#: translate_shell.external.__main__.main_once
+#: translate_shell.external.__main__.print_wrong_varnames
+#: translate_shell.external.langdetect.__main__.detect
+#: translate_shell.external.pystardict.__main__.Dictionary.get
+#: translate_shell.external.readline.__main__.add_history
+#: translate_shell.external.readline.__main__.read_history_file
+#: translate_shell.external.rich.logging.__main__.RichHandler.emit
+#: translate_shell.external.shtab.__main__.add_argument_to
+#: translate_shell.external.yaml.__main__.dump
+msgid "Parameters"
+msgstr ""
+
+#: of translate_shell.external.__main__:1
+msgid ""
+"This module can be called by `python -m "
+"<https://docs.python.org/3/library/__main__.html>`_ to check if any fake "
+"module imports any variable don't owned by any true module."
+msgstr ""
+
+#: of translate_shell.external.__main__.filter_var:1
+msgid "Filter var."
+msgstr ""
+
+#: of translate_shell.external.__main__.get_wrong_varnames:1
+msgid "Get wrong varnames."
+msgstr ""
+
+#: of translate_shell.external.__main__.main:1
+msgid "``python -m translate_shell.external`` call this function."
+msgstr ""
+
+#: of translate_shell.external.__main__.main_once:1
+msgid "``python -m translate_shell.external.XXX`` call this function."
+msgstr ""
+
+#: of translate_shell.external.__main__.print_wrong_varnames:1
+msgid "Print wrong varnames."
+msgstr ""
+
+#: of translate_shell.external.platformdirs:2
+msgid "Fake platformdirs"
+msgstr ""
+
+#: of translate_shell.external.platformdirs.__main__.AppDirs:1
+msgid "AppDirs."
+msgstr ""
+
+#: of translate_shell.external.pynotifier:2
+msgid "Fake pynotifier"
+msgstr ""
+
+#: of translate_shell.external.pynotifier.__main__.Notification:1
+msgid "Notification."
+msgstr ""
+
+#: of translate_shell.external.pynotifier.__main__.Notification.send:1
+msgid "Send."
+msgstr ""
+
+#: of translate_shell.external.pystardict:2
+msgid "Fake pystardict"
+msgstr ""
+
+#: of translate_shell.external.pystardict.__main__.Dictionary:1
+msgid "Dictionary."
+msgstr ""
+
+#: of translate_shell.external.pystardict.__main__.Dictionary.get:1
+msgid "Get."
+msgstr ""
+
+#: of translate_shell.external.readline:2
+msgid "Fake readline"
+msgstr ""
+
+#: of translate_shell.external.readline.__main__:5
+msgid ""
+"Because Windows don't have `readline "
+"<https://docs.python.org/3/library/readline.html>`_."
+msgstr ""
+
+#: of translate_shell.external.readline.__main__.add_history:1
+msgid "Add history."
+msgstr ""
+
+#: of translate_shell.external.readline.__main__.read_history_file:1
+msgid "Read history file."
+msgstr ""
+
+#: of translate_shell.external.rich:2
+msgid "Fake rich"
+msgstr ""
+
+#: of translate_shell.external.rich.logging:2
+msgid "Fake rich.logging"
+msgstr ""
+
+#: of translate_shell.external.rich.logging.__main__:1
+msgid "Fake logging."
+msgstr ""
+
+#: of translate_shell.external.rich.logging.__main__.RichHandler:1
+msgid "RichHandler."
+msgstr ""
+
+#: of translate_shell.external.rich.logging.__main__.RichHandler.emit:1
+msgid "Emit."
+msgstr ""
+
+#: of translate_shell.external.rich.traceback:2
+msgid "Fake rich.traceback"
+msgstr ""
+
+#: of translate_shell.external.rich.traceback.__main__:1
+msgid "Traceback."
+msgstr ""
+
+#: of translate_shell.external.rich.traceback.__main__.install:1
+msgid "Install."
+msgstr ""
+
+#: of translate_shell.external.shtab:2
+msgid "Fake shtab"
+msgstr ""
+
+#: of translate_shell.external.shtab.__main__:5
+msgid "Call ``--print-completion`` will warn when shtab is not installed."
+msgstr ""
+
+#: of translate_shell.external.shtab.__main__:7
+msgid "https://github.com/iterative/shtab/blob/95b0e3092cd4dcf1ac2871d44cebda01a89992df/shtab/__init__.py#L786-L789"
+msgstr ""
+
+#: of translate_shell.external.shtab.__main__.add_argument_to:1
+msgid "Add completion argument to parser."
+msgstr ""
+
+#: of translate_shell.external.yaml:2
+msgid "Fake yaml"
+msgstr ""
+
+#: of translate_shell.external.yaml.__main__.dump:1
+msgid "Dump."
+msgstr ""
+

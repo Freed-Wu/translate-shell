@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../resources/requirements.md:1
+msgid "Requirements"
+msgstr ""
+
+#: ../../resources/requirements.md:3
+msgid "color"
+msgstr ""
+
+#: ../../resources/requirements.md:4
+msgid ""
+"Provide a prompt/output style like "
+"[powerlevel10k](https://github.com/romkatv/powerlevel10k). See "
+"[prompt](/resources/config.md#prompt) and [process "
+"output](/resources/config.md#process-output)."
+msgstr ""
+
+#: ../../resources/requirements.md:9
+msgid "[colorama](https://pypi.org/project/colorama)"
+msgstr ""
+
+#: ../../resources/requirements.md:10
+msgid "dev"
+msgstr ""
+
+#: ../../resources/requirements.md:11
+msgid "For unit test and code coverage rate test."
+msgstr ""
+
+#: ../../resources/requirements.md:13
+msgid "[neovim](https://pypi.org/project/neovim)"
+msgstr ""
+
+#: ../../resources/requirements.md:14
+msgid "[pexpect](https://pypi.org/project/pexpect)"
+msgstr ""
+
+#: ../../resources/requirements.md:15
+msgid "[pre-commit](https://pypi.org/project/pre-commit)"
+msgstr ""
+
+#: ../../resources/requirements.md:16
+msgid "[pytest-cov](https://pypi.org/project/pytest-cov)"
+msgstr ""
+
+#: ../../resources/requirements.md:17
+msgid "keyring"
+msgstr ""
+
+#: ../../resources/requirements.md:18
+msgid "See [secret](/resources/config.md#secret)."
+msgstr ""
+
+#: ../../resources/requirements.md:20
+msgid "[keyring](https://pypi.org/project/keyring)"
+msgstr ""
+
+#: ../../resources/requirements.md:21
+msgid "langdetect"
+msgstr ""
+
+#: ../../resources/requirements.md:22
+msgid ""
+"Language detect automatically, only used by [offline "
+"translators](/resources/translator.md#offline-translators)."
+msgstr ""
+
+#: ../../resources/requirements.md:25
+msgid "[langdetect](https://pypi.org/project/langdetect)"
+msgstr ""
+
+#: ../../resources/requirements.md:26
+msgid "notification"
+msgstr ""
+
+#: ../../resources/requirements.md:27
+msgid "See [GUI](/resources/gui.md#GUI)."
+msgstr ""
+
+#: ../../resources/requirements.md:29
+msgid "[py-notifier](https://pypi.org/project/py-notifier)"
+msgstr ""
+
+#: ../../resources/requirements.md:30
+msgid "rich"
+msgstr ""
+
+#: ../../resources/requirements.md:31
+msgid "See [logger](/resources/config.md#logger)."
+msgstr ""
+
+#: ../../resources/requirements.md:33
+msgid "[rich](https://pypi.org/project/rich)"
+msgstr ""
+
+#: ../../resources/requirements.md:34
+msgid "stardict"
+msgstr ""
+
+#: ../../resources/requirements.md:35
+msgid ""
+"Support translate offline by stardict. See [offline "
+"translators](/resources/translator.md#offline-translators)."
+msgstr ""
+
+#: ../../resources/requirements.md:38
+msgid "[PyStarDict](https://pypi.org/project/PyStarDict)"
+msgstr ""
+
+#: ../../resources/requirements.md:39
+msgid "wakatime"
+msgstr ""
+
+#: ../../resources/requirements.md:40
+msgid "See [process output](/resources/config.md#process-output)."
+msgstr ""
+
+#: ../../resources/requirements.md:42
+msgid "[repl-python-wakatime](https://pypi.org/project/repl-python-wakatime)"
+msgstr ""
+
+#: ../../resources/requirements.md:43
+msgid "yaml"
+msgstr ""
+
+#: ../../resources/requirements.md:44
+msgid "For `trans --format yaml`:"
+msgstr ""
+
+#: ../../resources/requirements.md:46
+msgid "[PyYAML](https://pypi.org/project/PyYAML)"
+msgstr ""
+

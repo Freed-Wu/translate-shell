@@ -1,0 +1,345 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../api/translators.md:1
+msgid "Translators"
+msgstr ""
+
+#: of translate_shell.translators:1
+msgid "Provide ``TRANSLATORS`` for shell completion."
+msgstr ""
+
+#: of translate_shell.translators.Translator:1
+msgid "Basic translator. All other translators must be its subclass."
+msgstr ""
+
+#: of translate_shell.translators.Translator.create_translation:1
+msgid "Create translation."
+msgstr ""
+
+#: of translate_shell.translators.Translator.create_translation
+#: translate_shell.translators.get_dummy
+#: translate_shell.translators.online.OnlineTranslator.html_unescape
+#: translate_shell.translators.online.OnlineTranslator.http_get
+#: translate_shell.translators.online.OnlineTranslator.http_post
+#: translate_shell.translators.online.OnlineTranslator.md5sum
+#: translate_shell.translators.online.OnlineTranslator.request
+#: translate_shell.translators.online.bing.BingTranslator.get_explains
+#: translate_shell.translators.online.bing.BingTranslator.get_phonetic
+#: translate_shell.translators.online.google.GoogleTranslator.get_alternatives
+#: translate_shell.translators.online.google.GoogleTranslator.get_details
+#: translate_shell.translators.online.google.GoogleTranslator.get_explains
+#: translate_shell.translators.online.google.GoogleTranslator.get_paraphrase
+#: translate_shell.translators.online.google.GoogleTranslator.get_phonetic
+#: translate_shell.translators.online.google.GoogleTranslator.get_url
+#: translate_shell.translators.online.haici.HaiciTranslator.get_details
+#: translate_shell.translators.online.haici.HaiciTranslator.get_explains
+#: translate_shell.translators.online.haici.HaiciTranslator.get_phonetic
+#: translate_shell.translators.online.youdaozhiyun.YoudaozhiyunTranslator.get_youdaozhiyun_app_info
+#: translate_shell.translators.online.youdaozhiyun.YoudaozhiyunTranslator.sign
+#: translate_shell.translators.speaker.Speaker.get_speaker
+#: translate_shell.translators.stardict.StardictTranslator.get_tokens
+#: translate_shell.translators.stardict.jmdict_en_ja.parse_tokens
+#: translate_shell.translators.stardict.jmdict_ja_en.parse_tokens
+#: translate_shell.translators.stardict.langdao_ce_gb.parse_tokens
+#: translate_shell.translators.stardict.langdao_ec_gb.parse_tokens
+#: translate_shell.translators.stardict.parse_tokens_fallback
+msgid "Parameters"
+msgstr ""
+
+#: of translate_shell.translators.Translator.create_translation
+#: translate_shell.translators.get_bing translate_shell.translators.get_dummy
+#: translate_shell.translators.get_google translate_shell.translators.get_haici
+#: translate_shell.translators.get_speaker
+#: translate_shell.translators.get_stardict
+#: translate_shell.translators.get_yandex
+#: translate_shell.translators.get_youdao
+#: translate_shell.translators.get_youdaozhiyun
+#: translate_shell.translators.online.OnlineTranslator.html_unescape
+#: translate_shell.translators.online.OnlineTranslator.http_get
+#: translate_shell.translators.online.OnlineTranslator.http_post
+#: translate_shell.translators.online.OnlineTranslator.md5sum
+#: translate_shell.translators.online.OnlineTranslator.request
+#: translate_shell.translators.online.bing.BingTranslator.get_explains
+#: translate_shell.translators.online.bing.BingTranslator.get_phonetic
+#: translate_shell.translators.online.google.GoogleTranslator.get_alternatives
+#: translate_shell.translators.online.google.GoogleTranslator.get_details
+#: translate_shell.translators.online.google.GoogleTranslator.get_explains
+#: translate_shell.translators.online.google.GoogleTranslator.get_paraphrase
+#: translate_shell.translators.online.google.GoogleTranslator.get_phonetic
+#: translate_shell.translators.online.google.GoogleTranslator.get_url
+#: translate_shell.translators.online.haici.HaiciTranslator.get_details
+#: translate_shell.translators.online.haici.HaiciTranslator.get_explains
+#: translate_shell.translators.online.haici.HaiciTranslator.get_phonetic
+#: translate_shell.translators.online.youdaozhiyun.YoudaozhiyunTranslator.get_youdaozhiyun_app_info
+#: translate_shell.translators.online.youdaozhiyun.YoudaozhiyunTranslator.sign
+#: translate_shell.translators.speaker.Speaker.get_speaker
+#: translate_shell.translators.stardict.StardictTranslator.get_tokens
+#: translate_shell.translators.stardict.jmdict_en_ja.parse_tokens
+#: translate_shell.translators.stardict.jmdict_ja_en.parse_tokens
+#: translate_shell.translators.stardict.langdao_ce_gb.parse_tokens
+#: translate_shell.translators.stardict.langdao_ec_gb.parse_tokens
+#: translate_shell.translators.stardict.parse_tokens_fallback
+msgid "Return type"
+msgstr ""
+
+#: of translate_shell.translators.get_bing:1
+msgid "Get bing."
+msgstr ""
+
+#: of translate_shell.translators.get_dummy:1
+msgid "Get dummy."
+msgstr ""
+
+#: of translate_shell.translators.get_google:1
+msgid "Get google."
+msgstr ""
+
+#: of translate_shell.translators.get_haici:1
+msgid "Get haici."
+msgstr ""
+
+#: of translate_shell.translators.get_speaker:1
+msgid "Get speaker."
+msgstr ""
+
+#: of translate_shell.translators.get_stardict:1
+msgid "Get stardict."
+msgstr ""
+
+#: of translate_shell.translators.get_yandex:1
+msgid "Get yandex."
+msgstr ""
+
+#: of translate_shell.translators.get_youdao:1
+msgid "Get youdao."
+msgstr ""
+
+#: of translate_shell.translators.get_youdaozhiyun:1
+msgid "Get youdaozhiyun."
+msgstr ""
+
+#: of translate_shell.translators.online.bing:2
+msgid "Bing Translator"
+msgstr ""
+
+#: of translate_shell.translators.online.bing:4
+msgid ""
+"Refer https://github.com/voldikss/vim-translator "
+"https://www.microsoft.com/en-us/translator/help/bing/"
+msgstr ""
+
+#: of translate_shell.translators.online.bing.BingTranslator:1
+msgid "BingTranslator."
+msgstr ""
+
+#: of translate_shell.translators.online.bing.BingTranslator.get_explains:1
+#: translate_shell.translators.online.google.GoogleTranslator.get_explains:1
+#: translate_shell.translators.online.haici.HaiciTranslator.get_explains:1
+msgid "Get explains."
+msgstr ""
+
+#: of translate_shell.translators.online.bing.BingTranslator.get_phonetic:1
+#: translate_shell.translators.online.google.GoogleTranslator.get_phonetic:1
+#: translate_shell.translators.online.haici.HaiciTranslator.get_phonetic:1
+msgid "Get phonetic."
+msgstr ""
+
+#: of translate_shell.translators.online.google:2
+msgid "Google Translator"
+msgstr ""
+
+#: of translate_shell.translators.online.google:4
+msgid ""
+"Refer https://github.com/voldikss/vim-translator "
+"https://support.google.com/translate"
+msgstr ""
+
+#: of translate_shell.translators.online.google.GoogleTranslator:1
+msgid "GoogleTranslator."
+msgstr ""
+
+#: of
+#: translate_shell.translators.online.google.GoogleTranslator.get_alternatives:1
+msgid "Get alternatives."
+msgstr ""
+
+#: of translate_shell.translators.online.google.GoogleTranslator.get_details:1
+#: translate_shell.translators.online.haici.HaiciTranslator.get_details:1
+msgid "Get details."
+msgstr ""
+
+#: of
+#: translate_shell.translators.online.google.GoogleTranslator.get_paraphrase:1
+msgid "Get paraphrase."
+msgstr ""
+
+#: of translate_shell.translators.online.google.GoogleTranslator.get_url:1
+msgid "Get url."
+msgstr ""
+
+#: of translate_shell.translators.online.haici:2
+msgid "Haici Translator"
+msgstr ""
+
+#: of translate_shell.translators.online.haici:4
+msgid "Refer https://github.com/voldikss/vim-translator http://dict.cn"
+msgstr ""
+
+#: of translate_shell.translators.online.haici.HaiciTranslator:1
+msgid "HaiciTranslator."
+msgstr ""
+
+#: of translate_shell.translators.online:2
+msgid "Online Translator"
+msgstr ""
+
+#: of translate_shell.translators.online.OnlineTranslator:1
+msgid "OnlineTranslator. All other online translators must be its subclass."
+msgstr ""
+
+#: of translate_shell.translators.online.OnlineTranslator.html_unescape:1
+msgid "Html unescape."
+msgstr ""
+
+#: of translate_shell.translators.online.OnlineTranslator.http_get:1
+msgid "Http get."
+msgstr ""
+
+#: of translate_shell.translators.online.OnlineTranslator.http_post:1
+msgid "Http post."
+msgstr ""
+
+#: of translate_shell.translators.online.OnlineTranslator.md5sum:1
+msgid "Md5sum."
+msgstr ""
+
+#: of translate_shell.translators.online.OnlineTranslator.request:1
+msgid "Request."
+msgstr ""
+
+#: of translate_shell.translators.online.yandex:2
+msgid "Yandex Translator"
+msgstr ""
+
+#: of translate_shell.translators.online.yandex:4
+msgid "TODO: Refer https://github.com/soimort/translate-shell"
+msgstr ""
+
+#: of translate_shell.translators.online.youdao:2
+msgid "Youdao Translator"
+msgstr ""
+
+#: of translate_shell.translators.online.youdao:4
+msgid "TODO: Refer https://github.com/ChestnutHeng/Wudao-dict"
+msgstr ""
+
+#: of translate_shell.translators.online.youdaozhiyun:2
+msgid "Youdaozhiyun Translator"
+msgstr ""
+
+#: of translate_shell.translators.online.youdaozhiyun:4
+msgid "Refer https://github.com/felixonmars/ydcv"
+msgstr ""
+
+#: of translate_shell.translators.online.youdaozhiyun:6
+#, python-format
+msgid "https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91/API%E6%96%87%E6%A1%A3/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1-API%E6%96%87%E6%A1%A3.html"
+msgstr ""
+
+#: of translate_shell.translators.online.youdaozhiyun.YoudaozhiyunTranslator:1
+msgid "YoudaozhiyunTranslator."
+msgstr ""
+
+#: of
+#: translate_shell.translators.online.youdaozhiyun.YoudaozhiyunTranslator.get_youdaozhiyun_app_info:1
+msgid "Get youdaozhiyun app info."
+msgstr ""
+
+#: of
+#: translate_shell.translators.online.youdaozhiyun.YoudaozhiyunTranslator.sign:1
+msgid "Sign."
+msgstr ""
+
+#: of translate_shell.translators.speaker:2
+msgid "Speaker"
+msgstr ""
+
+#: of translate_shell.translators.speaker:4
+msgid "Play the pronunciation."
+msgstr ""
+
+#: of translate_shell.translators.speaker.Speaker:1
+msgid "Speaker."
+msgstr ""
+
+#: of translate_shell.translators.speaker.Speaker.get_speaker:1
+msgid "Get default speaker."
+msgstr ""
+
+#: of translate_shell.translators.speaker.Speaker.get_speaker:3
+msgid "https://github.com/felixonmars/ydcv/blob/2db05d41e1fc927cd0c49aad101ed6a21ad92c2b/src/ydcv.py#L199-L235"
+msgstr ""
+
+#: of translate_shell.translators.stardict:2
+msgid "Stardict Translator"
+msgstr ""
+
+#: of translate_shell.translators.stardict:4
+msgid ""
+"TODO: more stardicts. TODO: Create different subclasses for different "
+"dict to get phonetic, explains better"
+msgstr ""
+
+#: of translate_shell.translators.stardict.StardictTranslator:1
+msgid "StardictTranslator."
+msgstr ""
+
+#: of translate_shell.translators.stardict.StardictTranslator.get_tokens:1
+msgid "Get tokens."
+msgstr ""
+
+#: of translate_shell.translators.stardict.parse_tokens_fallback:1
+msgid "Parse tokens for fallback."
+msgstr ""
+
+#: of translate_shell.translators.stardict.jmdict_en_ja:1
+msgid "jmdict_en_ja"
+msgstr ""
+
+#: of translate_shell.translators.stardict.jmdict_en_ja.parse_tokens:1
+#: translate_shell.translators.stardict.jmdict_ja_en.parse_tokens:1
+#: translate_shell.translators.stardict.langdao_ce_gb.parse_tokens:1
+#: translate_shell.translators.stardict.langdao_ec_gb.parse_tokens:1
+msgid "Parse tokens."
+msgstr ""
+
+#: of translate_shell.translators.stardict.jmdict_ja_en:1
+msgid "jmdict_ja_en"
+msgstr ""
+
+#: of translate_shell.translators.stardict.langdao_ce_gb:1
+msgid "langdao-ce-gb"
+msgstr ""
+
+#: of translate_shell.translators.stardict.langdao_ec_gb:1
+msgid "langdao-ec-gb"
+msgstr ""
+

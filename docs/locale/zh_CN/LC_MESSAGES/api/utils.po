@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2023
+# This file is distributed under the same license as the translate-shell
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: translate-shell 0.0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 13:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../api/utils.md:1
+msgid "Utils"
+msgstr ""
+
+#: of translate_shell.utils.clippers:2
+msgid "Clippers"
+msgstr ""
+
+#: of translate_shell.utils.clippers.get_clipper:1
+msgid "Get default clipper."
+msgstr ""
+
+#: of translate_shell.utils.clippers.get_clipper:3
+msgid ""
+"don't use try/catch to call these program, fork will cost more time than "
+"judge existence of these program by `which()`"
+msgstr ""
+
+#: of translate_shell.utils.clippers.get_clipper:6
+msgid "https://github.com/neovim/neovim/blob/ef1d291f29961ae10cc122e92fb2419cbbd29f3b/runtime/autoload/provider/clipboard.vim#L87-L151"
+msgstr ""
+
+#: of translate_shell.utils.clippers.get_clipper
+#: translate_shell.utils.complete.complete
+#: translate_shell.utils.input.process_file
+#: translate_shell.utils.input.process_input
+#: translate_shell.utils.input.process_lang_code
+#: translate_shell.utils.input.process_shell
+#: translate_shell.utils.input.process_text_camelcase
+#: translate_shell.utils.input.process_text_multilines
+#: translate_shell.utils.input.process_text_redundant
+#: translate_shell.utils.input.process_translators_code
+#: translate_shell.utils.misc.p10k_sections
+#: translate_shell.utils.misc.section_os
+#: translate_shell.utils.misc.section_path
+#: translate_shell.utils.misc.section_time translate_shell.utils.notify.notify
+#: translate_shell.utils.output.process_output
+#: translate_shell.utils.output.process_output_explain
+#: translate_shell.utils.output.process_output_firstline
+#: translate_shell.utils.output.process_output_p10k
+#: translate_shell.utils.output.process_output_pos
+#: translate_shell.utils.prompt.get_prompt
+#: translate_shell.utils.prompt.process_clipboard
+#: translate_shell.utils.prompt.prompt_p10k
+#: translate_shell.utils.setting.get_setting
+#: translate_shell.utils.setting.print_setting
+msgid "Return type"
+msgstr ""
+
+#: of translate_shell.utils.complete:2
+msgid "Complete"
+msgstr ""
+
+#: of translate_shell.utils.complete.complete:1
+msgid "Complete."
+msgstr ""
+
+#: of translate_shell.utils.complete.complete
+#: translate_shell.utils.input.process_file
+#: translate_shell.utils.input.process_input
+#: translate_shell.utils.input.process_lang_code
+#: translate_shell.utils.input.process_shell
+#: translate_shell.utils.input.process_text_camelcase
+#: translate_shell.utils.input.process_text_multilines
+#: translate_shell.utils.input.process_text_redundant
+#: translate_shell.utils.input.process_translators_code
+#: translate_shell.utils.misc.p10k_sections
+#: translate_shell.utils.misc.section_time translate_shell.utils.notify.notify
+#: translate_shell.utils.output.process_output
+#: translate_shell.utils.output.process_output_explain
+#: translate_shell.utils.output.process_output_firstline
+#: translate_shell.utils.output.process_output_p10k
+#: translate_shell.utils.output.process_output_pos
+#: translate_shell.utils.prompt.get_prompt
+#: translate_shell.utils.prompt.process_clipboard
+#: translate_shell.utils.prompt.prompt_p10k
+#: translate_shell.utils.setting.get_setting
+#: translate_shell.utils.setting.print_setting
+msgid "Parameters"
+msgstr ""
+
+#: of translate_shell.utils:1
+msgid "Import some utils."
+msgstr ""
+
+#: of translate_shell.utils.input:2
+msgid "Process Input"
+msgstr ""
+
+#: of translate_shell.utils.input.process_file:1
+msgid "process_file."
+msgstr ""
+
+#: of translate_shell.utils.input.process_input:1
+msgid "process_input."
+msgstr ""
+
+#: of translate_shell.utils.input.process_lang_code:1
+msgid "process_lang_code."
+msgstr ""
+
+#: of translate_shell.utils.input.process_shell:1
+msgid "process_shell."
+msgstr ""
+
+#: of translate_shell.utils.input.process_text_camelcase:1
+msgid "process_text_camelcase."
+msgstr ""
+
+#: of translate_shell.utils.input.process_text_multilines:1
+msgid "process_text_multilines."
+msgstr ""
+
+#: of translate_shell.utils.input.process_text_redundant:1
+msgid "process_text_redundant."
+msgstr ""
+
+#: of translate_shell.utils.input.process_translators_code:1
+msgid "process_translators_code."
+msgstr ""
+
+#: of translate_shell.utils.misc:2
+msgid "Misc"
+msgstr ""
+
+#: of translate_shell.utils.misc.p10k_sections:1
+msgid "p10k sections."
+msgstr ""
+
+#: of translate_shell.utils.misc.section_os:1
+msgid "Section os."
+msgstr ""
+
+#: of translate_shell.utils.misc.section_path:1
+msgid "Section path."
+msgstr ""
+
+#: of translate_shell.utils.misc.section_time:1
+msgid "Section time."
+msgstr ""
+
+#: of translate_shell.utils.notify:2
+msgid "Notify"
+msgstr ""
+
+#: of translate_shell.utils.notify.notify:1
+msgid "Notify."
+msgstr ""
+
+#: of translate_shell.utils.notify.notify:3
+msgid "`<https://github.com/YuriyLisovskiy/pynotifier/issues/21>_`"
+msgstr ""
+
+#: of translate_shell.utils.output:2
+msgid "Process Output"
+msgstr ""
+
+#: of translate_shell.utils.output.process_output:1
+msgid "Process output."
+msgstr ""
+
+#: of translate_shell.utils.output.process_output_explain:1
+msgid "Process output explain."
+msgstr ""
+
+#: of translate_shell.utils.output.process_output_firstline:1
+msgid "Process output firstline."
+msgstr ""
+
+#: of translate_shell.utils.output.process_output_p10k:1
+msgid "Process output p10k."
+msgstr ""
+
+#: of translate_shell.utils.output.process_output_pos:1
+msgid "Process output pos."
+msgstr ""
+
+#: of translate_shell.utils.prompt:2
+msgid "Get prompt"
+msgstr ""
+
+#: of translate_shell.utils.prompt.get_prompt:1
+msgid "Get prompt."
+msgstr ""
+
+#: of translate_shell.utils.prompt.get_prompt:3
+msgid "``text`` is clipboard content, which means you append it to result."
+msgstr ""
+
+#: of translate_shell.utils.prompt.process_clipboard:1
+msgid "Process clipboard."
+msgstr ""
+
+#: of translate_shell.utils.prompt.prompt_p10k:1
+msgid "Prompt p10k."
+msgstr ""
+
+#: of translate_shell.utils.setting:2
+msgid "List Setting"
+msgstr ""
+
+#: of translate_shell.utils.setting.get_setting:1
+msgid "get_setting."
+msgstr ""
+
+#: of translate_shell.utils.setting.print_setting:1
+msgid "print_setting."
+msgstr ""
+
