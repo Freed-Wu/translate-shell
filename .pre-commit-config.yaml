@@ -122,6 +122,10 @@ repos:
     rev: v0.7.1
     hooks:
       - id: vimdoc
+  - repo: https://github.com/nix-community/nixpkgs-fmt
+    rev: v1.3.0
+    hooks:
+      - id: nixpkgs-fmt
 
 ci:
   skip:
