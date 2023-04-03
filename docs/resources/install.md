@@ -14,28 +14,36 @@ uninstall:
 sudo pacman -R python-translate-shell
 ```
 
-## [Nix](https://github.com/NixOS/nix)
+## [Nix](https://nixos.org)
 
-For [NixOS](https://nixos.org), install:
+For NixOS, add the following code to `/etc/nixos/configuration.nix`:
 
 ```nix
 { config, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs;
+  nix.settings.experimental-features = [ "flakes" ];
+  environment.systemPackages =
+    let
+      translate-shell = (
+        builtins.getFlake "github:Freed-Wu/translate-shell"
+      ).packages.${builtins.currentSystem}.default;
+    in
     [
-      (
-        callPackage
-          (
-            fetchurl {
-              url = "https://raw.githubusercontent.com/Freed-Wu/translate-shell/main/default.nix";
-              # replace XXX with `nix-prefetch-url https://raw.githubusercontent.com/Freed-Wu/translate-shell/main/default.nix`
-              sha256 = "XXX";
-            }
-          )
-        { }
-      )
+      translate-shell
     ];
 }
+```
+
+For nix,
+
+```sh
+nix shell github:Freed-Wu/translate-shell
+```
+
+Or just take a try without installation:
+
+```sh
+nix run github:Freed-Wu/translate-shell -- --help
 ```
 
 ## [PYPI](https://pypi.org/project/translate-shell)
