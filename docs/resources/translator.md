@@ -68,11 +68,14 @@ Offline translator translate text by online translate engines.
   once to the best of my knowledge. I use multi threads to realize it.
 - [vim-translator](https://github.com/voldikss/vim-translator) a port of
   [translator](https://github.com/skywind3000/translator) for
-  [vim](https://github.com/vim/vim).
+  [vim](https://github.com/vim/vim) which has a good support for vim.
 - [coc-translator](https://github.com/voldikss/coc-translator) a rewrite of
   [translator](https://github.com/skywind3000/translator) for
-  [coc.nvim](https://github.com/neoclide/coc.nvim).
+  [coc.nvim](https://github.com/neoclide/coc.nvim), which has a good support for
+  vim. :+1:
 - [ydcv](https://github.com/felixonmars/ydcv) only support youdaozhiyun.
 - [wudao-dict](https://github.com/ChestnutHeng/Wudao-dict) only support youdao.
 - [deepl](https://github.com/DeepLcom/deepl-python) It is said it's the most
   accurate translate engine.
+- [crow-translate](https://github.com/crow-translate) has both GUI and CLI
+  interface and supports OCR. :+1:

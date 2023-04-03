@@ -138,6 +138,10 @@ $ xsel -o | trans --format json | jq -r '"《\(.results[].paraphrase)》的英�
 Just for Fun is 纯娱乐 in Chinese.
 ```
 
+## Similar Projects
+
+See [comparison](https://translate-shell.readthedocs.io/en/latest/resources/translator.html).
+
 ## Features
 
 - Translate with different translators at same time, like [translator](https://github.com/skywind3000/translator)
