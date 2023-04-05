@@ -1,10 +1,11 @@
 # Changelog
 
-<a name="next"></a>
-## next
+<a name="0.0.21"></a>
+## 0.0.21 (2023-04-05)
 
 ### Miscellaneous
 
+- 📦 Fix missing DESTDIR [[c8dbee0](https://github.com/Freed-Wu/translate-shell/commit/c8dbee006459a0d57c8b646cdc57e1bcd756a7a2)]
 - 📦 Add make check [[c74ece9](https://github.com/Freed-Wu/translate-shell/commit/c74ece9b63e9d47a9eb1055d497aea3512ba7880)]
 
 

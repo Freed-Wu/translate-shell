@@ -38,10 +38,10 @@
             postInstall = ''
               install -Dm644 assets/desktop/translate-shell.desktop -t $out/share/applications
               install -Dm644 src/translate_shell/assets/images/translate-shell.png -t $out/share/icons/hicolor/36x36/apps
-              installManPage build/resources/trans.1
+              installManPage sdist/trans.1
               installShellCompletion --cmd trans \
-                --bash build/resources/trans \
-                --zsh build/resources/_trans
+                --bash sdist/trans \
+                --zsh sdist/_trans
             '';
           };
         }

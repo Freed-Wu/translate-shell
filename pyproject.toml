@@ -2,10 +2,10 @@
 requires = ["setuptools_scm[toml] >= 6.2", "setuptools-generate"]
 build-backend = "setuptools.build_meta"
 
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
 [project]
 name = "translate-shell"
 description = "Translate text by google, bing, youdaozhiyun, haici, stardict, etc at same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim."
-authors = [{ name = "Wu Zhenyu", email = "wuzhenyu@ustc.edu" }]
 readme = "README.md"
 requires-python = ">= 3.7"
 keywords = ["translate"]
@@ -30,6 +30,10 @@ classifiers = [
 ]
 dynamic = ["version", "optional-dependencies"]
 
+[[project.authors]]
+name = "Wu Zhenyu"
+email = "wuzhenyu@ustc.edu"
+
 [project.license]
 text = "GPL v3"
 
@@ -44,6 +48,10 @@ trans = "translate_shell.__main__:main"
 
 [tool.setuptools.package-data]
 translate_shell = ["py.typed", "assets/**"]
+
+[tool.setuptools.data-files]
+autotools = ["configure", "Makefile.in", "build-aux/*"]
+sdist = ["sdist/*", "dist/*.whl"]
 
 [tool.setuptools_scm]
 write_to = "src/translate_shell/_version.py"

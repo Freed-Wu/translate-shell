@@ -75,22 +75,25 @@ jobs:
       - name: Install dependencies
         run: |
           pip install build
-      - name: Build
+      - name: Build sdist
+        if: runner.os == 'Linux'
         run: |
-          python -m build
+          ./autogen.sh
+          python -m build -s
+      - name: Build wheel
+        run: |
+          python -m build -w
       - uses: actions/upload-artifact@v3
         if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
         with:
           path: |
             dist/*
-            build/resources/*
       - uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           body_path: build/CHANGELOG.md
           files: |
             dist/*
-            build/resources/*
       - uses: pypa/gh-action-pypi-publish@release/v1
         if: runner.os == 'Linux' && startsWith(github.ref, 'refs/tags/')
         with:

@@ -1,9 +1,9 @@
 dist_doc_DATA = README.md
-dist_man_MANS = build/resources/trans.1
+dist_man_MANS = sdist/trans.1
 bashcompletiondir = $(datadir)/bash-completion/completions
-dist_bashcompletion_DATA = build/resources/trans
+dist_bashcompletion_DATA = sdist/trans
 zshcompletiondir = $(datadir)/zsh/site-functions
-dist_zshcompletion_DATA = build/resources/_trans
+dist_zshcompletion_DATA = sdist/_trans
 desktopdir = $(datadir)/applications
 dist_desktop_DATA = assets/desktop/translate-shell.desktop
 icondir = $(datadir)/icons/hicolor/256x256/apps
