@@ -18,5 +18,8 @@ install-html-local: html-local
 install-data-local:
 	python -m installer -p $(prefix) dist/translate_shell-$(PACKAGE_VERSION)-py3-none-any.whl
 
+check-local:
+	cd src && python -m pytest ..
+
 clean-local:
 	rm -rf dist build src/translate_shell/_version.py src/translate_shell/_metainfo.py

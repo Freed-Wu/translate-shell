@@ -100,7 +100,7 @@ Delete shell completions, man and desktop entry by yourself.
 git clone https://github.com/Freed-Wu/translate-shell
 cd translate-shell
 ./autogen.sh
-./configure --prefix=/the/path/you/want/to/install
+./configure --prefix=/usr
 make install
 # optional
 make install-html

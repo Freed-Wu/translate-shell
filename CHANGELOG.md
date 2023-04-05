@@ -1,14 +1,16 @@
 # Changelog
 
-<a name="next"></a>
-## next
+<a name="0.0.20"></a>
+## 0.0.20 (2023-04-05)
 
 ### Fixed
 
+- 🐛 Fix [#28](https://github.com/Freed-Wu/translate-shell/issues/28): empty clipper [[4777c3c](https://github.com/Freed-Wu/translate-shell/commit/4777c3ca00832bb13f626b1245fd4b4a2d47a043)]
 - 🐛 Fix a typo of pyproject.toml [[52ea35e](https://github.com/Freed-Wu/translate-shell/commit/52ea35e196d573b4602b019bc0412120ec3a9e0e)]
 
 ### Miscellaneous
 
+- 📦 Support autotools [[4141a7b](https://github.com/Freed-Wu/translate-shell/commit/4141a7b02c4be0d84ca47247d1573ccece3865e7)]
 - 📝 Add some sphinx extensions [[189dca1](https://github.com/Freed-Wu/translate-shell/commit/189dca10eca6503f36b2d01f15dae8fc05adf3a9)]
 - 📝 Add some translators to document [[80438bb](https://github.com/Freed-Wu/translate-shell/commit/80438bb0c7e706696e0094c9e170508b76a73d9b)]
 - 📦 Support nix [[404448d](https://github.com/Freed-Wu/translate-shell/commit/404448dd0c226fdfc41b9cc470d36caf1b2b5aa8)]
