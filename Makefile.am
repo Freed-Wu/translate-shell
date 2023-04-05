@@ -16,7 +16,7 @@ install-html-local: html-local
 	cp -r docs/_build/html $(docdir)
 
 install-data-local:
-	python -m installer -p $(prefix) dist/translate_shell-$(PACKAGE_VERSION)-py3-none-any.whl
+	python -m installer -p $(DESTDIR)/$(prefix) dist/translate_shell-$(PACKAGE_VERSION)-py3-none-any.whl
 
 check-local:
 	cd src && python -m pytest ..

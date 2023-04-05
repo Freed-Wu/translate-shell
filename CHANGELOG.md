@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="next"></a>
+## next
+
+### Miscellaneous
+
+- 📦 Add make check [[c74ece9](https://github.com/Freed-Wu/translate-shell/commit/c74ece9b63e9d47a9eb1055d497aea3512ba7880)]
+
+
 <a name="0.0.20"></a>
 ## 0.0.20 (2023-04-05)
 
