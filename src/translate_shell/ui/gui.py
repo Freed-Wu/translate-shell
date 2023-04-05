@@ -16,6 +16,8 @@ def run(args: Namespace) -> None:
     :rtype: None
     """
     clipper = args.get_clipper()
+    if clipper == []:
+        return None
     args.text = check_output(clipper, universal_newlines=True)
     args.last_text, _, _, _ = args.process_input(
         args.text, args.target_lang, args.source_lang, args.translators, False
