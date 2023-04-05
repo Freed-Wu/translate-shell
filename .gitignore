@@ -1,3 +1,4 @@
+*~
 /result
 _version.py
 _metainfo.py
@@ -128,3 +129,58 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# create by https://github.com/iamcco/coc-gitignore (Thu Apr 06 2023 01:04:57 GMT+0800 (China Standard Time))
+# Autotools.gitignore:
+# http://www.gnu.org/software/automake
+
+Makefile.in
+/ar-lib
+/mdate-sh
+/py-compile
+/test-driver
+/ylwrap
+
+# http://www.gnu.org/software/autoconf
+
+autom4te.cache
+/autoscan.log
+/autoscan-*.log
+/aclocal.m4
+/build-aux/compile
+/config.guess
+/config.h.in
+/config.log
+/config.status
+/config.sub
+/configure
+/configure.scan
+/build-aux/depcomp
+/build-aux/install-sh
+/build-aux/missing
+/stamp-h1
+
+# https://www.gnu.org/software/libtool/
+
+/ltmain.sh
+
+# http://www.gnu.org/software/texinfo
+
+/texinfo.tex
+
+# http://www.gnu.org/software/m4/
+
+m4/libtool.m4
+m4/ltoptions.m4
+m4/ltsugar.m4
+m4/ltversion.m4
+m4/lt~obsolete.m4
+
+# Autotools.patch:
+/config.log
+
+# create by https://github.com/iamcco/coc-gitignore (Thu Apr 06 2023 01:05:06 GMT+0800 (China Standard Time))
+# Autotools+strict.patch:
+# Generated source files
+configure
+Makefile

@@ -3,9 +3,28 @@
 <a name="next"></a>
 ## next
 
+### Fixed
+
+- 🐛 Fix a typo of pyproject.toml [[52ea35e](https://github.com/Freed-Wu/translate-shell/commit/52ea35e196d573b4602b019bc0412120ec3a9e0e)]
+
+### Miscellaneous
+
+- 📝 Add some sphinx extensions [[189dca1](https://github.com/Freed-Wu/translate-shell/commit/189dca10eca6503f36b2d01f15dae8fc05adf3a9)]
+- 📝 Add some translators to document [[80438bb](https://github.com/Freed-Wu/translate-shell/commit/80438bb0c7e706696e0094c9e170508b76a73d9b)]
+- 📦 Support nix [[404448d](https://github.com/Freed-Wu/translate-shell/commit/404448dd0c226fdfc41b9cc470d36caf1b2b5aa8)]
+- 📝 Support nix [[570bd79](https://github.com/Freed-Wu/translate-shell/commit/570bd79217e0104a9d342cc1d7f1ef2aa1d7b74d)]
+
+
+<a name="0.0.19"></a>
+## 0.0.19 (2023-03-29)
+
 ### Added
 
 - 👷‍♂️ Update .pre-commit-config.yaml [[2827464](https://github.com/Freed-Wu/translate-shell/commit/28274648a080cadd28483f745079d69f67f49dec)]
+
+### Fixed
+
+- 🐛 Fix [#27](https://github.com/Freed-Wu/translate-shell/issues/27): wrong encoding in windows [[ab105ce](https://github.com/Freed-Wu/translate-shell/commit/ab105ce3b008459342f89896ae8f947560b30b92)]
 
 ### Miscellaneous
 
