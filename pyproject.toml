@@ -43,7 +43,7 @@ Source = "https://github.com/Freed-Wu/translate-shell"
 trans = "translate_shell.__main__:main"
 
 [tool.setuptools.package-data]
-help2man = ["py.typed", "assets/**"]
+translate_shell = ["py.typed", "assets/**"]
 
 [tool.setuptools_scm]
 write_to = "src/translate_shell/_version.py"
