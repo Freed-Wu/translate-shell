@@ -5,6 +5,6 @@ authors:
   - family-names: Wu
     given-names: Zhenyu
     orcid: https://orcid.org/0000-0001-6478-9993
-title: "Wu Zhenyu: Translate text by google, bing, youdaozhiyun, haici, stardict, etc at same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim."
+title: "translate-shell: Translate text by google, bing, youdaozhiyun, haici, stardict, etc at same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim."
 date-released: 2022-12-03
 url: "https://github.com/Freed-Wu/translate-shell"
