@@ -75,14 +75,9 @@ jobs:
       - name: Install dependencies
         run: |
           pip install build
-      - name: Build sdist
-        if: runner.os == 'Linux'
+      - name: Build
         run: |
-          ./autogen.sh
-          python -m build -s
-      - name: Build wheel
-        run: |
-          python -m build -w
+          python -m build
       - uses: actions/upload-artifact@v3
         if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
         with:

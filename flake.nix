@@ -29,20 +29,11 @@
               pyyaml
             ];
             nativeCheckInputs = [
-              installShellFiles
               setuptools-generate
             ];
             pythonImportsCheck = [
               "translate_shell"
             ];
-            postInstall = ''
-              install -Dm644 assets/desktop/translate-shell.desktop -t $out/share/applications
-              install -Dm644 src/translate_shell/assets/images/translate-shell.png -t $out/share/icons/hicolor/36x36/apps
-              installManPage sdist/trans.1
-              installShellCompletion --cmd trans \
-                --bash sdist/trans \
-                --zsh sdist/_trans
-            '';
           };
         }
       );
