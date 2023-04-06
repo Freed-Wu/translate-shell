@@ -1,5 +1,34 @@
 # Changelog
 
+<a name="next"></a>
+## next
+
+### Fixed
+
+- 🐛 Fix wrong title of CITATION.cff [[ece5322](https://github.com/Freed-Wu/translate-shell/commit/ece532288b34cea44cee4e883627f71aa49e81a9)]
+
+
+<a name="0.0.22"></a>
+## 0.0.22 (2023-04-06)
+
+### Removed
+
+- 🔥 Remove autotools, use tool.setuptools.data-files [[e1f78ad](https://github.com/Freed-Wu/translate-shell/commit/e1f78ad2e15a78968c996ecbae4c8e86c2cee899)]
+
+### Miscellaneous
+
+- 📦 Fix sdist [[1f980b9](https://github.com/Freed-Wu/translate-shell/commit/1f980b932e74cbaf9e804dd6c5e622bcb60478c9)]
+
+
+<a name="0.0.21"></a>
+## 0.0.21 (2023-04-05)
+
+### Miscellaneous
+
+- 📦 Fix missing DESTDIR [[c8dbee0](https://github.com/Freed-Wu/translate-shell/commit/c8dbee006459a0d57c8b646cdc57e1bcd756a7a2)]
+- 📦 Add make check [[c74ece9](https://github.com/Freed-Wu/translate-shell/commit/c74ece9b63e9d47a9eb1055d497aea3512ba7880)]
+
+
 <a name="0.0.20"></a>
 ## 0.0.20 (2023-04-05)
 

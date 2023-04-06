@@ -57,9 +57,8 @@ repos:
     rev: 0.7.16
     hooks:
       - id: mdformat
-        args:
-          - --number
         additional_dependencies:
+          - mdformat-pyproject
           - mdformat-gfm
           - mdformat-myst
           - mdformat-toc
