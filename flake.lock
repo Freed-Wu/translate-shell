@@ -1,12 +1,15 @@
 {
   "nodes": {
     "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
       "locked": {
-        "lastModified": 1678901627,
-        "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
+        "lastModified": 1681037374,
+        "narHash": "sha256-XL6X3VGbEFJZDUouv2xpKg2Aljzu/etPLv5e1FPt1q0=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "93a2b84fc4b70d9e089d029deacc3583435c2ed6",
+        "rev": "033b9f258ca96a10e543d4442071f614dc3f8412",
         "type": "github"
       },
       "original": {
@@ -60,32 +63,13 @@
         "type": "github"
       }
     },
-    "help2man": {
-      "inputs": {
-        "flake-utils": "flake-utils_4",
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1680544218,
-        "narHash": "sha256-Af1xfiCZQvZvCWnMxIc01zxBCtdHCz0zEPIk0avdsjA=",
-        "owner": "Freed-Wu",
-        "repo": "help2man",
-        "rev": "07c3d1d3c98ce80e064210f034621052ad3ab628",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Freed-Wu",
-        "repo": "help2man",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1680398059,
-        "narHash": "sha256-qtbKRe+pWuf5nNINdiCgn6EwOIQZxj0Ig/wybBpFNkQ=",
+        "lastModified": 1681036984,
+        "narHash": "sha256-AbScJXshYzbeUKHh+Y3OICc3iAtr+NqJ3Xb81GW+ptU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7c656856e9eb863c4d21c83e2601dd77f95f6941",
+        "rev": "fd531dee22c9a3d4336cc2da39e8dd905e8f3de4",
         "type": "github"
       },
       "original": {
@@ -113,6 +97,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1681036984,
+        "narHash": "sha256-AbScJXshYzbeUKHh+Y3OICc3iAtr+NqJ3Xb81GW+ptU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "fd531dee22c9a3d4336cc2da39e8dd905e8f3de4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1680213900,
         "narHash": "sha256-cIDr5WZIj3EkKyCgj/6j3HBH4Jj1W296z7HTcWj1aMA=",
         "owner": "nixos",
@@ -127,19 +127,22 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "python-help2man": {
+      "inputs": {
+        "flake-utils": "flake-utils_4",
+        "nixpkgs": "nixpkgs_4"
+      },
       "locked": {
-        "lastModified": 1680398059,
-        "narHash": "sha256-qtbKRe+pWuf5nNINdiCgn6EwOIQZxj0Ig/wybBpFNkQ=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "7c656856e9eb863c4d21c83e2601dd77f95f6941",
+        "lastModified": 1680548519,
+        "narHash": "sha256-YduVpScBbfuv1cAiTBmlHzn1G0otfS48X34/SDhhByo=",
+        "owner": "Freed-Wu",
+        "repo": "help2man",
+        "rev": "68624c3c3d6669f3c1b10016271cc0ebf4143e02",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
+        "owner": "Freed-Wu",
+        "repo": "help2man",
         "type": "github"
       }
     },
@@ -149,11 +152,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1680548975,
-        "narHash": "sha256-eOxkYiSBNNdP/7dijuUNJJaaEVkHQSXBUuJd4O5f70A=",
+        "lastModified": 1680550155,
+        "narHash": "sha256-fQnOLE9CLablzj3Nwp5JmVOVg2H4yjmt902pvSnK24g=",
         "owner": "wakatime",
         "repo": "repl-python-wakatime",
-        "rev": "75739b1933a7848b9787319ff3a41a3914437d99",
+        "rev": "ad2778d8fec333c992d824dcbc9266750ff0f2ec",
         "type": "github"
       },
       "original": {
@@ -165,15 +168,15 @@
     "python-setuptools-generate": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "help2man": "help2man",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3",
+        "python-help2man": "python-help2man"
       },
       "locked": {
-        "lastModified": 1680547952,
-        "narHash": "sha256-t9SrgarfT4vvvBZnF0CSwRGff1cPUibmUm4ByJGLYrk=",
+        "lastModified": 1681125916,
+        "narHash": "sha256-7mtfHwNo0AA/zjvVnNv2iTFcTMyWdZThB8QSVwI98AA=",
         "owner": "Freed-Wu",
         "repo": "setuptools-generate",
-        "rev": "384f7c2dcf1bc2161ce3dc05c8f0662b46d55dfb",
+        "rev": "80e8297f63c9b7ec0ea14ceb01eb0e2085a77426",
         "type": "github"
       },
       "original": {
@@ -188,6 +191,21 @@
         "nixpkgs": "nixpkgs",
         "python-repl-python-wakatime": "python-repl-python-wakatime",
         "python-setuptools-generate": "python-setuptools-generate"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },
