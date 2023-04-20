@@ -50,7 +50,7 @@ trans = "translate_shell.__main__:main"
 translate_shell = ["py.typed", "assets/**"]
 
 [tool.setuptools.data-files]
-"share/application" = ["assets/desktop/translate-shell.desktop"]
+"share/applications" = ["assets/desktop/translate-shell.desktop"]
 "share/icons/hicolor/36x36/apps" = ["src/translate_shell/assets/images/translate-shell.png"]
 "share/man/man1" = ["sdist/trans.1"]
 "share/bash-completion/completions" = ["sdist/trans"]

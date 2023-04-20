@@ -3,9 +3,9 @@
 <a name="next"></a>
 ## next
 
-### Fixed
+### Added
 
-- 🐛 Fix wrong title of CITATION.cff [[ece5322](https://github.com/Freed-Wu/translate-shell/commit/ece532288b34cea44cee4e883627f71aa49e81a9)]
+- 👷‍♂️ Add update-aur-package [[96f810c](https://github.com/Freed-Wu/translate-shell/commit/96f810c7dc7649542d24d2a1e5450914a3a5e6a4)]
 
 
 <a name="0.0.22"></a>
