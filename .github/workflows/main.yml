@@ -93,7 +93,7 @@ jobs:
         if: runner.os == 'Linux' && startsWith(github.ref, 'refs/tags/')
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
-      - uses: Freed-Wu/update-aur-package@v1.0.6
+      - uses: Freed-Wu/update-aur-package@v1.0.8
         if: startsWith(github.ref, 'refs/tags/') && runner.os == 'Linux'
         with:
           tag_version_prefix: ""
