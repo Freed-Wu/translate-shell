@@ -34,6 +34,9 @@
             pythonImportsCheck = [
               "translate_shell"
             ];
+            meta = {
+              mainProgram = "trans";
+            };
           };
         }
       );
