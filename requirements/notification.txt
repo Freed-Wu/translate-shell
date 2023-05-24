@@ -1,4 +1,6 @@
 #!/usr/bin/env -S pip install -r
 # See [GUI](/resources/gui.md#GUI).
+# Note [#29](https://github.com/YuriyLisovskiy/pynotifier/pull/29):
+# py-notifier has an incompatible change.
 
-py-notifier
+py-notifier >= 0.5.0
