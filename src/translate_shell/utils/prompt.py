@@ -16,7 +16,7 @@ def prompt_p10k(tl: str, sl: str, translators: str) -> str:
     :rtype: str
     """
     # Config
-    insert_lang = "韛{sl}:{tl}"
+    insert_lang = "󰗊 {sl}:{tl}"
     insert_translators = " {translators}"
     insert_time = " {time}"
     time_format = "%H:%M:%S"
