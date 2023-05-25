@@ -1,11 +1,48 @@
 # Changelog
 
-<a name="next"></a>
-## next
+<a name="0.0.26"></a>
+## 0.0.26 (2023-05-25)
+
+### Changed
+
+- 👽 Adapt pynotifier &gt;&#x3D; 0.5.0 [[0b6f5b0](https://github.com/Freed-Wu/translate-shell/commit/0b6f5b085d26405d153a6d7a22541885301f37f3)]
+
+
+<a name="0.0.25"></a>
+## 0.0.25 (2023-05-24)
+
+### Changed
+
+- 👽 Delete some deprecated nerd font symbols [[0452f57](https://github.com/Freed-Wu/translate-shell/commit/0452f577f13df18b279692bf57a7e44c968ff11a)]
+
+### Miscellaneous
+
+- 📦 Add meta.mainProgram [[9dc9b07](https://github.com/Freed-Wu/translate-shell/commit/9dc9b076d51431bc469f16fe69e40562a9f94b38)]
+
+
+<a name="0.0.24"></a>
+## 0.0.24 (2023-04-20)
+
+### Fixed
+
+- 🐛 Fix a typo [[abc0c3a](https://github.com/Freed-Wu/translate-shell/commit/abc0c3ad435c90fd17e44d30439a7674029e21a7)]
+
+
+<a name="0.0.23"></a>
+## 0.0.23 (2023-04-11)
 
 ### Added
 
 - 👷‍♂️ Add update-aur-package [[96f810c](https://github.com/Freed-Wu/translate-shell/commit/96f810c7dc7649542d24d2a1e5450914a3a5e6a4)]
+
+### Fixed
+
+- 🐛 Fix wrong title of CITATION.cff [[ece5322](https://github.com/Freed-Wu/translate-shell/commit/ece532288b34cea44cee4e883627f71aa49e81a9)]
+
+### Miscellaneous
+
+- 📦 Fix nix build [[f8b7c7a](https://github.com/Freed-Wu/translate-shell/commit/f8b7c7a5e04145419dedd97b6b971df600df7804)]
+- 📦 Fix version of setuptools-generate [[1f135fc](https://github.com/Freed-Wu/translate-shell/commit/1f135fc3439fe5714a981dde67dcee1908353e6f)]
 
 
 <a name="0.0.22"></a>
