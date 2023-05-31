@@ -138,6 +138,76 @@ $ xsel -o | trans --format json | jq -r '"《\(.results[].paraphrase)》的英�
 Just for Fun is 纯娱乐 in Chinese.
 ```
 
+### CI/CD
+
+#### Github Action
+
+This repo provides an action to translate `*.po` of a repository. See
+[inputs](https://github.com/Freed-Wu/translate-shell/blob/main/action.yml).
+For example, you have a repository which contains translations of another
+project's documents (upstream), you can write a github workflow to detect if
+upstream has update. If a new version exist, update the version and
+generate new
+[`.po`](https://www.gnu.org/software/gettext/manual/gettext.html#PO-Files)s,
+then translate the changed `.po`s and `git commit`.
+
+Examples:
+
+- [tmux-zh](https://github.com/Freed-Wu/tmux-zh/blob/main/.github/workflows/version.yml)
+
+```yaml
+on:
+  schedule:
+    # Run this CI/CD at 0:00 on Friday
+    - cron: 0 0 * * 5
+  workflow_dispatch:
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate new .po
+        id: version
+        run: |
+          # update version
+          # then use perl / sed / ... to replace the version string of your file
+          # then generate new .po
+          echo VERSION=XXX > $GITHUB_OUTPUT
+      - name: Translate your *.po
+        uses: Freed-Wu/translate-shell@main
+      - name: Git commit
+        run: |
+          git add **.po
+          git config --global user.name 'Github Actions'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m ":bookmark: Dump version to $VERSION"
+          git tag "$VERSION"
+          git remote set-url origin "https://x-access-token:$GH_TOKEN@github.com/$GITHUB_REPOSITORY"
+          git push
+          git push --tags
+        env:
+          VERSION: ${{steps.version.outputs.VERSION}}
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
+```
+
+You can use the following commands to get the new version:
+
+```bash
+# get a github repo's version:
+curl https://api.github.com/repos/user/repo/releases/latest | jq -r .tag_name
+# get a gitlab repo's version
+curl 'https://gitlab.com/api/v4/projects/41218592/repository/tags?per_page=1' |
+jq -r '.[].name'
+```
+
+You can use the following tools to generate the new `.po`s:
+
+- [sphinx-intl](https://sphinx-intl.readthedocs.io): Generate `.po` for any
+  project using sphinx to generate document.
+- [po4a](https://po4a.org): Generate `.po` for any project which use markdown,
+  `LaTeX`, man, ... to write document.
+
 ## Similar Projects
 
 See [comparison](https://translate-shell.readthedocs.io/en/latest/resources/translator.html).
