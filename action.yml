@@ -22,6 +22,18 @@ inputs:
     description: wrap the width by polib
     required: false
     default: "76"
+  progress:
+    description: display progress of translation
+    required: false
+    default: "false"
+  verbose:
+    description: display diff of translation
+    required: false
+    default: "true"
+  dry_run:
+    description: don't translate
+    required: false
+    default: "false"
 branding:
   icon: check
   color: yellow

@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="0.0.27"></a>
+## 0.0.27 (2023-05-31)
+
+### Added
+
+- 👷‍♂️ Add action.yml [[9a4e522](https://github.com/Freed-Wu/translate-shell/commit/9a4e522201457160f750a039167c285e99c8244f)]
+
+### Fixed
+
+- 💚 Move AUR CD to the last to avoid incomplete downloading [[25d2277](https://github.com/Freed-Wu/translate-shell/commit/25d22779ad414e5591f6d6a5845bb58ae724e5ba)]
+
+
 <a name="0.0.26"></a>
 ## 0.0.26 (2023-05-25)
 
