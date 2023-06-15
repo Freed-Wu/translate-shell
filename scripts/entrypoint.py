@@ -43,7 +43,7 @@ for file in files:
             entry.msgstr = translate(
                 entry.msgid, target_lang, source_lang, [translator]
             ).results[0]["paraphrase"]
-        except Exception:
+        except Exception:  # skipcq: PYL-W0703
             po.save()
             continue
         entry.fuzzy = False  # type: ignore
