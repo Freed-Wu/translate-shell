@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="0.0.28"></a>
+## 0.0.28 (2023-06-15)
+
+### Fixed
+
+- 🐛 Fix stardict dictionary path [[c40ef47](https://github.com/Freed-Wu/translate-shell/commit/c40ef47a0cb198fed26bf1679d18feb99c4a9d13)]
+
+### Miscellaneous
+
+- 📝 Update install.md [[01c2e26](https://github.com/Freed-Wu/translate-shell/commit/01c2e2614c88a5985bbe62de0892ec3ebc15ed4a)]
+- 🧑‍💻 Improve action [[42585cd](https://github.com/Freed-Wu/translate-shell/commit/42585cdd8513256c56d40e63d779620c8c3a3304)]
+
+
 <a name="0.0.27"></a>
 ## 0.0.27 (2023-05-31)
 
