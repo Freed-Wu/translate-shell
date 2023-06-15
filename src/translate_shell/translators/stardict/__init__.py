@@ -6,6 +6,7 @@ TODO: Create different subclasses for different dict to get phonetic, explains
 better
 """
 import logging
+import os
 
 from ... import STARDICT_DIRS
 from ...external.pystardict import Dictionary
@@ -85,25 +86,21 @@ class StardictTranslator(Translator):
             except LangDetectException:
                 sl = "en"
 
-        dictionary = STARDICT.get(sl, STARDICT.get("en", {})).get(tl, "")
+        dictionary = STARDICT.get(sl, STARDICT["en"]).get(tl, "")
         if not dictionary:
             logger.warning(sl + " to " + tl + " dictionary is not found!")
             return [], ""
-        target_dir = None
         for directory in STARDICT_DIRS:
-            exist = False
             for ext in ["dict.dz", "dict"]:
-                if not (directory / (dictionary + "." + ext)).exists():
-                    exist = True
-                    break
-            if exist:
-                target_dir = directory
-                break
-        if target_dir:
-            tokens = (
-                Dictionary(str(target_dir / dictionary)).get(text).split("\n")
-            )
-            return tokens, dictionary
+                for path in [directory, directory / dictionary]:
+                    if not (
+                        path / (dictionary + os.path.extsep + ext)
+                    ).exists():
+                        continue
+                    tokens = (
+                        Dictionary(path / dictionary).get(text, "").split("\n")
+                    )
+                    return tokens, dictionary
         logger.warning(
             dictionary
             + " is not found in "
