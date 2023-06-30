@@ -3,7 +3,7 @@
 """
 from argparse import Namespace
 
-from . import init, process
+from . import process
 
 
 def run(args: Namespace) -> None:
@@ -13,5 +13,4 @@ def run(args: Namespace) -> None:
     :type args: Namespace
     :rtype: None
     """
-    init(args)
     process(args)

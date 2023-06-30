@@ -11,6 +11,7 @@ options:
                         print some setting
   -v, --verbose         increase logger level
   -q, --quiet           reduce logger level
+  --lsp                 start language server
   --no-clipboard        disable clipboard
   --clipboard           enable clipboard (default)
   --no-notification     disable notification

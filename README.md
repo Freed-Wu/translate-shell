@@ -138,6 +138,11 @@ $ xsel -o | trans --format json | jq -r '"《\(.results[].paraphrase)》的英�
 Just for Fun is 纯娱乐 in Chinese.
 ```
 
+### Language server
+
+- [x] document hover: display translated results
+- [x] completions: complete translated words
+
 ### CI/CD
 
 #### Github Action

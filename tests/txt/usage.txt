@@ -1,6 +1,6 @@
 usage: trans [-h] [-V] [--print-completion {bash,zsh,tcsh}]
              [--print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker}]]
-             [-v] [-q] [--no-clipboard | --clipboard]
+             [-v] [-q] [--lsp] [--no-clipboard | --clipboard]
              [--no-notification | --notification]
              [--sleep-seconds SLEEP_SECONDS] [--config CONFIG]
              [--format {json,yaml,text}] [--translators TRANSLATORS]

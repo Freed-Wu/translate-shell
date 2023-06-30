@@ -78,6 +78,9 @@ file = "requirements/keyring.txt"
 [tool.setuptools.dynamic.optional-dependencies.langdetect]
 file = "requirements/langdetect.txt"
 
+[tool.setuptools.dynamic.optional-dependencies.lsp]
+file = "requirements/lsp.txt"
+
 [tool.setuptools.dynamic.optional-dependencies.notification]
 file = "requirements/notification.txt"
 

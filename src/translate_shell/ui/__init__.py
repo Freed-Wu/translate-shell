@@ -111,10 +111,11 @@ def init(args: Namespace) -> None:
         if value is not None:
             setattr(args, attr, value)
     args.text = " ".join(args.text)
-    _readline = init_readline()
-    _readline.set_completer(args.complete)
-    if args.text:
-        _readline.add_history(args.text)
+    if not args.lsp:
+        _readline = init_readline()
+        _readline.set_completer(args.complete)
+        if args.text:
+            _readline.add_history(args.text)
     args.last_text = ""
     logging.root.level += 10 * (args.quiet - args.verbose)
     # override default functions
@@ -132,14 +133,16 @@ def is_sub_thread() -> bool:
     return main_thread().ident != get_ident()
 
 
-def process(args: Namespace, is_repl: bool = False) -> None:
-    """Process.
+def get_processed_result_text(
+    args: Namespace, is_repl: bool = False
+) -> tuple[str, str]:
+    """Get processed result and processed text.
 
     :param args:
     :type args: Namespace
-    :param is_repl: If the input is REPL's stdin, it is ``True``.
+    :param is_repl:
     :type is_repl: bool
-    :rtype: None
+    :rtype: tuple[str, str]
     """
     (
         text,
@@ -154,7 +157,7 @@ def process(args: Namespace, is_repl: bool = False) -> None:
         is_repl,
     )
     if text == "" or (not is_repl and text == args.last_text):
-        return
+        return ("", "")
     target_lang = args.target_lang
     if target_lang == "auto":
         target_lang = os.getenv("LANG", "zh_CN.UTF-8").split(".")[0]
@@ -185,6 +188,19 @@ def process(args: Namespace, is_repl: bool = False) -> None:
         rst = args.process_output(translation)
         if rst and args.notification and is_sub_thread():
             args.notify(rst)
+    return rst, text
+
+
+def process(args: Namespace, is_repl: bool = False) -> None:
+    """Process. Get processed result and processed text, then print them.
+
+    :param args:
+    :type args: Namespace
+    :param is_repl: If the input is REPL's stdin, it is ``True``.
+    :type is_repl: bool
+    :rtype: None
+    """
+    rst, text = get_processed_result_text(args, is_repl)
     if rst:
         if is_sub_thread():
             os.kill(os.getpid(), signal.SIGINT)

@@ -4,7 +4,7 @@
 from argparse import Namespace
 from threading import Thread
 
-from . import init, process
+from . import process
 
 
 def run(args: Namespace) -> None:
@@ -14,7 +14,6 @@ def run(args: Namespace) -> None:
     :type args: Namespace
     :rtype: None
     """
-    init(args)
     if args.clipboard:
         from .gui import run as _run
 

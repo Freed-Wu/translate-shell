@@ -92,6 +92,9 @@ def get_parser() -> ArgumentParser:
     parser.add_argument(
         "-q", "--quiet", action="count", default=0, help="reduce logger level"
     )
+    parser.add_argument(
+        "--lsp", action="store_true", help="start language server"
+    )
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
         "--no-clipboard",
@@ -172,7 +175,13 @@ def main() -> None | NoReturn:
     except ImportError:
         if not sys.stdin.isatty():
             args.text = [sys.stdin.read()] + args.text
-    if args.text:
+
+    from translate_shell.ui import init
+
+    init(args)
+    if args.lsp:
+        from translate_shell.ui.server import run
+    elif args.text:
         from translate_shell.ui.cli import run
     else:
         from translate_shell.ui.repl import run

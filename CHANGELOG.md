@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="next"></a>
+## next
+
+### Fixed
+
+- 💚 Add if to skip AUR CI/CD to fasten [[66e3571](https://github.com/Freed-Wu/translate-shell/commit/66e3571ac6b77ea071e0b66c693a464427434583)]
+
+### Miscellaneous
+
+- 📝 Update scripts/generate-requirements.md.pl [[ae6cdf2](https://github.com/Freed-Wu/translate-shell/commit/ae6cdf217b86b1caad3f9c6550ee6165b71c05dc)]
+- 🧑‍💻 Add skipcq [[f044b82](https://github.com/Freed-Wu/translate-shell/commit/f044b82476be07e1f289856f373eb4a49d920c1c)]
+
+
 <a name="0.0.28"></a>
 ## 0.0.28 (2023-06-15)
 
