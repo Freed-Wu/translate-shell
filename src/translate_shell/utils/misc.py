@@ -48,6 +48,7 @@ def section_os() -> str:
         "ubuntu": "",
         "cent": "",
         "debian": "",
+        "nixos": "",
     }
     return icons.get(os_name, "?")
 
