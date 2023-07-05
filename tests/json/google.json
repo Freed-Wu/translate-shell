@@ -4,16 +4,16 @@
     {
       "translator": "google",
       "sl": "auto",
-      "tl": "zh_TW",
+      "tl": "zh_CN",
       "text": "The Mythical Man-Month",
       "phonetic": "",
-      "paraphrase": "人月神話",
+      "paraphrase": "神话般的人月",
       "explains": {},
       "details": {},
-      "alternatives": ["神话般的人月"]
+      "alternatives": ["人月神话"]
     }
   ],
   "text": "The Mythical Man-Month",
-  "to_lang": "zh_TW",
+  "to_lang": "zh_CN",
   "from_lang": "auto"
 }
