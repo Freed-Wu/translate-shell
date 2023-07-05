@@ -9,6 +9,7 @@ from . import ASSETS_PATH
 class Test:
     """Test."""
 
+    @staticmethod
     def test_google(self) -> None:
         """Test google"""
         rst = vars(translate("The Mythical Man-Month", "zh_CN"))
