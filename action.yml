@@ -34,6 +34,10 @@ inputs:
     description: don't translate
     required: false
     default: "false"
+  force:
+    description: force retranslate translated po
+    required: false
+    default: "false"
 branding:
   icon: check
   color: yellow

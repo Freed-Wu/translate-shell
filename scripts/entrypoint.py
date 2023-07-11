@@ -17,6 +17,7 @@ wrapwidth = int(os.getenv("INPUT_WRAPWIDTH", "76"))
 progress = os.getenv("INPUT_PROGRESS", "true").lower() == "true"
 verbose = os.getenv("INPUT_PROGRESS", "false").lower() == "true"
 dry_run = os.getenv("INPUT_DRY_RUN", "false").lower() == "true"
+force = os.getenv("INPUT_FORCE", "false").lower() == "true"
 
 workspace = os.getenv("GITHUB_WORKSPACE", ".")
 differ = Differ()
@@ -31,13 +32,15 @@ files = sum(
 for file in files:
     po = polib.pofile(file, wrapwidth=wrapwidth)
     target_lang = po.metadata.get("Language", "en")
-    untranslated_entries = po.untranslated_entries()
-    print(f"{po.fpath}: {len(untranslated_entries)}")
+    entries = po.untranslated_entries()
+    if force:
+        entries += po.translated_entries()
+    print(f"{po.fpath}: {len(entries)}")
     if dry_run:
         continue
     if progress:
-        untranslated_entries = tqdm(untranslated_entries)
-    for entry in untranslated_entries:
+        entries = tqdm(entries)
+    for entry in entries:
         old = str(entry).splitlines()
         try:
             entry.msgstr = translate(
@@ -51,5 +54,5 @@ for file in files:
             new = str(entry).splitlines()
             diff = differ.compare(old, new)
             print("\n".join(diff))
-    if len(untranslated_entries):
+    if len(entries):
         po.save()
