@@ -28,7 +28,7 @@
               repl-python-wakatime
               pyyaml
             ];
-            nativeCheckInputs = [
+            nativeBuildInputs = [
               setuptools-generate
             ];
             pythonImportsCheck = [
