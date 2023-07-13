@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING, Any, Callable
 
 if TYPE_CHECKING:
     from .online.bing import BingTranslator
@@ -55,7 +55,9 @@ class Translator:
         }
         return res
 
-    def __call__(self, text: str, tl: str, sl: str) -> dict[str, str] | None:
+    def __call__(
+        self, text: str, tl: str, sl: str, option: dict[str, Any]
+    ) -> dict[str, str] | None:
         """Call.
 
         :param text:
@@ -64,6 +66,8 @@ class Translator:
         :type tl: str
         :param sl:
         :type sl: str
+        :param option:
+        :type option: dict[str, Any]
         :rtype: dict[str, str] | None
         """
         logger.warning(

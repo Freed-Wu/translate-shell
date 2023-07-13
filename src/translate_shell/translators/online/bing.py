@@ -5,6 +5,7 @@ Refer https://github.com/voldikss/vim-translator
 https://www.microsoft.com/en-us/translator/help/bing/
 """
 import re
+from typing import Any
 from urllib.parse import quote_plus
 
 from .. import TRANSLATION
@@ -30,7 +31,9 @@ class BingTranslator(OnlineTranslator):
             r'<span class="ht_trs">(.*?)</span>'
         )
 
-    def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
+    def __call__(
+        self, text: str, tl: str, sl: str, option: dict[str, Any]
+    ) -> TRANSLATION | None:
         """Call.
 
         :param text:
@@ -39,6 +42,8 @@ class BingTranslator(OnlineTranslator):
         :type tl: str
         :param sl:
         :type sl: str
+        :param option:
+        :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
         url = self._cnurl if "zh" in tl else self._url

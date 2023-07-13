@@ -7,6 +7,7 @@ better
 """
 import logging
 import os
+from typing import Any
 
 from ... import STARDICT_DIRS
 from ...external.pystardict import Dictionary
@@ -38,7 +39,9 @@ class StardictTranslator(Translator):
         """
         super().__init__("stardict")
 
-    def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
+    def __call__(
+        self, text: str, tl: str, sl: str, option: dict[str, Any]
+    ) -> TRANSLATION | None:
         """Call.
 
         :param text:
@@ -47,6 +50,8 @@ class StardictTranslator(Translator):
         :type tl: str
         :param sl:
         :type sl: str
+        :param option:
+        :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
         tokens, dictionary = self.get_tokens(text, tl, sl)
@@ -98,7 +103,9 @@ class StardictTranslator(Translator):
                     ).exists():
                         continue
                     tokens = (
-                        Dictionary(path / dictionary).get(text, "").split("\n")
+                        Dictionary(str(path / dictionary))
+                        .get(text)
+                        .split("\n")
                     )
                     return tokens, dictionary
         logger.warning(

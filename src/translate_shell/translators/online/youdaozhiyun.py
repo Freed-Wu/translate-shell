@@ -8,6 +8,7 @@ https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%B
 import json
 import logging
 import random
+from typing import Any
 
 from ...__main__ import ASSETS_PATH
 from ...external.keyring import get_keyring
@@ -33,7 +34,20 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         """
         super().__init__("youdaozhiyun")
         self.url = "https://openapi.youdao.com/api"
-        self.app_id, self.app_sec = self.__class__.get_youdaozhiyun_app_info()
+
+    def init(self, option: dict[str, Any]) -> None:
+        """Init.
+
+        :param option:
+        :type option: dict[str, Any]
+        :rtype: None
+        """
+        if getattr(self, "app_id") and getattr(self, "app_sec"):
+            return None
+        self.app_id, self.app_sec = option.get(
+            "get_youdaozhiyun_app_info",
+            self.__class__.get_youdaozhiyun_app_info,
+        )()
 
     def sign(self, text: str, salt: str) -> str:
         """Sign.
@@ -47,7 +61,9 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         s = self.app_id + text + salt + self.app_sec
         return self.md5sum(s)
 
-    def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
+    def __call__(
+        self, text: str, tl: str, sl: str, option: dict[str, Any]
+    ) -> TRANSLATION | None:
         """Call.
 
         :param text:
@@ -56,8 +72,11 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         :type tl: str
         :param sl:
         :type sl: str
+        :param option:
+        :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
+        self.init(option)
         salt = str(random.randint(1, 65536))  # nosec B311
         sign = self.sign(text, salt)
         if tl == "zh-cn":

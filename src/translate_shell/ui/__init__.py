@@ -118,11 +118,6 @@ def init(args: Namespace) -> None:
             _readline.add_history(args.text)
     args.last_text = ""
     logging.root.level += 10 * (args.quiet - args.verbose)
-    # override default functions
-    YoudaozhiyunTranslator.get_youdaozhiyun_app_info = (
-        args.get_youdaozhiyun_app_info
-    )
-    Speaker.get_speaker = args.get_speaker
 
 
 def is_sub_thread() -> bool:

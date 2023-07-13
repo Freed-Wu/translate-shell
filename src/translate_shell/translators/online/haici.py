@@ -5,6 +5,7 @@ Refer https://github.com/voldikss/vim-translator
 http://dict.cn
 """
 import re
+from typing import Any
 from urllib.parse import quote_plus
 
 from .. import TRANSLATION
@@ -22,7 +23,9 @@ class HaiciTranslator(OnlineTranslator):
         super().__init__("haici")
         self.timeout = 15
 
-    def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
+    def __call__(
+        self, text: str, tl: str, sl: str, option: dict[str, Any]
+    ) -> TRANSLATION | None:
         """Call.
 
         :param text:
@@ -31,6 +34,8 @@ class HaiciTranslator(OnlineTranslator):
         :type tl: str
         :param sl:
         :type sl: str
+        :param option:
+        :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
         url = "http://dict.cn/mini.php"

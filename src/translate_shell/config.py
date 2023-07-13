@@ -16,9 +16,7 @@ class Configuration(Namespace):
         "process_input",
         "process_output",
         "get_clipper",
-        "get_speaker",
         "get_prompt",
-        "get_youdaozhiyun_app_info",
         "notify",
         "complete",
     ]
@@ -35,6 +33,7 @@ class Configuration(Namespace):
         self.format: Literal["text", "json", "yaml"] = "text"
         self.sleep_seconds: float = 0.1
         self.clipboard: bool = True
+        self.options: dict[str, dict[str, Any]] = {}
 
     @staticmethod
     def process_input(
@@ -85,16 +84,6 @@ class Configuration(Namespace):
         from .utils.clippers import get_clipper
 
         return get_clipper()
-
-    @staticmethod
-    def get_speaker(unused_query: str) -> list[str]:
-        """Get speaker.
-
-        :param unused_query:
-        :type unused_query: str
-        :rtype: list[str]
-        """
-        return []
 
     @staticmethod
     def get_prompt(text: str, tl: str, sl: str, translators: str) -> str:

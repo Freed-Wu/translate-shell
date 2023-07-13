@@ -41,7 +41,9 @@ class GoogleTranslator(OnlineTranslator):
 &tl={tl}&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&q={qry}"
         return url
 
-    def __call__(self, text: str, tl: str, sl: str) -> TRANSLATION | None:
+    def __call__(
+        self, text: str, tl: str, sl: str, option: dict[str, Any]
+    ) -> TRANSLATION | None:
         """Call.
 
         :param text:
@@ -50,6 +52,8 @@ class GoogleTranslator(OnlineTranslator):
         :type tl: str
         :param sl:
         :type sl: str
+        :param option:
+        :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
         url = self.get_url(sl, tl, text)

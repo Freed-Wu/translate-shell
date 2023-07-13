@@ -7,6 +7,7 @@ import logging
 from shlex import split
 from shutil import which
 from subprocess import check_output
+from typing import Any
 
 from . import Translator
 
@@ -23,7 +24,9 @@ class Speaker(Translator):
         """
         super().__init__("speaker")
 
-    def __call__(self, text: str, tl: str, sl: str) -> None:
+    def __call__(
+        self, text: str, tl: str, sl: str, option: dict[str, Any]
+    ) -> None:
         """Call.
 
         :param text:
@@ -34,7 +37,7 @@ class Speaker(Translator):
         :type sl: str
         :rtype: None
         """
-        tokens = self.__class__.get_speaker(text)
+        tokens = option.get("get_speaker", self.__class__.get_speaker)(text)
         if tokens:
             check_output(tokens)
 

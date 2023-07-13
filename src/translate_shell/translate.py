@@ -7,7 +7,7 @@ import logging
 from argparse import Namespace
 from copy import deepcopy
 from threading import Thread
-from typing import Callable
+from typing import Any, Callable
 
 from .translators import TRANSLATORS, Translator
 
@@ -38,19 +38,24 @@ class Translation(Namespace):
         self.status = 0
 
 
-def translate_once(translator: Translator, translation: Translation) -> None:
-    """Translate once without multi threads.
+def translate_once(
+    translator: Translator, translation: Translation, option: dict[str, Any]
+) -> None:
+    """Translate once.
 
-    :param translator: individual for each thread
+    :param translator:
     :type translator: Translator
-    :param translation: same for each thread
+    :param translation:
     :type translation: Translation
+    :param option:
+    :type option: dict[str, Any]
     :rtype: None
     """
     res = translator(
         translation.text,
         translation.to_lang,
         translation.from_lang,
+        option,
     )
     if res:
         translation.results.append(deepcopy(res))
@@ -62,6 +67,7 @@ def translate(
     target_lang: str = "auto",
     source_lang: str = "auto",
     translators: list[Callable[[], Translator]] | list[str] | None = None,
+    options: dict[str, dict[str, Any]] = {},
 ) -> Translation:
     """Translate.
 
@@ -72,7 +78,9 @@ def translate(
     :param source_lang:
     :type source_lang: str
     :param translators:
-    :type translators: list[Callable[[], Translator] | str] | None
+    :type translators: list[Callable[[], Translator]] | list[str] | None
+    :param options:
+    :type options: dict[str, dict[str, Any]]
     :rtype: Translation
     """
     if translators is None:
@@ -88,7 +96,9 @@ def translate(
         true_translators += [translator]
     if len(translators) == 1:
         translator = true_translators[0]
-        translate_once(translator, translation)
+        translate_once(
+            translator, translation, options.get(translator._name, {})
+        )
     else:
         threads = []
         for translator in true_translators:
@@ -96,7 +106,12 @@ def translate(
                 continue
 
             task = Thread(
-                target=translate_once, args=(translator, translation)
+                target=translate_once,
+                args=(
+                    translator,
+                    translation,
+                    options.get(translator._name, {}),
+                ),
             )
             threads.append(task)
 

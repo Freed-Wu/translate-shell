@@ -24,7 +24,7 @@
               langdetect
               # py-notifier
               rich
-              # pystardict
+              pystardict
               repl-python-wakatime
               pyyaml
             ];
