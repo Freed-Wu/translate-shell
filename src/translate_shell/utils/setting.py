@@ -1,13 +1,14 @@
 """List Setting
 ===============
 """
+from ..__main__ import SETTING
 
 
-def get_setting(name: str | None) -> str:
+def get_setting(name: SETTING | None) -> str:
     """get_setting.
 
     :param name:
-    :type name: str | None
+    :type name: SETTING | None
     :rtype: str
     """
     if name == "config_file":
@@ -38,24 +39,20 @@ def get_setting(name: str | None) -> str:
         from ..translators.speaker import Speaker
 
         result = " ".join(Speaker.get_speaker("")).strip()
-    elif name is None:
-        from ..__main__ import SETTINGS
+    elif name == "dictionary_priorities":
+        from ..translators.stardict import STARDICT
 
-        result = "\n".join(SETTINGS)
+        result = "\n".join(
+            [
+                "\t".join([sl, tl] + [",".join(dictionaries)])
+                for sl, v in STARDICT.items()
+                for tl, dictionaries in v.items()
+            ]
+        )
+    elif name is None:
+        from ..__main__ import SETTING
+
+        result = "\n\n".join("## " + setting + "\n\n" + get_setting(setting) for setting in SETTING.__args__)  # type: ignore
     else:
         result = ""
     return str(result)
-
-
-def print_setting(name: str) -> int:
-    """print_setting.
-
-    :param name:
-    :type name: str
-    :rtype: int
-    """
-    setting = get_setting(name)
-    if setting:
-        print(setting)
-        return 0
-    return 1

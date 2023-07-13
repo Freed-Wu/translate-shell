@@ -48,7 +48,7 @@ LANG_COMPLETE = {
 }
 TYPE = Literal["json", "yaml", "text"]
 FORMATS = list(TYPE.__args__)  # type: ignore
-SETTINGS = [
+SETTING = Literal[
     "config_file",
     "history_file",
     "dictionary_dirs",
@@ -57,6 +57,7 @@ SETTINGS = [
     "formats",
     "clipper",
     "speaker",
+    "dictionary_priorities",
 ]
 config = Configuration()
 
@@ -77,7 +78,7 @@ def get_parser() -> ArgumentParser:
     shtab.add_argument_to(parser, preamble=PREAMBLE)  # type: ignore
     parser.add_argument(
         "--print-setting",
-        choices=SETTINGS,
+        choices=SETTING.__args__,  # type: ignore
         default="",
         nargs="?",
         help="print some setting",
@@ -166,9 +167,9 @@ def main() -> None | NoReturn:
     args = parser.parse_args()
 
     if args.print_setting != "":
-        from translate_shell.utils.setting import print_setting
+        from translate_shell.utils.setting import get_setting
 
-        sys.exit(print_setting(args.print_setting))
+        sys.exit(0 if get_setting(args.print_setting) else 1)
 
     try:
         import vim  # type: ignore

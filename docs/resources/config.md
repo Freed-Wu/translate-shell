@@ -44,7 +44,7 @@ By default,
 `trans --source-lang=auto --target-lang=auto --engines=google --format=text --clipboard`.
 You can change it in config.
 About options' meanings, you can see [options](/resources/man.md#options).
-About options' legal values, you can see `trans --print-setting`.
+About all options' values, you can see `trans --print-setting`.
 
 ```python
 # telling translator the source language is faster than let translator detect
@@ -97,7 +97,9 @@ The warning is red and the info is blue. Great!
 Default level is `WARNING`, which make `logger.info` will not display. Change it
 to `INFO` by `trans --verbose` or `level="INFO"` in `config.py`.
 
-## Secret
+## Options
+
+### 有道智云
 
 Some online translator need user to input a APP ID and secret. However, put
 these information in configuration file directly is unsafe. Some user know
@@ -110,9 +112,9 @@ Quoted from [ydcv](https://github.com/felixonmars/ydcv)
 > 创建的自然语言翻译服务-文本翻译实例。 得到的应用 ID / 应用密钥即为本工具的
 > YDAPPID/YDAPPSEC。
 
-[keyring](https://pypi.org/project/keyring) allows user to encrypt password.
-
-Create two passwords:
+By default, this package get `YDAPPID`, `YDAPPSEC` from
+[keyring](https://pypi.org/project/keyring) which allows user to encrypt
+password. Create two passwords:
 
 ```sh
 keyring set youdaozhiyun appid XXX
@@ -120,6 +122,68 @@ keyring set youdaozhiyun appsec YYY
 ```
 
 This is an implementation of <https://github.com/felixonmars/ydcv/issues/76>.
+
+If you want same behavior as [ydcv](https://github.com/felixonmars/ydcv), try:
+
+```python
+import os
+
+config.options = {}
+config.options["youdaozhiyun"] = {}
+
+
+def get_youdaozhiyun_app_info() -> tuple[str, str]:
+    return os.getenv("YDAPPID", ""), os.getenv("YDAPPSEC", "")
+
+
+config.options["youdaozhiyun"]["get_youdaozhiyun_app_info"] = get_youdaozhiyun_app_info
+```
+
+### OpenAI
+
+Default value: `$OPENAI`.
+
+```python
+config.options = {}
+config.options["openai"] = {}
+config.options["openai"]["openai"] = "XXX"
+```
+
+### LLaMa
+
+```python
+config.options = {}
+config.options["llama"] = {}
+config.options["llama"]["llama"] = "/the/path/of/model"
+```
+
+### Speaker
+
+See [speaker](/resources/translator.md#speaker)
+
+```python
+config.options = {}
+config.options["speaker"] = {}
+
+
+def get_speaker(query: str) -> list[str]:
+    return ["espeak", query]
+
+
+config.options["speaker"]["get_speaker"] = get_speaker
+```
+
+### Stardict
+
+Default value can be seen by `trans --print-setting dictionary_dirs`.
+
+```python
+config.options = {}
+config.options["stardict"] = {}
+config.options["stardict"]["stardict"] = {
+    "en": {"zh_CN": ["my-favorite-dictionary", "my-backup-dictionary"]}
+}
+```
 
 ## Prompt
 
@@ -264,12 +328,6 @@ In REPL, translate-shell can translate any content in clipboard, when it has
 changed.
 
 You can customize `config.get_clipper`.
-
-## Speaker
-
-See [speaker](/resources/translator.md#speaker)
-
-You can customize `config.get_speaker`.
 
 ## Notify
 

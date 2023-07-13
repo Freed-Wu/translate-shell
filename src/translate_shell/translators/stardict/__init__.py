@@ -7,6 +7,8 @@ better
 """
 import logging
 import os
+from contextlib import suppress
+from glob import glob
 from typing import Any
 
 from ... import STARDICT_DIRS
@@ -54,8 +56,13 @@ class StardictTranslator(Translator):
         :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
+        self.stardict = option.get("stardict", STARDICT)
         tokens, dictionary = self.get_tokens(text, tl, sl)
         if tokens == []:
+            logger.warning(
+                "No appropriate dictionary is found in "
+                + ", ".join(map(str, STARDICT_DIRS))
+            )
             return None
         res = self.create_translation(text, tl, sl)
         if dictionary == "langdao-ec-gb":
@@ -66,13 +73,14 @@ class StardictTranslator(Translator):
             from .jmdict_en_ja import parse_tokens
         elif dictionary == "jmdict-ja-en":
             from .jmdict_ja_en import parse_tokens
+        elif dictionary == "stardict-ecdict":
+            from .stardict_ecdict import parse_tokens
         else:
             parse_tokens = parse_tokens_fallback
         res = parse_tokens(tokens, res)
         return res
 
-    @staticmethod
-    def get_tokens(text: str, tl: str, sl: str) -> tuple[list[str], str]:
+    def get_tokens(self, text: str, tl: str, sl: str) -> tuple[list[str], str]:
         """Get tokens.
 
         :param text:
@@ -91,38 +99,31 @@ class StardictTranslator(Translator):
             except LangDetectException:
                 sl = "en"
 
-        dictionary = STARDICT.get(sl, STARDICT["en"]).get(tl, "")
-        if not dictionary:
-            logger.warning(sl + " to " + tl + " dictionary is not found!")
-            return [], ""
+        dictionaries = self.stardict.get(sl, self.stardict["en"]).get(tl, [])
         for directory in STARDICT_DIRS:
-            for ext in ["dict.dz", "dict"]:
-                for path in [directory, directory / dictionary]:
-                    if not (
-                        path / (dictionary + os.path.extsep + ext)
-                    ).exists():
-                        continue
-                    tokens = (
-                        Dictionary(str(path / dictionary))
-                        .get(text)
-                        .split("\n")
-                    )
-                    return tokens, dictionary
-        logger.warning(
-            dictionary
-            + " is not found in "
-            + ", ".join(map(str, STARDICT_DIRS))
-        )
-        return [], dictionary
+            for dictionary in dictionaries:
+                expr = os.path.join(
+                    directory,
+                    os.path.join(
+                        "**", dictionary + "*" + os.path.extsep + "dict*"
+                    ),
+                )
+                paths = glob(expr, recursive=True)
+                for path in paths:
+                    prefix = path.rpartition(".dict")[0]
+                    with suppress(AttributeError):
+                        tokens = Dictionary(prefix).get(text).split("\n")
+                        return tokens, dictionary
+        return [], ""
 
 
 STARDICT = {
     "en": {
-        "zh-cn": "langdao-ec-gb",
-        "ja": "jmdict-en-ja",
-        "ru": "quick_english-russian",
+        "zh-cn": ["langdao-ec-gb", "stardict-ecdict"],
+        "ja": ["jmdict-en-ja"],
+        "ru": ["quick_english-russian"],
     },
-    "zh-cn": {"en": "langdao-ce-gb"},
-    "ja": {"en": "jmdict-ja-en"},
-    "ru": {"en": "quick_russian-english"},
+    "zh-cn": {"en": ["langdao-ce-gb"]},
+    "ja": {"en": ["jmdict-ja-en"]},
+    "ru": {"en": ["quick_russian-english"]},
 }
