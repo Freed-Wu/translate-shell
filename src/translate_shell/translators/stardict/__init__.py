@@ -40,6 +40,7 @@ class StardictTranslator(Translator):
         :rtype: None
         """
         super().__init__("stardict")
+        self.stardict = {}
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]

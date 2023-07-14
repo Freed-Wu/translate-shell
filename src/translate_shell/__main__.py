@@ -33,7 +33,7 @@ PY_FILE = {
 }
 HISTORY_COMPLETE = {"zsh": "history_complete"}
 TRANSLATOR_COMPLETE = {"zsh": f"""({" ".join(TRANSLATORS.keys())})"""}
-LANGS = json.loads((ASSETS_PATH / "json" / "lang.json").read_text())
+LANGS = json.loads((ASSETS_PATH / "json" / "langs.json").read_text())
 LANG_COMPLETE = {
     "zsh": "(("
     + " ".join(
@@ -169,7 +169,9 @@ def main() -> None | NoReturn:
     if args.print_setting != "":
         from translate_shell.utils.setting import get_setting
 
-        sys.exit(0 if get_setting(args.print_setting) else 1)
+        setting = get_setting(args.print_setting)
+        print(setting)
+        sys.exit(0 if setting else 1)
 
     try:
         import vim  # type: ignore

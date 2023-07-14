@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 # https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
 [project]
 name = "translate-shell"
-description = "Translate text by google, bing, youdaozhiyun, haici, stardict, etc at same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim."
+description = "Translate text by google, bing, youdaozhiyun, haici, stardict, openai, large language model of local machine, etc at same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim."
 readme = "README.md"
 requires-python = ">= 3.7"
 keywords = ["translate"]
@@ -78,11 +78,17 @@ file = "requirements/keyring.txt"
 [tool.setuptools.dynamic.optional-dependencies.langdetect]
 file = "requirements/langdetect.txt"
 
+[tool.setuptools.dynamic.optional-dependencies.llama]
+file = "requirements/llama.txt"
+
 [tool.setuptools.dynamic.optional-dependencies.lsp]
 file = "requirements/lsp.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.notification]
 file = "requirements/notification.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.openai]
+file = "requirements/openai.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.rich]
 file = "requirements/rich.txt"

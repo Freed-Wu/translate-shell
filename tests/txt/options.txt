@@ -7,7 +7,7 @@ options:
   -V, --version         show program's version number and exit
   --print-completion {bash,zsh,tcsh}
                         print shell completion script
-  --print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker}]
+  --print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker,dictionary_priorities}]
                         print some setting
   -v, --verbose         increase logger level
   -q, --quiet           reduce logger level

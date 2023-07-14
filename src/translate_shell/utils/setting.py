@@ -56,3 +56,17 @@ def get_setting(name: SETTING | None) -> str:
     else:
         result = ""
     return str(result)
+
+
+def print_setting(name: SETTING) -> int:
+    """print_setting.
+
+    :param name:
+    :type name: str
+    :rtype: int
+    """
+    setting = get_setting(name)
+    if setting:
+        print(setting)
+        return 0
+    return 1

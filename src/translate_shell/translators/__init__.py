@@ -5,6 +5,8 @@ import logging
 from typing import TYPE_CHECKING, Any, Callable
 
 if TYPE_CHECKING:
+    from .llm._llama_cpp import LlamaTranslator
+    from .llm._openai import OpenaiTranslator
     from .online.bing import BingTranslator
     from .online.google import GoogleTranslator
     from .online.haici import HaiciTranslator
@@ -29,7 +31,7 @@ class Translator:
         :type name: str
         :rtype: None
         """
-        self._name = name
+        self.name = name
 
     def create_translation(self, text: str, tl: str, sl: str) -> TRANSLATION:
         """Create translation.
@@ -43,7 +45,7 @@ class Translator:
         :rtype: TRANSLATION
         """
         res = {
-            "translator": self._name,
+            "translator": self.name,
             "sl": sl,
             "tl": tl,
             "text": text,
@@ -71,7 +73,7 @@ class Translator:
         :rtype: dict[str, str] | None
         """
         logger.warning(
-            self._name + " translator hasn't been implemented."
+            self.name + " translator hasn't been implemented."
             " Maybe you input a typo?"
         )
 
@@ -94,7 +96,7 @@ def get_dummy(name: str) -> Callable[[], Translator]:
     return _get_dummy
 
 
-def get_stardict() -> StardictTranslator:
+def get_stardict() -> "StardictTranslator":
     """Get stardict.
 
     :rtype: StardictTranslator
@@ -104,7 +106,7 @@ def get_stardict() -> StardictTranslator:
     return StardictTranslator()
 
 
-def get_speaker() -> Speaker:
+def get_speaker() -> "Speaker":
     """Get speaker.
 
     :rtype: Speaker
@@ -114,7 +116,7 @@ def get_speaker() -> Speaker:
     return Speaker()
 
 
-def get_google() -> GoogleTranslator:
+def get_google() -> "GoogleTranslator":
     """Get google.
 
     :rtype: GoogleTranslator
@@ -124,7 +126,7 @@ def get_google() -> GoogleTranslator:
     return GoogleTranslator()
 
 
-def get_youdaozhiyun() -> YoudaozhiyunTranslator:
+def get_youdaozhiyun() -> "YoudaozhiyunTranslator":
     """Get youdaozhiyun.
 
     :rtype: YoudaozhiyunTranslator
@@ -134,7 +136,7 @@ def get_youdaozhiyun() -> YoudaozhiyunTranslator:
     return YoudaozhiyunTranslator()
 
 
-def get_bing() -> BingTranslator:
+def get_bing() -> "BingTranslator":
     """Get bing.
 
     :rtype: BingTranslator
@@ -144,7 +146,7 @@ def get_bing() -> BingTranslator:
     return BingTranslator()
 
 
-def get_haici() -> HaiciTranslator:
+def get_haici() -> "HaiciTranslator":
     """Get haici.
 
     :rtype: HaiciTranslator
@@ -178,6 +180,26 @@ def get_yandex() -> Callable[[], Translator] | None:
     return
 
 
+def get_openai() -> "OpenaiTranslator":
+    """Get openai.
+
+    :rtype: "OpenaiTranslator"
+    """
+    from .llm._openai import OpenaiTranslator
+
+    return OpenaiTranslator()
+
+
+def get_llama() -> "LlamaTranslator":
+    """Get llama.
+
+    :rtype: "LlamaTranslator"
+    """
+    from .llm._llama_cpp import LlamaTranslator
+
+    return LlamaTranslator()
+
+
 TRANSLATORS = {
     "stardict": get_stardict,
     "google": get_google,
@@ -187,4 +209,6 @@ TRANSLATORS = {
     "youdaozhiyun": get_youdaozhiyun,
     "bing": get_bing,
     "haici": get_haici,
+    "openai": get_openai,
+    "llama": get_llama,
 }

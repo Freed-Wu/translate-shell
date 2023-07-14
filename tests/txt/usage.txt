@@ -1,5 +1,5 @@
 usage: trans [-h] [-V] [--print-completion {bash,zsh,tcsh}]
-             [--print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker}]]
+             [--print-setting [{config_file,history_file,dictionary_dirs,translators,languages,formats,clipper,speaker,dictionary_priorities}]]
              [-v] [-q] [--lsp] [--no-clipboard | --clipboard]
              [--no-notification | --notification]
              [--sleep-seconds SLEEP_SECONDS] [--config CONFIG]

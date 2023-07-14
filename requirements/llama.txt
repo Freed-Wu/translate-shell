@@ -1,0 +1,4 @@
+#!/usr/bin/env -S pip install -r
+
+jinja2
+llama-cpp-python

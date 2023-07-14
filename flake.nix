@@ -22,11 +22,16 @@
               colorama
               keyring
               langdetect
+              # https://github.com/NixOS/nixpkgs/issues/241694
               # py-notifier
               rich
               pystardict
               repl-python-wakatime
               pyyaml
+              jinja2
+              openai
+              # https://github.com/NixOS/nixpkgs/issues/224921
+              # llama-cpp
             ];
             nativeBuildInputs = [
               setuptools-generate

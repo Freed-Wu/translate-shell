@@ -141,20 +141,24 @@ config.options["youdaozhiyun"]["get_youdaozhiyun_app_info"] = get_youdaozhiyun_a
 
 ### OpenAI
 
-Default value: `$OPENAI`.
-
 ```python
 config.options = {}
 config.options["openai"] = {}
-config.options["openai"]["openai"] = "XXX"
+config.options["openai"]["model"] = "gpt-3.5-turbo"
 ```
 
 ### LLaMa
 
 ```python
+import os
+
+from llama_cpp import Llama
+
 config.options = {}
 config.options["llama"] = {}
-config.options["llama"]["llama"] = "/the/path/of/model"
+config.options["llama"]["model"] = Llama(
+    os.path.expanduser("~/.local/share/translate-shell/model.bin")
+)
 ```
 
 ### Speaker

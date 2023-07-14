@@ -67,7 +67,7 @@ def translate(
     target_lang: str = "auto",
     source_lang: str = "auto",
     translators: list[Callable[[], Translator]] | list[str] | None = None,
-    options: dict[str, dict[str, Any]] = {},
+    options: dict[str, dict[str, Any]] | None = None,
 ) -> Translation:
     """Translate.
 
@@ -80,11 +80,13 @@ def translate(
     :param translators:
     :type translators: list[Callable[[], Translator]] | list[str] | None
     :param options:
-    :type options: dict[str, dict[str, Any]]
+    :type options: dict[str, dict[str, Any]] | None
     :rtype: Translation
     """
     if translators is None:
         translators = ["google"]
+    if options is None:
+        options = {}
     translation = Translation(text, target_lang, source_lang)
 
     true_translators = []
@@ -97,7 +99,7 @@ def translate(
     if len(translators) == 1:
         translator = true_translators[0]
         translate_once(
-            translator, translation, options.get(translator._name, {})
+            translator, translation, options.get(translator.name, {})
         )
     else:
         threads = []
@@ -110,7 +112,7 @@ def translate(
                 args=(
                     translator,
                     translation,
-                    options.get(translator._name, {}),
+                    options.get(translator.name, {}),
                 ),
             )
             threads.append(task)

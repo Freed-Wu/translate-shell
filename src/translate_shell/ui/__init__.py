@@ -5,6 +5,7 @@ import logging
 import os
 import signal
 from argparse import Namespace, _StoreAction
+from contextlib import suppress
 from pathlib import Path
 from threading import get_ident, main_thread
 from types import ModuleType
@@ -14,18 +15,18 @@ from .. import CONFIG_FILE, HISTORY_FILE
 from ..__main__ import get_parser
 from ..config import Configuration
 from ..external import readline
-from ..external.rich import traceback
-from ..external.rich.logging import RichHandler
 from ..translate import translate
 from ..translators import TRANSLATORS, get_dummy
-from ..translators.online.youdaozhiyun import YoudaozhiyunTranslator
-from ..translators.speaker import Speaker
 
-traceback.install()
-logging.basicConfig(
-    format="%(message)s",
-    handlers=[RichHandler(rich_tracebacks=True, markup=True)],
-)
+with suppress(ImportError):
+    from rich import traceback
+    from rich.logging import RichHandler
+
+    traceback.install()
+    logging.basicConfig(
+        format="%(message)s",
+        handlers=[RichHandler(rich_tracebacks=True, markup=True)],
+    )
 
 logger = logging.getLogger(__name__)
 

@@ -34,6 +34,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         """
         super().__init__("youdaozhiyun")
         self.url = "https://openapi.youdao.com/api"
+        self.app_id = self.app_sec = ""
 
     def init(self, option: dict[str, Any]) -> None:
         """Init.
@@ -42,8 +43,8 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         :type option: dict[str, Any]
         :rtype: None
         """
-        if getattr(self, "app_id") and getattr(self, "app_sec"):
-            return None
+        if self.app_id and self.app_sec:
+            return
         self.app_id, self.app_sec = option.get(
             "get_youdaozhiyun_app_info",
             self.__class__.get_youdaozhiyun_app_info,
