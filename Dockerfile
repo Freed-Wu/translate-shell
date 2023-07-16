@@ -11,7 +11,6 @@ LABEL org.opencontainers.image.source=https://github.com/Freed-Wu/translate-shel
 LABEL org.opencontainers.image.description="Translate .po of one repo"
 LABEL org.opencontainers.image.licenses=GPL-3.0
 
-RUN pip install polib translate_shell tqdm
-COPY scripts/entrypoint.py /
+RUN pip install 'translate_shell[po]'
 
-ENTRYPOINT ["/entrypoint.py"]
+ENTRYPOINT ["python", "-m", "translate_shell.tools.po"]

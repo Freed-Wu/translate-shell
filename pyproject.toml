@@ -47,7 +47,7 @@ Source = "https://github.com/Freed-Wu/translate-shell"
 trans = "translate_shell.__main__:main"
 
 [tool.setuptools.package-data]
-translate_shell = ["py.typed", "assets/**"]
+translate_shell = ["py.typed", "assets/**", "action.yml"]
 
 [tool.setuptools.data-files]
 "share/applications" = ["assets/desktop/translate-shell.desktop"]
@@ -89,6 +89,9 @@ file = "requirements/notification.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.openai]
 file = "requirements/openai.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.po]
+file = "requirements/po.txt"
 
 [tool.setuptools.dynamic.optional-dependencies.rich]
 file = "requirements/rich.txt"

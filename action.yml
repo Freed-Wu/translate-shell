@@ -4,39 +4,30 @@ description: Translate .po of one repo
 inputs:
   files:
     description: files need to be translated, support glob
-    required: false
     default: "**/*.po"
-  target_lang:
+  target-lang:
     description: target language, po's metadata's Language override it
-    required: false
     default: zh-cn
-  source_lang:
+  source-lang:
     description: source language
-    required: false
     default: en
   translator:
     description: translator
-    required: false
     default: google
   wrapwidth:
     description: wrap the width by polib
-    required: false
     default: "76"
   progress:
     description: display progress of translation
-    required: false
     default: "false"
   verbose:
     description: display diff of translation
-    required: false
     default: "true"
-  dry_run:
-    description: don't translate
-    required: false
+  dry-run:
+    description: do nothing
     default: "false"
   force:
-    description: force retranslate translated po
-    required: false
+    description: force to retranslate translated po
     default: "false"
 branding:
   icon: check
