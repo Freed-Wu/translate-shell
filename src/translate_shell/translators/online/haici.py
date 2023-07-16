@@ -38,6 +38,8 @@ class HaiciTranslator(OnlineTranslator):
         :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
+        res = self.create_translation(text, tl, sl)
+        tl, sl = self.convert_langs(tl, sl)
         url = "http://dict.cn/mini.php"
         req = {}
         req["q"] = quote_plus(text)
@@ -45,7 +47,6 @@ class HaiciTranslator(OnlineTranslator):
         if not resp:
             return None
 
-        res = self.create_translation(text, tl, sl)
         res["phonetic"] = self.get_phonetic(resp)
         res["explains"] = self.get_explains(resp)
         res["details"] = self.get_details(resp)

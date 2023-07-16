@@ -38,7 +38,9 @@ def run(args: Namespace) -> None:
     )
     for file in files:
         po = pofile(file, wrapwidth=wrapwidth)
-        target_lang = po.metadata.get("Language", default_target_lang)
+        target_lang = po.metadata.get("Language")
+        if not target_lang:
+            target_lang = default_target_lang
         entries = po.untranslated_entries()
         if force:
             entries += po.translated_entries()

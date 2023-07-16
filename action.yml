@@ -7,7 +7,7 @@ inputs:
     default: "**/*.po"
   target-lang:
     description: target language, po's metadata's Language override it
-    default: zh-cn
+    default: zh_CN
   source-lang:
     description: source language
     default: en

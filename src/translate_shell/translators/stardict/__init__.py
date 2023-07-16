@@ -120,11 +120,11 @@ class StardictTranslator(Translator):
 
 STARDICT = {
     "en": {
-        "zh-cn": ["langdao-ec-gb", "stardict-ecdict"],
+        "zh_CN": ["langdao-ec-gb", "stardict-ecdict"],
         "ja": ["jmdict-en-ja"],
         "ru": ["quick_english-russian"],
     },
-    "zh-cn": {"en": ["langdao-ce-gb"]},
+    "zh_CN": {"en": ["langdao-ce-gb"]},
     "ja": {"en": ["jmdict-ja-en"]},
     "ru": {"en": ["quick_russian-english"]},
 }

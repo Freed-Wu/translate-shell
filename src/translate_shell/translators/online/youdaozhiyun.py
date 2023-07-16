@@ -77,6 +77,8 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
+        res = self.create_translation(text, tl, sl)
+        tl, sl = self.convert_langs(tl, sl)
         self.init(option)
         salt = str(random.randint(1, 65536))  # nosec B311
         sign = self.sign(text, salt)
@@ -108,7 +110,6 @@ class YoudaozhiyunTranslator(OnlineTranslator):
             logger.warning(ERROR.get(obj["errorCode"], "Unknown error!"))
             return None
 
-        res = self.create_translation(text, tl, sl)
         basic = obj.get("basic")
         res["paraphrase"] = obj.get("translation", "")
         res["detail"] = obj.get("web", "")

@@ -13,7 +13,6 @@ from ...__main__ import LANGS
 from ...external.platformdirs import AppDirs
 from .. import TRANSLATION, Translator
 
-LANGS = {k.replace("_", "-").lower(): v for k, v in LANGS.items()}
 TEMPLATES = []
 for role in ["system", "user"]:
     template = AppDirs("translate-shell").user_config_path / (role + ".j2")

@@ -46,6 +46,8 @@ class BingTranslator(OnlineTranslator):
         :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
+        res = self.create_translation(text, tl, sl)
+        tl, sl = self.convert_langs(tl, sl)
         url = self._cnurl if "zh" in tl else self._url
         url = url + "?q=" + quote_plus(text)
         headers = {
@@ -59,7 +61,6 @@ class BingTranslator(OnlineTranslator):
         resp = self.http_get(url, None, headers)
         if not resp:
             return None
-        res = self.create_translation(text, tl, sl)
         res["phonetic"] = self.get_phonetic(resp)
         res["explains"] = self.get_explains(resp)
         return res

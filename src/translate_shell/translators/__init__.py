@@ -57,6 +57,16 @@ class Translator:
         }
         return res
 
+    @staticmethod
+    def convert_langs(*langs: str) -> list[str]:
+        """Convert langs to URL friendly form.
+
+        :param langs:
+        :type langs: str
+        :rtype: list[str]
+        """
+        return [lang.lower().replace("_", "-") for lang in langs]
+
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
     ) -> dict[str, str] | None:

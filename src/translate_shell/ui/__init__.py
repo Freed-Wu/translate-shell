@@ -159,8 +159,7 @@ def get_processed_result_text(
         target_lang = os.getenv("LANG", "zh_CN.UTF-8").split(".")[0]
         if target_lang not in ["zh_CN", "zh_TW"]:
             target_lang = target_lang.split("_")[0]
-    target_lang = target_lang.lower().replace("_", "-")
-    source_lang = args.source_lang.lower().replace("_", "-")
+    source_lang = args.source_lang
     translator_names = filter(
         len, map(lambda x: x.strip(), args.translators.split(","))
     )

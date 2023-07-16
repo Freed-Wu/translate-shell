@@ -56,13 +56,14 @@ class GoogleTranslator(OnlineTranslator):
         :type option: dict[str, Any]
         :rtype: TRANSLATION | None
         """
+        res = self.create_translation(text, tl, sl)
+        tl, sl = self.convert_langs(tl, sl)
         url = self.get_url(sl, tl, text)
         resp = self.http_get(url)
         if not resp:
             return None
         obj = json.loads(resp)
 
-        res = self.create_translation(text, tl, sl)
         res["paraphrase"] = self.get_paraphrase(obj)
         res["explains"] = self.get_explains(obj)
         res["phonetic"] = self.get_phonetic(obj)
