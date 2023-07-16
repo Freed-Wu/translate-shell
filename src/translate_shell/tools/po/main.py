@@ -1,4 +1,5 @@
 r"""Refer ``action.yml``."""
+import logging
 import os
 from argparse import Namespace
 from difflib import Differ
@@ -8,6 +9,8 @@ from polib import pofile
 from tqdm import tqdm
 
 from translate_shell.translate import translate
+
+logger = logging.getLogger(__name__)
 
 
 def run(args: Namespace) -> None:
@@ -21,6 +24,10 @@ def run(args: Namespace) -> None:
     default_target_lang = args.target_lang
     source_lang = args.source_lang
     translator = args.translator
+    option = {
+        option.partition("=")[0]: option.partition("=")[2]
+        for option in args.option
+    }
     wrapwidth = int(args.wrapwidth)
     progress = args.progress.lower() == "true"
     verbose = args.verbose.lower() == "true"
@@ -53,9 +60,14 @@ def run(args: Namespace) -> None:
             old = str(entry).splitlines()
             try:
                 entry.msgstr = translate(
-                    entry.msgid, target_lang, source_lang, [translator]
+                    entry.msgid,
+                    target_lang,
+                    source_lang,
+                    [translator],
+                    {translator: option},
                 ).results[0]["paraphrase"]
-            except Exception:  # skipcq: PYL-W0703
+            except Exception as e:  # skipcq: PYL-W0703
+                logger.warning(e)
                 po.save()
                 continue
             entry.fuzzy = False  # type: ignore

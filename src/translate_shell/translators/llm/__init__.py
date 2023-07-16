@@ -108,6 +108,8 @@ class LLMTranslator(Translator):
             }
             for template in templates
         ]
+        if prompt := option.get("prompt"):
+            messages[0] = {"role": "system", "content": prompt}
         return messages  # type: ignore
 
     @staticmethod
@@ -118,7 +120,37 @@ class LLMTranslator(Translator):
         :type option: dict
         :rtype: dict
         """
-        return {}
+        kwargs = {}
+        if temperature := option.get("temperature"):
+            kwargs["temperature"] = float(temperature)
+        if top_p := option.get("top_p"):
+            kwargs["top_p"] = float(top_p)
+        if top_k := option.get("top_k"):
+            kwargs["top_k"] = float(top_k)
+        if stream := option.get("stream"):
+            kwargs["stream"] = bool(stream)
+        if stop := option.get("stop"):
+            if isinstance(stop, list):
+                kwargs["stop"] = stop
+            else:
+                kwargs["stop"] = ":".split(stop)
+        if max_tokens := option.get("max_tokens"):
+            kwargs["max_tokens"] = int(max_tokens)
+        if presence_penalty := option.get("presence_penalty"):
+            kwargs["presence_penalty"] = float(presence_penalty)
+        if frequency_penalty := option.get("frequency_penalty"):
+            kwargs["frequency_penalty"] = float(frequency_penalty)
+        if repeat_penalty := option.get("repeat_penalty"):
+            kwargs["repeat_penalty"] = float(repeat_penalty)
+        if tfs_z := option.get("tfs_z"):
+            kwargs["tfs_z"] = float(tfs_z)
+        if mirostat_mode := option.get("mirostat_mode"):
+            kwargs["mirostat_mode"] = float(mirostat_mode)
+        if mirostat_tau := option.get("mirostat_tau"):
+            kwargs["mirostat_tau"] = float(mirostat_tau)
+        if mirostat_eta := option.get("mirostat_eta"):
+            kwargs["mirostat_eta"] = float(mirostat_eta)
+        return kwargs
 
     @staticmethod
     def init_result(completion: Mapping, result: TRANSLATION) -> TRANSLATION:

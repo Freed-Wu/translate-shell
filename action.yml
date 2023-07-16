@@ -14,6 +14,9 @@ inputs:
   translator:
     description: translator
     default: google
+  option:
+    description: >
+      the option passed to translator, such as 'temperature=0 max_tokens=256'
   wrapwidth:
     description: wrap the width by polib
     default: "76"
