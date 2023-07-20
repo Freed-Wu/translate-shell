@@ -99,6 +99,9 @@ class StardictTranslator(Translator):
                 sl = detect(text)
             except LangDetectException:
                 sl = "en"
+            # convert zh-cn to zh_CN
+            lang, _, country = sl.partition("-")
+            sl = lang + "_" + country.upper() if country else ""
 
         dictionaries = self.stardict.get(sl, self.stardict["en"]).get(tl, [])
         for directory in STARDICT_DIRS:

@@ -96,6 +96,7 @@ def translate(
         if isinstance(translator, Callable):
             translator = translator()
         true_translators += [translator]
+
     if len(translators) == 1:
         translator = true_translators[0]
         translate_once(

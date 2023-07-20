@@ -10,6 +10,11 @@ from tqdm import tqdm
 
 from translate_shell.translate import translate
 
+try:
+    import tomllib as tomli
+except ImportError:
+    import tomli
+
 logger = logging.getLogger(__name__)
 
 
@@ -24,10 +29,7 @@ def run(args: Namespace) -> None:
     default_target_lang = args.target_lang
     source_lang = args.source_lang
     translator = args.translator
-    option = {
-        option.partition("=")[0]: option.partition("=")[2]
-        for option in args.option
-    }
+    option = tomli.loads("\n".join(args.option))
     wrapwidth = int(args.wrapwidth)
     progress = args.progress.lower() == "true"
     verbose = args.verbose.lower() == "true"

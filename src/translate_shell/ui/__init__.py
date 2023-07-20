@@ -18,6 +18,11 @@ from ..external import readline
 from ..translate import translate
 from ..translators import TRANSLATORS, get_dummy
 
+try:
+    import tomllib as tomli
+except ImportError:
+    import tomli
+
 with suppress(ImportError):
     from rich import traceback
     from rich.logging import RichHandler
@@ -112,6 +117,7 @@ def init(args: Namespace) -> None:
         if value is not None:
             setattr(args, attr, value)
     args.text = " ".join(args.text)
+    args.options = tomli.loads("\n".join(args.options))
     if not args.lsp:
         _readline = init_readline()
         _readline.set_completer(args.complete)
@@ -172,6 +178,7 @@ def get_processed_result_text(
         target_lang,
         source_lang,
         translators,
+        args.options,
     )
     if args.format == "json":
         rst = json.dumps(vars(translation))

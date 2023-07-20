@@ -28,7 +28,7 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dynamic = ["version", "optional-dependencies"]
+dynamic = ["version", "dependencies", "optional-dependencies"]
 
 [[project.authors]]
 name = "Wu Zhenyu"
@@ -64,6 +64,9 @@ write-to = "src/translate_shell/_metainfo.py"
 
 [tool.setuptools-generate.metainfo-template]
 file = "templates/metainfo.py.j2"
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
 
 # begin: scripts/update-pyproject.toml.pl
 [tool.setuptools.dynamic.optional-dependencies.color]

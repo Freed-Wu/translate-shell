@@ -150,6 +150,13 @@ def get_parser() -> ArgumentParser:
         help="source languages. default: %(default)s",
     ).complete = LANG_COMPLETE  # type: ignore
     parser.add_argument(
+        "--options",
+        help="advanced usage, see "
+        "https://translate-shell.readthedocs.io/en/latest/resources/config.html "
+        ". default: %(default)s",
+        action="append",
+    ).complete = LANG_COMPLETE  # type: ignore
+    parser.add_argument(
         "text",
         nargs="*",
         help="text needed to be translated, empty means entering REPL",
