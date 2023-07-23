@@ -29,4 +29,4 @@ options:
                         source languages. default: auto
   --options OPTIONS     advanced usage, see https://translate-
                         shell.readthedocs.io/en/latest/resources/config.html .
-                        default: None
+                        default: []

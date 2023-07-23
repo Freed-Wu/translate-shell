@@ -151,6 +151,7 @@ def get_parser() -> ArgumentParser:
     ).complete = LANG_COMPLETE  # type: ignore
     parser.add_argument(
         "--options",
+        default=[],
         help="advanced usage, see "
         "https://translate-shell.readthedocs.io/en/latest/resources/config.html "
         ". default: %(default)s",
