@@ -52,14 +52,14 @@ class Speaker(Translator):
         :rtype: list[str]
         """
         cmds = [
-            "termux-tts-speak " + query,
-            "espeak " + query,
-            "festival --tts " + query,
-            "say " + query,
+            "termux-tts-speak",
+            "espeak",
+            "festival --tts",
+            "say",
         ]
 
         for cmd in cmds:
-            tokens = split(cmd)
+            tokens = split(cmd) + [query]
             if which(tokens[0]):
                 return tokens
         logger.warning("Please install any speaker firstly!")
