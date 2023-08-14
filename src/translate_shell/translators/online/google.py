@@ -147,6 +147,8 @@ class GoogleTranslator(OnlineTranslator):
         definition = self.get_paraphrase(resp)
         result = []
         for x in resp[5]:
+            if x[2] is None:
+                continue
             for i in x[2]:
                 if i[0] != definition:
                     result.append(i[0])
