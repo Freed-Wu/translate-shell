@@ -21,8 +21,6 @@ def prompt_p10k(tl: str, sl: str, translators: str) -> str:
     insert_time = " {time}"
     time_format = "%H:%M:%S"
 
-    sep = ""
-    insert_text = " {text} "
     sections = [
         ("BLACK", "YELLOW", insert_lang.format(sl=sl, tl=tl)),
         (
@@ -37,7 +35,7 @@ def prompt_p10k(tl: str, sl: str, translators: str) -> str:
             lambda: insert_time.format(time=section_time(time_format)),
         ),
     ]
-    prompt = p10k_sections(sections, insert_text, sep)
+    prompt = p10k_sections(sections)
     prompt += "\n❯ "
     return prompt
 

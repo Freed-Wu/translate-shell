@@ -23,7 +23,7 @@ repos:
       - id: check-toml
       - id: check-json
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.1
+    rev: v1.5.4
     hooks:
       - id: remove-crlf
   - repo: https://github.com/codespell-project/codespell
@@ -80,7 +80,7 @@ repos:
       - id: update-package.json
       - id: update-addon-info.json
   - repo: https://github.com/perltidy/perltidy
-    rev: "20230701.01"
+    rev: "20230701.02"
     hooks:
       - id: perltidy
   - repo: https://github.com/scop/pre-commit-shfmt
@@ -102,7 +102,7 @@ repos:
         additional_dependencies:
           - tomli
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.318
+    rev: v1.1.322
     hooks:
       - id: pyright
   - repo: https://github.com/PyCQA/bandit
@@ -114,7 +114,7 @@ repos:
         additional_dependencies:
           - tomli
   - repo: https://github.com/vimjas/vint
-    rev: v0.4a4
+    rev: v0.4a3
     hooks:
       - id: vint
   - repo: https://github.com/google/vimdoc

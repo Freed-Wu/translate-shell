@@ -85,23 +85,25 @@ def section_time(time_format: str = "%H:%M:%S") -> str:
 
 
 def p10k_sections(
-    sections: list[tuple[str, str, str | Callable[[], str]]],
-    insert_text: str = " {text} ",
-    sep: str = "",
+    sections: list[str | tuple[str, str, str | Callable[[], str]]],
 ) -> str:
     """p10k sections.
 
     :param sections:
-    :type sections: list[tuple[str, str, str | Callable[[], str]]]
-    :param insert_text:
-    :type insert_text: str
-    :param sep:
-    :type sep: str
+    :type sections: list[str | tuple[str, str, str | Callable[[], str]]]
     :rtype: str
     """
     prompt = ""
     last_bg = ""
+    insert_text = " {text} "
+    sep = ""
     for section in sections:
+        if isinstance(section, str):
+            if section.find("{text}") >= 0:
+                insert_text = section
+            else:
+                sep = section
+            continue
         fg, bg, action = section
         if isinstance(action, str):
             text = action
