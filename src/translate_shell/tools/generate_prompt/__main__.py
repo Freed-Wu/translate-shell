@@ -10,7 +10,6 @@ See section ``cmd:prompt`` of `man lftp <https://lftp.yar.ru/lftp-man.html>`_.
     python -m translate_shell.tools.generate_prompt > ~/.config/lftp/lftp/rc
     echo 'source ~/.config/lftp/lftp/rc' >> ~/.config/lftp/rc
 """
-import os
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from datetime import datetime
 
@@ -30,6 +29,15 @@ Written by Wu Zhenyu
 EPILOG = """
 Report bugs to <wuzhenyu@ustc.edu>.
 """
+SECTION = [
+    ["BLACK", "YELLOW", r" \s \v"],
+    ["WHITE", "BLACK", r"\S\? 󰀎 \u\?"],
+    ["WHITE", "BLUE", r" \l"],
+    ["BLACK", "WHITE", r" \w"],
+]
+SECTION_TEXT = "\n".join(
+    " ".join(["--section"] + [repr(s) for s in section]) for section in SECTION
+)
 
 
 def get_parser() -> ArgumentParser:
@@ -59,14 +67,9 @@ set prompt '{text}'
     parser.add_argument(
         "--section",
         nargs="*",
-        default=[
-            ["BLACK", "YELLOW", r" \s \v"],
-            ["WHITE", "BLACK", r"\S\? 󰀎 \u\?"],
-            ["WHITE", "BLUE", r" \l"],
-            ["BLACK", "WHITE", r" \w"],
-        ],
+        default=[],
         action="append",
-        help="insert sections. default: %(default)s",
+        help=f"insert sections. default: {SECTION_TEXT}",
     )
     return parser
 
@@ -80,6 +83,8 @@ def main() -> None:
 
     from ...utils.misc import p10k_sections
 
+    if args.section == []:
+        args.section = SECTION
     args.section = [
         section[0] if len(section) == 1 else section
         for section in args.section
@@ -88,7 +93,7 @@ def main() -> None:
     with sys.stdout as f:
         f.write(
             args.format.format(
-                text=p10k_sections(args.section) + args.prompt_string
+                text=p10k_sections(args.section) + args.prompt_string  # type: ignore
             )
         )
 
