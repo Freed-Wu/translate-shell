@@ -113,8 +113,15 @@ def p10k_sections(
             raise NotImplementedError(f"{type(action)} is not supported!")
         text = insert_text.format(text=text)
         if last_bg:
-            prompt += getattr(Fore, last_bg) + getattr(Back, bg) + sep
-        prompt += getattr(Fore, fg) + getattr(Back, bg) + text
+            prompt += (
+                getattr(Fore, last_bg)
+                + getattr(Back, bg)
+                + sep
+                + getattr(Fore, fg)
+                + text
+            )
+        else:
+            prompt += getattr(Fore, fg) + getattr(Back, bg) + text
         last_bg = bg
     prompt += getattr(Fore, last_bg) + Back.RESET + sep + Style.RESET_ALL
     return prompt
