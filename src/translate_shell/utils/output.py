@@ -26,8 +26,6 @@ def process_output_firstline(rst: dict) -> str:
     insert_paraphrase = " {paraphrase}"
     insert_phonetic = " {phonetic}"
 
-    sep = ""
-    insert_text = " {text} "
     sections = [
         (
             "GREEN",
@@ -42,7 +40,7 @@ def process_output_firstline(rst: dict) -> str:
         ("BLACK", "WHITE", insert_phonetic.format(phonetic=rst["phonetic"])),
     ]
 
-    prompt = p10k_sections(sections, insert_text, sep)
+    prompt = p10k_sections(sections)
     return prompt
 
 
@@ -56,12 +54,10 @@ def process_output_explain(explain: list[str]) -> str:
     # Config
     insert_name = " {name}"
 
-    sep = ""
-    insert_text = " {text} "
     sections = [
         ("WHITE", "BLUE", insert_name.format(name=explain[0])),
     ]
-    prompt = p10k_sections(sections, insert_text, sep)  # type: ignore
+    prompt = p10k_sections(sections)  # type: ignore
     prompt += " " + explain[1]
     return prompt
 
@@ -76,12 +72,10 @@ def process_output_pos(pos: str) -> str:
     # Config
     insert_pos = " {pos}"
 
-    sep = ""
-    insert_text = " {text} "
     sections = [
         ("WHITE", "BLUE", insert_pos.format(pos=pos)),
     ]
-    prompt = p10k_sections(sections, insert_text, sep)  # type: ignore
+    prompt = p10k_sections(sections)  # type: ignore
     return prompt
 
 
