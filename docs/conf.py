@@ -30,6 +30,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
     "myst_parser",
+    "sphinxcontrib.autofile",
     "sphinxcontrib.requirements_txt",
     "sphinxcontrib.eval",
 ]

@@ -2,5 +2,6 @@
 
 -e .
 myst-parser
+sphinxcontrib-autofile
 sphinxcontrib-eval
 sphinxcontrib-requirements-txt

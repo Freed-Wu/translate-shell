@@ -4,8 +4,7 @@ r"""This module can be called by
 generate prompt by `translate_shell.utils.misc`'s `p10k_sections()`.
 By default, it is for `lftp <https://lftp.yar.ru/>`_.
 See section ``cmd:prompt`` of `man lftp <https://lftp.yar.ru/lftp-man.html>`_.
-
-..code: sh
+::
     install -d ~/.config/lftp/lftp
     python -m translate_shell.tools.generate_prompt > ~/.config/lftp/lftp/rc
     echo 'source ~/.config/lftp/lftp/rc' >> ~/.config/lftp/rc
