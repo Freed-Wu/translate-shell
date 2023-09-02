@@ -1,7 +1,92 @@
 # Changelog
 
-<a name="next"></a>
-## next
+<a name="0.0.36"></a>
+## 0.0.36 (2023-08-31)
+
+### Changed
+
+- ⚡ Short prompt output length [[98a46b9](https://github.com/Freed-Wu/translate-shell/commit/98a46b9dca7d62d074aa556eb37aca1c7c65a668)]
+
+### Fixed
+
+- 🚑 Fix wrong API call [[7f8ace0](https://github.com/Freed-Wu/translate-shell/commit/7f8ace0a01ac859cd37defaf3d687e6b1b43b6ae)]
+
+
+<a name="0.0.35"></a>
+## 0.0.35 (2023-08-29)
+
+### Fixed
+
+- 🚑 Fix append of translate_shell.tools.generate_prompt [[757de81](https://github.com/Freed-Wu/translate-shell/commit/757de81c424ff1f2c7321f87974d8f60895c4b45)]
+
+
+<a name="0.0.34"></a>
+## 0.0.34 (2023-08-29)
+
+### Added
+
+- ✨ Add tool: generate_prompt [[a49c2bd](https://github.com/Freed-Wu/translate-shell/commit/a49c2bd1f94d042c4be0747426ab71518227ea63)]
+
+### Fixed
+
+- 🐛 Fix [#33](https://github.com/Freed-Wu/translate-shell/issues/33) [[abf0d2e](https://github.com/Freed-Wu/translate-shell/commit/abf0d2e8fed570de21547f66cd456ddf7ed9dc1d)]
+
+
+<a name="0.0.33"></a>
+## 0.0.33 (2023-08-06)
+
+### Fixed
+
+- 🐛 Fix speaker for a sentence [[b24592e](https://github.com/Freed-Wu/translate-shell/commit/b24592e3a080f770ceafc2726407513414d03578)]
+
+
+<a name="0.0.32"></a>
+## 0.0.32 (2023-07-23)
+
+### Fixed
+
+- 🚑 Fix default of --options [[987342e](https://github.com/Freed-Wu/translate-shell/commit/987342e9238c74f4e223dc9dfa928d213a3fb5ed)]
+
+
+<a name="0.0.31"></a>
+## 0.0.31 (2023-07-20)
+
+### Added
+
+- ➕ Add tomli [[e2616de](https://github.com/Freed-Wu/translate-shell/commit/e2616de9d6e0aa00fa9a6b2ca09d4110b9b55c7d)]
+- 👷‍♂️ Add deploy-nur CD [[42251be](https://github.com/Freed-Wu/translate-shell/commit/42251be90713cfe83771ca83070bdca511275669)]
+
+
+<a name="0.0.30"></a>
+## 0.0.30 (2023-07-16)
+
+### Added
+
+- ✨ Add option to github action [[531a1ab](https://github.com/Freed-Wu/translate-shell/commit/531a1abdd2edf7b2fd31a1015db061db2d9ae71d)]
+- ✨ Support openai, llama [[e63717d](https://github.com/Freed-Wu/translate-shell/commit/e63717d05134acba15ea1ca4c9fb624af369fd76)]
+- ✨ Support ecdict [[3f87fb0](https://github.com/Freed-Wu/translate-shell/commit/3f87fb0710cc5703c0ce48f5bee8969444f1839f)]
+- ✨ Add force to action.yml [[515ca71](https://github.com/Freed-Wu/translate-shell/commit/515ca717b9374df5806107230cbcd492d39c152c)]
+- ✅ Improve test [[a835275](https://github.com/Freed-Wu/translate-shell/commit/a835275ec0ed91ce378192f01b9e62349aa3d35e)]
+
+### Breaking changes
+
+- 💥 Add options to translate() [[f6f17b0](https://github.com/Freed-Wu/translate-shell/commit/f6f17b06671bc73157f62fbacaf236628ce5f5bc)]
+
+### Miscellaneous
+
+- 🧑‍💻 Add Translator.convert_langs() [[0c91cfc](https://github.com/Freed-Wu/translate-shell/commit/0c91cfcc51c2586fce8c4d573bdb761b565a9b1b)]
+- 🧑‍💻 Add translate_shell.tools.po [[346d08f](https://github.com/Freed-Wu/translate-shell/commit/346d08f4aba31120978c33c0de403e21c3f89138)]
+- 📦 Fix flake.nix [[46c6d3b](https://github.com/Freed-Wu/translate-shell/commit/46c6d3b2e2b609d7e5c1ae6a7bfe0bb4f73a66d1)]
+
+
+<a name="0.0.29"></a>
+## 0.0.29 (2023-07-05)
+
+### Added
+
+- ✅ Fix pytest [[5b7f2dc](https://github.com/Freed-Wu/translate-shell/commit/5b7f2dcb5a3f7e9619f9513dc2868f791f0d2b57)]
+- ✨ Add NixOS icon [[a128fdd](https://github.com/Freed-Wu/translate-shell/commit/a128fdddc7c2664401ebecedf62de8a12103a302)]
+- ✨ Support LSP [[7bd1a73](https://github.com/Freed-Wu/translate-shell/commit/7bd1a73c45edc3f2f61d59e7d7799da21b4209e9)]
 
 ### Fixed
 
