@@ -1,9 +1,8 @@
 """Stardict Translator
 ======================
 
-TODO: more stardicts.
-TODO: Create different subclasses for different dict to get phonetic, explains
-better
+.. todo::
+    More stardicts.
 """
 import logging
 import os

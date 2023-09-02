@@ -1,5 +1,6 @@
 """Yandex Translator
 ====================
 
-TODO: Refer https://github.com/soimort/translate-shell
+.. todo::
+    Refer `<https://github.com/soimort/translate-shell>`_
 """

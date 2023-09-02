@@ -1,6 +1,7 @@
 """Configure the Sphinx documentation builder.
 
 https://www.sphinx-doc.org/en/master/usage/configuration.html
+
 """
 from translate_shell import __version__ as version  # type: ignore
 from translate_shell._metainfo import author, copyright, project
@@ -26,9 +27,10 @@ gettext_compact = False
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
     "myst_parser",
     "sphinxcontrib.autofile",
     "sphinxcontrib.requirements_txt",
@@ -37,6 +39,7 @@ extensions = [
 
 myst_heading_anchors = 3
 myst_title_to_header = True
+todo_include_todos = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

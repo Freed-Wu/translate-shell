@@ -10,6 +10,9 @@ from . import process
 def run(args: Namespace) -> None:
     """Run.
 
+    .. todo::
+        make the last line gray like ``ptpython``.
+
     :param args:
     :type args: Namespace
     :rtype: None
@@ -29,8 +32,6 @@ def run(args: Namespace) -> None:
             )
             process(args, True)
         except KeyboardInterrupt:
-            # skipcq: PYL-W0511
-            # TODO: make the last line gray like ptpython
             print("")
             continue
         except EOFError:
