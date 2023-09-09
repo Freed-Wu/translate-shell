@@ -1,27 +1,12 @@
 r"""PS1
 =======
-
-Generate a `powerlevel10k <https://github.com/romkatv/powerlevel10k>`_ -like
-prompt for python.
-
-Usage
-~~~~~
-
-Add the following code to your ``$PYTHONSTARTUP``:
-
-..code:: python
-    import sys
-
-    from translate_shell.utils.ps1 import Ps1
-
-    sys.ps1 = Ps1()
 """
 import sys
 from typing import Callable
 
-from translate_shell.utils.misc import (
+from ...utils.misc import (
     p10k_sections,
-    section_os,
+    section_os_icon,
     section_path,
     section_time,
 )
@@ -50,7 +35,7 @@ class Ps1:
         self.prompt_string = prompt_string
         if sections is None:
             self.sections = [
-                ("BLACK", "YELLOW", section_os()),
+                ("BLACK", "YELLOW", section_os_icon()),
                 (
                     "GREEN",
                     "BLACK",

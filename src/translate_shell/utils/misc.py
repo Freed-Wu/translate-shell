@@ -11,6 +11,27 @@ from typing import Callable
 
 from ..external.colorama import Back, Fore, Style, init
 
+ICONS = {
+    "emscripten": "ﰍ",
+    "linux": "",
+    "linux2": "",
+    "linux3": "",
+    "hurd": "",
+    "darwin": "",
+    "dos": "",
+    "win16": "",
+    "win32": "",
+    "cygwin": "",
+    "java": "",
+    "android": "",
+    "arch": "",
+    "gentoo": "",
+    "ubuntu": "",
+    "cent": "",
+    "debian": "",
+    "nixos": "",
+}
+
 init()
 
 
@@ -29,28 +50,16 @@ def section_os() -> str:
         except OSError:
             if os.getenv("PREFIX") == "/data/data/com.termux/files/usr":
                 os_name = "android"
+    return os_name
 
-    icons = {
-        "emscripten": "ﰍ",
-        "linux": "",
-        "linux2": "",
-        "linux3": "",
-        "hurd": "",
-        "darwin": "",
-        "dos": "",
-        "win16": "",
-        "win32": "",
-        "cygwin": "",
-        "java": "",
-        "android": "",
-        "arch": "",
-        "gentoo": "",
-        "ubuntu": "",
-        "cent": "",
-        "debian": "",
-        "nixos": "",
-    }
-    return icons.get(os_name, "?")
+
+def section_os_icon() -> str:
+    """Section os icon.
+
+    :rtype: str
+    """
+    os_name = section_os()
+    return ICONS.get(os_name, "?")
 
 
 def section_path() -> str:

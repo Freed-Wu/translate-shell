@@ -96,6 +96,9 @@ file = "requirements/openai.txt"
 [tool.setuptools.dynamic.optional-dependencies.po]
 file = "requirements/po.txt"
 
+[tool.setuptools.dynamic.optional-dependencies.repl]
+file = "requirements/repl.txt"
+
 [tool.setuptools.dynamic.optional-dependencies.rich]
 file = "requirements/rich.txt"
 

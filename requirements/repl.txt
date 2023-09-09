@@ -1,0 +1,6 @@
+#!/usr/bin/env -S pip install -r
+# For `python -m translate_shell.tools.repl`.
+
+jedi
+repl-python-codestats
+rich
