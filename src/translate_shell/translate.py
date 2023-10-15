@@ -5,6 +5,7 @@ Define some utilities.
 """
 import logging
 from argparse import Namespace
+from collections import OrderedDict
 from copy import deepcopy
 from threading import Thread
 from typing import Any, Callable
@@ -28,14 +29,34 @@ class Translations(Namespace):
         :type source_lang: str
         :rtype: None
         """
-        super().__init__()
-        self.status = 0
-        self.results = []
-        self.text = text
-        self.to_lang = target_lang
-        self.from_lang = source_lang
-        self.results = []
-        self.status = 0
+        super().__init__(
+            status=0,
+            results=[],
+            text=text,
+            to_lang=target_lang,
+            from_lang=source_lang,
+        )
+
+    @staticmethod
+    def namespace2dict(namespace: Namespace) -> OrderedDict:
+        """Convert Namespace to OrderedDict.
+
+        :param namespace:
+        :type namespace: Namespace
+        :rtype: OrderedDict
+        """
+        d = OrderedDict(vars(namespace))
+        for k, v in d.items():
+            if isinstance(v, Namespace):
+                d[k] = Translations.namespace2dict(v)
+        return d
+
+    def to_dict(self) -> OrderedDict:
+        """Convert self to dict.
+
+        :rtype: OrderedDict
+        """
+        return self.namespace2dict(self)
 
 
 def translate_once(

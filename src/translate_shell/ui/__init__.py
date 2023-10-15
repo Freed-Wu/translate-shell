@@ -181,11 +181,11 @@ def get_processed_result_text(
         args.options,
     )
     if args.format == "json":
-        rst = json.dumps(vars(translations))
+        rst = json.dumps(translations.to_dict())
     elif args.format == "yaml":
         from ..external import yaml
 
-        rst = yaml.dump(vars(translations))
+        rst = yaml.dump(translations.to_dict())
     else:
         rst = args.process_output(translations)
         if rst and args.notification and is_sub_thread():
