@@ -7,7 +7,7 @@ from contextlib import suppress
 from ..__main__ import ASSETS_PATH
 from ..external.colorama import Fore, Style
 from ..translate import Translations
-from .misc import p10k_sections
+from .section import p10k_sections
 
 NUMBER = json.loads(
     (ASSETS_PATH / "json" / "number.json").read_text(encoding="utf-8")

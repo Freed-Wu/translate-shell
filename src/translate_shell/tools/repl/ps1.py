@@ -4,7 +4,7 @@ r"""PS1
 import sys
 from typing import Callable
 
-from ...utils.misc import (
+from ...utils.section import (
     p10k_sections,
     section_os_icon,
     section_path,

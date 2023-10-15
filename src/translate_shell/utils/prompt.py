@@ -1,7 +1,7 @@
 """Get prompt
 =============
 """
-from .misc import p10k_sections, section_path, section_time
+from .section import p10k_sections, section_path, section_time
 
 
 def prompt_p10k(tl: str, sl: str, translators: str) -> str:

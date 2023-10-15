@@ -1,7 +1,7 @@
 r"""This module can be called by
 `python -m <https://docs.python.org/3/library/__main__.html>`_.
 
-generate prompt by `translate_shell.utils.misc`'s `p10k_sections()`.
+generate prompt by `translate_shell.utils.section`'s `p10k_sections()`.
 By default, it is for `lftp <https://lftp.yar.ru/>`_.
 See section ``cmd:prompt`` of `man lftp <https://lftp.yar.ru/lftp-man.html>`_.
 ::
@@ -43,7 +43,7 @@ def get_parser() -> ArgumentParser:
     r"""Get a parser for unit test."""
     parser = ArgumentParser(
         description="""\
-generate prompt by `translate_shell.utils.misc`'s `p10k_sections()`.
+generate prompt by `translate_shell.utils.section`'s `p10k_sections()`.
 By default, it is for lftp. See section cmd:prompt of `man lftp`.
 """,
         epilog=EPILOG,
@@ -80,7 +80,7 @@ def main() -> None:
 
     import sys
 
-    from ...utils.misc import p10k_sections
+    from ...utils.section import p10k_sections
 
     if args.section == []:
         args.section = SECTION

@@ -50,10 +50,10 @@ msgstr ""
 #: translate_shell.utils.input.process_text_multilines
 #: translate_shell.utils.input.process_text_redundant
 #: translate_shell.utils.input.process_translators_code
-#: translate_shell.utils.misc.p10k_sections
-#: translate_shell.utils.misc.section_os
-#: translate_shell.utils.misc.section_path
-#: translate_shell.utils.misc.section_time translate_shell.utils.notify.notify
+#: translate_shell.utils.section.p10k_sections
+#: translate_shell.utils.section.section_os
+#: translate_shell.utils.section.section_path
+#: translate_shell.utils.section.section_time translate_shell.utils.notify.notify
 #: translate_shell.utils.output.process_output
 #: translate_shell.utils.output.process_output_explain
 #: translate_shell.utils.output.process_output_firstline
@@ -84,8 +84,8 @@ msgstr ""
 #: translate_shell.utils.input.process_text_multilines
 #: translate_shell.utils.input.process_text_redundant
 #: translate_shell.utils.input.process_translators_code
-#: translate_shell.utils.misc.p10k_sections
-#: translate_shell.utils.misc.section_time translate_shell.utils.notify.notify
+#: translate_shell.utils.section.p10k_sections
+#: translate_shell.utils.section.section_time translate_shell.utils.notify.notify
 #: translate_shell.utils.output.process_output
 #: translate_shell.utils.output.process_output_explain
 #: translate_shell.utils.output.process_output_firstline
@@ -139,23 +139,23 @@ msgstr ""
 msgid "process_translators_code."
 msgstr ""
 
-#: of translate_shell.utils.misc:2
+#: of translate_shell.utils.section:2
 msgid "Misc"
 msgstr ""
 
-#: of translate_shell.utils.misc.p10k_sections:1
+#: of translate_shell.utils.section.p10k_sections:1
 msgid "p10k sections."
 msgstr ""
 
-#: of translate_shell.utils.misc.section_os:1
+#: of translate_shell.utils.section.section_os:1
 msgid "Section os."
 msgstr ""
 
-#: of translate_shell.utils.misc.section_path:1
+#: of translate_shell.utils.section.section_path:1
 msgid "Section path."
 msgstr ""
 
-#: of translate_shell.utils.misc.section_time:1
+#: of translate_shell.utils.section.section_time:1
 msgid "Section time."
 msgstr ""
 

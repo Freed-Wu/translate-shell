@@ -218,7 +218,7 @@ auto:zh_CN>
 
 The screenshot is same as above in [logger](#logger).
 
-The functions in [misc](translate_shell.utils.misc) should be useful for
+The functions in [section](translate_shell.utils.section) should be useful for
 customization. BTW, you can use these functions to define your prompt of
 python, too. See [prompt](https://github.com/Freed-Wu/my-dotfiles/wiki).
 
@@ -317,7 +317,7 @@ config.process_output = process_output
 
 The screenshot is same as above in [logger](#logger).
 
-The functions in [misc](translate_shell.utils.misc) should be useful for
+The functions in [section](translate_shell.utils.section) should be useful for
 customization.
 
 If you install

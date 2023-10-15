@@ -1,5 +1,5 @@
-r"""Misc
-========
+r"""Section
+===========
 """
 import os
 import platform

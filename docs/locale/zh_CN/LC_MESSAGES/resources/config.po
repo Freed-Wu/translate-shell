@@ -216,7 +216,7 @@ msgstr ""
 
 #: ../../resources/config.md:162
 msgid ""
-"The functions in [misc](translate_shell.utils.misc) should be useful for "
+"The functions in [section](translate_shell.utils.section) should be useful for "
 "customization. BTW, you can use these functions to define your prompt of "
 "python, too. See [prompt](https://github.com/Freed-Wu/my-dotfiles/wiki)."
 msgstr ""
@@ -408,7 +408,7 @@ msgstr ""
 
 #: ../../resources/config.md:261
 msgid ""
-"The functions in [misc](translate_shell.utils.misc) should be useful for "
+"The functions in [section](translate_shell.utils.section) should be useful for "
 "customization."
 msgstr ""
 
