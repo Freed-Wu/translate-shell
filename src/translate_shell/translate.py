@@ -14,7 +14,7 @@ from .translators import TRANSLATORS, Translator
 logger = logging.getLogger(__name__)
 
 
-class Translation(Namespace):
+class Translations(Namespace):
     """Translation."""
 
     def __init__(self, text: str, target_lang: str, source_lang: str) -> None:
@@ -39,27 +39,27 @@ class Translation(Namespace):
 
 
 def translate_once(
-    translator: Translator, translation: Translation, option: dict[str, Any]
+    translator: Translator, translations: Translations, option: dict[str, Any]
 ) -> None:
     """Translate once.
 
     :param translator:
     :type translator: Translator
-    :param translation:
-    :type translation: Translation
+    :param translations:
+    :type translations: Translations
     :param option:
     :type option: dict[str, Any]
     :rtype: None
     """
     res = translator(
-        translation.text,
-        translation.to_lang,
-        translation.from_lang,
+        translations.text,
+        translations.to_lang,
+        translations.from_lang,
         option,
     )
     if res:
-        translation.results.append(deepcopy(res))
-        translation.status = 1
+        translations.results.append(deepcopy(res))
+        translations.status = 1
 
 
 def translate(
@@ -68,7 +68,7 @@ def translate(
     source_lang: str = "auto",
     translators: list[Callable[[], Translator]] | list[str] | None = None,
     options: dict[str, dict[str, Any]] | None = None,
-) -> Translation:
+) -> Translations:
     """Translate.
 
     :param text:
@@ -87,7 +87,7 @@ def translate(
         translators = ["google"]
     if options is None:
         options = {}
-    translation = Translation(text, target_lang, source_lang)
+    translations = Translations(text, target_lang, source_lang)
 
     true_translators = []
     for translator in translators:
@@ -100,7 +100,7 @@ def translate(
     if len(translators) == 1:
         translator = true_translators[0]
         translate_once(
-            translator, translation, options.get(translator.name, {})
+            translator, translations, options.get(translator.name, {})
         )
     else:
         threads = []
@@ -112,7 +112,7 @@ def translate(
                 target=translate_once,
                 args=(
                     translator,
-                    translation,
+                    translations,
                     options.get(translator.name, {}),
                 ),
             )
@@ -121,4 +121,4 @@ def translate(
         list(map(lambda x: x.start(), threads))
         list(map(lambda x: x.join(), threads))
 
-    return translation
+    return translations

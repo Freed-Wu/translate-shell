@@ -6,7 +6,7 @@ from contextlib import suppress
 
 from ..__main__ import ASSETS_PATH
 from ..external.colorama import Fore, Style
-from ..translate import Translation
+from ..translate import Translations
 from .misc import p10k_sections
 
 NUMBER = json.loads(
@@ -79,15 +79,15 @@ def process_output_pos(pos: str) -> str:
     return prompt
 
 
-def process_output_p10k(translation: Translation) -> str:
+def process_output_p10k(translations: Translations) -> str:
     """Process output p10k.
 
-    :param translation:
-    :type translation: Translation
+    :param translations:
+    :type translations: Translations
     :rtype: str
     """
     outputs = []
-    for rst in translation.results:
+    for rst in translations.results:
         outputs += [process_output_firstline(rst)]
         for i, explain in enumerate(rst["explains"].items(), 1):
             outputs += [process_output_explain(explain)]
@@ -112,14 +112,14 @@ def process_output_p10k(translation: Translation) -> str:
     return output
 
 
-def process_output(translation: Translation) -> str:
+def process_output(translations: Translations) -> str:
     """Process output.
 
-    :param translation:
-    :type translation: Translation
+    :param translations:
+    :type translations: Translations
     :rtype: str
     """
-    rst = process_output_p10k(translation)
+    rst = process_output_p10k(translations)
     with suppress(ImportError):
         from repl_python_wakatime import wakatime_hook
 

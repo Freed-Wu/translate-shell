@@ -301,13 +301,13 @@ output style has been provided.
 You can customize `config.process_output`:
 
 ```python
-def process_output(translation):
+def process_output(translations):
     text = "\n".join(
         "\n".join(
             [rst["translator"] + ":", rst["paraphrase"] + rst["phonetic"]]
             + [k + " " + v for k, v in rst["explains"].items()]
         )
-        for rst in translation.results
+        for rst in translations.results
     )
     return text
 

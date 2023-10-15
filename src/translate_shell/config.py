@@ -6,7 +6,7 @@ Define a class for user customization.
 from argparse import Namespace
 from typing import Any, Literal
 
-from .translate import Translation
+from .translate import Translations
 
 
 class Configuration(Namespace):
@@ -64,16 +64,16 @@ class Configuration(Namespace):
         )
 
     @staticmethod
-    def process_output(translation: Translation) -> str:
+    def process_output(translations: Translations) -> str:
         """Process output.
 
-        :param translation:
-        :type translation: Translation
+        :param translations:
+        :type translations: Translations
         :rtype: str
         """
         from .utils.output import process_output
 
-        return process_output(translation)
+        return process_output(translations)
 
     @staticmethod
     def get_clipper() -> list[str]:

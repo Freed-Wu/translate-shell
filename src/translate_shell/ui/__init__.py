@@ -173,7 +173,7 @@ def get_processed_result_text(
         TRANSLATORS.get(translator, get_dummy(translator))
         for translator in translator_names
     ]
-    translation = translate(
+    translations = translate(
         text,
         target_lang,
         source_lang,
@@ -181,13 +181,13 @@ def get_processed_result_text(
         args.options,
     )
     if args.format == "json":
-        rst = json.dumps(vars(translation))
+        rst = json.dumps(vars(translations))
     elif args.format == "yaml":
         from ..external import yaml
 
-        rst = yaml.dump(vars(translation))
+        rst = yaml.dump(vars(translations))
     else:
-        rst = args.process_output(translation)
+        rst = args.process_output(translations)
         if rst and args.notification and is_sub_thread():
             args.notify(rst)
     return rst, text
