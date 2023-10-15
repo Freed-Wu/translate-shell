@@ -38,6 +38,46 @@ class Translations(Namespace):
         )
 
     @staticmethod
+    def any2any(v: Any) -> Any:
+        """Convert any to any.
+
+        :param v:
+        :type v: Any
+        :rtype: Any
+        """
+        if isinstance(v, Namespace):
+            return Translations.namespace2dict(v)
+        if isinstance(v, list):
+            return Translations.list2list(v)
+        if isinstance(v, dict):
+            return Translations.dict2dict(v)
+        return v
+
+    @staticmethod
+    def list2list(d: list) -> list:
+        """Convert list to list.
+
+        :param d:
+        :type d: list
+        :rtype: list
+        """
+        for k, v in enumerate(d):
+            d[k] = Translations.any2any(v)
+        return d
+
+    @staticmethod
+    def dict2dict(d: dict) -> dict:
+        """Convert dict to dict.
+
+        :param d:
+        :type d: dict
+        :rtype: dict
+        """
+        for k, v in d.items():
+            d[k] = Translations.any2any(v)
+        return d
+
+    @staticmethod
     def namespace2dict(namespace: Namespace) -> OrderedDict:
         """Convert Namespace to OrderedDict.
 
@@ -47,8 +87,7 @@ class Translations(Namespace):
         """
         d = OrderedDict(vars(namespace))
         for k, v in d.items():
-            if isinstance(v, Namespace):
-                d[k] = Translations.namespace2dict(v)
+            d[k] = Translations.any2any(v)
         return d
 
     def to_dict(self) -> OrderedDict:

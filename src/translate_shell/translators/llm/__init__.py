@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 from ...__main__ import LANGS
 from ...external.platformdirs import AppDirs
-from .. import TRANSLATION, Translator
+from .. import Translation, Translator
 
 TEMPLATES = []
 for role in ["system", "user"]:
@@ -40,7 +40,7 @@ class LLMTranslator(Translator):
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
-    ) -> TRANSLATION | None:
+    ) -> Translation | None:
         """Call.
 
         :param text:
@@ -51,7 +51,7 @@ class LLMTranslator(Translator):
         :type sl: str
         :param option:
         :type option: dict[str, Any]
-        :rtype: TRANSLATION | None
+        :rtype: Translation | None
         """
         init_model = option.get("init_model", self.init_model)
         init_messages = option.get("init_messages", self.init_messages)
@@ -153,14 +153,14 @@ class LLMTranslator(Translator):
         return kwargs
 
     @staticmethod
-    def init_result(completion: Mapping, result: TRANSLATION) -> TRANSLATION:
+    def init_result(completion: Mapping, result: Translation) -> Translation:
         """Init result.
 
         :param completion:
         :type completion: Mapping
         :param result:
-        :type result: TRANSLATION
-        :rtype: TRANSLATION
+        :type result: Translation
+        :rtype: Translation
         """
         result["paraphrase"] = completion["choices"][0]["message"]["content"]
         return result

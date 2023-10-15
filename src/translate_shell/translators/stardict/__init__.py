@@ -12,21 +12,21 @@ from typing import Any
 
 from ... import STARDICT_DIRS
 from ...external.pystardict import Dictionary
-from .. import TRANSLATION, Translator
+from .. import Translation, Translator
 
 logger = logging.getLogger(__name__)
 
 
-def parse_tokens_fallback(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
+def parse_tokens_fallback(tokens: list[str], res: Translation) -> Translation:
     """Parse tokens for fallback.
 
     :param tokens:
     :type tokens: list[str]
     :param res:
-    :type res: TRANSLATION
-    :rtype: TRANSLATION
+    :type res: Translation
+    :rtype: Translation
     """
-    res["paraphrase"] = "; ".join(tokens)
+    res.paraphrase = "; ".join(tokens)
     return res
 
 
@@ -43,7 +43,7 @@ class StardictTranslator(Translator):
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
-    ) -> TRANSLATION | None:
+    ) -> Translation | None:
         """Call.
 
         :param text:
@@ -54,7 +54,7 @@ class StardictTranslator(Translator):
         :type sl: str
         :param option:
         :type option: dict[str, Any]
-        :rtype: TRANSLATION | None
+        :rtype: Translation | None
         """
         self.stardict = option.get("stardict", STARDICT)
         tokens, dictionary = self.get_tokens(text, tl, sl)

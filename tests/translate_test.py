@@ -12,7 +12,7 @@ class Test:
     @staticmethod
     def test_google() -> None:
         """Test google"""
-        rst = vars(translate("The Mythical Man-Month", "zh_CN"))
+        rst = dict(translate("The Mythical Man-Month", "zh_CN").to_dict())
         expected = json.loads(
             (ASSETS_PATH / "json" / "google.json").read_text()
         )

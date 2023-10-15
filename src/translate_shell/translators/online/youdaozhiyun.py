@@ -13,7 +13,7 @@ from typing import Any
 from ...__main__ import ASSETS_PATH
 from ...external.keyring import get_keyring
 from ...external.keyring.errors import NoKeyringError
-from .. import TRANSLATION
+from .. import Translation
 from . import OnlineTranslator
 
 logger = logging.getLogger(__name__)
@@ -64,7 +64,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
-    ) -> TRANSLATION | None:
+    ) -> Translation | None:
         """Call.
 
         :param text:
@@ -75,7 +75,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         :type sl: str
         :param option:
         :type option: dict[str, Any]
-        :rtype: TRANSLATION | None
+        :rtype: Translation | None
         """
         res = self.create_translation(text, tl, sl)
         tl, sl = self.convert_langs(tl, sl)
@@ -111,12 +111,12 @@ class YoudaozhiyunTranslator(OnlineTranslator):
             return None
 
         basic = obj.get("basic")
-        res["paraphrase"] = obj.get("translation", "")
-        res["detail"] = obj.get("web", "")
+        res.paraphrase = obj.get("translation", "")
+        res.detail = obj.get("web", "")
         if basic:
             # ignore us/uk-phonetic
-            res["phonetic"] = basic.get("phonetic", "")
-            res["explains"] = basic.get("explains", [])
+            res.phonetic = basic.get("phonetic", "")
+            res.explains = basic.get("explains", [])
         return res
 
     @staticmethod

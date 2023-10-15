@@ -1,16 +1,16 @@
 """jmdict_en_ja"""
 from ...external.langdetect.__main__ import _RE_JAPANESE
-from .. import TRANSLATION
+from .. import Translation
 
 
-def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
+def parse_tokens(tokens: list[str], res: Translation) -> Translation:
     """Parse tokens.
 
     :param tokens:
     :type tokens: list[str]
     :param res:
-    :type res: TRANSLATION
-    :rtype: TRANSLATION
+    :type res: Translation
+    :rtype: Translation
     """
     last_key = ""
     explains = {}
@@ -25,7 +25,7 @@ def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
                 explains[last_key] += "; " + token
             else:
                 if last_key == "":
-                    last_key: str = res["text"]  # type: ignore
+                    last_key = res.text
                 explains[last_key] = token
-    res["explains"] = explains
+    res.explains = explains
     return res

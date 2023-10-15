@@ -1,16 +1,16 @@
 """langdao-ce-gb"""
 from ...translate import translate
-from .. import TRANSLATION
+from .. import Translation
 
 
-def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
+def parse_tokens(tokens: list[str], res: Translation) -> Translation:
     """Parse tokens.
 
     :param tokens:
     :type tokens: list[str]
     :param res:
-    :type res: TRANSLATION
-    :rtype: TRANSLATION
+    :type res: Translation
+    :rtype: Translation
     """
     explains = {}
     details = {}
@@ -38,7 +38,7 @@ def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
                 paraphrase += "; " + token
         else:
             explains[k] += token
-    res["paraphrase"] = paraphrase
-    res["explains"] = explains
-    res["details"] = details
+    res.paraphrase = paraphrase
+    res.explains = explains
+    res.details = details
     return res

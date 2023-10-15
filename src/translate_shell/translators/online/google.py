@@ -8,7 +8,7 @@ import json
 from typing import Any
 from urllib.parse import quote_plus
 
-from .. import TRANSLATION
+from .. import Translation
 from . import OnlineTranslator
 
 
@@ -43,7 +43,7 @@ class GoogleTranslator(OnlineTranslator):
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
-    ) -> TRANSLATION | None:
+    ) -> Translation | None:
         """Call.
 
         :param text:
@@ -54,7 +54,7 @@ class GoogleTranslator(OnlineTranslator):
         :type sl: str
         :param option:
         :type option: dict[str, Any]
-        :rtype: TRANSLATION | None
+        :rtype: Translation | None
         """
         res = self.create_translation(text, tl, sl)
         tl, sl = self.convert_langs(tl, sl)
@@ -64,11 +64,11 @@ class GoogleTranslator(OnlineTranslator):
             return None
         obj = json.loads(resp)
 
-        res["paraphrase"] = self.get_paraphrase(obj)
-        res["explains"] = self.get_explains(obj)
-        res["phonetic"] = self.get_phonetic(obj)
-        res["details"] = self.get_details(obj)
-        res["alternatives"] = self.get_alternatives(obj)
+        res.paraphrase = self.get_paraphrase(obj)
+        res.explains = self.get_explains(obj)
+        res.phonetic = self.get_phonetic(obj)
+        res.details = self.get_details(obj)
+        res.alternatives = self.get_alternatives(obj)
         return res
 
     @staticmethod

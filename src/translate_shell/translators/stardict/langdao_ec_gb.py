@@ -2,25 +2,25 @@
 import re
 
 from ...translate import translate
-from .. import TRANSLATION
+from .. import Translation
 
 RE_EXPLAIN = re.compile(r"\w+\.")
 
 
-def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
+def parse_tokens(tokens: list[str], res: Translation) -> Translation:
     """Parse tokens.
 
     :param tokens:
     :type tokens: list[str]
     :param res:
-    :type res: TRANSLATION
-    :rtype: TRANSLATION
+    :type res: Translation
+    :rtype: Translation
     """
     explains = {}
     details = {}
     for i, token in enumerate(tokens, 1):
         if token.startswith("*["):
-            res["phonetic"] = tokens[0].lstrip("*[").rstrip("]")
+            res.phonetic = tokens[0].lstrip("*[").rstrip("]")
         elif token.startswith("【"):
             k, _, v = token.partition(" ")
             explains[k.lstrip("【").rstrip("】")] = v
@@ -37,8 +37,8 @@ def parse_tokens(tokens: list[str], res: TRANSLATION) -> TRANSLATION:
                 paraphrases += [paraphrase]
             details["相关词组"] = dict(zip(phrases, paraphrases))
             break
-    res["explains"] = explains
-    res["details"] = details
-    if res["explains"] == {}:
-        res["paraphrase"] = tokens[0]
+    res.explains = explains
+    res.details = details
+    if res.explains == {}:
+        res.paraphrase = tokens[0]
     return res

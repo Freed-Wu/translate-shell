@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+from argparse import Namespace
 from typing import TYPE_CHECKING, Any, Callable
 
 if TYPE_CHECKING:
@@ -15,10 +16,56 @@ if TYPE_CHECKING:
     from .stardict import StardictTranslator
 
 logger = logging.getLogger(__name__)
-TRANSLATION = dict[
-    str,
-    str | list[str] | dict[str, str] | dict[str, dict[str, str]],
-]
+
+
+class Translation(Namespace):
+    """Translation."""
+
+    def __init__(
+        self,
+        translator: str,
+        sl: str,
+        tl: str,
+        text: str,
+        phonetic: str,
+        paraphrase: str,
+        explains: dict[str, str],
+        details: dict[str, dict[str, str]],
+        alternatives: list[str],
+    ) -> None:
+        """Init.
+
+        :param translator:
+        :type translator: str
+        :param sl:
+        :type sl: str
+        :param tl:
+        :type tl: str
+        :param text:
+        :type text: str
+        :param phonetic:
+        :type phonetic: str
+        :param paraphrase:
+        :type paraphrase: str
+        :param explains:
+        :type explains: dict[str, str]
+        :param details:
+        :type details: dict[str, dict[str, str]]
+        :param alternatives:
+        :type alternatives: list[str]
+        :rtype: None
+        """
+        super().__init__(
+            translator=translator,
+            sl=sl,
+            tl=tl,
+            text=text,
+            phonetic=phonetic,
+            paraphrase=paraphrase,
+            explains=explains,
+            details=details,
+            alternatives=alternatives,
+        )
 
 
 class Translator:
@@ -33,7 +80,7 @@ class Translator:
         """
         self.name = name
 
-    def create_translation(self, text: str, tl: str, sl: str) -> TRANSLATION:
+    def create_translation(self, text: str, tl: str, sl: str) -> Translation:
         """Create translation.
 
         :param text:
@@ -42,20 +89,19 @@ class Translator:
         :type tl: str
         :param sl:
         :type sl: str
-        :rtype: TRANSLATION
+        :rtype: Translation
         """
-        res = {
-            "translator": self.name,
-            "sl": sl,
-            "tl": tl,
-            "text": text,
-            "phonetic": "",
-            "paraphrase": "",
-            "explains": {},
-            "details": {},
-            "alternatives": {},
-        }
-        return res
+        return Translation(
+            translator=self.name,
+            sl=sl,
+            tl=tl,
+            text=text,
+            phonetic="",
+            paraphrase="",
+            explains={},
+            details={},
+            alternatives=[],
+        )
 
     @staticmethod
     def convert_langs(*langs: str) -> list[str]:
