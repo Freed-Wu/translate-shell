@@ -128,20 +128,20 @@ Translate --translators=google,bing Free as in Freedom
 ```pycon
 >>> from translate_shell.translate import translate
 >>> translate("The Mythical Man-Month", "zh_TW")
-... Translation(
+... Translations(
 ...     status=1,
 ...     results=[
-...         {
-...             "translator": "google",
-...             "sl": "auto",
-...             "tl": "zh_TW",
-...             "text": "The Mythical Man-Month",
-...             "phonetic": "",
-...             "paraphrase": "人月神話",
-...             "explains": {},
-...             "details": {},
-...             "alternatives": ["神话般的人月"],
-...         }
+...         Translation(
+...             translator="google",
+...             sl="auto",
+...             tl="zh_TW",
+...             text="The Mythical Man-Month",
+...             phonetic="",
+...             paraphrase="神話般的人月",
+...             explains={},
+...             details={},
+...             alternatives=["神話般的月"]
+...         )
 ...     ],
 ...     text="The Mythical Man-Month",
 ...     to_lang="zh_TW",
