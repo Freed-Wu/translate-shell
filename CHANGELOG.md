@@ -1,5 +1,40 @@
 # Changelog
 
+<a name="0.0.38"></a>
+## 0.0.38 (2023-10-16)
+
+### Changed
+
+- ⬆️ Drop support of python &lt; 3.10 [[7ad1507](https://github.com/Freed-Wu/translate-shell/commit/7ad1507117cfa799ce7ebe69d307423b6618832c)]
+- ♻️ Change Translation to a Namespace [[3d907c3](https://github.com/Freed-Wu/translate-shell/commit/3d907c3e6c0850c7654a328b9b0c9d876c68ee7d)]
+- 🚚 Rename misc.py to section.py [[1aea450](https://github.com/Freed-Wu/translate-shell/commit/1aea450bc2fee68b21943c30c7ddefc773f7851c)]
+- 🚚 Rename Translation to Translations [[7fad1a2](https://github.com/Freed-Wu/translate-shell/commit/7fad1a2e63dfeb0b565edaa208ef4cf97ff67b93)]
+
+### Fixed
+
+- 🐛 Fix language server [[5686142](https://github.com/Freed-Wu/translate-shell/commit/56861428fc023a49d01b71ec68b07a166a056df3)]
+- 🐛 replace Namespace.__dict__ by OrderDict [[085ca3e](https://github.com/Freed-Wu/translate-shell/commit/085ca3edf119b13b02b728313e316b5b4922c1d2)]
+
+### Miscellaneous
+
+- 📝 Update README.md [[5f21685](https://github.com/Freed-Wu/translate-shell/commit/5f21685b234678ec4d6e8cb79abb5ad8fad8be4d)]
+- 🏷️ Remove symlink [[3b51f31](https://github.com/Freed-Wu/translate-shell/commit/3b51f318523bc2cbc7c6bc0200889c87c68e2d93)]
+
+
+<a name="0.0.37"></a>
+## 0.0.37 (2023-09-09)
+
+### Added
+
+- ✨ Add a tool for REPL [[bf64f9a](https://github.com/Freed-Wu/translate-shell/commit/bf64f9ad2a2cf993c02a3a81c896bb112c8877c5)]
+- ➕ Use sphinxcontrib-autofile for documents [[126469f](https://github.com/Freed-Wu/translate-shell/commit/126469f258220a5a512f85d799cb5d47c7ae2cb0)]
+- ➕ Use sphinxcontrib-requirements-txt for documents [[9b246b1](https://github.com/Freed-Wu/translate-shell/commit/9b246b1715551ba863f1fd0563d00f2f96518379)]
+
+### Miscellaneous
+
+- 📝 Use sphinx.ext.todo [[d8e6aae](https://github.com/Freed-Wu/translate-shell/commit/d8e6aae779cdf793962b9c1edee6ba98cbff1c81)]
+
+
 <a name="0.0.36"></a>
 ## 0.0.36 (2023-08-31)
 

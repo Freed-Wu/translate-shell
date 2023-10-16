@@ -1,7 +1,10 @@
 {
   "name": "translate-shell",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "description": "Translate text by google, bing, youdaozhiyun, haici, stardict, openai, large language model of local machine, etc at same time from CLI, GUI (GNU/Linux, Android, macOS and Windows), REPL, python, shell and vim.",
   "author": "Wu Zhenyu <wuzhenyu@ustc.edu>",
-  "license": "GPLv3"
+  "license": "GPLv3",
+  "dependencies": {
+    "gitmoji-changelog": "^2.3.0"
+  }
 }

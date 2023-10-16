@@ -1,5 +1,10 @@
 /src/translate_shell/tools/po/action.yml
+
 /result
+
+/node_modules/
+/package-lock.json
+
 _version.py
 _metainfo.py
 
