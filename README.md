@@ -37,9 +37,35 @@
 [![pypi/implementation](https://shields.io/pypi/implementation/translate-shell)](https://pypi.org/project/translate-shell/#files)
 [![pypi/pyversions](https://shields.io/pypi/pyversions/translate-shell)](https://pypi.org/project/translate-shell/#files)
 
-Translate text by google, bing, youdaozhiyun, haici, stardict, openai, large
-language model of local machine, etc at same time from CLI, GUI (GNU/Linux,
-Android, macOS and Windows), REPL, python, shell and vim.
+Translate text by:
+
+- online translators
+  - google
+  - bing
+  - youdaozhiyun
+  - haici
+- offline dictionaries
+  - stardict
+- LLM
+  - OpenAI
+  - llama: use your local model
+
+Supports:
+
+- CLI
+- GUI
+  - GNU/Linux
+  - Android
+  - macOS
+  - Windows
+- REPL
+- script:
+  - python
+  - shell
+  - vim: **DEPRECATION**: vim port will be replaced by language server
+- language server
+- CI/CD
+  - github action
 
 ## Usage
 
