@@ -181,21 +181,22 @@ def main() -> None | NoReturn:
         print(setting)
         sys.exit(0 if setting else 1)
 
-    try:
-        import vim  # type: ignore
-    except ImportError:
-        if not sys.stdin.isatty():
-            args.text = [sys.stdin.read()] + args.text
-
     from translate_shell.ui import init
 
     init(args)
     if args.lsp:
         from translate_shell.ui.server import run
-    elif args.text:
-        from translate_shell.ui.cli import run
     else:
-        from translate_shell.ui.repl import run
+        try:
+            import vim  # type: ignore
+        except ImportError:
+            if not sys.stdin.isatty():
+                args.text = [sys.stdin.read()] + args.text
+
+        if args.text:
+            from translate_shell.ui.cli import run
+        else:
+            from translate_shell.ui.repl import run
     run(args)
 
 

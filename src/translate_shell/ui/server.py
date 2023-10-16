@@ -3,7 +3,7 @@ r"""Server
 """
 import re
 from argparse import Namespace
-from typing import Any, Tuple
+from typing import Any
 
 from lsprotocol.types import (
     TEXT_DOCUMENT_COMPLETION,
@@ -49,19 +49,16 @@ class TranslateShellLanguageServer(LanguageServer):
             :type params: TextDocumentPositionParams
             :rtype: Hover | None
             """
-            word = self._cursor_word(
+            word, region = self._cursor_word(
                 params.text_document.uri, params.position, True
             )
-            if not word:
-                return None
-            self.args.text = word[0]
-            # ignore processed text
-            doc = get_processed_result_text(self.args)[0]
-            if not doc:
+            self.args.text = word
+            rst, _ = get_processed_result_text(self.args)
+            if rst == "":
                 return None
             return Hover(
-                contents=MarkupContent(kind=MarkupKind.PlainText, value=doc),
-                range=word[1],
+                MarkupContent(MarkupKind.PlainText, rst),
+                region,
             )
 
         @self.feature(TEXT_DOCUMENT_COMPLETION)
@@ -72,20 +69,21 @@ class TranslateShellLanguageServer(LanguageServer):
             :type params: CompletionParams
             :rtype: CompletionList
             """
-            word = self._cursor_word(
+            word, _ = self._cursor_word(
                 params.text_document.uri, params.position, False
             )
-            token = "" if word is None else word[0]
-            items = [
-                CompletionItem(
-                    label=x,
-                    kind=CompletionItemKind.Constant,
-                    insert_text=x,
-                )
-                for x in HISTORY_FILE.read_text().splitlines()
-                if x.startswith(token)
-            ]
-            return CompletionList(is_incomplete=False, items=items)
+            return CompletionList(
+                False,
+                [
+                    CompletionItem(
+                        x,
+                        kind=CompletionItemKind.Constant,
+                        insert_text=x,
+                    )
+                    for x in set(HISTORY_FILE.read_text().splitlines())
+                    if x.startswith(word)
+                ],
+            )
 
     def _cursor_line(self, uri: str, position: Position) -> str:
         r"""Cursor line.
@@ -96,40 +94,44 @@ class TranslateShellLanguageServer(LanguageServer):
         :type position: Position
         :rtype: str
         """
-        doc = self.workspace.get_document(uri)
-        content = doc.source
-        line = content.split("\n")[position.line]
-        return str(line)
+        document = self.workspace.get_document(uri)
+        return document.source.splitlines()[position.line]
 
     def _cursor_word(
-        self, uri: str, position: Position, include_all: bool = True
-    ) -> Tuple[str, Range] | None:
-        r"""Cursor word.
+        self,
+        uri: str,
+        position: Position,
+        include_all: bool = True,
+        regex: str = r"\w+",
+    ) -> tuple[str, Range]:
+        """Cursor word.
 
+        :param self:
         :param uri:
         :type uri: str
         :param position:
         :type position: Position
         :param include_all:
         :type include_all: bool
-        :rtype: Tuple[str, Range] | None
+        :param regex:
+        :type regex: str
+        :rtype: tuple[str, Range]
         """
         line = self._cursor_line(uri, position)
-        cursor = position.character
-        for m in re.finditer(r"\w+", line):
-            end = m.end() if include_all else cursor
-            if m.start() <= cursor <= m.end():
-                word = (
+        for m in re.finditer(regex, line):
+            if m.start() <= position.character <= m.end():
+                end = m.end() if include_all else position.character
+                return (
                     line[m.start() : end],
                     Range(
-                        start=Position(
-                            line=position.line, character=m.start()
-                        ),
-                        end=Position(line=position.line, character=end),
+                        Position(position.line, m.start()),
+                        Position(position.line, end),
                     ),
                 )
-                return word
-        return None
+        return (
+            "",
+            Range(Position(position.line, 0), Position(position.line, 0)),
+        )
 
 
 def run(args: Namespace) -> None:
