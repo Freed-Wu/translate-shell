@@ -30,14 +30,14 @@ def process_output_firstline(rst: dict) -> str:
         (
             "GREEN",
             "BLACK",
-            insert_translator.format(translator=rst["translator"]),
+            insert_translator.format(translator=rst.translator),
         ),
         (
             "WHITE",
             "BLUE",
-            insert_paraphrase.format(paraphrase=rst["paraphrase"]),
+            insert_paraphrase.format(paraphrase=rst.paraphrase),
         ),
-        ("BLACK", "WHITE", insert_phonetic.format(phonetic=rst["phonetic"])),
+        ("BLACK", "WHITE", insert_phonetic.format(phonetic=rst.phonetic)),
     ]
 
     prompt = p10k_sections(sections)
@@ -89,9 +89,9 @@ def process_output_p10k(translations: Translations) -> str:
     outputs = []
     for rst in translations.results:
         outputs += [process_output_firstline(rst)]
-        for i, explain in enumerate(rst["explains"].items(), 1):
+        for i, explain in enumerate(rst.explains.items(), 1):
             outputs += [process_output_explain(explain)]
-        for pos, details in rst["details"].items():
+        for pos, details in rst.details.items():
             outputs += [process_output_pos(pos)]
             for i, examples in enumerate(details.items(), 1):
                 outputs += [
