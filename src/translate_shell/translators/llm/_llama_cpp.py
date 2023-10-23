@@ -2,6 +2,7 @@ r"""LLaMa cpp
 =============
 """
 import os
+from dataclasses import dataclass
 from typing import Any
 
 from llama_cpp import Llama
@@ -16,15 +17,11 @@ old_kwargs = {}
 old_model = None
 
 
+@dataclass
 class LlamaTranslator(LLMTranslator):
     """Llamatranslator."""
 
-    def __init__(self) -> None:
-        """Init.
-
-        :rtype: None
-        """
-        super().__init__("llama")
+    name: str = "llama"
 
     @staticmethod
     def init_model(option: dict) -> Any:

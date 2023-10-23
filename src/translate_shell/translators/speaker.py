@@ -4,6 +4,7 @@
 Play the pronunciation.
 """
 import logging
+from dataclasses import dataclass
 from shlex import split
 from shutil import which
 from subprocess import check_output
@@ -14,15 +15,11 @@ from . import Translator
 logger = logging.getLogger(__name__)
 
 
+@dataclass
 class Speaker(Translator):
     """Speaker."""
 
-    def __init__(self) -> None:
-        """Init.
-
-        :rtype: None
-        """
-        super().__init__("speaker")
+    name: str = "speaker"
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]

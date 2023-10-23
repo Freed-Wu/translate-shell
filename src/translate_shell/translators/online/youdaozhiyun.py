@@ -8,6 +8,7 @@ https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%B
 import json
 import logging
 import random
+from dataclasses import dataclass
 from typing import Any
 
 from ...__main__ import ASSETS_PATH
@@ -24,17 +25,14 @@ ERROR = json.loads(
 )
 
 
+@dataclass
 class YoudaozhiyunTranslator(OnlineTranslator):
     """YoudaozhiyunTranslator."""
 
-    def __init__(self) -> None:
-        """Init.
-
-        :rtype: None
-        """
-        super().__init__("youdaozhiyun")
-        self.url = "https://openapi.youdao.com/api"
-        self.app_id = self.app_sec = ""
+    name: str = "youdaozhiyun"
+    url: str = "https://openapi.youdao.com/api"
+    app_id: str = ""
+    app_sec: str = ""
 
     def init(self, option: dict[str, Any]) -> None:
         """Init.

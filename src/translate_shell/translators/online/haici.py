@@ -5,6 +5,7 @@ Refer https://github.com/voldikss/vim-translator
 http://dict.cn
 """
 import re
+from dataclasses import dataclass
 from typing import Any
 from urllib.parse import quote_plus
 
@@ -12,16 +13,12 @@ from .. import Translation
 from . import OnlineTranslator
 
 
+@dataclass
 class HaiciTranslator(OnlineTranslator):
     """HaiciTranslator."""
 
-    def __init__(self) -> None:
-        """__init__.
-
-        :rtype: None
-        """
-        super().__init__("haici")
-        self.timeout = 15
+    name: str = "haici"
+    timeout: int = 15
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]

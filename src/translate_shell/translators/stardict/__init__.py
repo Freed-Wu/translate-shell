@@ -7,6 +7,7 @@
 import logging
 import os
 from contextlib import suppress
+from dataclasses import dataclass, field
 from glob import glob
 from typing import Any
 
@@ -30,16 +31,12 @@ def parse_tokens_fallback(tokens: list[str], res: Translation) -> Translation:
     return res
 
 
+@dataclass
 class StardictTranslator(Translator):
     """StardictTranslator."""
 
-    def __init__(self) -> None:
-        """Init.
-
-        :rtype: None
-        """
-        super().__init__("stardict")
-        self.stardict = {}
+    name: str = "stardict"
+    stardict: dict[str, dict[str, list[str]]] = field(default_factory=dict)
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]

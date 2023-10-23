@@ -5,6 +5,7 @@ Refer https://github.com/voldikss/vim-translator
 https://support.google.com/translate
 """
 import json
+from dataclasses import dataclass
 from typing import Any
 from urllib.parse import quote_plus
 
@@ -12,17 +13,13 @@ from .. import Translation
 from . import OnlineTranslator
 
 
+@dataclass
 class GoogleTranslator(OnlineTranslator):
     """GoogleTranslator."""
 
-    def __init__(self) -> None:
-        """__init__.
-
-        :rtype: None
-        """
-        super().__init__("google")
-        self._host = "translate.googleapis.com"
-        self._cnhost = "translate.google.com.hk"
+    name: str = "google"
+    host: str = "translate.googleapis.com"
+    cnhost: str = "translate.google.com.hk"
 
     def get_url(self, sl: str, tl: str, qry: str) -> str:
         """Get url.
@@ -35,7 +32,7 @@ class GoogleTranslator(OnlineTranslator):
         :type qry: str
         :rtype: str
         """
-        http_host = self._cnhost if "zh" in tl else self._host
+        http_host = self.cnhost if "zh" in tl else self.host
         qry = quote_plus(qry)
         url = f"https://{http_host}/translate_a/single?client=gtx&sl={sl}\
 &tl={tl}&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&q={qry}"

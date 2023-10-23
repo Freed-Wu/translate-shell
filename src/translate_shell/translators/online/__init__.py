@@ -4,6 +4,7 @@
 import logging
 import socket
 from copy import deepcopy
+from dataclasses import dataclass
 from typing import Any
 from urllib.error import HTTPError
 from urllib.parse import urlencode
@@ -14,22 +15,12 @@ from .. import Translator
 logger = logging.getLogger(__name__)
 
 
+@dataclass
 class OnlineTranslator(Translator):
     """OnlineTranslator. All other online translators must be its subclass."""
 
-    def __init__(self, name: str) -> None:
-        """Init.
-
-        :param name:
-        :type name: str
-        :rtype: None
-        """
-        super().__init__(name)
-        self._agent = (
-            "Mozilla/5.0 (X11; Linux x86_64; rv:50.0) "
-            "Gecko/20100101 Firefox/50.0"
-        )
-        self.timeout = 5
+    name: str
+    timeout: int = 5
 
     def request(
         self,
@@ -54,8 +45,9 @@ class OnlineTranslator(Translator):
             header = deepcopy(header)
         else:
             header = {
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) \
-AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"
+                " AppleWebKit/537.36 (KHTML, like Gecko)"
+                " Chrome/75.0.3770.100 Safari/537.36"
             }
 
         if post:

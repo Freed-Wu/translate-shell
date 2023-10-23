@@ -5,6 +5,7 @@ Refer https://github.com/voldikss/vim-translator
 https://www.microsoft.com/en-us/translator/help/bing/
 """
 import re
+from dataclasses import dataclass
 from typing import Any
 from urllib.parse import quote_plus
 
@@ -12,17 +13,19 @@ from .. import Translation
 from . import OnlineTranslator
 
 
+@dataclass
 class BingTranslator(OnlineTranslator):
     """BingTranslator."""
 
-    def __init__(self) -> None:
-        """Init.
+    name: str = "bing"
+    url: str = "http://bing.com/dict/SerpHoverTrans"
+    cnurl: str = "http://cn.bing.com/dict/SerpHoverTrans"
+
+    def __post_init__(self) -> None:
+        """Post init.
 
         :rtype: None
         """
-        super().__init__("bing")
-        self._url = "http://bing.com/dict/SerpHoverTrans"
-        self._cnurl = "http://cn.bing.com/dict/SerpHoverTrans"
         self.pat_attr = re.compile(
             r'<span class="ht_attr" lang=".*?">\[(.*?)\] </span>'
         )
@@ -48,7 +51,7 @@ class BingTranslator(OnlineTranslator):
         """
         res = self.create_translation(text, tl, sl)
         tl, sl = self.convert_langs(tl, sl)
-        url = self._cnurl if "zh" in tl else self._url
+        url = self.cnurl if "zh" in tl else self.url
         url = url + "?q=" + quote_plus(text)
         headers = {
             "Accept": (

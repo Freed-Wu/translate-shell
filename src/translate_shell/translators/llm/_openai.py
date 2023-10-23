@@ -1,18 +1,22 @@
 r"""Openai
 ==========
 """
+from dataclasses import dataclass
+
 import openai
 
 from . import LLMTranslator
 
 
+@dataclass
 class OpenaiTranslator(LLMTranslator):
     """Openaitranslator."""
 
-    def __init__(self) -> None:
-        """Init.
+    name: str = "openai"
+
+    def __post_init__(self) -> None:
+        """Post init.
 
         :rtype: None
         """
-        super().__init__("openai")
         self.create_chat_completion = openai.ChatCompletion.create  # type: ignore

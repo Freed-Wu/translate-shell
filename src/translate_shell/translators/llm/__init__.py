@@ -1,6 +1,7 @@
 r"""LLM
 =======
 """
+from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Mapping
 
@@ -26,17 +27,11 @@ for role in ["system", "user"]:
     TEMPLATES += [{"role": role, "content": template.read_text()}]
 
 
+@dataclass
 class LLMTranslator(Translator):
     """Llmtranslator."""
 
-    def __init__(self, name: str) -> None:
-        """Init.
-
-        :param name:
-        :type name: str
-        :rtype: None
-        """
-        super().__init__(name)
+    name: str
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]

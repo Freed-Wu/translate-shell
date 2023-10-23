@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, Callable
 
 if TYPE_CHECKING:
@@ -26,11 +26,11 @@ class Translation:
     sl: str
     tl: str
     text: str
-    phonetic: str
-    paraphrase: str
-    explains: dict[str, str]
-    details: dict[str, dict[str, str]]
-    alternatives: list[str]
+    phonetic: str = ""
+    paraphrase: str = ""
+    explains: dict[str, str] = field(default_factory=dict)
+    details: dict[str, dict[str, str]] = field(default_factory=dict)
+    alternatives: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -50,17 +50,7 @@ class Translator:
         :type sl: str
         :rtype: Translation
         """
-        return Translation(
-            translator=self.name,
-            sl=sl,
-            tl=tl,
-            text=text,
-            phonetic="",
-            paraphrase="",
-            explains={},
-            details={},
-            alternatives=[],
-        )
+        return Translation(self.name, sl, tl, text)
 
     @staticmethod
     def convert_langs(*langs: str) -> list[str]:
