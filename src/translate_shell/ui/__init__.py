@@ -6,6 +6,7 @@ import os
 import signal
 from argparse import Namespace, _StoreAction
 from contextlib import suppress
+from dataclasses import asdict
 from pathlib import Path
 from threading import get_ident, main_thread
 from types import ModuleType
@@ -181,11 +182,11 @@ def get_processed_result_text(
         args.options,
     )
     if args.format == "json":
-        rst = json.dumps(translations.to_dict())
+        rst = json.dumps(asdict(translations))
     elif args.format == "yaml":
         from ..external import yaml
 
-        rst = yaml.dump(translations.to_dict())
+        rst = yaml.dump(asdict(translations))
     else:
         rst = args.process_output(translations)
         if rst and args.notification and is_sub_thread():

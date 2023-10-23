@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from argparse import Namespace
+from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, Callable
 
 if TYPE_CHECKING:
@@ -18,67 +18,26 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
-class Translation(Namespace):
+@dataclass
+class Translation:
     """Translation."""
 
-    def __init__(
-        self,
-        translator: str,
-        sl: str,
-        tl: str,
-        text: str,
-        phonetic: str,
-        paraphrase: str,
-        explains: dict[str, str],
-        details: dict[str, dict[str, str]],
-        alternatives: list[str],
-    ) -> None:
-        """Init.
-
-        :param translator:
-        :type translator: str
-        :param sl:
-        :type sl: str
-        :param tl:
-        :type tl: str
-        :param text:
-        :type text: str
-        :param phonetic:
-        :type phonetic: str
-        :param paraphrase:
-        :type paraphrase: str
-        :param explains:
-        :type explains: dict[str, str]
-        :param details:
-        :type details: dict[str, dict[str, str]]
-        :param alternatives:
-        :type alternatives: list[str]
-        :rtype: None
-        """
-        super().__init__(
-            translator=translator,
-            sl=sl,
-            tl=tl,
-            text=text,
-            phonetic=phonetic,
-            paraphrase=paraphrase,
-            explains=explains,
-            details=details,
-            alternatives=alternatives,
-        )
+    translator: str
+    sl: str
+    tl: str
+    text: str
+    phonetic: str
+    paraphrase: str
+    explains: dict[str, str]
+    details: dict[str, dict[str, str]]
+    alternatives: list[str]
 
 
+@dataclass
 class Translator:
     """Basic translator. All other translators must be its subclass."""
 
-    def __init__(self, name: str) -> None:
-        """Init.
-
-        :param name:
-        :type name: str
-        :rtype: None
-        """
-        self.name = name
+    name: str
 
     def create_translation(self, text: str, tl: str, sl: str) -> Translation:
         """Create translation.
@@ -115,7 +74,7 @@ class Translator:
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
-    ) -> dict[str, str] | None:
+    ) -> Translation | None:
         """Call.
 
         :param text:
@@ -126,7 +85,7 @@ class Translator:
         :type sl: str
         :param option:
         :type option: dict[str, Any]
-        :rtype: dict[str, str] | None
+        :rtype: Translation | None
         """
         logger.warning(
             self.name + " translator hasn't been implemented."

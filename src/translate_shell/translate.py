@@ -4,98 +4,25 @@
 Define some utilities.
 """
 import logging
-from argparse import Namespace
-from collections import OrderedDict
 from copy import deepcopy
+from dataclasses import dataclass, field
 from threading import Thread
 from typing import Any, Callable
 
-from .translators import TRANSLATORS, Translator
+from .translators import TRANSLATORS, Translation, Translator
 
 logger = logging.getLogger(__name__)
 
 
-class Translations(Namespace):
+@dataclass
+class Translations:
     """Translation."""
 
-    def __init__(self, text: str, target_lang: str, source_lang: str) -> None:
-        """Init.
-
-        :param text:
-        :type text: str
-        :param target_lang:
-        :type target_lang: str
-        :param source_lang:
-        :type source_lang: str
-        :rtype: None
-        """
-        super().__init__(
-            status=0,
-            results=[],
-            text=text,
-            to_lang=target_lang,
-            from_lang=source_lang,
-        )
-
-    @staticmethod
-    def any2any(v: Any) -> Any:
-        """Convert any to any.
-
-        :param v:
-        :type v: Any
-        :rtype: Any
-        """
-        if isinstance(v, Namespace):
-            return Translations.namespace2dict(v)
-        if isinstance(v, list):
-            return Translations.list2list(v)
-        if isinstance(v, dict):
-            return Translations.dict2dict(v)
-        return v
-
-    @staticmethod
-    def list2list(d: list) -> list:
-        """Convert list to list.
-
-        :param d:
-        :type d: list
-        :rtype: list
-        """
-        for k, v in enumerate(d):
-            d[k] = Translations.any2any(v)
-        return d
-
-    @staticmethod
-    def dict2dict(d: dict) -> dict:
-        """Convert dict to dict.
-
-        :param d:
-        :type d: dict
-        :rtype: dict
-        """
-        for k, v in d.items():
-            d[k] = Translations.any2any(v)
-        return d
-
-    @staticmethod
-    def namespace2dict(namespace: Namespace) -> OrderedDict:
-        """Convert Namespace to OrderedDict.
-
-        :param namespace:
-        :type namespace: Namespace
-        :rtype: OrderedDict
-        """
-        d = OrderedDict(vars(namespace))
-        for k, v in d.items():
-            d[k] = Translations.any2any(v)
-        return d
-
-    def to_dict(self) -> OrderedDict:
-        """Convert self to dict.
-
-        :rtype: OrderedDict
-        """
-        return self.namespace2dict(self)
+    text: str = ""
+    to_lang: str = ""
+    from_lang: str = ""
+    status: int = 0
+    results: list[Translation] = field(default_factory=list)
 
 
 def translate_once(
@@ -118,7 +45,7 @@ def translate_once(
         option,
     )
     if res:
-        translations.results.append(deepcopy(res))
+        translations.results.append(res)
         translations.status = 1
 
 

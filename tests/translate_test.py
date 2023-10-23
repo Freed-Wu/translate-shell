@@ -1,5 +1,6 @@
 """Test translators."""
 import json
+from dataclasses import asdict
 
 from translate_shell.translate import translate
 
@@ -12,7 +13,7 @@ class Test:
     @staticmethod
     def test_google() -> None:
         """Test google"""
-        rst = dict(translate("The Mythical Man-Month", "zh_CN").to_dict())
+        rst = asdict(translate("The Mythical Man-Month", "zh_CN"))
         expected = json.loads(
             (ASSETS_PATH / "json" / "google.json").read_text()
         )
