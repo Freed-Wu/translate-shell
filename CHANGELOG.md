@@ -1,5 +1,29 @@
 # Changelog
 
+<a name="next"></a>
+## next
+
+### Changed
+
+- ♻️ Refactor by dataclasses [[9152f83](https://github.com/Freed-Wu/translate-shell/commit/9152f832619b901af7096ac5202449ad9de384ae)]
+
+### Removed
+
+- 🔥 Remove flake.nix [[f4e5201](https://github.com/Freed-Wu/translate-shell/commit/f4e520124757741b722904aee2e7fd4c1c13b6d6)]
+
+
+<a name="0.0.39"></a>
+## 0.0.39 (2023-10-16)
+
+### Fixed
+
+- 🚑 Hot fix [[994ab10](https://github.com/Freed-Wu/translate-shell/commit/994ab10fa8f7a531fbf93cc0008b4c2faede54d8)]
+
+### Miscellaneous
+
+-  Update python section of README.md [[96ea522](https://github.com/Freed-Wu/translate-shell/commit/96ea52250f7ab6c46b490eb0da97bb5a362fe977)]
+
+
 <a name="0.0.38"></a>
 ## 0.0.38 (2023-10-16)
 
