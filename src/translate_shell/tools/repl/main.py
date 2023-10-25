@@ -1,5 +1,5 @@
-r"""Utils
-=========
+r"""REPL
+========
 
 Generate a `powerlevel10k <https://github.com/romkatv/powerlevel10k>`_ -like
 prompt for python.
@@ -58,6 +58,7 @@ def interact(**kwargs: bool) -> None:
             pretty.install()
             traceback.install()
             logging.basicConfig(
+                level=logging.WARNING,
                 format="%(message)s",
                 handlers=[RichHandler(rich_tracebacks=True, markup=True)],
             )
