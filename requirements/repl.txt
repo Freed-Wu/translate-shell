@@ -2,5 +2,5 @@
 # For `python -m translate_shell.tools.repl`.
 
 jedi
-repl-python-codestats
+repl-python-wakatime
 rich

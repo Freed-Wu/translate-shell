@@ -31,11 +31,10 @@ def interact(**kwargs: bool) -> None:
 
     if kwargs.get("codestats", True):
         with suppress(ImportError):
-            from repl_python_codestats.python import (
-                install_hook as install_codestats_hook,
-            )
+            from repl_python_wakatime.hooks.codestats import codestats_hook
+            from repl_python_wakatime.python import install_hook
 
-            install_codestats_hook()
+            install_codestats_hook(codestats_hook)
 
     if kwargs.get("jedi", True):
         with suppress(ImportError):
