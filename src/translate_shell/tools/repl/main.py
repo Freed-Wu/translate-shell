@@ -20,21 +20,19 @@ def interact(**kwargs: bool) -> None:
     """
     from code import interact as _interact
 
-    if kwargs.get("wakatime", True):
-        sys.ps1 = Ps1()
+    sys.ps1 = Ps1()
 
-    if kwargs.get("wakatime", True):
+    if kwargs.get("wakatime", True) or kwargs.get("codestats", True):
         with suppress(ImportError):
             from repl_python_wakatime.python import install_hook
 
-            install_hook()
+            if kwargs.get("wakatime", True):
+                install_hook()
 
-    if kwargs.get("codestats", True):
-        with suppress(ImportError):
-            from repl_python_wakatime.hooks.codestats import codestats_hook
-            from repl_python_wakatime.python import install_hook
+            if kwargs.get("codestats", True):
+                from repl_python_wakatime.hooks.codestats import codestats_hook
 
-            install_codestats_hook(codestats_hook)
+                install_hook(codestats_hook)
 
     if kwargs.get("jedi", True):
         with suppress(ImportError):
