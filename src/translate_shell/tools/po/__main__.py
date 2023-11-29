@@ -37,18 +37,18 @@ def get_parser() -> ArgumentParser:
     )
     parser.add_argument("--version", version=VERSION, action="version")
     shtab.add_argument_to(parser)
-    for input, info in action["inputs"].items():
+    for _input, info in action["inputs"].items():
         default = os.getenv(
-            "INPUT_" + input.upper().replace("-", "_"),
+            "INPUT_" + _input.upper().replace("-", "_"),
             info.get("default", ""),
         )
-        if input == "option":
+        if _input == "option":
             default = default.split()
             action = "append"
         else:
             action = "store"
         parser.add_argument(
-            "--" + input,
+            "--" + _input,
             # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#example-specifying-inputs
             default=default,
             help=info["description"] + ". default: %(default)s",

@@ -53,11 +53,12 @@ def complete(text: str, state: int) -> str:
         else:
             bins = []
             for path in os.getenv("PATH", ".").split(os.path.pathsep):
-                if os.path.isdir(path):
-                    files = os.listdir(path)
-                    for file in files:
-                        if os.path.isfile(os.path.join(path, file)):
-                            bins += [file]
+                if not os.path.isdir(path):
+                    continue
+                files = os.listdir(path)
+                for file in files:
+                    if os.path.isfile(os.path.join(path, file)):
+                        bins += [file]
         volcab = map(lambda x: "!" + x, bins)
     elif sl in langs + [""] and len(text.split(":")) == 2:
         volcab = map(lambda x: sl + ":" + x, langs)

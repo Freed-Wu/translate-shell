@@ -50,9 +50,10 @@ def get_setting(name: SETTING | None) -> str:
             ]
         )
     elif name is None:
-        from ..__main__ import SETTING
-
-        result = "\n\n".join("## " + setting + "\n\n" + get_setting(setting) for setting in SETTING.__args__)  # type: ignore
+        result = "\n\n".join(
+            "## " + setting + "\n\n" + get_setting(setting)
+            for setting in SETTING.__args__  # type: ignore
+        )
     else:
         result = ""
     return str(result)

@@ -4,7 +4,6 @@
 Define some utilities.
 """
 import logging
-from copy import deepcopy
 from dataclasses import dataclass, field
 from threading import Thread
 from typing import Any, Callable
