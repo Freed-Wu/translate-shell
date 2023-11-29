@@ -1,7 +1,32 @@
 # Changelog
 
-<a name="next"></a>
-## next
+<a name="0.0.43"></a>
+## 0.0.43 (2023-11-29)
+
+### Changed
+
+- ♻️ Refactor code about wakatime [[965bde5](https://github.com/Freed-Wu/translate-shell/commit/965bde5f4804538dcae821ceb7285e0808381d80)]
+- 👽 Update API due to repl_python_wakatime [[49e727f](https://github.com/Freed-Wu/translate-shell/commit/49e727f4e714606f8ec00dd7d5e34ec8115a0218)]
+
+
+<a name="0.0.42"></a>
+## 0.0.42 (2023-10-25)
+
+### Fixed
+
+- 🐛 Fix &quot;Using selector: EpollSelector&quot; [[bd43a38](https://github.com/Freed-Wu/translate-shell/commit/bd43a38cd4493f31008452f2bd932adf2a5eb4d8)]
+
+
+<a name="0.0.41"></a>
+## 0.0.41 (2023-10-23)
+
+### Changed
+
+- ♻️ Refactor more by dataclasses [[b6c8a98](https://github.com/Freed-Wu/translate-shell/commit/b6c8a981fb145584b368ad61c9cd4764d061fac1)]
+
+
+<a name="0.0.40"></a>
+## 0.0.40 (2023-10-23)
 
 ### Changed
 
