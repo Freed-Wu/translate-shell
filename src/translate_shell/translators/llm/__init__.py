@@ -157,7 +157,7 @@ class LLMTranslator(Translator):
         :type result: Translation
         :rtype: Translation
         """
-        result["paraphrase"] = completion["choices"][0]["message"]["content"]
+        result.paraphrase = completion["choices"][0]["message"]["content"]
         return result
 
     @staticmethod

@@ -61,13 +61,17 @@ def run(args: Namespace) -> None:
         for entry in entries:
             old = str(entry).splitlines()
             try:
-                entry.msgstr = translate(
-                    entry.msgid,
-                    target_lang,
-                    source_lang,
-                    [translator],
-                    {translator: option},
-                ).results[0]["paraphrase"]
+                entry.msgstr = (
+                    translate(
+                        entry.msgid,
+                        target_lang,
+                        source_lang,
+                        [translator],
+                        {translator: option},
+                    )
+                    .results[0]
+                    .paraphrase
+                )
             except Exception as e:  # skipcq: PYL-W0703
                 logger.warning(e)
                 po.save()

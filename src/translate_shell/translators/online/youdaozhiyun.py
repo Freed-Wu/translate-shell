@@ -108,10 +108,10 @@ class YoudaozhiyunTranslator(OnlineTranslator):
             logger.warning(ERROR.get(obj["errorCode"], "Unknown error!"))
             return None
 
-        basic = obj.get("basic")
         res.paraphrase = obj.get("translation", "")
-        res.detail = obj.get("web", "")
-        if basic:
+        if web := obj.get("web"):
+            res.details["details"] = {"web": web}
+        if basic := obj.get("basic"):
             # ignore us/uk-phonetic
             res.phonetic = basic.get("phonetic", "")
             res.explains = basic.get("explains", [])

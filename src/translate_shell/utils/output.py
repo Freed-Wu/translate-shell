@@ -7,6 +7,7 @@ from contextlib import suppress
 from ..__main__ import ASSETS_PATH
 from ..external.colorama import Fore, Style
 from ..translate import Translations
+from ..translators import Translation
 from .section import p10k_sections
 
 NUMBER = json.loads(
@@ -14,11 +15,11 @@ NUMBER = json.loads(
 )
 
 
-def process_output_firstline(rst: dict) -> str:
+def process_output_firstline(rst: Translation) -> str:
     """Process output firstline.
 
     :param rst:
-    :type rst: dict
+    :type rst: Translation
     :rtype: str
     """
     # Config
@@ -44,11 +45,11 @@ def process_output_firstline(rst: dict) -> str:
     return prompt
 
 
-def process_output_explain(explain: list[str]) -> str:
+def process_output_explain(explain: tuple[str, str]) -> str:
     """Process output explain.
 
     :param explain:
-    :type explain: list[str]
+    :type explain: tuple[str, str]
     :rtype: str
     """
     # Config
@@ -121,7 +122,7 @@ def process_output(translations: Translations) -> str:
     """
     rst = process_output_p10k(translations)
     with suppress(ImportError):
-        from repl_python_wakatime import wakatime_hook
+        from repl_python_wakatime.hooks.wakatime import wakatime_hook
 
         wakatime_hook(
             plugin="translate-shell-wakatime", category="translating"

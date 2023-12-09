@@ -10,6 +10,9 @@ from subprocess import run
 from .. import APPNAME
 from ..__main__ import ASSETS_PATH
 
+client = None
+Notification = None
+
 with suppress(ImportError):
     from pynotifier import Notification, NotificationClient
     from pynotifier.backends import platform
@@ -44,7 +47,7 @@ def notify(rst: str) -> None:
             check=True,
         )
     else:
-        with suppress(NameError):
+        if client and Notification:
             client.notify_all(
                 Notification(
                     title="Translation",
