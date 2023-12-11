@@ -80,12 +80,17 @@ async def translate_many(
     :type options: dict[str, dict[str, Any]]
     :rtype: None
     """
+    tasks = []
     for translator in translators:
-        await asyncio.create_task(
-            _translate_once(
-                translator, translations, options.get(translator.name, {})
+        tasks += [
+            asyncio.create_task(
+                _translate_once(
+                    translator, translations, options.get(translator.name, {})
+                )
             )
-        )
+        ]
+    for task in tasks:
+        await task
 
 
 def translate(
