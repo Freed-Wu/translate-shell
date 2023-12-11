@@ -3,6 +3,7 @@
 
 Define some utilities.
 """
+import asyncio
 import logging
 from dataclasses import dataclass, field
 from threading import Thread
@@ -48,12 +49,52 @@ def translate_once(
         translations.status = 1
 
 
+async def _translate_once(
+    translator: Translator, translations: Translations, option: dict[str, Any]
+) -> None:
+    """Translate once.
+
+    :param translator:
+    :type translator: Translator
+    :param translations:
+    :type translations: Translations
+    :param option:
+    :type option: dict[str, Any]
+    :rtype: None
+    """
+    translate_once(translator, translations, option)
+
+
+async def translate_many(
+    translators: list[Translator],
+    translations: Translations,
+    options: dict[str, dict[str, Any]],
+) -> None:
+    """Translate many.
+
+    :param translators:
+    :type translators: list[Translator]
+    :param translations:
+    :type translations: Translations
+    :param options:
+    :type options: dict[str, dict[str, Any]]
+    :rtype: None
+    """
+    for translator in translators:
+        await asyncio.create_task(
+            _translate_once(
+                translator, translations, options.get(translator.name, {})
+            )
+        )
+
+
 def translate(
     text: str,
     target_lang: str = "auto",
     source_lang: str = "auto",
     translators: list[Callable[[], Translator]] | list[str] | None = None,
     options: dict[str, dict[str, Any]] | None = None,
+    use: str = "coroutine",
 ) -> Translations:
     """Translate.
 
@@ -67,7 +108,9 @@ def translate(
     :type translators: list[Callable[[], Translator]] | list[str] | None
     :param options:
     :type options: dict[str, dict[str, Any]] | None
-    :rtype: Translation
+    :param use:
+    :type use: str
+    :rtype: Translations
     """
     if translators is None:
         translators = ["google"]
@@ -81,20 +124,19 @@ def translate(
             translator = TRANSLATORS.get(translator)
         if isinstance(translator, Callable):
             translator = translator()
+        if translator is None:
+            continue
         true_translators += [translator]
 
-    if len(translators) == 1:
+    if len(true_translators) == 1:
         translator = true_translators[0]
         translate_once(
             translator, translations, options.get(translator.name, {})
         )
-    else:
+    elif use == "threading":
         threads = []
         for translator in true_translators:
-            if translator is None:
-                continue
-
-            task = Thread(
+            thread = Thread(
                 target=translate_once,
                 args=(
                     translator,
@@ -102,9 +144,14 @@ def translate(
                     options.get(translator.name, {}),
                 ),
             )
-            threads.append(task)
-
+            threads += [thread]
         list(map(lambda x: x.start(), threads))
         list(map(lambda x: x.join(), threads))
-
+    elif use == "coroutine":
+        asyncio.run(translate_many(true_translators, translations, options))
+    else:
+        for translator in true_translators:
+            translate_once(
+                translator, translations, options.get(translator.name, {})
+            )
     return translations

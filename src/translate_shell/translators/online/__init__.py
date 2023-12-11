@@ -6,7 +6,7 @@ import socket
 from copy import deepcopy
 from dataclasses import dataclass
 from typing import Any
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -71,7 +71,7 @@ class OnlineTranslator(Translator):
                 r = r.read().decode(charset)
                 return r
 
-        except (HTTPError, socket.timeout):
+        except (HTTPError, URLError, socket.timeout):
             logger.warning(
                 "Translator %s timed out, please check your network",
                 self.name,

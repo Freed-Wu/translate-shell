@@ -54,11 +54,12 @@ class StardictTranslator(Translator):
         :rtype: Translation | None
         """
         self.stardict = option.get("stardict", STARDICT)
-        tokens, dictionary = self.get_tokens(text, tl, sl)
+        tokens, dictionary, sl, tl, dictionaries = self.get_tokens(
+            text, tl, sl
+        )
         if tokens == []:
             logger.warning(
-                "No appropriate dictionary is found in "
-                + ", ".join(map(str, STARDICT_DIRS))
+                f"No appropriate dictionary ({', '.join(dictionaries)}) from {sl} to {tl} is found in {', '.join(map(str, STARDICT_DIRS))}"
             )
             return None
         res = self.create_translation(text, tl, sl)
@@ -77,7 +78,9 @@ class StardictTranslator(Translator):
         res = parse_tokens(tokens, res)
         return res
 
-    def get_tokens(self, text: str, tl: str, sl: str) -> tuple[list[str], str]:
+    def get_tokens(
+        self, text: str, tl: str, sl: str
+    ) -> tuple[list[str], str, str, str, list[str]]:
         """Get tokens.
 
         :param text:
@@ -86,7 +89,7 @@ class StardictTranslator(Translator):
         :type tl: str
         :param sl:
         :type sl: str
-        :rtype: tuple[list[str], str]
+        :rtype: tuple[list[str], str, str, str, list[str]]
         """
         if sl == "auto":
             from ...external.langdetect import LangDetectException, detect
@@ -97,9 +100,15 @@ class StardictTranslator(Translator):
                 sl = "en"
             # convert zh-cn to zh_CN
             lang, _, country = sl.partition("-")
-            sl = lang + "_" + country.upper() if country else ""
+            sl = lang + ("_" + country.upper() if country else "")
+        if tl == "auto":
+            tl = os.getenv("LANG", "zh_CN.UTF-8").split(".")[0]
 
-        dictionaries = self.stardict.get(sl, self.stardict["en"]).get(tl, [])
+        # when text is too short (only one word), detect will get wrong result
+        # so use en as a fallback
+        if sl not in self.stardict:
+            sl = "en"
+        dictionaries = self.stardict.get(sl, {}).get(tl, [])
         for directory in STARDICT_DIRS:
             for dictionary in dictionaries:
                 expr = os.path.join(
@@ -113,8 +122,8 @@ class StardictTranslator(Translator):
                     prefix = path.rpartition(".dict")[0]
                     with suppress(AttributeError):
                         tokens = Dictionary(prefix).get(text).split("\n")
-                        return tokens, dictionary
-        return [], ""
+                        return tokens, dictionary, sl, tl, dictionaries
+        return [], "", sl, tl, dictionaries
 
 
 STARDICT = {
