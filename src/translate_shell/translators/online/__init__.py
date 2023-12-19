@@ -3,8 +3,10 @@
 """
 import logging
 from dataclasses import dataclass
+from typing import Any
 
 from aiohttp import ClientSession
+from aiohttp.client import ClientTimeout
 
 from .. import Translator
 
@@ -16,7 +18,6 @@ class OnlineTranslator(Translator):
     """OnlineTranslator. All other online translators must be its subclass."""
 
     name: str
-    timeout: int = 5
 
     async def http_get(
         self,
@@ -24,6 +25,8 @@ class OnlineTranslator(Translator):
         session: ClientSession | None,
         params: dict[str, str] | None = None,
         headers: dict[str, str] | None = None,
+        cookies: dict[str, Any] | None = None,
+        timeout: int = 1,
     ) -> str:
         """Http get.
 
@@ -35,24 +38,29 @@ class OnlineTranslator(Translator):
         :type params: dict[str, str] | None
         :param headers:
         :type headers: dict[str, str] | None
+        :param cookies:
+        :type cookies: dict[str, Any] | None
+        :param timeout:
+        :type timeout: int
         :rtype: str
         """
         if session is None:
-            _session = ClientSession()
-        else:
-            _session = session
+            session = ClientSession()
         text = ""
         try:
-            async with _session.get(
-                url, params=params, headers=headers
+            async with session.get(
+                url,
+                params=params,
+                headers=headers,
+                cookies=cookies,
+                timeout=ClientTimeout(timeout),
             ) as resp:
                 text = await resp.text()
-        except Exception:
+        except TimeoutError:
             logger.warning(
                 "Translator %s timed out, please check your network", self.name
             )
-        if session is None:
-            await _session.close()
+        await session.close()
         return text
 
     @staticmethod

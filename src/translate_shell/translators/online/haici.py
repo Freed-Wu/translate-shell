@@ -17,7 +17,6 @@ class HaiciTranslator(OnlineTranslator):
     """HaiciTranslator."""
 
     name: str = "haici"
-    timeout: int = 15
 
     async def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
