@@ -7,7 +7,6 @@ http://dict.cn
 import re
 from dataclasses import dataclass
 from typing import Any
-from urllib.parse import quote_plus
 
 from .. import Translation
 from . import OnlineTranslator
@@ -20,7 +19,7 @@ class HaiciTranslator(OnlineTranslator):
     name: str = "haici"
     timeout: int = 15
 
-    def __call__(
+    async def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
     ) -> Translation | None:
         """Call.
@@ -38,9 +37,9 @@ class HaiciTranslator(OnlineTranslator):
         res = self.create_translation(text, tl, sl)
         tl, sl = self.convert_langs(tl, sl)
         url = "http://dict.cn/mini.php"
-        req = {}
-        req["q"] = quote_plus(text)
-        resp = self.http_get(url, req)
+        params = {"q": text}
+        session = option.get(self.name, {}).get("session", None)
+        resp = await self.http_get(url, session, params)
         if not resp:
             return None
 

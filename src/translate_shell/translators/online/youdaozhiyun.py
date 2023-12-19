@@ -60,7 +60,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         s = self.app_id + text + salt + self.app_sec
         return self.md5sum(s)
 
-    def __call__(
+    async def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
     ) -> Translation | None:
         """Call.
@@ -86,7 +86,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
             to = "zh-CHT"
         else:
             to = tl
-        data = {
+        params = {
             "appKey": self.app_id,
             "q": text,
             "from": sl,
@@ -94,7 +94,8 @@ class YoudaozhiyunTranslator(OnlineTranslator):
             "salt": salt,
             "sign": sign,
         }
-        resp = self.http_get(self.url, data, None)
+        session = option.get(self.name, {}).get("session", None)
+        resp = await self.http_get(self.url, session, params)
 
         if isinstance(resp, str):
             try:

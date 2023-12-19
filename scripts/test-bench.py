@@ -4,7 +4,7 @@ r"""Test bench
 
 .. code:: sh
 
-    $ ./test_bench.py --translators=google,bing,haici,stardict block
+    $ ./test-bench.py --translators=google,bing,haici,stardict block
 
     input text:     block
     target lang     zh_CN
@@ -13,12 +13,6 @@ r"""Test bench
 
     coroutine:
             time:    1.8392638560035266
-            results:         4
-    threading:
-            time:    0.6133544620242901
-            results:         4
-    serial run:
-            time:    1.6182543189497665
             results:         4
 """
 import time
@@ -45,7 +39,7 @@ translators:\t{args.translators}
 args.translators = args.translators.split(",")
 
 translationss = {}
-for use in ["coroutine", "threading", "serial run"]:
+for use in ["coroutine"]:
     print(
         f"{use}:\n\ttime:\t",
         timeit(
@@ -55,7 +49,6 @@ translationss[{use!r}] = translate(
     args.target_lang,
     args.source_lang,
     args.translators,
-    use={use!r},
 )
 """,
             globals=globals(),

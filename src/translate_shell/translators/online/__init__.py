@@ -2,12 +2,9 @@
 ====================
 """
 import logging
-from contextlib import suppress
 from dataclasses import dataclass
-from typing import Any
-from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
-from urllib.request import Request, urlopen
+
+from aiohttp import ClientSession
 
 from .. import Translator
 
@@ -21,44 +18,42 @@ class OnlineTranslator(Translator):
     name: str
     timeout: int = 5
 
-    def http_get(
-        self, url: str, data: Any = None, header: dict[str, str] | None = None
+    async def http_get(
+        self,
+        url: str,
+        session: ClientSession | None,
+        params: dict[str, str] | None = None,
+        headers: dict[str, str] | None = None,
     ) -> str:
         """Http get.
 
         :param url:
         :type url: str
-        :param data:
-        :type data: Any
-        :param header:
-        :type header: dict[str, str] | None
+        :param session:
+        :type session: ClientSession | None
+        :param params:
+        :type params: dict[str, str] | None
+        :param headers:
+        :type headers: dict[str, str] | None
         :rtype: str
         """
-        if header is None:
-            header = {
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"
-                " AppleWebKit/537.36 (KHTML, like Gecko)"
-                " Chrome/75.0.3770.100 Safari/537.36"
-            }
-
-        if data:
-            query_string = urlencode(data)
-            url = url + "?" + query_string
-
-        with suppress(HTTPError, URLError):
-            with urlopen(
-                Request(url, None, header), timeout=self.timeout
-            ) as r:  # skipcq: BAN-B310
-                charset = r.headers.get_param("charset") or "utf-8"
-
-                r = r.read().decode(charset)
-                return r
-
-        logger.warning(
-            "Translator %s timed out, please check your network",
-            self.name,
-        )
-        return ""
+        if session is None:
+            _session = ClientSession()
+        else:
+            _session = session
+        text = ""
+        try:
+            async with _session.get(
+                url, params=params, headers=headers
+            ) as resp:
+                text = await resp.text()
+        except Exception:
+            logger.warning(
+                "Translator %s timed out, please check your network", self.name
+            )
+        if session is None:
+            await _session.close()
+        return text
 
     @staticmethod
     def md5sum(text: str | bytes) -> str:

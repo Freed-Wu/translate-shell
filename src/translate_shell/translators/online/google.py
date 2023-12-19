@@ -7,7 +7,6 @@ https://support.google.com/translate
 import json
 from dataclasses import dataclass
 from typing import Any
-from urllib.parse import quote_plus
 
 from .. import Translation
 from . import OnlineTranslator
@@ -21,24 +20,7 @@ class GoogleTranslator(OnlineTranslator):
     host: str = "translate.googleapis.com"
     cnhost: str = "translate.google.com.hk"
 
-    def get_url(self, sl: str, tl: str, qry: str) -> str:
-        """Get url.
-
-        :param sl:
-        :type sl: str
-        :param tl:
-        :type tl: str
-        :param qry:
-        :type qry: str
-        :rtype: str
-        """
-        http_host = self.cnhost if "zh" in tl else self.host
-        qry = quote_plus(qry)
-        url = f"https://{http_host}/translate_a/single?client=gtx&sl={sl}\
-&tl={tl}&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&q={qry}"
-        return url
-
-    def __call__(
+    async def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
     ) -> Translation | None:
         """Call.
@@ -55,8 +37,17 @@ class GoogleTranslator(OnlineTranslator):
         """
         res = self.create_translation(text, tl, sl)
         tl, sl = self.convert_langs(tl, sl)
-        url = self.get_url(sl, tl, text)
-        resp = self.http_get(url)
+        http_host = self.cnhost if "zh" in tl else self.host
+        url = f"https://{http_host}/translate_a/single"
+        params = {
+            "client": "gtx",
+            "sl": sl,
+            "tl": tl,
+            "dt": ["at", "bd", "ex", "ld", "md", "qca", "rw", "rm", "ss", "t"],
+            "q": text,
+        }
+        session = option.get(self.name, {}).get("session", None)
+        resp = await self.http_get(url, session, params)
         if not resp:
             return None
         obj = json.loads(resp)

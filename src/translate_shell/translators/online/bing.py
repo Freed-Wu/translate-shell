@@ -34,7 +34,7 @@ class BingTranslator(OnlineTranslator):
             r'<span class="ht_trs">(.*?)</span>'
         )
 
-    def __call__(
+    async def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
     ) -> Translation | None:
         """Call.
@@ -52,7 +52,7 @@ class BingTranslator(OnlineTranslator):
         res = self.create_translation(text, tl, sl)
         tl, sl = self.convert_langs(tl, sl)
         url = self.cnurl if "zh" in tl else self.url
-        url = url + "?q=" + quote_plus(text)
+        params = {"q": text}
         headers = {
             "Accept": (
                 "text/html,application/xhtml+xml,application/xml;"
@@ -61,7 +61,8 @@ class BingTranslator(OnlineTranslator):
             "Accept-Language": "en-US,en;q=0.5",
             "Cookie": "_EDGE_S=mkt=" + tl,
         }
-        resp = self.http_get(url, None, headers)
+        session = option.get(self.name, {}).get("session", None)
+        resp = await self.http_get(url, session, params, headers)
         if not resp:
             return None
         res.phonetic = self.get_phonetic(resp)

@@ -6,7 +6,7 @@ Define some utilities.
 import asyncio
 import logging
 from dataclasses import dataclass, field
-from threading import Thread
+from inspect import iscoroutine
 from typing import Any, Callable
 
 from .translators import TRANSLATORS, Translation, Translator
@@ -25,7 +25,7 @@ class Translations:
     results: list[Translation] = field(default_factory=list)
 
 
-def translate_once(
+async def translate_once(
     translator: Translator, translations: Translations, option: dict[str, Any]
 ) -> None:
     """Translate once.
@@ -44,25 +44,11 @@ def translate_once(
         translations.from_lang,
         option,
     )
+    if iscoroutine(res):
+        res = await res
     if res:
         translations.results.append(res)
         translations.status = 1
-
-
-async def _translate_once(
-    translator: Translator, translations: Translations, option: dict[str, Any]
-) -> None:
-    """Translate once.
-
-    :param translator:
-    :type translator: Translator
-    :param translations:
-    :type translations: Translations
-    :param option:
-    :type option: dict[str, Any]
-    :rtype: None
-    """
-    translate_once(translator, translations, option)
 
 
 async def translate_many(
@@ -84,7 +70,7 @@ async def translate_many(
     for translator in translators:
         tasks += [
             asyncio.create_task(
-                _translate_once(
+                translate_once(
                     translator, translations, options.get(translator.name, {})
                 )
             )
@@ -99,7 +85,6 @@ def translate(
     source_lang: str = "auto",
     translators: list[Callable[[], Translator]] | list[str] | None = None,
     options: dict[str, dict[str, Any]] | None = None,
-    use: str = "coroutine",
 ) -> Translations:
     """Translate.
 
@@ -113,8 +98,6 @@ def translate(
     :type translators: list[Callable[[], Translator]] | list[str] | None
     :param options:
     :type options: dict[str, dict[str, Any]] | None
-    :param use:
-    :type use: str
     :rtype: Translations
     """
     if translators is None:
@@ -133,30 +116,5 @@ def translate(
             continue
         true_translators += [translator]
 
-    if len(true_translators) == 1:
-        translator = true_translators[0]
-        translate_once(
-            translator, translations, options.get(translator.name, {})
-        )
-    elif use == "threading":
-        threads = []
-        for translator in true_translators:
-            thread = Thread(
-                target=translate_once,
-                args=(
-                    translator,
-                    translations,
-                    options.get(translator.name, {}),
-                ),
-            )
-            threads += [thread]
-        list(map(lambda x: x.start(), threads))
-        list(map(lambda x: x.join(), threads))
-    elif use == "coroutine":
-        asyncio.run(translate_many(true_translators, translations, options))
-    else:
-        for translator in true_translators:
-            translate_once(
-                translator, translations, options.get(translator.name, {})
-            )
+    asyncio.run(translate_many(true_translators, translations, options))
     return translations
