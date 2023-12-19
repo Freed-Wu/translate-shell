@@ -2,8 +2,7 @@
 ====================
 """
 import logging
-import socket
-from copy import deepcopy
+from contextlib import suppress
 from dataclasses import dataclass
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -22,62 +21,6 @@ class OnlineTranslator(Translator):
     name: str
     timeout: int = 5
 
-    def request(
-        self,
-        url: str,
-        data: Any = None,
-        post: bool = False,
-        header: dict[str, str] | None = None,
-    ) -> str:
-        """Request.
-
-        :param url:
-        :type url: str
-        :param data:
-        :type data: Any
-        :param post:
-        :type post: bool
-        :param header:
-        :type header: dict[str, str] | None
-        :rtype: str
-        """
-        if header:
-            header = deepcopy(header)
-        else:
-            header = {
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"
-                " AppleWebKit/537.36 (KHTML, like Gecko)"
-                " Chrome/75.0.3770.100 Safari/537.36"
-            }
-
-        if post:
-            if data:
-                data = urlencode(data).encode("utf-8")
-        else:
-            if data:
-                query_string = urlencode(data)
-                url = url + "?" + query_string
-                data = None
-
-        if url.lower().startswith("http"):
-            req = Request(url, data, header)
-        else:
-            return ""
-
-        try:
-            with urlopen(req, timeout=self.timeout) as r:  # skipcq: BAN-B310
-                charset = r.headers.get_param("charset") or "utf-8"
-
-                r = r.read().decode(charset)
-                return r
-
-        except (HTTPError, URLError, socket.timeout):
-            logger.warning(
-                "Translator %s timed out, please check your network",
-                self.name,
-            )
-            return ""
-
     def http_get(
         self, url: str, data: Any = None, header: dict[str, str] | None = None
     ) -> str:
@@ -91,22 +34,31 @@ class OnlineTranslator(Translator):
         :type header: dict[str, str] | None
         :rtype: str
         """
-        return self.request(url, data, False, header)
+        if header is None:
+            header = {
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"
+                " AppleWebKit/537.36 (KHTML, like Gecko)"
+                " Chrome/75.0.3770.100 Safari/537.36"
+            }
 
-    def http_post(
-        self, url: str, data: Any = None, header: dict[str, str] | None = None
-    ) -> str:
-        """Http post.
+        if data:
+            query_string = urlencode(data)
+            url = url + "?" + query_string
 
-        :param url:
-        :type url: str
-        :param data:
-        :type data: Any
-        :param header:
-        :type header: dict[str, str] | None
-        :rtype: str
-        """
-        return self.request(url, data, True, header)
+        with suppress(HTTPError, URLError):
+            with urlopen(
+                Request(url, None, header), timeout=self.timeout
+            ) as r:  # skipcq: BAN-B310
+                charset = r.headers.get_param("charset") or "utf-8"
+
+                r = r.read().decode(charset)
+                return r
+
+        logger.warning(
+            "Translator %s timed out, please check your network",
+            self.name,
+        )
+        return ""
 
     @staticmethod
     def md5sum(text: str | bytes) -> str:
