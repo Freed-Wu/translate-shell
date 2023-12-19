@@ -1,5 +1,51 @@
 # Changelog
 
+<a name="0.0.48"></a>
+## 0.0.48 (2023-12-19)
+
+### Fixed
+
+- 🐛 Fix timeout [[b8cd24e](https://github.com/Freed-Wu/translate-shell/commit/b8cd24e44bb4898a3a3bb8ed014a02a103ee6b37)]
+
+
+<a name="0.0.47"></a>
+## 0.0.47 (2023-12-19)
+
+### Removed
+
+- 🔥 Remove code about thread [[5f1eaa9](https://github.com/Freed-Wu/translate-shell/commit/5f1eaa9c61ade55f5cb1548918ca057886ee866f)]
+- 🔥 Remove unused code [[daf04c6](https://github.com/Freed-Wu/translate-shell/commit/daf04c627782471d1e4384a78f98d85550bb2469)]
+
+
+<a name="0.0.46"></a>
+## 0.0.46 (2023-12-11)
+
+### Miscellaneous
+
+- 🧵 Fix corountines&#x27; await [[ace7c37](https://github.com/Freed-Wu/translate-shell/commit/ace7c372de644b0395540f1bc6a4351732503f37)]
+
+
+<a name="0.0.45"></a>
+## 0.0.45 (2023-12-11)
+
+### Miscellaneous
+
+- 🧵 Use corountine [[e11d90e](https://github.com/Freed-Wu/translate-shell/commit/e11d90e1444291f9ee1e0437904052bf0d84877a)]
+
+
+<a name="0.0.44"></a>
+## 0.0.44 (2023-12-09)
+
+### Added
+
+- 👷‍♂️ Update github action [[ff745ee](https://github.com/Freed-Wu/translate-shell/commit/ff745ee80e8b3d8f2f205c64199ef6363ad256b4)]
+
+### Changed
+
+- 👽 Fix broken APIs [[cef5636](https://github.com/Freed-Wu/translate-shell/commit/cef5636e4da7ecb06649044f900c60931003394c)]
+- 🎨 Format code [[30640d7](https://github.com/Freed-Wu/translate-shell/commit/30640d75bbc840092489508e1e3f9d26256e1762)]
+
+
 <a name="0.0.43"></a>
 ## 0.0.43 (2023-11-29)
 
