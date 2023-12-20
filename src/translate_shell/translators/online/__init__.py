@@ -26,7 +26,7 @@ class OnlineTranslator(Translator):
         params: dict[str, str] | None = None,
         headers: dict[str, str] | None = None,
         cookies: dict[str, Any] | None = None,
-        timeout: int = 1,
+        timeout: int = 3,
     ) -> str:
         """Http get.
 
