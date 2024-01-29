@@ -4,6 +4,7 @@
 Refer https://github.com/voldikss/vim-translator
 https://support.google.com/translate
 """
+
 import json
 from dataclasses import dataclass
 from typing import Any
@@ -116,10 +117,7 @@ class GoogleTranslator(OnlineTranslator):
         for x in resp[12]:
             result[x[0]] = {}
             for y in x[1]:
-                if len(y) > 2 and isinstance(y[2], str):
-                    example = y[2]
-                else:
-                    example = ""
+                example = y[2] if len(y) > 2 and isinstance(y[2], str) else ""
                 result[x[0]][y[0]] = example
         return result
 

@@ -1,16 +1,17 @@
 """Define common functions shared by CLI and REPL."""
+
 import atexit
 import json
 import logging
 import os
 import signal
 from argparse import Namespace, _StoreAction
+from collections.abc import Callable
 from contextlib import suppress
 from dataclasses import asdict
 from pathlib import Path
 from threading import get_ident, main_thread
 from types import ModuleType
-from typing import Callable
 
 from .. import CONFIG_FILE, HISTORY_FILE
 from ..__main__ import get_parser
@@ -99,10 +100,7 @@ def init(args: Namespace) -> None:
     :type args: Namespace
     :rtype: None
     """
-    if args.config:
-        config_file = Path(args.config)
-    else:
-        config_file = CONFIG_FILE
+    config_file = Path(args.config) if args.config else CONFIG_FILE
     config = init_config(config_file)
     for action in get_parser()._get_optional_actions():  # skipcq: PYL-W0212
         if (

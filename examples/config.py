@@ -1,4 +1,5 @@
 """Configure."""
+
 from translate_shell.config import Configuration
 
 

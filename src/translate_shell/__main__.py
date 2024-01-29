@@ -3,13 +3,13 @@
 `python -m <https://docs.python.org/3/library/__main__.html>`_.
 See `man <../resources/man.html>`_.
 """
+
 import json
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from pathlib import Path
 from typing import Literal, NoReturn
 
-from translate_shell import __version__  # type: ignore
 from translate_shell._metainfo import (  # type: ignore
     DESCRIPTION,
     EPILOG,
@@ -153,8 +153,8 @@ def get_parser() -> ArgumentParser:
         "--options",
         default=[],
         help="advanced usage, see "
-        "https://translate-shell.readthedocs.io/en/latest/resources/config.html "
-        ". default: %(default)s",
+        "https://translate-shell.readthedocs.io/en/latest/resources/config.html"
+        " . default: %(default)s",
         action="append",
     ).complete = LANG_COMPLETE  # type: ignore
     parser.add_argument(
@@ -188,7 +188,7 @@ def main() -> None | NoReturn:
         from translate_shell.ui.server import run
     else:
         try:
-            import vim  # type: ignore
+            import vim  # type: ignore  # noqa: F401
         except ImportError:
             if not sys.stdin.isatty():
                 args.text = [sys.stdin.read()] + args.text

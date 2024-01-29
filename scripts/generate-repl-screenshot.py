@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Generate screenshot for REPL."""
+
 from time import sleep
 
 import pexpect

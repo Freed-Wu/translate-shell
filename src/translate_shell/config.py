@@ -3,6 +3,7 @@
 
 Define a class for user customization.
 """
+
 from argparse import Namespace
 from typing import Any, Literal
 

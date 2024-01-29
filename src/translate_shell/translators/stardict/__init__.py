@@ -4,6 +4,7 @@
 .. todo::
     More stardicts.
 """
+
 import logging
 import os
 from contextlib import suppress
@@ -59,7 +60,9 @@ class StardictTranslator(Translator):
         )
         if tokens == []:
             logger.warning(
-                f"No appropriate dictionary ({', '.join(dictionaries)}) from {sl} to {tl} is found in {', '.join(map(str, STARDICT_DIRS))}"
+                f"No appropriate dictionary ({', '.join(dictionaries)}) "
+                f"from {sl} to {tl} "
+                f"is found in {', '.join(map(str, STARDICT_DIRS))}"
             )
             return None
         res = self.create_translation(text, tl, sl)

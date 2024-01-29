@@ -1,4 +1,5 @@
 """langdao-ce-gb"""
+
 from ...translate import translate
 from .. import Translation
 
@@ -31,7 +32,7 @@ def parse_tokens(tokens: list[str], res: Translation) -> Translation:
                     .paraphrase
                 )
                 paraphrases += [paraphrase]
-            details["相关词组"] = dict(zip(phrases, paraphrases))
+            details["相关词组"] = dict(zip(phrases, paraphrases, strict=False))
             break
         elif k == "":
             if paraphrase == "":

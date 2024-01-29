@@ -113,27 +113,36 @@ file = "requirements/yaml.txt"
 [tool.mdformat]
 number = true
 
-[tool.black]
-line-length = 79
-
-[tool.isort]
-line_length = 79
-profile = "black"
-
-[tool.pydocstyle]
-add_ignore = "D205, D400"
-
-[tool.bandit]
-skips = ["B310", "B404", "B603"]
-
-[tool.bandit.assert_used]
-skips = ["*_test.py", "test_*.py"]
-
 [tool.codespell]
 ignore-words-list = "fo, nd, te"
 
-[tool.pyright]
-exclude = ["templates/__init__.py"]
+[tool.doq]
+template_path = "templates"
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+select = [
+  # pycodestyle
+  "E",
+  # pyflakes
+  "F",
+  # pyupgrade
+  "UP",
+  # flake8-bugbear
+  "B",
+  # flake8-simplify
+  "SIM",
+  # isort
+  "I",
+]
+ignore = ["D205", "D400"]
+preview = true
+
+[tool.ruff.format]
+docstring-code-format = true
+preview = true
 
 [tool.coverage.report]
 exclude_lines = [
@@ -141,6 +150,3 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "\\s*import tomli as tomllib",
 ]
-
-[tool.doq]
-template_path = "templates"

@@ -1,8 +1,9 @@
 r"""PS1
 =======
 """
+
 import sys
-from typing import Callable
+from collections.abc import Callable
 
 from ...utils.section import (
     p10k_sections,
@@ -39,7 +40,8 @@ class Ps1:
                 (
                     "GREEN",
                     "BLACK",
-                    f" {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}",
+                    f" {sys.version_info.major}.{sys.version_info.minor}."
+                    f"{sys.version_info.micro}",
                 ),
                 ("WHITE", "BLUE", section_path),
                 (

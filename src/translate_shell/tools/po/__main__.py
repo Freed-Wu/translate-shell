@@ -1,6 +1,7 @@
 r"""This module can be called by
 `python -m <https://docs.python.org/3/library/__main__.html>`_.
 """
+
 import os
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from datetime import datetime
@@ -27,9 +28,8 @@ Report bugs to <wuzhenyu@ustc.edu>.
 
 def get_parser() -> ArgumentParser:
     r"""Get a parser for unit test."""
-    action = yaml.safe_load(
-        open(os.path.join(os.path.dirname(__file__), "action.yml"))
-    )
+    with open(os.path.join(os.path.dirname(__file__), "action.yml")) as f:
+        action = yaml.safe_load(f)
     parser = ArgumentParser(
         description=action["description"],
         epilog=EPILOG,

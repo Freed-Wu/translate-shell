@@ -15,11 +15,12 @@ r"""Test bench
             time:    1.8392638560035266
             results:         4
 """
+
 import time
 from timeit import timeit
 
 from translate_shell.__main__ import get_parser
-from translate_shell.translate import translate
+from translate_shell.translate import translate  # noqa: F401
 from translate_shell.ui import init
 
 NUMBER = 1
@@ -28,14 +29,12 @@ SLEEP_SECONDS = 0.5
 parser = get_parser()
 args = parser.parse_args()
 init(args)
-print(
-    f"""
+print(f"""
 input text:\t{args.text}
 target lang\t{args.target_lang}
 source lang:\t{args.source_lang}
 translators:\t{args.translators}
-"""
-)
+""")
 args.translators = args.translators.split(",")
 
 translationss = {}

@@ -1,6 +1,7 @@
 """Complete
 ===========
 """
+
 import os
 
 from ..__main__ import LANGS
@@ -33,10 +34,7 @@ def complete(text: str, state: int) -> str:
     elif text.startswith("<"):
         length = len("<")
         dirname = os.path.dirname(text[length:])
-        if dirname:
-            files = os.listdir(dirname)
-        else:
-            files = os.listdir()
+        files = os.listdir(dirname) if dirname else os.listdir()
         files = map(lambda x: os.path.join(dirname, x), files)
         volcab = map(
             lambda x: "<" + x + ("/" if os.path.isdir(x) else ""),

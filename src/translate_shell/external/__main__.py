@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 """This module can be called by
 `python -m <https://docs.python.org/3/library/__main__.html>`_
-to check if any fake module imports any variable don't owned by any true module.
+to check if any fake module imports any variable doesn't owned by any real
+module.
 """
+
 import os
 import sys
 from importlib import import_module

@@ -1,7 +1,8 @@
 """Fake errors
 ==============
 """
+
 try:
-    from errors import *  # type: ignore
+    from errors import *  # type: ignore  # noqa: F403
 except ImportError:
-    from .__main__ import *
+    from .__main__ import *  # noqa: F403

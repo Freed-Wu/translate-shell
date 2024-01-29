@@ -3,10 +3,11 @@
 `python -m <https://docs.python.org/3/library/__main__.html>`_
 to check if it imports any variable don't owned by any true module.
 """
+
 import re as _re
 
 _RE_CHINESE = _re.compile("[\u4e00-\u9fff]", _re.UNICODE)
-_RE_JAPANESE = _re.compile("[\u3041-\u30FE]", _re.UNICODE)
+_RE_JAPANESE = _re.compile("[\u3041-\u30fe]", _re.UNICODE)
 LangDetectException = Exception
 
 

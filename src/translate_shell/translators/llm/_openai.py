@@ -1,6 +1,7 @@
 r"""Openai
 ==========
 """
+
 from dataclasses import dataclass
 
 import openai

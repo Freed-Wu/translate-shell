@@ -1,13 +1,14 @@
 r"""Section
 ===========
 """
+
 import os
 import platform
 import sys
+from collections.abc import Callable
 from contextlib import suppress
 from datetime import datetime
 from pathlib import Path
-from typing import Callable
 
 from ..external.colorama import Back, Fore, Style, init
 
@@ -68,16 +69,10 @@ def section_path() -> str:
     :rtype: str
     """
     cwd = os.getcwd()
-    if os.access(cwd, 7):
-        logo = " "
-    else:
-        logo = " "
+    logo = "\uf07c " if os.access(cwd, 7) else "\uf023 "
     with suppress(ValueError):
         cwd = str(Path(cwd).relative_to(Path.home()))
-        if cwd == ".":
-            cwd = "~"
-        else:
-            cwd = "~/" + cwd
+        cwd = "~" if cwd == "." else "~/" + cwd
     head, mid, tail = cwd.rpartition("/")
     path = logo + head + mid + Style.BRIGHT + tail
     return path

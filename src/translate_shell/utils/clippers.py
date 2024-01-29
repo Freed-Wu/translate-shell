@@ -1,6 +1,7 @@
 """Clippers
 ===========
 """
+
 import logging
 import os
 from shlex import split

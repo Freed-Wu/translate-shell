@@ -1,6 +1,7 @@
 r"""Notify
 ==========
 """
+
 import re
 from contextlib import suppress
 from shlex import split

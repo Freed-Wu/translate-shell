@@ -4,10 +4,10 @@
 Refer https://github.com/voldikss/vim-translator
 https://www.microsoft.com/en-us/translator/help/bing/
 """
+
 import re
 from dataclasses import dataclass
 from typing import Any
-from urllib.parse import quote_plus
 
 from .. import Translation
 from . import OnlineTranslator

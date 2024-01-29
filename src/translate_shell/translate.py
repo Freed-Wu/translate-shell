@@ -3,11 +3,13 @@
 
 Define some utilities.
 """
+
 import asyncio
 import logging
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from inspect import iscoroutine
-from typing import Any, Callable
+from typing import Any
 
 from .translators import TRANSLATORS, Translation, Translator
 
@@ -38,14 +40,14 @@ async def translate_once(
     :type option: dict[str, Any]
     :rtype: None
     """
-    res = translator(
+    res = translator(  # type: ignore
         translations.text,
         translations.to_lang,
         translations.from_lang,
         option,
     )
     if iscoroutine(res):
-        res = await res
+        res: Translation = await res
     if res:
         translations.results.append(res)
         translations.status = 1

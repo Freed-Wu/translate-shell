@@ -1,6 +1,7 @@
 """Process Output
 =================
 """
+
 import json
 from contextlib import suppress
 
@@ -90,7 +91,7 @@ def process_output_p10k(translations: Translations) -> str:
     outputs = []
     for rst in translations.results:
         outputs += [process_output_firstline(rst)]
-        for i, explain in enumerate(rst.explains.items(), 1):
+        for _, explain in enumerate(rst.explains.items(), 1):
             outputs += [process_output_explain(explain)]
         for pos, details in rst.details.items():
             outputs += [process_output_pos(pos)]

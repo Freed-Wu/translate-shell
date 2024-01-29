@@ -1,9 +1,9 @@
 """Provide ``TRANSLATORS`` for shell completion."""
-from __future__ import annotations
 
 import logging
+from collections.abc import Callable, Coroutine
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Callable
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from .llm._llama_cpp import LlamaTranslator
@@ -64,7 +64,7 @@ class Translator:
 
     def __call__(
         self, text: str, tl: str, sl: str, option: dict[str, Any]
-    ) -> Translation | None:
+    ) -> Coroutine[Any, Any, Translation | None] | Translation | None:
         """Call.
 
         :param text:

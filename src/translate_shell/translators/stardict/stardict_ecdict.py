@@ -1,6 +1,7 @@
 r"""Stardict Ecdict
 ===================
 """
+
 from .. import Translation
 
 

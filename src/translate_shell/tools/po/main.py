@@ -1,4 +1,5 @@
 r"""Refer ``action.yml``."""
+
 import logging
 import os
 from argparse import Namespace
@@ -7,7 +8,6 @@ from glob import glob
 
 from polib import pofile
 from tqdm import tqdm
-
 from translate_shell.translate import translate
 
 try:

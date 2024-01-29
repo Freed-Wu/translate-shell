@@ -1,4 +1,5 @@
 """Test translators."""
+
 import json
 from dataclasses import asdict
 

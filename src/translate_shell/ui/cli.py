@@ -1,6 +1,7 @@
 """Command Line interface
 =========================
 """
+
 from argparse import Namespace
 
 from . import process

@@ -1,9 +1,11 @@
 r"""LLM
 =======
 """
+
+from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Mapping
+from typing import TYPE_CHECKING, Any
 
 from jinja2 import Template
 

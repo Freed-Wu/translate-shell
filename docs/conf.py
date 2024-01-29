@@ -3,6 +3,7 @@
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 """
+
 from translate_shell import __version__ as version  # type: ignore
 from translate_shell._metainfo import author, copyright, project
 from translate_shell.utils.notify import ICON_FILE as html_favicon

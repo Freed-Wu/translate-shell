@@ -1,4 +1,5 @@
 """jmdict_en_ja"""
+
 from ...external.langdetect.__main__ import _RE_JAPANESE
 from .. import Translation
 

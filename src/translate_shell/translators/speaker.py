@@ -3,6 +3,7 @@
 
 Play the pronunciation.
 """
+
 import logging
 from dataclasses import dataclass
 from shlex import split

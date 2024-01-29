@@ -1,6 +1,7 @@
 """Get prompt
 =============
 """
+
 from .section import p10k_sections, section_path, section_time
 
 

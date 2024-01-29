@@ -4,6 +4,7 @@ r"""REPL
 Generate a `powerlevel10k <https://github.com/romkatv/powerlevel10k>`_ -like
 prompt for python.
 """
+
 import os
 import sys
 from contextlib import suppress
@@ -37,7 +38,7 @@ def interact(**kwargs: bool) -> None:
     if kwargs.get("jedi", True):
         with suppress(ImportError):
             # Windows doesn't have readline
-            import readline
+            import readline  # noqa: F401
 
             from jedi import settings
             from jedi.utils import setup_readline

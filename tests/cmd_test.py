@@ -1,4 +1,5 @@
 """Test cmd."""
+
 from contextlib import suppress
 
 from translate_shell.__main__ import get_parser

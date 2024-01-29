@@ -4,6 +4,7 @@
 Refer https://github.com/voldikss/vim-translator
 http://dict.cn
 """
+
 import re
 from dataclasses import dataclass
 from typing import Any
@@ -87,7 +88,9 @@ class HaiciTranslator(OnlineTranslator):
         rst = {}
         for item in m:
             sentences = item.split("<br>")
-            for s1, s2 in list(zip(sentences[::2], sentences[1::2])):
+            for s1, s2 in list(
+                zip(sentences[::2], sentences[1::2], strict=False)
+            ):
                 _, _, v = s1.partition(". ")
                 rst[v] = s2
         details["例句与用法"] = rst

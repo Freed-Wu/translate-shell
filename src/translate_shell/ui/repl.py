@@ -1,6 +1,7 @@
 """Read-eval-print Loop
 =======================
 """
+
 from argparse import Namespace
 from threading import Thread
 

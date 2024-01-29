@@ -1,4 +1,5 @@
 """langdao-ec-gb"""
+
 import re
 
 from ...translate import translate
@@ -37,7 +38,7 @@ def parse_tokens(tokens: list[str], res: Translation) -> Translation:
                     .paraphrase
                 )
                 paraphrases += [paraphrase]
-            details["相关词组"] = dict(zip(phrases, paraphrases))
+            details["相关词组"] = dict(zip(phrases, paraphrases, strict=False))
             break
     res.explains = explains
     res.details = details

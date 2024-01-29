@@ -1,6 +1,7 @@
 """Graphics User Interface
 ==========================
 """
+
 from argparse import Namespace
 from subprocess import check_output
 from time import sleep
