@@ -3,22 +3,28 @@
 `python -m <https://docs.python.org/3/library/__main__.html>`_
 to check if it imports any variable don't owned by any true module.
 """
+
 from pathlib import Path
+from typing import Any
 
 
 class AppDirs:
     """AppDirs."""
 
-    def __init__(self, appname: str) -> None:
+    def __init__(self, appname: str, *args: Any, **kwargs: Any) -> None:
         """Init.
 
         :param appname:
         :type appname: str
+        :param args:
+        :type args: Any
+        :param kwargs:
+        :type kwargs: Any
         :rtype: None
         """
-        self.site_data_path = (
-            self.user_config_path
-        ) = self.user_data_path = Path().home() / ("." + appname)
+        self.site_data_path = self.user_config_path = self.user_data_path = (
+            Path().home() / ("." + appname)
+        )
         self.site_data_dir = str(self.site_data_path)
         self.user_config_dir = str(self.user_config_path)
         self.user_data_dir = str(self.user_data_path)
