@@ -38,7 +38,7 @@ jobs:
         with:
           repository: thinca/vim-themis
           path: vim-themis
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ env.python-version }}
           cache: ${{ env.cache }}
@@ -68,7 +68,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ env.python-version }}
           cache: ${{ env.cache }}
@@ -82,7 +82,7 @@ jobs:
         if: runner.os == 'Linux' && startsWith(github.ref, 'refs/tags/')
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: runner.os == 'Linux' && ! startsWith(github.ref, 'refs/tags/')
         with:
           path: |
