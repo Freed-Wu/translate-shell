@@ -1,5 +1,34 @@
 # Changelog
 
+<a name="0.0.50"></a>
+## 0.0.50 (2024-01-31)
+
+### Added
+
+- 👷‍♂️ Use ruff [[f676993](https://github.com/Freed-Wu/translate-shell/commit/f6769935c1073e1a291be6962793e1a90a17350f)]
+
+### Changed
+
+- 🚸 Support multipath [[019af0a](https://github.com/Freed-Wu/translate-shell/commit/019af0afe6f0bec0b4f0ce0bdfd33e4947dab56d)]
+
+### Fixed
+
+- 🐛 Fix [#38](https://github.com/Freed-Wu/translate-shell/issues/38), add readline.write_history_file() [[61a624f](https://github.com/Freed-Wu/translate-shell/commit/61a624fe1f4849efc2d040d6649e9a96bd9d3019)]
+- 💚 Remove black from deepsource [[3307504](https://github.com/Freed-Wu/translate-shell/commit/33075042b5e6941713abed9cb6611f8c173ff5f1)]
+
+### Miscellaneous
+
+- 📝 Update configure.md [[644d76b](https://github.com/Freed-Wu/translate-shell/commit/644d76b0222c54affe762a82786f2a60f377cb06)]
+
+
+<a name="0.0.49"></a>
+## 0.0.49 (2023-12-20)
+
+### Fixed
+
+- 🚑 Increase timeout [[1a250e0](https://github.com/Freed-Wu/translate-shell/commit/1a250e0300040efa438e8ee0b9ee260d718d4855)]
+
+
 <a name="0.0.48"></a>
 ## 0.0.48 (2023-12-19)
 
