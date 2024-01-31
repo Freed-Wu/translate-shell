@@ -17,6 +17,15 @@ def read_history_file(unused_path: str) -> None:
     """
 
 
+def write_history_file(unused_path: str) -> None:
+    """Write history file.
+
+    :param unused_path:
+    :type unused_path: str
+    :rtype: None
+    """
+
+
 def add_history(unused_path: str) -> None:
     """Add history.
 
