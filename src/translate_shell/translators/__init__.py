@@ -167,8 +167,7 @@ def get_youdao() -> Callable[[], Translator] | None:
     :rtype: Callable[[], Translator] | None
     """
     logger.warning(
-        "youdao translator hasn't been implemented."
-        " Maybe you want to send a PR?"
+        "youdao translator hasn't been implemented." " Maybe you want to send a PR?"
     )
     return
 
@@ -179,8 +178,7 @@ def get_yandex() -> Callable[[], Translator] | None:
     :rtype: Callable[[], Translator] | None
     """
     logger.warning(
-        "yandex translator hasn't been implemented."
-        " Maybe you want to send a PR?"
+        "yandex translator hasn't been implemented." " Maybe you want to send a PR?"
     )
     return
 

@@ -82,9 +82,7 @@ def init_config(path: Path) -> Configuration:
         logger.warning("Ignore configuration() of " + str(CONFIG_FILE))
         return config
     if not isinstance(new_config, Configuration):
-        logger.error(
-            "configuration() of " + str(CONFIG_FILE) + "is not legal!"
-        )
+        logger.error("configuration() of " + str(CONFIG_FILE) + "is not legal!")
         return config
     return new_config
 

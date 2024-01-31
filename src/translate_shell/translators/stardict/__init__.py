@@ -55,9 +55,7 @@ class StardictTranslator(Translator):
         :rtype: Translation | None
         """
         self.stardict = option.get("stardict", STARDICT)
-        tokens, dictionary, sl, tl, dictionaries = self.get_tokens(
-            text, tl, sl
-        )
+        tokens, dictionary, sl, tl, dictionaries = self.get_tokens(text, tl, sl)
         if tokens == []:
             logger.warning(
                 f"No appropriate dictionary ({', '.join(dictionaries)}) "
@@ -116,9 +114,7 @@ class StardictTranslator(Translator):
             for dictionary in dictionaries:
                 expr = os.path.join(
                     directory,
-                    os.path.join(
-                        "**", dictionary + "*" + os.path.extsep + "dict*"
-                    ),
+                    os.path.join("**", dictionary + "*" + os.path.extsep + "dict*"),
                 )
                 paths = glob(expr, recursive=True)
                 for path in paths:

@@ -43,11 +43,13 @@ def get_setting(name: SETTING | None) -> str:
     elif name == "dictionary_priorities":
         from ..translators.stardict import STARDICT
 
-        result = "\n".join([
-            "\t".join([sl, tl] + [",".join(dictionaries)])
-            for sl, v in STARDICT.items()
-            for tl, dictionaries in v.items()
-        ])
+        result = "\n".join(
+            [
+                "\t".join([sl, tl] + [",".join(dictionaries)])
+                for sl, v in STARDICT.items()
+                for tl, dictionaries in v.items()
+            ]
+        )
     elif name is None:
         result = "\n\n".join(
             "## " + setting + "\n\n" + get_setting(setting)

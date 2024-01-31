@@ -60,9 +60,7 @@ class Configuration(Namespace):
         """
         from .utils.input import process_input
 
-        return process_input(
-            text, target_lang, source_lang, translators, is_repl
-        )
+        return process_input(text, target_lang, source_lang, translators, is_repl)
 
     @staticmethod
     def process_output(translations: Translations) -> str:

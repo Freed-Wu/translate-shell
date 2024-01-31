@@ -93,9 +93,7 @@ def get_parser() -> ArgumentParser:
     parser.add_argument(
         "-q", "--quiet", action="count", default=0, help="reduce logger level"
     )
-    parser.add_argument(
-        "--lsp", action="store_true", help="start language server"
-    )
+    parser.add_argument("--lsp", action="store_true", help="start language server")
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
         "--no-clipboard",

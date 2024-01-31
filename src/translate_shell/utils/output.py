@@ -11,9 +11,7 @@ from ..translate import Translations
 from ..translators import Translation
 from .section import p10k_sections
 
-NUMBER = json.loads(
-    (ASSETS_PATH / "json" / "number.json").read_text(encoding="utf-8")
-)
+NUMBER = json.loads((ASSETS_PATH / "json" / "number.json").read_text(encoding="utf-8"))
 
 
 def process_output_firstline(rst: Translation) -> str:
@@ -104,9 +102,7 @@ def process_output_p10k(translations: Translations) -> str:
                     + " "
                     + Style.RESET_ALL
                     + " "
-                    + examples[0]
-                    .replace("<em>", Fore.RED)
-                    .replace("</em>", Fore.RESET)
+                    + examples[0].replace("<em>", Fore.RED).replace("</em>", Fore.RESET)
                 ]
                 if examples[1] != "":
                     outputs += [examples[1]]
@@ -125,7 +121,5 @@ def process_output(translations: Translations) -> str:
     with suppress(ImportError):
         from repl_python_wakatime.hooks.wakatime import wakatime_hook
 
-        wakatime_hook(
-            plugin="translate-shell-wakatime", category="translating"
-        )
+        wakatime_hook(plugin="translate-shell-wakatime", category="translating")
     return rst

@@ -25,9 +25,7 @@ Report bugs to <wuzhenyu@ustc.edu>.
 
 def get_parser() -> ArgumentParser:
     r"""Get a parser for unit test."""
-    parser = ArgumentParser(
-        epilog=EPILOG, formatter_class=RawDescriptionHelpFormatter
-    )
+    parser = ArgumentParser(epilog=EPILOG, formatter_class=RawDescriptionHelpFormatter)
     parser.add_argument("--version", version=VERSION, action="version")
     shtab.add_argument_to(parser)
     group = parser.add_mutually_exclusive_group()
@@ -57,9 +55,7 @@ def get_parser() -> ArgumentParser:
         dest="jedi",
         help="disable jedi",
     )
-    group.add_argument(
-        "--jedi", action="store_true", help="enable jedi (default)"
-    )
+    group.add_argument("--jedi", action="store_true", help="enable jedi (default)")
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
         "--no-rich",
@@ -67,9 +63,7 @@ def get_parser() -> ArgumentParser:
         dest="rich",
         help="disable rich",
     )
-    group.add_argument(
-        "--rich", action="store_true", help="enable rich (default)"
-    )
+    group.add_argument("--rich", action="store_true", help="enable rich (default)")
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
         "--no-ps1",
@@ -77,9 +71,7 @@ def get_parser() -> ArgumentParser:
         dest="ps1",
         help="disable ps1",
     )
-    group.add_argument(
-        "--ps1", action="store_true", help="enable ps1 (default)"
-    )
+    group.add_argument("--ps1", action="store_true", help="enable ps1 (default)")
     return parser
 
 

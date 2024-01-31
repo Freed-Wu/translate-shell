@@ -20,9 +20,7 @@ from . import OnlineTranslator
 
 logger = logging.getLogger(__name__)
 ERROR = json.loads(
-    (ASSETS_PATH / "json" / "youdaozhiyun-error.json").read_text(
-        encoding="utf-8"
-    )
+    (ASSETS_PATH / "json" / "youdaozhiyun-error.json").read_text(encoding="utf-8")
 )
 
 
@@ -143,13 +141,9 @@ class YoudaozhiyunTranslator(OnlineTranslator):
             logger.error("no installed backend!")
             return "", ""
         if not YDAPPID:
-            logger.error(
-                service_name + "/" + user_name4appid + "has no password!"
-            )
+            logger.error(service_name + "/" + user_name4appid + "has no password!")
             return "", ""
         if not YDAPPSEC:
-            logger.error(
-                service_name + "/" + user_name4appsec + "has no password!"
-            )
+            logger.error(service_name + "/" + user_name4appsec + "has no password!")
             return "", ""
         return YDAPPID, YDAPPSEC

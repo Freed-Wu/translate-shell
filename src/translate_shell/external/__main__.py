@@ -23,8 +23,7 @@ def filter_var(variables: dict[str, Any]) -> dict[str, Any]:
     """
     return dict(
         filter(
-            lambda x: not x[0].startswith("_")
-            and not isinstance(x[1], _SpecialForm),
+            lambda x: not x[0].startswith("_") and not isinstance(x[1], _SpecialForm),
             variables.items(),
         )
     )
@@ -50,9 +49,7 @@ def get_wrong_varnames(file: str, fake_vars: dict[str, Any]) -> list[str]:
     return wrong_varnames
 
 
-def print_wrong_varnames(
-    file: str, fake_vars: dict[str, Any], end: str = "\n"
-) -> int:
+def print_wrong_varnames(file: str, fake_vars: dict[str, Any], end: str = "\n") -> int:
     """Print wrong varnames.
 
     :param file:

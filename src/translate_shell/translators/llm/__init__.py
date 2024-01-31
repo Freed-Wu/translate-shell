@@ -21,10 +21,7 @@ for role in ["system", "user"]:
     template = AppDirs("translate-shell").user_config_path / (role + ".j2")
     if not template.exists():
         template = (
-            Path(__file__).parent.parent.parent
-            / "assets"
-            / "jinja2"
-            / (role + ".j2")
+            Path(__file__).parent.parent.parent / "assets" / "jinja2" / (role + ".j2")
         )
     TEMPLATES += [{"role": role, "content": template.read_text()}]
 
@@ -62,9 +59,7 @@ class LLMTranslator(Translator):
         messages = init_messages(tl, sl, text, option)
         kwargs = init_kwargs(option)
 
-        completion = create_chat_completion(
-            model=model, messages=messages, **kwargs
-        )
+        completion = create_chat_completion(model=model, messages=messages, **kwargs)
         result = self.create_translation(text, tl, sl)
         result = init_result(completion, result)
         return result
@@ -163,9 +158,7 @@ class LLMTranslator(Translator):
         return result
 
     @staticmethod
-    def create_chat_completion(
-        model: Any, messages: list, **kwargs: Any
-    ) -> Mapping:
+    def create_chat_completion(model: Any, messages: list, **kwargs: Any) -> Mapping:
         """Create chat completion.
 
         :param model:
