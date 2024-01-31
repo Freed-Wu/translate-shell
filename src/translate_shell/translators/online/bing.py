@@ -30,7 +30,8 @@ class BingTranslator(OnlineTranslator):
             r'<span class="ht_attr" lang=".*?">\[(.*?)\] </span>'
         )
         self.pat_trs = re.compile(
-            r'<span class="ht_pos">(.*?)</span>' r'<span class="ht_trs">(.*?)</span>'
+            r'<span class="ht_pos">(.*?)</span>'
+            r'<span class="ht_trs">(.*?)</span>'
         )
 
     async def __call__(
@@ -54,7 +55,8 @@ class BingTranslator(OnlineTranslator):
         params = {"q": text}
         headers = {
             "Accept": (
-                "text/html,application/xhtml+xml,application/xml;" "q=0.9,*/*;q=0.8"
+                "text/html,application/xhtml+xml,application/xml;"
+                "q=0.9,*/*;q=0.8"
             ),
             "Accept-Language": "en-US,en;q=0.5",
             "Cookie": "_EDGE_S=mkt=" + tl,

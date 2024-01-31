@@ -15,5 +15,7 @@ class Test:
     def test_google() -> None:
         """Test google"""
         rst = asdict(translate("The Mythical Man-Month", "zh_CN"))
-        expected = json.loads((ASSETS_PATH / "json" / "google.json").read_text())
+        expected = json.loads(
+            (ASSETS_PATH / "json" / "google.json").read_text()
+        )
         assert rst == expected

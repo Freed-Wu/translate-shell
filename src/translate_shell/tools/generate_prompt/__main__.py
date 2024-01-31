@@ -87,7 +87,8 @@ def main() -> None:
     if args.section == []:
         args.section = SECTION
     args.section = [
-        section[0] if len(section) == 1 else section for section in args.section
+        section[0] if len(section) == 1 else section
+        for section in args.section
     ]
     # sys.stdout.write will remove ANSI escape code when output is not a tty
     with sys.stdout as f:

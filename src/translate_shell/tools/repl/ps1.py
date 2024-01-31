@@ -19,7 +19,8 @@ class Ps1:
     def __init__(
         self,
         prompt_string: str = "\n>>> ",
-        sections: None | list[str | tuple[str, str, str | Callable[[], str]]] = None,
+        sections: None
+        | list[str | tuple[str, str, str | Callable[[], str]]] = None,
     ) -> None:
         """Init.
 

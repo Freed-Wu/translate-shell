@@ -29,14 +29,12 @@ SLEEP_SECONDS = 0.5
 parser = get_parser()
 args = parser.parse_args()
 init(args)
-print(
-    f"""
+print(f"""
 input text:\t{args.text}
 target lang\t{args.target_lang}
 source lang:\t{args.source_lang}
 translators:\t{args.translators}
-"""
-)
+""")
 args.translators = args.translators.split(",")
 
 translationss = {}

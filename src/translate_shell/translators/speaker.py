@@ -22,7 +22,9 @@ class Speaker(Translator):
 
     name: str = "speaker"
 
-    def __call__(self, text: str, tl: str, sl: str, option: dict[str, Any]) -> None:
+    def __call__(
+        self, text: str, tl: str, sl: str, option: dict[str, Any]
+    ) -> None:
         """Call.
 
         :param text:

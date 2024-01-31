@@ -108,7 +108,8 @@ def process_translators_code(
         return "", translators
     if any(translator not in TRANSLATORS for translator in code.split(",")):
         logger.error(
-            "Incorrect translators. Currently support " + " ".join(TRANSLATORS.keys())
+            "Incorrect translators. Currently support "
+            + " ".join(TRANSLATORS.keys())
         )
         return "", translators
     translators = code

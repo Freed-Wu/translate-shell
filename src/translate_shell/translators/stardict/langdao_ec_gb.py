@@ -33,7 +33,9 @@ def parse_tokens(tokens: list[str], res: Translation) -> Translation:
             paraphrases = []
             for phrase in phrases:
                 paraphrase = (
-                    translate(phrase, "zh-cn", "en", ["stardict"]).results[0].paraphrase
+                    translate(phrase, "zh-cn", "en", ["stardict"])
+                    .results[0]
+                    .paraphrase
                 )
                 paraphrases += [paraphrase]
             details["相关词组"] = dict(zip(phrases, paraphrases, strict=False))
