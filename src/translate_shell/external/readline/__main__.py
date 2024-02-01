@@ -7,6 +7,8 @@ Because Windows don't have
 `readline <https://docs.python.org/3/library/readline.html>`_.
 """
 
+from collections.abc import Callable
+
 
 def read_history_file(unused_path: str) -> None:
     """Read history file.
@@ -22,6 +24,24 @@ def write_history_file(unused_path: str) -> None:
 
     :param unused_path:
     :type unused_path: str
+    :rtype: None
+    """
+
+
+def set_completer_delims(delims: str) -> None:
+    """Set completer delims.
+
+    :param delims:
+    :type delims: str
+    :rtype: None
+    """
+
+
+def set_completer(completer: Callable[[str, int], str]) -> None:
+    """Set completer.
+
+    :param completer:
+    :type completer: Callable[[str, int], str]
     :rtype: None
     """
 
