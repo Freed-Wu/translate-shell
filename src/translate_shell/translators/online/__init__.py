@@ -74,7 +74,7 @@ class OnlineTranslator(Translator):
         """
         import hashlib
 
-        m = hashlib.md5()  # nosec B324
+        m = hashlib.md5()  # noqa: B324
         if isinstance(text, str):
             text = text.encode("utf-8")
         m.update(text)

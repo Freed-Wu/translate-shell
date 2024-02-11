@@ -79,7 +79,7 @@ class YoudaozhiyunTranslator(OnlineTranslator):
         res = self.create_translation(text, tl, sl)
         tl, sl = self.convert_langs(tl, sl)
         self.init(option)
-        salt = str(random.randint(1, 65536))  # nosec B311
+        salt = str(random.randint(1, 65536))  # noqa: B311
         sign = self.sign(text, salt)
         if tl == "zh-cn":
             to = "zh-CHS"

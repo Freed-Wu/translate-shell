@@ -67,7 +67,7 @@ def init_config(path: Path) -> Configuration:
     namespace = {}
     try:
         # skipcq: PYL-W0122
-        exec(configure_code, namespace, namespace)  # nosec: B102
+        exec(configure_code, namespace, namespace)  # noqa:: B102
     except Exception as e:  # skipcq: PYL-W0703
         logger.error(e)
         logger.warning("Ignore " + str(CONFIG_FILE))
