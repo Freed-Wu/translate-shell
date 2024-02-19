@@ -54,7 +54,7 @@ repos:
     hooks:
       - id: actionlint
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.33.0
+    rev: v1.35.1
     hooks:
       - id: yamllint
   - repo: https://github.com/executablebooks/mdformat
@@ -69,7 +69,6 @@ repos:
           - mdformat-deflist
           - mdformat-beautysh
           - mdformat-ruff
-          - ruff
           - mdformat-config
           - mdformat-web
   - repo: https://github.com/DavidAnson/markdownlint-cli2
@@ -90,16 +89,16 @@ repos:
     hooks:
       - id: perltidy
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.7.0-4
+    rev: v3.8.0-1
     hooks:
       - id: shfmt
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.14
+    rev: v0.2.1
     hooks:
       - id: ruff
       - id: ruff-format
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.348
+    rev: v1.1.350
     hooks:
       - id: pyright
   - repo: https://github.com/vimjas/vint
@@ -110,10 +109,6 @@ repos:
     rev: v0.7.1
     hooks:
       - id: vimdoc
-  - repo: https://github.com/nix-community/nixpkgs-fmt
-    rev: v1.3.0
-    hooks:
-      - id: nixpkgs-fmt
 
 ci:
   skip:
