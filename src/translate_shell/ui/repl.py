@@ -21,8 +21,7 @@ def run(args: Namespace) -> None:
     if args.clipboard:
         from .gui import run as _run
 
-        task = Thread(target=_run, args=(args,))
-        task.daemon = True
+        task = Thread(target=_run, args=(args,), daemon=True)
         task.start()
     while True:
         try:

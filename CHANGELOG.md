@@ -1,13 +1,5 @@
 # Changelog
 
-<a name="0.0.51"></a>
-## 0.0.51 (2024-02-01)
-
-### Fixed
-
-- 🚑 Fix [#38](https://github.com/Freed-Wu/translate-shell/issues/38) again [[5b8a6bd](https://github.com/Freed-Wu/translate-shell/commit/5b8a6bd40f204fd87479b6e68431aefaa7943fcb)]
-
-
 <a name="0.0.50"></a>
 ## 0.0.50 (2024-01-31)
 

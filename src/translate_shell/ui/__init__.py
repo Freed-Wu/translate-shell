@@ -208,7 +208,7 @@ def process(args: Namespace, is_repl: bool = False) -> None:
             args.last_text = text
             print(
                 args.get_prompt(
-                    args.text,
+                    args.last_text,
                     args.target_lang,
                     args.source_lang,
                     args.translators,
