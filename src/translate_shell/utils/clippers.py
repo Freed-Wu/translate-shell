@@ -22,6 +22,7 @@ def get_clipper() -> list[str]:
     """
     cmds = []
     if os.getenv("WAYLAND_DISPLAY"):
+        cmds += ["waypaste -p"]
         cmds += ["wl-paste --no-newline"]
     if os.getenv("DISPLAY"):
         cmds += ["xsel -o", "xclip -o"]
