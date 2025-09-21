@@ -22,9 +22,9 @@ class AppDirs:
         :type kwargs: Any
         :rtype: None
         """
-        self.site_data_path = self.user_config_path = self.user_data_path = (
-            Path().home() / ("." + appname)
-        )
+        self.site_data_path = (
+            self.user_config_path
+        ) = self.user_data_path = Path().home() / ("." + appname)
         self.site_data_dir = str(self.site_data_path)
         self.user_config_dir = str(self.user_config_path)
         self.user_data_dir = str(self.user_data_path)
