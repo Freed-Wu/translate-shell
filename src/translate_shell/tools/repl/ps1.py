@@ -3,7 +3,7 @@ r"""PS1
 """
 
 import sys
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 
 from ...utils.section import (
     p10k_sections,
@@ -20,7 +20,8 @@ class Ps1:
         self,
         prompt_string: str = "\n>>> ",
         sections: None
-        | list[str | tuple[str, str, str | Callable[[], str]]] = None,
+        | Iterable[str | tuple[str, str, str | Callable[[], str]]] = None,
+        hook: Callable = lambda: None,
     ) -> None:
         """Init.
 
@@ -28,9 +29,12 @@ class Ps1:
         :type prompt_string: str
         :param sections:
         :type sections: None
-                | list[str | tuple[str, str, str | Callable[[], str]]]
+                | Iterable[str | tuple[str, str, str | Callable[[], str]]]
+        :param hook:
+        :type hook: Callable
         :rtype: None
         """
+        self.hook = hook
         insert_time = " {time}"
 
         self.prompt_string = prompt_string
@@ -55,4 +59,5 @@ class Ps1:
 
     def __str__(self) -> str:
         """Str."""
-        return p10k_sections(self.sections) + self.prompt_string  # type: ignore
+        self.hook()
+        return p10k_sections(self.sections) + self.prompt_string

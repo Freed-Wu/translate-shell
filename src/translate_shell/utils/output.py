@@ -56,10 +56,8 @@ def process_output_explain(explain: tuple[str, str]) -> str:
     # Config
     insert_name = " {name}"
 
-    sections = [
-        ("WHITE", "BLUE", insert_name.format(name=explain[0])),
-    ]
-    prompt = p10k_sections(sections)  # type: ignore
+    sections = (("WHITE", "BLUE", insert_name.format(name=explain[0])),)
+    prompt = p10k_sections(sections)
     prompt += " " + explain[1]
     return prompt
 
@@ -77,7 +75,7 @@ def process_output_pos(pos: str) -> str:
     sections = [
         ("WHITE", "BLUE", insert_pos.format(pos=pos)),
     ]
-    prompt = p10k_sections(sections)  # type: ignore
+    prompt = p10k_sections(sections)
     return prompt
 
 
@@ -123,9 +121,7 @@ def process_output(translations: Translations) -> str:
     """
     rst = process_output_p10k(translations)
     with suppress(ImportError):
-        from repl_python_wakatime.hooks.wakatime import wakatime_hook
+        from repl_python_wakatime.backends.wakatime import Wakatime
 
-        wakatime_hook(
-            plugin="translate-shell-wakatime", category="translating"
-        )
+        Wakatime(language="translate-shell", category="translating")()
     return rst

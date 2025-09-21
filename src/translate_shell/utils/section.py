@@ -5,7 +5,7 @@ r"""Section
 import os
 import platform
 import sys
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from contextlib import suppress
 from datetime import datetime
 from pathlib import Path
@@ -113,12 +113,12 @@ def section_time(time_format: str = "%H:%M:%S") -> str:
 
 
 def p10k_sections(
-    sections: list[str | tuple[str, str, str | Callable[[], str]]],
+    sections: Iterable[str | tuple[str, str, str | Callable[[], str]]],
 ) -> str:
     """p10k sections.
 
     :param sections:
-    :type sections: list[str | tuple[str, str, str | Callable[[], str]]]
+    :type sections: Iterable[str | tuple[str, str, str | Callable[[], str]]]
     :rtype: str
     """
     prompt = ""
