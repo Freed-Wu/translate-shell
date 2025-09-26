@@ -2,9 +2,8 @@ r"""PS1
 =======
 """
 
-import asyncio
 import sys
-from collections.abc import Callable, Coroutine, Iterable
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 
 from ...utils.section import (
@@ -35,10 +34,9 @@ class Ps1:
             lambda: f" {section_time()}",
         ),
     )
-    hook: Coroutine | None = None
+    hook: Callable[[], None] = lambda: None
 
     def __str__(self) -> str:
         """Str."""
-        if self.hook:
-            asyncio.run(self.hook)
+        self.hook()
         return p10k_sections(self.sections) + self.prompt_string
