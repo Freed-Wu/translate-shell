@@ -122,6 +122,7 @@ def process_output(translations: Translations) -> str:
     rst = process_output_p10k(translations)
     with suppress(ImportError):
         from repl_python_wakatime.backends.wakatime import Wakatime
+        from repl_python_wakatime.frontends import Repl
 
-        Wakatime(language="translate-shell", category="translating")()
+        Repl(Wakatime(language="translate-shell", category="translating")())()
     return rst

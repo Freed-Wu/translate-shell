@@ -2,8 +2,10 @@ r"""PS1
 =======
 """
 
+import asyncio
 import sys
-from collections.abc import Callable, Iterable
+from collections.abc import Callable, Coroutine, Iterable
+from dataclasses import dataclass
 
 from ...utils.section import (
     p10k_sections,
@@ -13,51 +15,30 @@ from ...utils.section import (
 )
 
 
+@dataclass
 class Ps1:
     """Ps1."""
 
-    def __init__(
-        self,
-        prompt_string: str = "\n>>> ",
-        sections: None
-        | Iterable[str | tuple[str, str, str | Callable[[], str]]] = None,
-        hook: Callable = lambda: None,
-    ) -> None:
-        """Init.
-
-        :param prompt_string:
-        :type prompt_string: str
-        :param sections:
-        :type sections: None
-                | Iterable[str | tuple[str, str, str | Callable[[], str]]]
-        :param hook:
-        :type hook: Callable
-        :rtype: None
-        """
-        self.hook = hook
-        insert_time = " {time}"
-
-        self.prompt_string = prompt_string
-        if sections is None:
-            self.sections = [
-                ("BLACK", "YELLOW", section_os_icon()),
-                (
-                    "GREEN",
-                    "BLACK",
-                    f" {sys.version_info.major}.{sys.version_info.minor}."
-                    f"{sys.version_info.micro}",
-                ),
-                ("WHITE", "BLUE", section_path),
-                (
-                    "BLACK",
-                    "WHITE",
-                    lambda: insert_time.format(time=section_time()),
-                ),
-            ]
-        else:
-            self.sections = sections
+    prompt_string: str = "\n>>> "
+    sections: Iterable[str | tuple[str, str, str | Callable[[], str]]] = (
+        ("BLACK", "YELLOW", section_os_icon()),
+        (
+            "GREEN",
+            "BLACK",
+            f" {sys.version_info.major}.{sys.version_info.minor}."
+            f"{sys.version_info.micro}",
+        ),
+        ("WHITE", "BLUE", section_path),
+        (
+            "BLACK",
+            "WHITE",
+            lambda: f" {section_time()}",
+        ),
+    )
+    hook: Coroutine | None = None
 
     def __str__(self) -> str:
         """Str."""
-        self.hook()
+        if self.hook:
+            asyncio.run(self.hook)
         return p10k_sections(self.sections) + self.prompt_string

@@ -21,8 +21,7 @@ def interact(**kwargs: bool) -> None:
     """
     from code import interact as _interact
 
-    def hook():
-        """Empty hook"""
+    hook = None
 
     with suppress(ImportError):
         from repl_python_wakatime.backends.codestats import CodeStats
