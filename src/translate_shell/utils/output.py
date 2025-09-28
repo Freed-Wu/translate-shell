@@ -124,5 +124,5 @@ def process_output(translations: Translations) -> str:
         from repl_python_wakatime.backends.wakatime import Wakatime
         from repl_python_wakatime.frontends import Repl
 
-        Repl(Wakatime(language="translate-shell", category="translating")())()
+        Repl(Wakatime(language="translate-shell", category="translating"))()
     return rst
