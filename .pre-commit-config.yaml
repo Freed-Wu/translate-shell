@@ -87,12 +87,12 @@ repos:
     hooks:
       - id: shfmt
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.13.0
+    rev: v0.13.3
     hooks:
       - id: ruff
       - id: ruff-format
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.405
+    rev: v1.1.406
     hooks:
       - id: pyright
   - repo: https://github.com/vimjas/vint
