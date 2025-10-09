@@ -25,11 +25,12 @@ def interact(**kwargs: bool) -> None:
         pass
 
     with suppress(ImportError):
+        from repl_python_wakatime.backends.chainedhook import ChainedHook
         from repl_python_wakatime.backends.codestats import CodeStats
         from repl_python_wakatime.backends.wakatime import Wakatime
 
         if kwargs.get("wakatime", True) and kwargs.get("codestats", True):
-            hook = CodeStats() | Wakatime()  # type: ignore
+            hook = ChainedHook(hooks=(CodeStats(), Wakatime()))
         elif kwargs.get("wakatime", True):
             hook = Wakatime()
         elif kwargs.get("codestats", True):
