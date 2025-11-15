@@ -20,7 +20,7 @@ from lsprotocol.types import (
     Range,
     TextDocumentPositionParams,
 )
-from pygls.server import LanguageServer
+from pygls.lsp.server import LanguageServer
 
 from .. import APPNAME, HISTORY_FILE, __version__
 from . import get_processed_result_text
@@ -95,7 +95,7 @@ class TranslateShellLanguageServer(LanguageServer):
         :type position: Position
         :rtype: str
         """
-        document = self.workspace.get_document(uri)
+        document = self.workspace.get_text_document(uri)
         return document.source.splitlines()[position.line]
 
     def _cursor_word(

@@ -39,7 +39,7 @@ repos:
         args:
           - --msg-filename
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 3.4.0
+    rev: 3.4.1
     hooks:
       - id: editorconfig-checker
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
@@ -51,7 +51,7 @@ repos:
         exclude_types:
           - zsh
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.7
+    rev: v1.7.8
     hooks:
       - id: actionlint
   - repo: https://github.com/adrienverge/yamllint
@@ -59,16 +59,16 @@ repos:
     hooks:
       - id: yamllint
   - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.22
+    rev: 1.0.0
     hooks:
       - id: mdformat
         additional_dependencies:
           - mdformat-pyproject
           - mdformat-gfm
-          - mdformat-myst
+          # - mdformat-myst
           - mdformat-toc
           - mdformat-deflist
-          # - mdformat-beautysh
+          - mdformat-beautysh
           - mdformat-ruff
           - mdformat-config
           - mdformat-web
@@ -79,7 +79,7 @@ repos:
         additional_dependencies:
           - markdown-it-texmath
   - repo: https://github.com/perltidy/perltidy
-    rev: "20250912"
+    rev: "20250912.01"
     hooks:
       - id: perltidy
   - repo: https://github.com/scop/pre-commit-shfmt
@@ -87,12 +87,12 @@ repos:
     hooks:
       - id: shfmt
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.13.3
+    rev: v0.14.4
     hooks:
       - id: ruff-check
       - id: ruff-format
   - repo: https://github.com/kumaraditya303/mirrors-pyright
-    rev: v1.1.406
+    rev: v1.1.407
     hooks:
       - id: pyright
   - repo: https://github.com/vimjas/vint
