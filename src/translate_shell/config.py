@@ -16,7 +16,6 @@ class Configuration(Namespace):
     __all__ = [
         "process_input",
         "process_output",
-        "get_clipper",
         "get_prompt",
         "notify",
         "complete",
@@ -75,16 +74,6 @@ class Configuration(Namespace):
         from .utils.output import process_output
 
         return process_output(translations)
-
-    @staticmethod
-    def get_clipper() -> list[str]:
-        """Get clipper.
-
-        :rtype: list[str]
-        """
-        from .utils.clippers import get_clipper
-
-        return get_clipper()
 
     @staticmethod
     def get_prompt(text: str, tl: str, sl: str, translators: str) -> str:

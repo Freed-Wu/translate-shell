@@ -67,6 +67,9 @@ file = "templates/metainfo.py.j2"
 file = "requirements.txt"
 
 # begin: scripts/update-pyproject.toml.pl
+[tool.setuptools.dynamic.optional-dependencies.android]
+file = "requirements/android.txt"
+
 [tool.setuptools.dynamic.optional-dependencies.color]
 file = "requirements/color.txt"
 

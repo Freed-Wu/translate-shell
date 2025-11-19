@@ -32,10 +32,6 @@ def get_setting(name: SETTING | None) -> str:
         from ..__main__ import FORMATS
 
         result = "\n".join(FORMATS)
-    elif name == "clipper":
-        from .clippers import get_clipper
-
-        result = " ".join(get_clipper())
     elif name == "speaker":
         from ..translators.speaker import Speaker
 

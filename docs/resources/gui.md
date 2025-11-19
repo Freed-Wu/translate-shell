@@ -2,11 +2,7 @@
 
 Now this program support GUI in Linux, Android, macOS and Windows.
 
-Need [py-notifier](https://pypi.org/project/py-notifier) to be installed.
-
-## GNU/Linux
-
-Need [libnotify](https://gitlab.gnome.org/GNOME/libnotify) to be installed.
+## Desktop
 
 Provide a desktop entry:
 
@@ -17,6 +13,9 @@ the translation of the text will occur in a notification.
 
 ![GNU/Linux](https://user-images.githubusercontent.com/32936898/205699484-c6fdefd5-dca2-4263-aed4-e41d9d16fde6.jpg)
 
+After installing [notifierpy](https://pypi.org/project/notifierpy),
+notification is supported.
+
 You can customize the notification position in the control center of your
 desktop environment.
 
@@ -24,7 +23,8 @@ desktop environment.
 
 ## Android
 
-Need [Termux-API](https://github.com/termux/termux-api) to be installed.
+Need [Termux-API](https://github.com/termux/termux-api) and
+[termux-api](https://pypi.org/project/termux-api) to be installed.
 
 If you install [Termux-Widget](https://github.com/termux/termux-widget), you
 can get a desktop widget by create
@@ -46,19 +46,3 @@ the result will be displayed in a toast and notification.
 ![android-toast](https://user-images.githubusercontent.com/32936898/206078648-0db6480f-7e35-4252-9f33-9fb51e03e172.jpg)
 
 ![android-notification](https://user-images.githubusercontent.com/32936898/206078643-a0fb7f94-01f5-4b98-b93f-f4b80c2abde6.jpg)
-
-## macOS
-
-Need [pync](https://github.com/SeTeM/pync) to be installed.
-
-Use mouse to select a region of text then the selection buffer will change,
-the translation of the text will occur in a notification.
-
-## Windows
-
-Need
-[win10toast](https://github.com/jithurjacob/Windows-10-Toast-Notifications) to
-be installed.
-
-Copy a region of text then the clipboard content will change,
-the translation of the text will occur in a toast.
