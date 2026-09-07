@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 ```toml
 [[language]]
 name = "text"
-language-servers = [ "translate-shell",]
+language-servers = ["translate-shell"]
 
 [language_server.translate-shell]
 command = "trans --lsp"
@@ -96,7 +96,7 @@ command = "trans --lsp"
 
 ```toml
 [language_server.translate-shell]
-filetypes = [ "text",]
+filetypes = ["text"]
 command = "trans --lsp"
 ```
 
