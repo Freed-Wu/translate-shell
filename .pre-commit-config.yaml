@@ -23,11 +23,11 @@ repos:
       - id: check-toml
       - id: check-json
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
+    rev: v1.5.6
     hooks:
       - id: remove-crlf
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.1
+    rev: v2.4.3
     hooks:
       - id: codespell
         additional_dependencies:
@@ -39,7 +39,7 @@ repos:
         args:
           - --msg-filename
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 3.4.1
+    rev: 3.11.1
     hooks:
       - id: editorconfig-checker
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
@@ -51,11 +51,11 @@ repos:
         exclude_types:
           - zsh
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.8
+    rev: v1.7.12
     hooks:
       - id: actionlint
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
   - repo: https://github.com/executablebooks/mdformat
@@ -73,21 +73,21 @@ repos:
           - mdformat-config
           - mdformat-web
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.19.0
+    rev: v0.23.2
     hooks:
       - id: markdownlint-cli2
         additional_dependencies:
           - markdown-it-texmath
   - repo: https://github.com/perltidy/perltidy
-    rev: "20250912.01"
+    rev: "20260826"
     hooks:
       - id: perltidy
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.12.0-2
+    rev: v3.13.1-1
     hooks:
       - id: shfmt
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.5
+    rev: v0.16.6
     hooks:
       - id: ruff-check
       - id: ruff-format
