@@ -140,7 +140,7 @@ Translate --translators=google,bing Free as in Freedom
 ...             paraphrase="神話般的人月",
 ...             explains={},
 ...             details={},
-...             alternatives=["神話般的月"]
+...             alternatives=["神話般的月"],
 ...         )
 ...     ],
 ...     text="The Mythical Man-Month",
