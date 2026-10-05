@@ -23,8 +23,9 @@ def filter_var(variables: dict[str, Any]) -> dict[str, Any]:
     """
     return dict(
         filter(
-            lambda x: not x[0].startswith("_")
-            and not isinstance(x[1], _SpecialForm),
+            lambda x: (
+                not x[0].startswith("_") and not isinstance(x[1], _SpecialForm)
+            ),
             variables.items(),
         )
     )
