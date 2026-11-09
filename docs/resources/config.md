@@ -136,7 +136,9 @@ def get_youdaozhiyun_app_info() -> tuple[str, str]:
     return os.getenv("YDAPPID", ""), os.getenv("YDAPPSEC", "")
 
 
-config.options["youdaozhiyun"]["get_youdaozhiyun_app_info"] = get_youdaozhiyun_app_info
+config.options["youdaozhiyun"]["get_youdaozhiyun_app_info"] = (
+    get_youdaozhiyun_app_info
+)
 ```
 
 ### OpenAI
