@@ -38,9 +38,14 @@ LANG_COMPLETE = {
     "zsh": "(("
     + " ".join(
         map(
-            lambda d: d[0]
-            + r"\:"
-            + d[1].replace(" ", r"\ ").replace("(", r"\(").replace(")", r"\)"),
+            lambda d: (
+                d[0]
+                + r"\:"
+                + d[1]
+                .replace(" ", r"\ ")
+                .replace("(", r"\(")
+                .replace(")", r"\)")
+            ),
             LANGS.items(),
         )
     )
